@@ -6,5 +6,7 @@ class SuperCutter :
 public:
 	SuperCutter();
 	~SuperCutter();
+
+	void updateLocation();
 };
 

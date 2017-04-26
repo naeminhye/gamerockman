@@ -9,6 +9,8 @@
 #include"OuterSpace.h"
 #include"RockmanBullet.h"
 #include "OctopusBattery.h"
+#include "SuperCutter.h"
+#include "Flea.h"
 void Map::init(char * tileSheetPath, char * matrixPath, char * objectsPath, char* quadTreePath)
 {
 	TileMap::init(tileSheetPath, matrixPath);
@@ -109,11 +111,14 @@ void Map::readObjects(char * objectsPath)
 		case SPR_BLADER:
 			objects[i] = new Blader();
 			break;
-		case SPR_PICKET:
-			objects[i] = new Picket();
-			break;
 		case SPR_BEAK:
 			objects[i] = new Beak();
+			break;
+		case SPR_FLEA:
+			objects[i] = new Flea();
+			break;
+		case SPR_SUPERCUTTER:
+			objects[i] = new SuperCutter();
 			break;
 		case SPR_STAIR:
 			objects[i] = new Stairs();

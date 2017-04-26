@@ -10,9 +10,9 @@ enum SPRITE_INFO
 	SPR_ROCKMAN = 0, //= 0
 	SPR_BLADER, // = 1
 	SPR_BEAK, // = 2
-	SPR_OCTOPUS, //= 3
-	SPR_PICKET, // = 4
-	SPR_LINH, //= 5
+	SPR_SUPERCUTTER, //= 3
+	SPR_FLEA, // = 4
+	SPR_OCTOPUS, // = 5
 	SPR_BULLET, // = 6
 	SPR_BEAK_BULLET,
 

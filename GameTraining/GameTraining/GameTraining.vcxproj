@@ -93,6 +93,7 @@
     <ClInclude Include="DelayTime.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="FBox.h" />
+    <ClInclude Include="Flea.h" />
     <ClInclude Include="FRectangle.h" />
     <ClInclude Include="KEY.h" />
     <ClInclude Include="Keyboard.h" />
@@ -111,7 +112,6 @@
     <ClInclude Include="ObjectsFilter.h" />
     <ClInclude Include="OctopusBattery.h" />
     <ClInclude Include="OuterSpace.h" />
-    <ClInclude Include="Pea.h" />
     <ClInclude Include="Picket.h" />
     <ClInclude Include="QuadNode.h" />
     <ClInclude Include="QuadTree.h" />
@@ -135,6 +135,7 @@
     <ClCompile Include="DelayTime.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="FBox.cpp" />
+    <ClCompile Include="Flea.cpp" />
     <ClCompile Include="FRectangle.cpp" />
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="Keyboard.cpp" />
@@ -152,7 +153,6 @@
     <ClCompile Include="ObjectsFilter.cpp" />
     <ClCompile Include="OctopusBattery.cpp" />
     <ClCompile Include="OuterSpace.cpp" />
-    <ClCompile Include="Pea.cpp" />
     <ClCompile Include="Picket.cpp" />
     <ClCompile Include="QuadNode.cpp" />
     <ClCompile Include="QuadTree.cpp" />

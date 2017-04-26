@@ -25,13 +25,17 @@ SpriteManager::SpriteManager()
 	sprites[SPR_BLADER]->img = sprites[SPR_OCTOPUS]->img;
 	sprites[SPR_BLADER]->readInfo("Data\\Sprite\\Enemies\\Blader\\blader.txt");
 
-	sprites[SPR_PICKET] = new Sprite();
-	sprites[SPR_PICKET]->img = sprites[SPR_OCTOPUS]->img;
-	sprites[SPR_PICKET]->readInfo("Data\\Sprite\\Enemies\\Picket\\picket.txt");
-
 	sprites[SPR_BEAK] = new Sprite();
 	sprites[SPR_BEAK]->img = sprites[SPR_OCTOPUS]->img;
 	sprites[SPR_BEAK]->readInfo("Data\\Sprite\\Enemies\\Beak\\beak.txt");
+
+	sprites[SPR_FLEA] = new Sprite();
+	sprites[SPR_FLEA]->img = sprites[SPR_OCTOPUS]->img;
+	sprites[SPR_FLEA]->readInfo("Data\\Sprite\\Enemies\\Flea\\flea.txt");
+
+	sprites[SPR_SUPERCUTTER] = new Sprite();
+	sprites[SPR_SUPERCUTTER]->img = sprites[SPR_OCTOPUS]->img;
+	sprites[SPR_SUPERCUTTER]->readInfo("Data\\Sprite\\Enemies\\SuperCutter\\supercutter.txt");
 
 	sprites[SPR_BEAK_BULLET] = new Sprite();
 	sprites[SPR_BEAK_BULLET]->img = sprites[SPR_OCTOPUS]->img;

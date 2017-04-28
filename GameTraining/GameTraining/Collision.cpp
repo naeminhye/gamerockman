@@ -5,6 +5,7 @@
 using namespace std;
 
 double sweptTime = 0;
+float nx, ny;
 
 
 FBox * Collision::GetSweptBroadPhaseBox(FBox * box)
@@ -132,12 +133,12 @@ float Collision::SweptAABB(FBox* M, FBox* S, float & normalx, float & normaly)
 	if (M->dy > 0.0f)
 	{
 		yInvEntry = S->y - S->height - M->y;
-		yInvExit = S->y - (M->y - M->height + 1);
+		yInvExit = S->y - (M->y - M->height );
 	}
 	else
 	{
 		yInvEntry = S->y - (M->y - M->height);
-		yInvExit = (S->y - S->height + 1) - M->y;
+		yInvExit = (S->y - S->height ) - M->y;
 	}
 
 	// Tính thời gian để bắt đầu và chạm và thời gian để kết thúc va chạm theo mỗi phương:
@@ -228,12 +229,10 @@ void Collision::CheckCollision(FBox * M, FBox * S)
 			S->onIntersect(M);
 			return;
 		}
-		float normalX = 0, normalY = 0;
-		sweptTime = SweptAABB(M, S, normalX, normalY);
+		float normalX=0,normalY=0;
+		sweptTime = SweptAABB(M, S, nx, ny);
 		if (sweptTime < 1)
 		{
-			normalX = 0;
-			normalY = 0;
 			if (M->x < S->x + S->width && M->x + M->width > S->x)
 			{
 				if (M->dy > 0)
@@ -269,7 +268,8 @@ void Collision::PreventMoving(FBox * M, FBox * S)
 
 	//chac chan co va cham
 	//if (M->top() > S->bottom() && M->bottom() < S->top())
-	if (M->y - M->height < S->y && M->y > S->y - S->height)
+//	if (M->y - M->height < S->y && M->y > S->y - S->height)
+	if(nx!=0)
 	{
 		M->isChangeDelta = true;
 		M->dx = M->dx*sweptTime;
@@ -289,7 +289,8 @@ void Collision::PreventMoving(FBox * M, FBox * S)
 		//}
 	}
 	//if (M->right() > S->left() && M->left() < S->right())
-	if (M->x < S->x + S->width && M->x + M->width > S->x)
+//	if (M->x < S->x + S->width && M->x + M->width > S->x)
+	if(ny!=0)
 	{
 		M->isChangeDelta = true;
 		M->dy = M->dy*sweptTime;

@@ -1,10 +1,13 @@
 #include "ObjectsFilter.h"
 #include"BaseObject.h"
+#include"Stage.h"
 
 
 
 void ObjectsFilter::addObject(BaseObject * object)
 {
+	if (!Collision::AABBCheck(object, Stage::curStage))
+		return;
 	allObjects._Add(object);
 	switch (object->collisionType)
 	{

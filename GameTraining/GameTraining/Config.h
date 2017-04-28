@@ -33,6 +33,8 @@ extern int CAMERA_CHANGESTAGE_DY;
 extern float ROCKMAN_CHANGESTAGE_DY;
 extern float TIME_BLINK_OPEN;
 extern float TIME_BLINK_CLOSE;
+extern float TIME_OCTOPUS_OPEN_EYES;
+extern float TIME_OCTOPUS_CLOSE_EYES;
 extern float TIME_BEAK_CLOSED;
 extern float TIME_BEAK_SHOOTING;
 extern float TIME_BEAK_CHANGE_STATE;

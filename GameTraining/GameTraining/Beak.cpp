@@ -48,7 +48,15 @@ bool Beak::updateAttack()
 	{
 		BeakBullet* bullet = new BeakBullet();
 		bullet->dx = BEAK_BULLET_VELOCITY*direction;
-		bullet->x = x;
+		if (direction == Left)
+		{
+			bullet->x = x;
+
+		}
+		else
+		{
+			bullet->x = x + sprite->anims[action].frames[frameIndex].right - sprite->anims[action].frames[frameIndex].left - 5;
+		}
 		bullet->y = y - height / 2 + bullet->height / 2;
 		switch (bulletLocation)
 		{

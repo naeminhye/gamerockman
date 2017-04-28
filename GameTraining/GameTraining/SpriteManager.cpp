@@ -33,9 +33,9 @@ SpriteManager::SpriteManager()
 	sprites[SPR_FLEA]->img = sprites[SPR_OCTOPUS]->img;
 	sprites[SPR_FLEA]->readInfo("Data\\Sprite\\Enemies\\Flea\\flea.txt");
 
-	sprites[SPR_SUPERCUTTER] = new Sprite();
-	sprites[SPR_SUPERCUTTER]->img = sprites[SPR_OCTOPUS]->img;
-	sprites[SPR_SUPERCUTTER]->readInfo("Data\\Sprite\\Enemies\\SuperCutter\\supercutter.txt");
+	sprites[SPR_SUPERCUTTERBULLET] = new Sprite();
+	sprites[SPR_SUPERCUTTERBULLET]->img = sprites[SPR_OCTOPUS]->img;
+	sprites[SPR_SUPERCUTTERBULLET]->readInfo("Data\\Sprite\\Enemies\\SuperCutter\\supercutter.txt");
 
 	sprites[SPR_BEAK_BULLET] = new Sprite();
 	sprites[SPR_BEAK_BULLET]->img = sprites[SPR_OCTOPUS]->img;

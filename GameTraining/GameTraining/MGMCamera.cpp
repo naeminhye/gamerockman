@@ -71,9 +71,9 @@ void MGMCamera::update()
 		dx = 0;
 	}
 
-	if (right() + dx > Stage::curStage->right() && dx > 0)
+	if (right() + dx > Stage::curStage->right() + 1 && dx > 0)
 	{
-		x = Stage::curStage->right() - width;
+		x = Stage::curStage->right() - width + 1;
 		dx = 0;
 	}
 

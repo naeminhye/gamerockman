@@ -11,6 +11,11 @@ Flea::~Flea()
 {
 }
 
-void Flea::updateLocation()
+void Flea::update()
 {
+	if (ground)
+		vy = 0.4;
+	Enemy::update();
+
 }
+

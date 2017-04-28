@@ -174,6 +174,7 @@ Rockman::Rockman()
 	shootDelay.init(RM_SHOOTING_DELAYTIME);
 	direction = Right;
 	onAttack = false;
+	collisionType = CT_ROCKMAN;
 }
 
 
@@ -228,8 +229,11 @@ void Rockman::updateBlink()
 void Rockman::setOnStair(bool onStair)
 {
 	this->onStair = onStair;
-	if(onStair)
+	if (onStair)
+	{
 		setWidth(16);
+		vy = 0;
+	}
 
 }
 
@@ -254,7 +258,7 @@ void Rockman::updateStair()
 		{
 			y = stairIntersect->y + height;
 			ground = true;
-			vy = -0.1f;
+		//	vy = -0.1f;
 			if (stairIntersect->id == STAIR_RIGHT)
 			{
 				setWidth(21);

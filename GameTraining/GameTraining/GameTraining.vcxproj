@@ -123,6 +123,7 @@
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Stairs.h" />
     <ClInclude Include="SuperCutter.h" />
+    <ClInclude Include="SuperCutterBullet.h" />
     <ClInclude Include="TileMap.h" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +165,7 @@
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Stairs.cpp" />
     <ClCompile Include="SuperCutter.cpp" />
+    <ClCompile Include="SuperCutterBullet.cpp" />
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>

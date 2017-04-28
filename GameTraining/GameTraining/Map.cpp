@@ -262,6 +262,12 @@ void Map::update()
 		BeakBullet::bullets->at(i)->updateLocation();
 	}
 
+	for (size_t i = 0; i < SuperCutterBullet::bullets->Count; i++)
+	{
+		SuperCutterBullet::bullets->at(i)->update();
+		SuperCutterBullet::bullets->at(i)->updateLocation();
+
+	}
 }
 
 void Map::render()
@@ -286,6 +292,13 @@ void Map::render()
 	{
 		RockmanBullet::bullets->at(i)->render();
 	}
+
+	for (size_t i = 0; i < SuperCutterBullet::bullets->Count; i++)
+	{
+		SuperCutterBullet::bullets->at(i)->render();
+	}
+
+	// TODO ThemDan st2: Nhớ vẽ khi thêm đối tượng nhé <3
 }
 
 Map::Map()

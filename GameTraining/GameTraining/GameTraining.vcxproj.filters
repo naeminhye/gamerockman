@@ -135,6 +135,9 @@
     <ClCompile Include="Flea.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SuperCutterBullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h">
@@ -255,6 +258,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Flea.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SuperCutterBullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

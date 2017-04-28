@@ -26,9 +26,9 @@ void Blader::update()
 
 			float m = (xTarget - x) / (yTarget - y);
 
-			float k = 4; // luu constant
+			float k = BLADER_ATTACK_DY;
 
-			dy =  k / sqrt(m*m + 1);
+			dy = k / sqrt(m * m + 1);
 
 			if (yTarget > y)
 			{

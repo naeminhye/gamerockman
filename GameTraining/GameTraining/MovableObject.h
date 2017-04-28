@@ -7,6 +7,8 @@ public:
 	FRectangle spaceMove;
 	virtual void update();
 	virtual void onCollision(FBox* other, int nx, int ny);
+	virtual void setWidth(int width);
+	virtual void setHeight(int height);
 	MovableObject();
 	~MovableObject();
 };

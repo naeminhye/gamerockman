@@ -25,6 +25,10 @@ void Rockman::update()
 		updateStair();
 		isIntersectStair = false;
 		stairIntersect = 0;
+		if (onAttack)
+			setAction(RM_STAIR_SHOOT);
+		else
+			setAction(RM_STAIR);
 		return;
 	}
 	stairIntersect = 0;
@@ -131,9 +135,8 @@ void Rockman::setWidth(int width)
 		x += this->width - width;
 	}
 
-	this->width = width;
+	MovableObject::setWidth(width);
 }
-
 
 void Rockman::onLastFrameAnimation()
 {
@@ -153,7 +156,7 @@ void Rockman::onLastFrameAnimation()
 
 bool Rockman::isAttack()
 {
-	return (rm_action == RM_STAND_SHOOT) || (rm_action == RM_RUN_SHOOT);
+	return (rm_action == RM_STAND_SHOOT) || (rm_action == RM_RUN_SHOOT || (rm_action == RM_STAIR_SHOOT));
 }
 
 void Rockman::setIsIntersectStair(bool isIntersectStair)

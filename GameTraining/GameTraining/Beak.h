@@ -33,12 +33,10 @@ class Beak :
 	public Enemy
 {
 public:
-	BEAK_ACTIVITY beakAction;
+	BEAK_ACTIVITY beakActivity;
 	BULLET_LOCATION_ACTIVITY bulletLocation;
 	DelayTime bulletDelay;
 	
-	
-	void updateBeakSprite();
 	DelayTime beakDelay;
 	void updateLocation();
 	void update();

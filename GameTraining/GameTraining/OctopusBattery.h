@@ -13,15 +13,14 @@ enum OCTOPUS_ACTION
 enum OCTOPUS_ACTIVITY
 {
 	OCTOPUS_WAITING,
-	OCTOPUS_RUN
+	OCTOPUS_RUNNING
 };
 class OctopusBattery :
 	public Enemy
 
 {
 public:
-	OCTOPUS_ACTIVITY Ocactivity;
-virtual void updateOcsprite();
+	OCTOPUS_ACTIVITY octopusActivity;
 	DelayTime octopusDelay;
 	void updateLocation();
 	void update();

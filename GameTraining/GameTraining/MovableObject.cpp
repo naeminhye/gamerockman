@@ -16,6 +16,16 @@ void MovableObject::onCollision(FBox * other, int nx, int ny)
 	BaseObject::onCollision(other, nx, ny);
 }
 
+void MovableObject::setWidth(int width)
+{
+	this->width = width;
+}
+
+void MovableObject::setHeight(int height)
+{
+	this->height = height;
+}
+
 MovableObject::MovableObject()
 {
 	//dx = -1;

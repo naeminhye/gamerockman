@@ -22,6 +22,7 @@ enum ROCKMAN_ACTION
 	RM_END_STAIR,
 	RM_STAND_SHOOT,
 	RM_RUN_SHOOT,
+	RM_STAIR_SHOOT,
 	RM_ACTION_COUNT
 };
 
@@ -45,6 +46,7 @@ public:
 	void update();
 	void render();
 	void setWidth(int width);
+
 	//dia chi cau thang dang va cham voi rockman
 	BaseObject* stairIntersect;
 

@@ -3,7 +3,7 @@
 #include<iostream>
 using namespace std;
 
-int time = 15; //
+int time = BOX_TIME;
 
 void FBox::updateLocation()
 {
@@ -55,7 +55,7 @@ FBox::FBox()
 	vx = 0;
 	vy = 0;
 	ax = 0;
-	ay = -0.001; // Gravitational acceleration gia toc trong truong 
+	ay = BOX_GRAVITATIONAL_ACCELERATION; // Gravitational acceleration gia toc trong truong 
 }
 
 

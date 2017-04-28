@@ -2,15 +2,20 @@
 
 
 
-void Beak::updateBeakSprite()
+void Beak::updateLocation()
 {
+}
+
+void Beak::update()
+{
+	Enemy::update();
 	beakDelay.update();
-	switch (beakAction)
+	switch (beakActivity)
 	{
 	case BEAK_WAITING:
 		if (beakDelay.isTerminated())
 		{
-			beakAction = BEAK_OPENING;
+			beakActivity = BEAK_OPENING;
 			pauseAnimation = false;
 			setAction(BEAK_OPEN);
 		}
@@ -18,9 +23,9 @@ void Beak::updateBeakSprite()
 	case BEAK_OPENING:
 		break;
 	case BEAK_SHOOTING:
-		if(updateAttack())
+		if (updateAttack())
 		{
-			beakAction = BEAK_CLOSING;
+			beakActivity = BEAK_CLOSING;
 			pauseAnimation = false;
 			setAction(BEAK_CLOSE);
 		}
@@ -30,16 +35,6 @@ void Beak::updateBeakSprite()
 	default:
 		break;
 	}
-}
-
-void Beak::updateLocation()
-{
-}
-
-void Beak::update()
-{
-	Enemy::update();
-	updateBeakSprite();
 }
 
 bool Beak::updateAttack()
@@ -86,19 +81,19 @@ bool Beak::updateAttack()
 
 void Beak::onLastFrameAnimation()
 {
-	if (beakAction == BEAK_OPENING)
+	if (beakActivity == BEAK_OPENING)
 	{
 		pauseAnimation = true;
 		beakDelay.start(TIME_BEAK_SHOOTING);
-		beakAction = BEAK_SHOOTING;
+		beakActivity = BEAK_SHOOTING;
 		bulletLocation = TOP;
 		frameIndex = 3;
 	}
-	else if (beakAction == BEAK_CLOSING)
+	else if (beakActivity == BEAK_CLOSING)
 	{
 		pauseAnimation = true;
 		beakDelay.start(TIME_BEAK_CLOSED);
-		beakAction = BEAK_WAITING;
+		beakActivity = BEAK_WAITING;
 		frameIndex = 3;
 	}
 }
@@ -117,7 +112,7 @@ void Beak::init()
 
 Beak::Beak()
 {
-	beakAction = BEAK_WAITING;
+	beakActivity = BEAK_WAITING;
 	direction = Left;
 	bulletDelay.init(BEAK_BULLET_DELAY);
 	pauseAnimation = true;

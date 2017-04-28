@@ -10,7 +10,8 @@ enum COLLISION_TYPE
 	CT_ITEM, 
 	CT_BULLET,
 	CT_ROCKMAN,
-	CT_OUTERSPACE
+	CT_OUTERSPACE, 
+	CT_NONE
 };
 
 class FBox : public FRectangle

@@ -13,7 +13,10 @@ class SuperCutter :
 public:
 	SUPERCUTTER_ACTIVITY cutterActivity;
 	DelayTime cutterDelay;
+	float xTarget, yTarget;
+
 	void update();
+	void updateAttack();
 	SuperCutter();
 	~SuperCutter();
 

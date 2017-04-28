@@ -22,6 +22,9 @@
 
 #pragma region Constants
 
+extern float BOX_GRAVITATIONAL_ACCELERATION;
+extern int BOX_TIME;
+
 extern int STAIR_DELTA;
 extern int STAIR_DY;
 extern int DISTANCE_OUT_STAIR;
@@ -46,4 +49,6 @@ extern int RM_SHOOTING_DELAYTIME;
 extern float TAN_5_TO_RAD;
 extern int BEAK_BULLET_VELOCITY;
 extern int BEAK_BULLET_DELAY;
+
+extern int SUPER_CUTTER_SHOOT_DISTANCE;
 #pragma endregion

@@ -2,58 +2,36 @@
 
 void OctopusBattery::updateLocation()
 {
-	if(octopusActivity == OCTOPUS_RUNNING)
-		y += dy;
+	if (octopusActivity == OCTOPUS_RUNNING)
+	{
+		switch (id)
+		{
+		case OCTOPUS_VERTICAL:
+			y += dy;
+			break;
+		case OCTOPUS_HORIZONTAL:
+			x += dx;
+			break;
+		default:
+			break;
+		}
+	}
+		
 }
 
 void OctopusBattery::update()
 {
-//	dx = -1;
-	/*switch (Ocactivity)
-	{
-	case OCTOPUS_PREPARE:
-		if (octopusDelay.isTerminated())
-		{
-			Ocactivity = OCTOPUS_RUN;
-			octopusDelay.start(2000);
-		}
-		break;
-	case OCTOPUS_RUN:
-		direction = Right;
-			dx = direction;
-	
-		break;
-	default:
-		break;
-	}*/
 	switch (octopusActivity)
 	{
 	case OCTOPUS_WAITING:
 		if (octopusDelay.isTerminated())
 		{
 			octopusActivity = OCTOPUS_RUNNING;
-			//	octopusDelay.start(2000);
 		}
 		break;
 	case OCTOPUS_RUNNING:
-
-		break;
-		/*case OCTOPUS_CLOSE:
-		if (octopusDelay.isTerminated())
-		{
-		Ocactivity = OCTOPUS_OPEN;
 		setAction(OCTOPUS_OPEN_EYES);
-		octopusDelay.start(TIME_OCTOPUS_OPEN_EYES);
-		}
 		break;
-		case OCTOPUS_OPEN:
-		if (octopusDelay.isTerminated())
-		{
-		Ocactivity = OCTOPUS_CLOSE;
-		setAction(OCTOPUS_CLOSE_EYES);
-		octopusDelay.start(TIME_OCTOPUS_CLOSE_EYES);
-		}
-		break;	*/
 	default:
 		break;
 	}
@@ -65,24 +43,56 @@ void OctopusBattery::update()
 
 void OctopusBattery::onCollision(FBox * other, int nx, int ny)
 {
-	if (other->collisionType == CT_GROUND && ny != 0)
+	switch (id)
 	{
-	//	if (octopusDelay.isTerminated())
+	case OCTOPUS_VERTICAL:
+		if (other->collisionType == CT_GROUND && ny != 0)
 		{
-			octopusDelay.start(2000);
+			{
+				setAction(OCTOPUS_CLOSE_EYES);
+				octopusDelay.start(OCTOPUS_WAITING_DELAYTIME);
+			}
+			octopusActivity = OCTOPUS_WAITING;
+			dy = ny * OCTOPUS_VELOCITY;
 		}
-		octopusActivity = OCTOPUS_WAITING;
-		dy = ny;
+		break;
+	case OCTOPUS_HORIZONTAL:
+		if (other->collisionType == CT_GROUND && nx != 0)
+		{
+			{
+				setAction(OCTOPUS_CLOSE_EYES);
+				octopusDelay.start(OCTOPUS_WAITING_DELAYTIME);
+			}
+			octopusActivity = OCTOPUS_WAITING;
+			dx = nx * OCTOPUS_VELOCITY;
+		}
+		break;
+	default:
+		break;
+	}
+	
+}
+
+void OctopusBattery::init()
+{
+	switch (id)
+	{
+	case OCTOPUS_VERTICAL:
+		dy = OCTOPUS_VELOCITY;
+		dx = 0;
+		break;
+	case OCTOPUS_HORIZONTAL:
+		dy = 0;
+		dx = OCTOPUS_VELOCITY;
+		break;
+	default:
+		break;
 	}
 }
 
 OctopusBattery::OctopusBattery()
 {
-	//Ocactivity = OCTOPUS_CLOSE;
 	octopusActivity = OCTOPUS_WAITING;
-	octopusDelay.start(1000);
-	dy = 1;
-	dx = 0;
 }
 
 

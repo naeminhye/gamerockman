@@ -2,8 +2,8 @@
 #include "Enemy.h"
 enum OCTOPUS_TYPE
 {
-	OCTOPUS_TOP_BOTTOM,
-	OCTOPUS_LEFT_RIGHT
+	OCTOPUS_VERTICAL = 5,
+	OCTOPUS_HORIZONTAL = 105
 };
 enum OCTOPUS_ACTION	
 {
@@ -25,6 +25,7 @@ public:
 	void updateLocation();
 	void update();
 	void onCollision(FBox* other, int nx, int ny);
+	void init();
 
 	OctopusBattery();
 	~OctopusBattery();

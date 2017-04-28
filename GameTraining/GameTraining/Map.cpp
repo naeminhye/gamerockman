@@ -62,12 +62,10 @@ void Map::updateStageChangeNext()
 		camera->y = nextStage->bottom() + camera->height;
 		camera->dy = 0;
 		onStageChangeNext = false;
-		Stage::curStage = nextStage;
+		Stage::curStage = nextStage;//****
 		return;
 	}
 	Rockman* rockman = Rockman::getInstance();
-	//KEY::getInstance()->isUpDown = true;
-	//rockman->update();
 	rockman->y += ROCKMAN_CHANGESTAGE_DY;
 	rockman->pauseAnimation = false;
 	rockman->BaseObject::update();

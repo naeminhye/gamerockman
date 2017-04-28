@@ -4,6 +4,10 @@
 #include"Map.h"
 
 Rockman * Rockman::instance = 0;
+void Rockman::setHealth(int health)
+{
+	this->health = health;
+}
 Rockman * Rockman::getInstance()
 {
 	if (instance == 0)
@@ -27,8 +31,6 @@ void Rockman::update()
 		stairIntersect = 0;
 		if (onAttack)
 			setAction(RM_STAIR_SHOOT);
-		else
-			setAction(RM_STAIR);
 		return;
 	}
 	stairIntersect = 0;
@@ -195,7 +197,7 @@ void Rockman::onCollision(FBox * other, int nx, int ny)
 	if (other->collisionType == CT_STAIR && ny == 1 && !keyDown) 
 	{
 		vy = -0.1f;
-		Collision::PreventMoving(this, other);
+		slideHandle();
 		ground = true;
 	}
 	MovableObject::onCollision(other, nx, ny);

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-double sweptTime = 0;
+double collisionTime = 0;
 float nx, ny;
 
 
@@ -230,8 +230,8 @@ void Collision::CheckCollision(FBox * M, FBox * S)
 			return;
 		}
 		float normalX=0,normalY=0;
-		sweptTime = SweptAABB(M, S, nx, ny);
-		if (sweptTime < 1)
+		collisionTime = SweptAABB(M, S, nx, ny);
+		if (collisionTime < 1)
 		{
 			if (M->x < S->x + S->width && M->x + M->width > S->x)
 			{
@@ -260,55 +260,7 @@ void Collision::CheckCollision(FBox * M, FBox * S)
 	}
 	delete broadPhaseBox;
 }
-#include<Windows.h>
 
-void Collision::PreventMoving(FBox * M, FBox * S)
-{
-	//OutputDebugString(((string)"ok" + "\n").c_str());
-
-	//chac chan co va cham
-	//if (M->top() > S->bottom() && M->bottom() < S->top())
-//	if (M->y - M->height < S->y && M->y > S->y - S->height)
-	if(nx!=0)
-	{
-		M->isChangeDelta = true;
-		M->dx = M->dx*sweptTime;
-		return;
-
-		//if (M->dx > 0)
-		//{
-		//	M->isChangeDelta = true;
-		//	M->dx = S->left() - M->right() - 1;
-		//	return;
-		//}
-		//else
-		//{
-		//	M->isChangeDelta = true;
-		//	M->dx = S->right() - M->left() + 1;
-		//	return;
-		//}
-	}
-	//if (M->right() > S->left() && M->left() < S->right())
-//	if (M->x < S->x + S->width && M->x + M->width > S->x)
-	if(ny!=0)
-	{
-		M->isChangeDelta = true;
-		M->dy = M->dy*sweptTime;
-		return;
-		//if (M->dy > 0)
-		//{
-		//	M->isChangeDelta = true;
-		//	M->dy = S->bottom() - M->top() - 1;
-		//	return;
-		//}
-		//else
-		//{
-		//	M->isChangeDelta = true;
-		//	M->dy = S->top() - M->bottom() + 1;
-		//	return;
-		//}
-	}
-}
 
 Collision::Collision()
 {

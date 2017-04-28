@@ -16,7 +16,6 @@ public:
 	float xTarget, yTarget;
 
 	void update();
-	void updateAttack();
 	SuperCutter();
 	~SuperCutter();
 

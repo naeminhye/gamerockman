@@ -38,7 +38,9 @@ class Rockman :
 	//phan tren rockman co va cham voi cau thang nao hay k
 	bool isIntersectStair;
 	BLINK_ACTIVITY blinkActivity;
+	int health;
 public:
+	void setHealth(int health);
 	ROCKMAN_TYPE rm_type;
 	ROCKMAN_ACTION rm_action;
 	static Rockman* instance;

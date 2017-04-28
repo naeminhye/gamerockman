@@ -35,6 +35,8 @@ public:
 	virtual void onCollision(FBox* other, int nx, int ny);
 
 	virtual void onIntersect(FBox* other);
+	
+	void slideHandle();
 
 	FBox();
 	~FBox();

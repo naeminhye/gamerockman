@@ -4,7 +4,7 @@ int BOX_TIME = 15;
 int STAIR_DELTA = 6;
 int STAIR_DY = 1; 
 int DISTANCE_OUT_STAIR = 6;
-float RM_VY_JUMP = 0.4; // Van toc Vy cua Rockman khi nhay
+float RM_VY_JUMP = 0.34; // Van toc Vy cua Rockman khi nhay
 float RM_V_RUN = 0.08; // Van toc chay cua Rockman
 float RM_VX_STAND = 0; // van toc Vx khi Rockman dung 1 chofloat 
 int CAMERA_CHANGESTAGE_DY = 3; // ...
@@ -27,4 +27,10 @@ int BEAK_BULLET_DELAY = 500;
 float TAN_5_TO_RAD = 0.087266;
 int BEAK_BULLET_VELOCITY = 3;
 
-int SUPER_CUTTER_SHOOT_DISTANCE = 100;
+int CUTTER_SHOOT_DISTANCE = 100;
+float CUTTER_BULLET_VY = 0.4;
+int CUTTER_SHOOTING_DELAYTIME = 1000;
+
+int OCTOPUS_WAITING_DELAYTIME = 1000;
+int OCTOPUS_VELOCITY = 2;
+

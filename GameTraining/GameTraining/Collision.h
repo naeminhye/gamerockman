@@ -12,7 +12,6 @@ public:
 	static bool AABBCheck(FRectangle* M, FRectangle* S);
 	static float SweptAABB(FBox* M, FBox* S, float &normalX, float &normalY);
 	static void CheckCollision(FBox* M, FBox* S);
-	static void PreventMoving(FBox* M, FBox* S);
 
 	Collision();
 	~Collision();

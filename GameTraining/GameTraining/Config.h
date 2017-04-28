@@ -28,27 +28,35 @@ extern int BOX_TIME;
 extern int STAIR_DELTA;
 extern int STAIR_DY;
 extern int DISTANCE_OUT_STAIR;
+
 extern float RM_VY_JUMP;
 extern float RM_V_RUN;
 extern float RM_VX_STAND;
-
-extern int CAMERA_CHANGESTAGE_DY;
 extern float ROCKMAN_CHANGESTAGE_DY;
-extern float TIME_BLINK_OPEN;
-extern float TIME_BLINK_CLOSE;
-extern float TIME_OCTOPUS_OPEN_EYES;
-extern float TIME_OCTOPUS_CLOSE_EYES;
-extern float TIME_BEAK_CLOSED;
-extern float TIME_BEAK_SHOOTING;
-extern float TIME_BEAK_CHANGE_STATE;
-extern int BLADER_FIND_ROCKMAN_DISTANCE;
-extern float BLADER_ATTACK_DY;
 extern int RM_BULLET_WAITING_DELAYTIME;
 extern int RM_SHOOTING_DELAYTIME;
+extern float TIME_BLINK_OPEN;
+extern float TIME_BLINK_CLOSE;
+
+extern int CAMERA_CHANGESTAGE_DY;
+
+extern int BLADER_FIND_ROCKMAN_DISTANCE;
+extern float BLADER_ATTACK_DY;
 
 extern float TAN_5_TO_RAD;
 extern int BEAK_BULLET_VELOCITY;
 extern int BEAK_BULLET_DELAY;
+extern float TIME_BEAK_SHOOTING;
+extern float TIME_BEAK_CHANGE_STATE;
+extern float TIME_BEAK_CLOSED;
 
-extern int SUPER_CUTTER_SHOOT_DISTANCE;
+extern int CUTTER_SHOOT_DISTANCE;
+extern float CUTTER_BULLET_VY;
+extern int CUTTER_SHOOTING_DELAYTIME;
+
+extern int OCTOPUS_WAITING_DELAYTIME;
+extern int OCTOPUS_VELOCITY;
+extern float TIME_OCTOPUS_OPEN_EYES;
+extern float TIME_OCTOPUS_CLOSE_EYES;
+
 #pragma endregion

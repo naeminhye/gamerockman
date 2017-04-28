@@ -23,6 +23,7 @@ void MovableObject::setWidth(int width)
 
 void MovableObject::setHeight(int height)
 {
+	this->y += (height - this->height);
 	this->height = height;
 }
 

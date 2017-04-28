@@ -8,6 +8,8 @@ void ObjectsFilter::addObject(BaseObject * object)
 {
 	if (!Collision::AABBCheck(object, Stage::curStage))
 		return;
+	//if (!Collision::AABBCheck(object, MGMCamera::getInstance()) && object->collisionType!=CT_OUTERSPACE)
+	//	return;
 	allObjects._Add(object);
 	switch (object->collisionType)
 	{

@@ -13,7 +13,7 @@ void MGMCamera::onCollision(FBox * other, int nx, int ny)
 {
 	if (other->collisionType == CT_OUTERSPACE)
 	{
-		Collision::PreventMoving(this, other);
+		slideHandle();
 	}
 }
 

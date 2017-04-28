@@ -23,5 +23,5 @@ Index		Name
 
 			Animation Info
 			LocationX		LocationY		FrameWidth		FrameHeight
-			56				131				16				16
+			16				131				16				16
 

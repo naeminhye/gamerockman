@@ -12,6 +12,7 @@ class Flea :
 public:
 	FLEA_ACTITVITY fleaActivity;
 	DelayTime fleaDelay;
+	float xTarget, yTarget;
 
 	Flea();
 	~Flea();

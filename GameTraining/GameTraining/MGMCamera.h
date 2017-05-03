@@ -15,6 +15,10 @@ public:
 	ObjectsFilter objects;
 
 	void onCollision(FBox * other, int nx, int ny);
+
+	bool isIntersect(FRectangle* other);
+
+
 	MGMCamera();
 	~MGMCamera();
 };

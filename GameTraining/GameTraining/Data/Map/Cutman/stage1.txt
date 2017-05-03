@@ -13,10 +13,10 @@ index	X	Y	Width	Height
 8	1280	1216	768	225
 
 CameraBeginX	CameraBeginY
-0		3119
+0		3120
 
 RockmanBeginX	RockmanBeginY
-100		100
+100		3060
 
 StageBegin
 0

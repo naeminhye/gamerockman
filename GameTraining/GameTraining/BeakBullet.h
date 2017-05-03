@@ -6,6 +6,7 @@ class BeakBullet :
 public:
 	static List<BeakBullet*>* bullets;
 	void update();
+	void deleteBullet();
 	BeakBullet();
 	~BeakBullet();
 };

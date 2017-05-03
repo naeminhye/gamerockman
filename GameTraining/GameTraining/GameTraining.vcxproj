@@ -88,12 +88,14 @@
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="Beak.h" />
     <ClInclude Include="BeakBullet.h" />
+    <ClInclude Include="BigEye.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="DelayTime.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="FBox.h" />
     <ClInclude Include="Flea.h" />
+    <ClInclude Include="FlyingShell.h" />
     <ClInclude Include="FRectangle.h" />
     <ClInclude Include="KEY.h" />
     <ClInclude Include="Keyboard.h" />
@@ -115,9 +117,11 @@
     <ClInclude Include="Picket.h" />
     <ClInclude Include="QuadNode.h" />
     <ClInclude Include="QuadTree.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Rockman.h" />
     <ClInclude Include="Blader.h" />
     <ClInclude Include="RockmanBullet.h" />
+    <ClInclude Include="ScrewBomber.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="Stage.h" />
@@ -131,12 +135,14 @@
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="Beak.cpp" />
     <ClCompile Include="BeakBullet.cpp" />
+    <ClCompile Include="BigEye.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Constant.cpp" />
     <ClCompile Include="DelayTime.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="FBox.cpp" />
     <ClCompile Include="Flea.cpp" />
+    <ClCompile Include="FlyingShell.cpp" />
     <ClCompile Include="FRectangle.cpp" />
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="Keyboard.cpp" />
@@ -160,6 +166,7 @@
     <ClCompile Include="Rockman.cpp" />
     <ClCompile Include="Blader.cpp" />
     <ClCompile Include="RockmanBullet.cpp" />
+    <ClCompile Include="ScrewBomber.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="Stage.cpp" />
@@ -168,6 +175,9 @@
     <ClCompile Include="SuperCutterBullet.cpp" />
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="WinMain.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MegaMan.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

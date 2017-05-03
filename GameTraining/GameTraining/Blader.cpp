@@ -17,12 +17,6 @@ void Blader::update()
 			bladerActivity = BLADER_ATTACK;
 			xTarget = Rockman::getInstance()->x;
 			yTarget = Rockman::getInstance()->y;
-			//if (Rockman::getInstance()->y > y)
-			//	dy = BLADER_ATTACK_DY;
-			//else
-			//	dy = -BLADER_ATTACK_DY;
-			//
-			//dx = ((xTarget - x) / (yTarget - y)) * dy;
 
 			float m = (xTarget - x) / (yTarget - y);
 

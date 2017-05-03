@@ -19,7 +19,7 @@ void BaseObject::restoreLocation()
 	height = oldRect.height;
 }
 
-BaseObject::BaseObject()
+BaseObject::BaseObject() 
 {
 	sprite = 0;
 	delay.tickPerFrame = 100;

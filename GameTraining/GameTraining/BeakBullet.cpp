@@ -6,6 +6,12 @@ void BeakBullet::update()
 {
 }
 
+void BeakBullet::deleteBullet()
+{
+	bullets->_Remove(this);
+	delete this;
+}
+
 BeakBullet::BeakBullet()
 {
  	sprite = SpriteManager::getInstance()->sprites[SPR_BEAK_BULLET];

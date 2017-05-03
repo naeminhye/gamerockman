@@ -23,6 +23,7 @@ enum ROCKMAN_ACTION
 	RM_STAND_SHOOT,
 	RM_RUN_SHOOT,
 	RM_STAIR_SHOOT,
+	RM_JUMP_SHOOT,
 	RM_ACTION_COUNT
 };
 
@@ -45,17 +46,19 @@ public:
 	ROCKMAN_ACTION rm_action;
 	static Rockman* instance;
 	static Rockman* getInstance();
+
+	/* Constructor & Destructor */
+	Rockman();
+	~Rockman();
+
 	void update();
 	void render();
-	void setWidth(int width);
 
 	//dia chi cau thang dang va cham voi rockman
 	BaseObject* stairIntersect;
 
 	void setIsIntersectStair(bool isIntersectStair);
 	MGMGameTime delay;
-	Rockman();
-	~Rockman();
 	void onCollision(FBox* other, int nx, int ny);
 
 	void updateBlink();

@@ -33,16 +33,28 @@ SpriteManager::SpriteManager()
 	sprites[SPR_FLEA]->img = sprites[SPR_OCTOPUS]->img;
 	sprites[SPR_FLEA]->readInfo("Data\\Sprite\\Enemies\\Flea\\flea.txt");
 
-	sprites[SPR_SUPERCUTTERBULLET] = new Sprite();
-	sprites[SPR_SUPERCUTTERBULLET]->img = sprites[SPR_OCTOPUS]->img;
-	sprites[SPR_SUPERCUTTERBULLET]->readInfo("Data\\Sprite\\Enemies\\SuperCutter\\supercutter.txt");
+	sprites[SPR_EYE] = new Sprite();
+	sprites[SPR_EYE]->img = sprites[SPR_OCTOPUS]->img;
+	sprites[SPR_EYE]->readInfo("Data\\Sprite\\Enemies\\BigEye\\bigeye.txt");
+
+	sprites[SPR_BOMBER] = new Sprite();
+	sprites[SPR_BOMBER]->img = sprites[SPR_OCTOPUS]->img;
+	sprites[SPR_BOMBER]->readInfo("Data\\Sprite\\Enemies\\ScrewBomber\\screwbomber.txt");
+
+	sprites[SPR_SHELL] = new Sprite();
+	sprites[SPR_SHELL]->img = sprites[SPR_OCTOPUS]->img;
+	sprites[SPR_SHELL]->readInfo("Data\\Sprite\\Enemies\\FlyingShell\\flyingshell.txt");
+
+	sprites[SPR_CUTTER_BULLET] = new Sprite();
+	sprites[SPR_CUTTER_BULLET]->img = sprites[SPR_OCTOPUS]->img;
+	sprites[SPR_CUTTER_BULLET]->readInfo("Data\\Sprite\\Enemies\\SuperCutter\\supercutter.txt");
 
 	sprites[SPR_BEAK_BULLET] = new Sprite();
 	sprites[SPR_BEAK_BULLET]->img = sprites[SPR_OCTOPUS]->img;
 	sprites[SPR_BEAK_BULLET]->readInfo("Data\\Sprite\\Enemies\\Beak\\beakbullet.txt");
 
 	sprites[SPR_BULLET] = new Sprite();
-	sprites[SPR_BULLET]->ReadFromFile("Data\\Sprite\\Rockman\\bullet.txt", "Data\\Sprite\\Rockman\\bullet.png");
+	sprites[SPR_BULLET]->ReadFromFile("Data\\Sprite\\Rockman\\bullet.txt", "Data\\Sprite\\Rockman\\weapon.png");
 
 }
 

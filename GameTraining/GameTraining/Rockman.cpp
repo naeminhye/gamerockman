@@ -30,7 +30,10 @@ void Rockman::update()
 		isIntersectStair = false;
 		stairIntersect = 0;
 		if (onAttack)
+		{
 			setAction(RM_STAIR_SHOOT);
+			setWidth(16);
+		}
 		return;
 	}
 	stairIntersect = 0;
@@ -89,12 +92,14 @@ void Rockman::update()
 		{
 			vy = RM_VY_JUMP;
 		}
-		setWidth(21);
+		setWidth(21); // TODO luu constant 
 	}
 	else
 	{
 		setAction(RM_JUMP);
-		setWidth(14);
+		if (onAttack)
+			setAction(RM_JUMP_SHOOT);
+		setWidth(14); // TODO luu constant 
 	}
 	MovableObject::update();
 }
@@ -130,15 +135,6 @@ void Rockman::render()
 	}
 }
 
-void Rockman::setWidth(int width)
-{
-	if (direction == Right)
-	{
-		x += this->width - width;
-	}
-
-	MovableObject::setWidth(width);
-}
 
 void Rockman::onLastFrameAnimation()
 {
@@ -172,7 +168,7 @@ Rockman::Rockman()
 	delay.tickPerFrame = 1000;
 	setOnStair(false);
 	rm_action = RM_STAND;
-	rm_type = RMT_NORMAL;
+	rm_type = RMT_GUSTMAN;
 	blinkActivity = BLINK_OPEN;
 	blinkDelay.start(TIME_BLINK_OPEN);
 	rmBulletDelay.init(RM_BULLET_WAITING_DELAYTIME);

@@ -6,6 +6,7 @@ class SuperCutterBullet :
 public:
 	static List<SuperCutterBullet*>* bullets;
 	void update();
+	void deleteBullet();
 	SuperCutterBullet();
 	~SuperCutterBullet();
 };

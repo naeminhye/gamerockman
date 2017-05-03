@@ -2,9 +2,21 @@
 
 
 
+void Flea::initJumpHigh()
+{
+	vy = FLEA_JUMP_HIGH_VY;
+	vx = direction * FLEA_JUMP_HIGH_VX;
+}
+
+void Flea::initJumpFar()
+{
+	vy = FLEA_JUMP_FAR_VY;
+	vx = direction * FLEA_JUMP_FAR_VX;
+}
+
 Flea::Flea()
 {
-	fleaDelay.init(500);
+	fleaDelay.init(FLEA_DELAYTIME); // TODO luu constant
 	fleaDelay.start();
 	setAction(FLEA_WAITING);
 	fleaActivity = FLEA_WAITING;
@@ -24,24 +36,31 @@ void Flea::update()
 	{
 		fleaDelay.start();
 		fleaActivity = FLEA_WAITING;
-		vy = 0.4;
+		initDirectionFollowRockman();
+		//vy = 0.4; // TODO: luu constant
+		int number = randomFrom(-2, 1);
+		if (number < 0)
+			initJumpHigh();
+		else
+			initJumpFar();
 	}
 
 	switch (fleaActivity)
 	{
 	case FLEA_WAITING:
 		setAction(FLEA_WAITING);
-		setHeight(15);
+		setHeight(15); // TODO luu constant 
+		dx = 0;
 		if (fleaDelay.isTerminated())
 		{
 			fleaActivity = FLEA_FLYING;
-
 		}
 		break;
 	case FLEA_FLYING:
-		setHeight(19);
+		setHeight(19); // TODO luu constant 
 		setAction(FLEA_FLYING);
 		Enemy::update();
+		
 		break;
 	default:
 		break;
@@ -51,7 +70,4 @@ void Flea::update()
 
 }
 
-void Flea::onLastFrameAnimation()
-{
-}
 

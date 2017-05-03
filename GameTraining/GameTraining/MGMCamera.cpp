@@ -17,6 +17,18 @@ void MGMCamera::onCollision(FBox * other, int nx, int ny)
 	}
 }
 
+bool MGMCamera::isIntersect(FRectangle * other)
+{
+	int delta = 50;
+	float tempX = this->x - delta;
+	float tempY = this->y - delta;
+	float tempW = this->width + 2 * delta;
+	float tempH = this->height + 2 * delta;
+
+	return ((tempX < other->x + other->width && tempX + tempW > other->x) &&
+		(tempY - tempH < other->y && tempY > other->y - other->height));
+}
+
 MGMCamera::MGMCamera()
 {
 	this->x = 0;

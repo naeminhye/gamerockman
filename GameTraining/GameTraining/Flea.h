@@ -14,10 +14,15 @@ public:
 	DelayTime fleaDelay;
 	float xTarget, yTarget;
 
+	// init bay cao
+	void initJumpHigh();
+	// init bay xa
+	void initJumpFar();
+
+
 	Flea();
 	~Flea();
 	void update();
-	void onLastFrameAnimation();
 
 };
 

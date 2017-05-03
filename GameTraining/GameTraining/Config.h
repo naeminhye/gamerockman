@@ -59,4 +59,18 @@ extern int OCTOPUS_VELOCITY;
 extern float TIME_OCTOPUS_OPEN_EYES;
 extern float TIME_OCTOPUS_CLOSE_EYES;
 
+// random funtion
+extern int randomFrom(int numBegin, int numEnd);
+
+extern int FLEA_DELAYTIME;
+extern float FLEA_JUMP_HIGH_VX;
+extern float FLEA_JUMP_HIGH_VY;
+extern float FLEA_JUMP_FAR_VX;
+extern float FLEA_JUMP_FAR_VY;
+
+extern int BIGEYE_DELAYTIME;
+extern float BIGEYE_JUMP_HIGH_VX;
+extern float BIGEYE_JUMP_HIGH_VY;
+extern float BIGEYE_JUMP_FAR_VX;
+extern float BIGEYE_JUMP_FAR_VY;
 #pragma endregion

@@ -11,6 +11,10 @@
 #include "OctopusBattery.h"
 #include "SuperCutter.h"
 #include "Flea.h"
+#include "FlyingShell.h"
+#include "BigEye.h"
+#include "ScrewBomber.h"
+
 void Map::init(char * tileSheetPath, char * matrixPath, char * objectsPath, char* quadTreePath)
 {
 	TileMap::init(tileSheetPath, matrixPath);
@@ -115,7 +119,7 @@ void Map::readObjects(char * objectsPath)
 		case SPR_FLEA:
 			objects[i] = new Flea();
 			break;
-		case SPR_SUPERCUTTER:
+		case SPR_CUTTER:
 			objects[i] = new SuperCutter();
 			break;
 		case SPR_STAIR:
@@ -127,6 +131,16 @@ void Map::readObjects(char * objectsPath)
 		case SPR_OCTOPUS:
 			objects[i] = new OctopusBattery();
 			break;
+		case SPR_SHELL:
+			objects[i] = new FlyingShell();
+			break;
+		case SPR_BOMBER:
+			objects[i] = new ScrewBomber();
+			break;
+		case SPR_EYE:
+			objects[i] = new BigEye();
+			break;
+			//TODO: Them doi tuong nho them vao day
 		default:
 			objects[i] = new BaseObject();
 			break;
@@ -258,13 +272,22 @@ void Map::update()
 	for (size_t i = 0; i < BeakBullet::bullets->Count; i++)
 	{
 		BeakBullet::bullets->at(i)->updateLocation();
+		if (!Collision::AABBCheck(MGMCamera::getInstance(), BeakBullet::bullets->at(i)))
+		{
+			BeakBullet::bullets->at(i)->deleteBullet();
+			i--;
+		}
 	}
 
 	for (size_t i = 0; i < SuperCutterBullet::bullets->Count; i++)
 	{
 		SuperCutterBullet::bullets->at(i)->update();
 		SuperCutterBullet::bullets->at(i)->updateLocation();
-
+		if (!Collision::AABBCheck(MGMCamera::getInstance(), SuperCutterBullet::bullets->at(i)))
+		{
+			SuperCutterBullet::bullets->at(i)->deleteBullet();
+			i--;
+		}
 	}
 }
 

@@ -5,8 +5,17 @@
 #include"MGMSurface.h"
 #include"MGMGame.h"
 #include"KEY.h"
+#include<time.h>
+#include<stdlib.h>
+
+int randomFrom(int numBegin, int numEnd)
+{
+	return rand() % (numEnd - numBegin + 1) + numBegin;
+}
+
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
+	srand(time(0));
 	MGMForm::getInstance()->initHandleWindows(hInstance, nCmdShow);
 	DWORD timeSleep = 1000.0/FPS;
 

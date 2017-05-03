@@ -6,10 +6,10 @@ void OctopusBattery::updateLocation()
 	{
 		switch (id)
 		{
-		case OCTOPUS_VERTICAL:
+		case OCTOPUS_HORIZONTAL:
 			y += dy;
 			break;
-		case OCTOPUS_HORIZONTAL:
+		case OCTOPUS_VERTICAL:
 			x += dx;
 			break;
 		default:
@@ -45,7 +45,7 @@ void OctopusBattery::onCollision(FBox * other, int nx, int ny)
 {
 	switch (id)
 	{
-	case OCTOPUS_VERTICAL:
+	case OCTOPUS_HORIZONTAL:
 		if (other->collisionType == CT_GROUND && ny != 0)
 		{
 			{
@@ -56,7 +56,7 @@ void OctopusBattery::onCollision(FBox * other, int nx, int ny)
 			dy = ny * OCTOPUS_VELOCITY;
 		}
 		break;
-	case OCTOPUS_HORIZONTAL:
+	case OCTOPUS_VERTICAL:
 		if (other->collisionType == CT_GROUND && nx != 0)
 		{
 			{
@@ -77,11 +77,11 @@ void OctopusBattery::init()
 {
 	switch (id)
 	{
-	case OCTOPUS_VERTICAL:
+	case OCTOPUS_HORIZONTAL:
 		dy = OCTOPUS_VELOCITY;
 		dx = 0;
 		break;
-	case OCTOPUS_HORIZONTAL:
+	case OCTOPUS_VERTICAL:
 		dy = 0;
 		dx = OCTOPUS_VELOCITY;
 		break;

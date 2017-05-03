@@ -32,17 +32,12 @@ void MGMGame::readFile(const char * objectsPath)
 
 void MGMGame::init()
 {
-	camera = MGMCamera::getInstance();
+	/*camera = MGMCamera::getInstance();
 	Rockman::getInstance()->x = 95;
-	Rockman::getInstance()->y = 91;
+	Rockman::getInstance()->y = 91;*/
 	Rockman::getInstance()->width = 22;
 	Rockman::getInstance()->height = 22;
 	Rockman::getInstance()->action = 2;
-	/*brick.x = 200;
-	brick.y = 200;
-	brick.width = 16;
-	brick.height = 22;
-	brick.action = 0;*/
 	tilemap.init("Data\\Map\\Cutman\\tileSheet.png", "Data\\Map\\Cutman\\matrix.txt",
 		"Data\\Map\\Cutman\\objects.txt",
 		"Data\\Map\\Cutman\\quadtree.txt"

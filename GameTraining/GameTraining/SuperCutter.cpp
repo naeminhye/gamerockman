@@ -45,9 +45,9 @@ void SuperCutter::update()
 			}
 			bullet->vy = CUTTER_BULLET_VY; 
 
-			delta = bullet->vy*bullet->vy - 4 * bullet->ay*y;
+			delta = bullet->vy*bullet->vy - 4 * bullet->ay*(y-yTarget);
 
-			bullet->vx =- (xTarget - x) * 2 * ay / (-bullet->vy + sqrt(delta));
+			bullet->vx = (xTarget - x) *  ay / (-bullet->vy - sqrt(delta));
 
 			cutterDelay.start();
 		}

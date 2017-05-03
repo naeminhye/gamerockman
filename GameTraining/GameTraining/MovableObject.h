@@ -8,7 +8,7 @@ public:
 	virtual void update();
 	virtual void onCollision(FBox* other, int nx, int ny);
 	void setWidth(int width);
-	void setHeight(int height);
+	virtual void setHeight(int height);
 	MovableObject();
 	~MovableObject();
 };

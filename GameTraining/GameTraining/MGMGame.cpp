@@ -42,7 +42,7 @@ void MGMGame::init()
 		"Data\\Map\\Cutman\\objects.txt",
 		"Data\\Map\\Cutman\\quadtree.txt"
 		);
-	tilemap.initStage("Data\\Map\\Cutman\\stage5.txt");
+	tilemap.initStage("Data\\Map\\Cutman\\stage62.txt");
 }
 
 void MGMGame::update()

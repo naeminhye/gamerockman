@@ -91,7 +91,9 @@
     <ClInclude Include="BigEye.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Config.h" />
+    <ClInclude Include="Cutman.h" />
     <ClInclude Include="DelayTime.h" />
+    <ClInclude Include="Door.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="FBox.h" />
     <ClInclude Include="Flea.h" />
@@ -138,7 +140,9 @@
     <ClCompile Include="BigEye.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Constant.cpp" />
+    <ClCompile Include="Cutman.cpp" />
     <ClCompile Include="DelayTime.cpp" />
+    <ClCompile Include="Door.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="FBox.cpp" />
     <ClCompile Include="Flea.cpp" />

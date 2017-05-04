@@ -73,4 +73,12 @@ extern float BIGEYE_JUMP_HIGH_VX;
 extern float BIGEYE_JUMP_HIGH_VY;
 extern float BIGEYE_JUMP_FAR_VX;
 extern float BIGEYE_JUMP_FAR_VY;
+
+extern int SCREW_BOMBER_DELAYTIME;
+extern int SCREW_BOMBER_SHOOTING_DISTANCE;
+extern int SCREW_BOMBER_VELOCITY;
+
+extern int FLYING_SHELL_DELAYTIME;
+extern int FLYING_SHELL_RUNNING_DY;
+extern int FLYING_SHELL_VELOCITY;
 #pragma endregion

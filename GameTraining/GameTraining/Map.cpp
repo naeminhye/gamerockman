@@ -14,6 +14,10 @@
 #include "FlyingShell.h"
 #include "BigEye.h"
 #include "ScrewBomber.h"
+#include "Cutman.h"
+#include "Door.h"
+
+bool Map::onStageChangeByDoor = false;
 
 void Map::init(char * tileSheetPath, char * matrixPath, char * objectsPath, char* quadTreePath)
 {
@@ -99,9 +103,66 @@ void Map::updateStageChangePrev()
 	camera->updateLocation();
 }
 
+void Map::updateStageChangeByDoor()
+{
+	Stage* nextStage;
+	MGMCamera* camera;
+	Door::doorDelay.update();
+	switch (Door::doorActivity)
+	{
+	case DOOR_WAITING_TO_OPEN:
+		if (Door::doorDelay.isTerminated())
+		{
+			Door::doorActivity = DOOR_OPENING;
+			Door::currentDoor->setAction(DOOR_OPEN);
+			Door::currentDoor->pauseAnimation = false;
+		}
+		break;
+	case DOOR_OPENING:
+		Door::currentDoor->update();
+		break;
+	case DOOR_CAMERA_CHANGING:
+		camera = MGMCamera::getInstance();
+		camera->dx = 3;//TODO luu constant
+		//tim next stage
+		nextStage = findCutmanNextStageOnDoor();
+		if (camera->x + camera->dx > nextStage->left())
+		{
+			camera->x = nextStage->left();
+			camera->dx = 0;
+
+			Door::doorActivity = DOOR_CLOSING;
+			Door::currentDoor->setAction(DOOR_CLOSE);
+			Door::currentDoor->pauseAnimation = false;
+			Stage::curStage = nextStage;
+		}
+		else
+		{
+			camera->x += camera->dx;
+			Rockman::getInstance()->x += 1;
+			Rockman::getInstance()->dx = 0;
+			Rockman::getInstance()->vx =0;
+			Rockman::getInstance()->BaseObject::update();
+		}
+		break;
+	case DOOR_CLOSING:
+		Door::currentDoor->update();
+		break;
+	default:
+		break;
+	}
+}
+
+Stage * Map::findCutmanNextStageOnDoor()
+{
+	if (Stage::curStage->index == 5)
+		return stages[9];
+	return stages[Stage::curStage->index + 1];
+}
+
 void Map::readObjects(char * objectsPath)
 {
-	int id;
+	int id;;
 	ifstream fs(objectsPath);
 	fs >> nObject;
 	objects = new BaseObject*[nObject];
@@ -140,6 +201,12 @@ void Map::readObjects(char * objectsPath)
 		case SPR_EYE:
 			objects[i] = new BigEye();
 			break;
+		case SPR_CUTMAN:
+			objects[i] = new Cutman();
+			break;
+		case SPR_DOOR:
+			objects[i] = new Door();
+			break;
 			//TODO: Them doi tuong nho them vao day
 		default:
 			objects[i] = new BaseObject();
@@ -162,7 +229,7 @@ void Map::readObjects(char * objectsPath)
 
 		if (id >= 0)
 		{
-			objects[i]->sprite = SpriteManager::getInstance()->sprites[id%100];
+			objects[i]->sprite = SpriteManager::getInstance()->sprites[id % 100];
 			auto mov = (MovableObject*)objects[i];
 			fs >> mov->spaceMove.x
 				>> mov->spaceMove.y
@@ -194,6 +261,13 @@ void Map::update()
 		updateStageChangePrev();
 		return;
 	}
+
+	if (onStageChangeByDoor)
+	{
+		updateStageChangeByDoor();
+		return;
+	}
+
 	auto camera = MGMCamera::getInstance();
 
 	Rockman::getInstance()->update();
@@ -262,7 +336,15 @@ void Map::update()
 	for (size_t i = 0; i < RockmanBullet::bullets->Count; i++)
 	{
 		RockmanBullet::bullets->at(i)->updateLocation();
-		if (!Collision::AABBCheck(MGMCamera::getInstance(), RockmanBullet::bullets->at(i)))
+
+		for (size_t j = 0; j < nEnemyObjectsCam; j++)
+		{
+			auto enemy = enemiesInCam->at(j);
+			Collision::CheckCollision( RockmanBullet::bullets->at(i),enemy);
+
+		}
+
+		if (!Collision::AABBCheck(MGMCamera::getInstance(), RockmanBullet::bullets->at(i)) || RockmanBullet::bullets->at(i)->canDelete)
 		{
 			RockmanBullet::bullets->at(i)->deleteBullet();
 			i--;
@@ -326,6 +408,7 @@ Map::Map()
 {
 	onStageChangeNext = false;
 	onStageChangePrev = false;
+
 }
 
 

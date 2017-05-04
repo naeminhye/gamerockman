@@ -26,6 +26,7 @@ BaseObject::BaseObject()
 	frameIndex = 0;
 	action = 0;
 	pauseAnimation = false;
+	alive = true;
 }
 
 
@@ -35,6 +36,8 @@ BaseObject::~BaseObject()
 
 void BaseObject::update()
 {
+	if (!alive)
+		return;
 	if (sprite == 0)
 		return;
 	FBox::update();
@@ -58,6 +61,8 @@ void BaseObject::onLastFrameAnimation()
 
 void BaseObject::render()
 {
+	if (!alive)
+		return;
 	if (sprite == 0)
 		return;
 	float yRender;

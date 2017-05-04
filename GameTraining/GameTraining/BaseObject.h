@@ -9,6 +9,8 @@
 class BaseObject : public FBox
 {
 public:
+
+
 	bool pauseAnimation;
 	FRectangle oldRect;
 	Sprite* sprite;

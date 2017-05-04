@@ -130,6 +130,8 @@ float Collision::SweptAABB(FBox* M, FBox* S, float & normalx, float & normaly)
 
 void Collision::CheckCollision(FBox * M, FBox * S)
 {
+	if (M->alive == false || S->alive == false)
+		return;
 	FBox* broadPhaseBox = GetSweptBroadPhaseBox(M);
 	if (AABBCheck(broadPhaseBox, S))
 	{

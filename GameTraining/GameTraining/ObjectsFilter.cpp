@@ -14,6 +14,7 @@ void ObjectsFilter::addObject(BaseObject * object)
 	allObjects._Add(object);
 	switch (object->collisionType)
 	{
+	case CT_DOOR:
 	case CT_GROUND:
 		grounds._Add(object);
 		break;
@@ -39,6 +40,7 @@ void ObjectsFilter::removeObject(BaseObject * object)
 	allObjects._Remove(object);
 	switch (object->collisionType)
 	{
+	case CT_DOOR:
 	case CT_GROUND:
 		grounds._Remove(object);
 		break;

@@ -56,6 +56,12 @@ SpriteManager::SpriteManager()
 	sprites[SPR_BULLET] = new Sprite();
 	sprites[SPR_BULLET]->ReadFromFile("Data\\Sprite\\Rockman\\bullet.txt", "Data\\Sprite\\Rockman\\weapon.png");
 
+	sprites[SPR_CUTMAN] = new Sprite();
+	sprites[SPR_CUTMAN]->ReadFromFile("Data\\Sprite\\Enemies\\Cutman\\cutman.txt", "Data\\Sprite\\Enemies\\Cutman\\Cutman.png");
+
+	sprites[SPR_DOOR] = new Sprite();
+	sprites[SPR_DOOR]->ReadFromFile("Data\\Sprite\\Door\\door.txt", "Data\\Sprite\\Door\\Door.png");
+
 }
 
 

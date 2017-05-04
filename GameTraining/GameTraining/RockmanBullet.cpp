@@ -14,6 +14,7 @@ RockmanBullet::RockmanBullet()
 	width = sprite->anims[0].frames[0].right - sprite->anims[0].frames[0].left;
 	height = sprite->anims[0].frames[0].bottom - sprite->anims[0].frames[0].top;
 	collisionType = CT_BULLET;
+	canDelete = false;
 
 }
 

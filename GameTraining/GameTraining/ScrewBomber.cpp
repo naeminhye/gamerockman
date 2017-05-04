@@ -10,56 +10,62 @@ void ScrewBomber::updateLocation()
 
 void ScrewBomber::update()
 {
+	if (!alive)
+		return;
 	Enemy::update();
-	screwdelay.update();
-	switch (screwactivity)
+	if (abs(xCenter() - Rockman::getInstance()->xCenter()) < SCREW_BOMBER_SHOOTING_DISTANCE)
 	{
-	case SCREW_WAITING:
-		if (screwdelay.isTerminated())
+		screwdelay.update();
+		switch (screwactivity)
 		{
-			screwactivity = SCREW_SHOOTING;
-			screwdelay.start(1000);
-			setAction(SCREW_SHOOT);
-			setHeight(16);
-			for (int i = -1; i <= 1; i++)
+		case SCREW_WAITING:
+			if (screwdelay.isTerminated())
 			{
-				for (int j = -1; j <= 1; j++)
-					if ((i != 0 || j != 0))
-					{
-						if (id == SCREW_TOP && j <= 0 || id == SCREW_BOTTOM && j >= 0)
+				screwactivity = SCREW_SHOOTING;
+				screwdelay.start(SCREW_BOMBER_DELAYTIME);
+				setAction(SCREW_SHOOT);
+				setHeight(16);
+				for (int i = -1; i <= 1; i++)
+				{
+					for (int j = -1; j <= 1; j++)
+						if ((i != 0 || j != 0))
 						{
-							BeakBullet* bullet = new BeakBullet();
-							bullet->dx = 3 * i;
-							bullet->dy = 3 * j; // TODO
-							bullet->x = xCenter();
-							bullet->y = yCenter();
-							if (i != 0 && j != 0)
+							if (id == SCREW_TOP && j <= 0 || id == SCREW_BOTTOM && j >= 0)
 							{
-								bullet->dx *= sqrt(2) / 2;
-								bullet->dy *= sqrt(2) / 2;
+								BeakBullet* bullet = new BeakBullet();
+								bullet->dx = SCREW_BOMBER_VELOCITY * i;
+								bullet->dy = SCREW_BOMBER_VELOCITY * j; // TODO
+								bullet->x = xCenter();
+								bullet->y = yCenter();
+								if (i != 0 && j != 0)
+								{
+									bullet->dx *= sqrt(2) / 2;
+									bullet->dy *= sqrt(2) / 2;
+								}
 							}
+
 						}
-
-					}
+				}
 			}
-
+			break;
+		case SCREW_SHOOTING:
+			if (screwdelay.isTerminated())
+			{
+				screwactivity = SCREW_WAITING;
+				screwdelay.start(SCREW_BOMBER_DELAYTIME);
+				setAction(SCREW_WAITING);
+				setHeight(8);
+			}
+		default:
+			break;
 		}
-		break;
-	case SCREW_SHOOTING:
-		if (screwdelay.isTerminated())
-		{
-			screwactivity = SCREW_WAITING;
-			screwdelay.start(1000);
-			setAction(SCREW_WAITING);
-			setHeight(8);
-		}
-	default:
-		break;
 	}
 }
 
 void ScrewBomber::render()
 {
+	if (!alive)
+		return;
 	if (sprite == 0)
 		return;
 	float yRender;

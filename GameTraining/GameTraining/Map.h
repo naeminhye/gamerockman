@@ -22,9 +22,15 @@ public:
 
 	bool onStageChangeNext; // ==true thi cho moi thu dung yen
 	bool onStageChangePrev;
+	
+	static bool onStageChangeByDoor; // Dung vo Door tu ben trai thi ...
 
 	void updateStageChangeNext();
 	void updateStageChangePrev();
+
+	void updateStageChangeByDoor();
+
+	Stage* findCutmanNextStageOnDoor();
 
 #pragma endregion
 

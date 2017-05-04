@@ -7,23 +7,23 @@ void FlyingShell::update()
 	flydelay.update();
 	switch (flyactivity)
 	{
-		
+
 	case FLY_RUNNING:
-		dx = -1;
+		dx = FLYING_SHELL_RUNNING_DY;
 		if (flydelay.isTerminated())
 		{
 			flyactivity = FLY_STANDING;
-			flydelay.start(1000);
+			flydelay.start(FLYING_SHELL_DELAYTIME);
 			setAction(FLY_OPEN);
-			
+
 			for (int i = -1; i <= 1; i++)
 			{
-				for(int j=-1;j<=1;j++)
+				for (int j = -1; j <= 1; j++)
 					if (i != 0 || j != 0)
 					{
 						BeakBullet* bullet = new BeakBullet();
-						bullet->dx = 3*i;
-						bullet->dy = 3 * j; // TODO
+						bullet->dx = FLYING_SHELL_VELOCITY * i;
+						bullet->dy = FLYING_SHELL_VELOCITY * j;
 						bullet->x = xCenter();
 						bullet->y = yCenter();
 						if (i != 0 && j != 0)
@@ -34,8 +34,8 @@ void FlyingShell::update()
 
 					}
 			}
-			
-			
+
+
 		}
 		break;
 	case FLY_STANDING:
@@ -43,20 +43,12 @@ void FlyingShell::update()
 		if (flydelay.isTerminated())
 		{
 			flyactivity = FLY_RUNNING;
-			flydelay.start(1000);
+			flydelay.start(FLYING_SHELL_DELAYTIME);
 			setAction(FLY_CLOSE);
-			
+
 
 		}
 		break;
-	/*case BEAK_SHOOTING:
-		if (updateAttack())
-		{
-			beakActivity = BEAK_CLOSING;
-			pauseAnimation = false;
-			setAction(BEAK_CLOSE);
-		}
-		break;*/
 	default:
 		break;
 	}
@@ -74,7 +66,7 @@ FlyingShell::FlyingShell()
 {
 	direction = Left;
 	flyactivity =  FLY_RUNNING;
-	dx = -1;
+	dx = FLYING_SHELL_RUNNING_DY;
 }
 
 

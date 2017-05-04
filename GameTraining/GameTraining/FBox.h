@@ -11,12 +11,14 @@ enum COLLISION_TYPE
 	CT_BULLET,
 	CT_ROCKMAN,
 	CT_OUTERSPACE, 
-	CT_NONE
+	CT_NONE,
+	CT_DOOR
 };
 
 class FBox : public FRectangle
 {
 public:
+	bool alive;
 	COLLISION_TYPE collisionType;
 	float dx, dy;
 

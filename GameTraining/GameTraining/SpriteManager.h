@@ -3,11 +3,11 @@
 
 enum SPRITE_INFO
 {
-	SPR_SPIKE = -6, 
-	SPR_CUTTER = -4, // = -4
-	SPR_OUTERSPACE = -5, // = - 5
-	SPR_STONE = -3,
-	SPR_STAIR = -2,
+	SPR_SPIKE = -6,
+	SPR_OUTERSPACE, // = - 5
+	SPR_CUTTER, // = -4
+	SPR_STONE, // = -3
+	SPR_STAIR, // = -2
 	// GROUND = -1
 	SPR_ROCKMAN = 0, //= 0
 	SPR_BLADER, // = 1
@@ -20,7 +20,8 @@ enum SPRITE_INFO
 	SPR_SHELL, // = 8, FLYING SHELL
 	SPR_EYE, // = 9 BIG EYE
 	SPR_BOMBER, // = 10 SCREW BOMBER
-
+	SPR_CUTMAN, // = 11
+	SPR_DOOR, // = 12
 	// TODO: them doi tuong
 
 	SPR_COUNT //= so luong sprite

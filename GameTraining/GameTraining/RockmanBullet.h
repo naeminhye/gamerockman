@@ -8,6 +8,8 @@ public:
 	static List<RockmanBullet*>* bullets;
 	void update();
 
+	bool canDelete;
+
 	RockmanBullet();
 	~RockmanBullet();
 

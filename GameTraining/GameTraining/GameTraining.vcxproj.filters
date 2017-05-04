@@ -147,6 +147,12 @@
     <ClCompile Include="ScrewBomber.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Cutman.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Door.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h">
@@ -282,6 +288,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ScrewBomber.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cutman.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Door.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

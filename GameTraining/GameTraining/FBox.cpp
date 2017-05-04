@@ -75,6 +75,7 @@ void FBox::slideHandle()
 
 FBox::FBox()
 {
+	alive = true;
 	collisionType = CT_GROUND;
 	dx = 0;
 	dy = 0;

@@ -168,7 +168,7 @@ Rockman::Rockman()
 	delay.tickPerFrame = 1000;
 	setOnStair(false);
 	rm_action = RM_STAND;
-	rm_type = RMT_GUSTMAN;
+	rm_type = RMT_NORMAL;
 	blinkActivity = BLINK_OPEN;
 	blinkDelay.start(TIME_BLINK_OPEN);
 	rmBulletDelay.init(RM_BULLET_WAITING_DELAYTIME);

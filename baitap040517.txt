@@ -1,0 +1,4 @@
+﻿1. items
+2. cutman
+3. màn hình chuyển map
+4. thêm if (!alive) return; cho tất cả đối tượng

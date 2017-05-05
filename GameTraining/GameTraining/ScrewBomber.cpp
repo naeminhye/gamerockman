@@ -34,9 +34,9 @@ void ScrewBomber::update()
 							{
 								BeakBullet* bullet = new BeakBullet();
 								bullet->dx = SCREW_BOMBER_VELOCITY * i;
-								bullet->dy = SCREW_BOMBER_VELOCITY * j; // TODO
+								bullet->dy = SCREW_BOMBER_VELOCITY * j; 
 								bullet->x = xCenter();
-								bullet->y = yCenter();
+								bullet->y = yCenter(); // TODO 
 								if (i != 0 && j != 0)
 								{
 									bullet->dx *= sqrt(2) / 2;

@@ -15,7 +15,7 @@ void Cutman::update()
 		if (cutmanDelay.isTerminated())
 		{
 			cutmanActivity = CMA_RUNNING;
-			cutmanDelay.start(1000);
+			cutmanDelay.start(1000); // TODO: luu constant 
 		}
 		break;
 	case CMA_RUNNING:
@@ -23,12 +23,12 @@ void Cutman::update()
 		dx = -1;
 		if (cutmanDelay.isTerminated())
 		{
-			if (abs(xCenter() - Rockman::getInstance()->xCenter()) < 50)
+			if (abs(xCenter() - Rockman::getInstance()->xCenter()) < 50) // TODO: luu constant 
 				cutmanActivity = CMA_SHOOTING;
 			else
 			{
 				cutmanActivity = CMA_WAITING;
-				cutmanDelay.start(1000);
+				cutmanDelay.start(1000); 
 			}
 		}
 		break;
@@ -55,7 +55,7 @@ void Cutman::onLastFrameAnimation()
 		setAction(CM_JUMPING); 
 		cutmanActivity = CMA_JUMPING;
 		cutmanDelay.start(1000); 
-		vy = 0.4;
+		vy = CUTMAN_JUMP_VY; 
 		
 	}
 }

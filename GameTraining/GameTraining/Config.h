@@ -81,4 +81,6 @@ extern int SCREW_BOMBER_VELOCITY;
 extern int FLYING_SHELL_DELAYTIME;
 extern int FLYING_SHELL_RUNNING_DY;
 extern int FLYING_SHELL_VELOCITY;
+
+extern float CUTMAN_JUMP_VY;
 #pragma endregion

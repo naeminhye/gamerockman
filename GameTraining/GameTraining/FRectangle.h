@@ -12,8 +12,8 @@ public:
 	float top();
 	float bottom();
 
-	float xCenter();
-	float yCenter();
+	float getXCenter();
+	float getYCenter();
 
 };
 

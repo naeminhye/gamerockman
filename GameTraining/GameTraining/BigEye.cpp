@@ -16,11 +16,11 @@ void BigEye::initJumpFar()
 
 BigEye::BigEye()
 {
-	bigEyeDelay.init(BIGEYE_DELAYTIME); // TODO luu constant
+	bigEyeDelay.init(BIGEYE_DELAYTIME); 
 	bigEyeDelay.start();
 	setAction(BIGEYE_WAITING);
 	bigEyeActivity = BIGEYE_WAITING;
-
+	healthPoint = 20;
 }
 
 

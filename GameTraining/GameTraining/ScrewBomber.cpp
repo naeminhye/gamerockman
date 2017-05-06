@@ -13,7 +13,7 @@ void ScrewBomber::update()
 	if (!alive)
 		return;
 	Enemy::update();
-	if (abs(xCenter() - Rockman::getInstance()->xCenter()) < SCREW_BOMBER_SHOOTING_DISTANCE)
+	if (abs(getXCenter() - Rockman::getInstance()->getXCenter()) < SCREW_BOMBER_SHOOTING_DISTANCE)
 	{
 		screwdelay.update();
 		switch (screwactivity)
@@ -35,8 +35,8 @@ void ScrewBomber::update()
 								BeakBullet* bullet = new BeakBullet();
 								bullet->dx = SCREW_BOMBER_VELOCITY * i;
 								bullet->dy = SCREW_BOMBER_VELOCITY * j; 
-								bullet->x = xCenter();
-								bullet->y = yCenter(); // TODO 
+								bullet->x = getXCenter();
+								bullet->y = getYCenter(); // TODO 
 								if (i != 0 && j != 0)
 								{
 									bullet->dx *= sqrt(2) / 2;
@@ -103,6 +103,7 @@ void ScrewBomber::setHeight(int height)
 ScrewBomber::ScrewBomber()
 {
 	screwactivity = SCREW_WAITING;
+	healthPoint = 3;
 }
 
 

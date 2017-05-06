@@ -24,8 +24,8 @@ void FlyingShell::update()
 						BeakBullet* bullet = new BeakBullet();
 						bullet->dx = FLYING_SHELL_VELOCITY * i;
 						bullet->dy = FLYING_SHELL_VELOCITY * j;
-						bullet->x = xCenter();
-						bullet->y = yCenter();
+						bullet->x = getXCenter();
+						bullet->y = getYCenter();
 						if (i != 0 && j != 0)
 						{
 							bullet->dx *= sqrt(2) / 2;
@@ -67,6 +67,7 @@ FlyingShell::FlyingShell()
 	direction = Left;
 	flyactivity =  FLY_RUNNING;
 	dx = FLYING_SHELL_RUNNING_DY;
+	healthPoint = 1;
 }
 
 

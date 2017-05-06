@@ -20,7 +20,7 @@ Flea::Flea()
 	fleaDelay.start();
 	setAction(FLEA_WAITING);
 	fleaActivity = FLEA_WAITING;
-
+	healthPoint = 1;
 }
 
 

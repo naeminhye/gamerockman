@@ -31,12 +31,12 @@ float FRectangle::bottom()
 	return y - height + 1;
 }
 
-float FRectangle::xCenter()
+float FRectangle::getXCenter()
 {
 	return x + width/2;
 }
 
-float FRectangle::yCenter()
+float FRectangle::getYCenter()
 {
 	return y - height / 2;
 }

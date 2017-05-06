@@ -7,12 +7,12 @@ void Blader::update()
 	switch (bladerActivity)
 	{
 	case BLADER_PREPARE:
-		if (Rockman::getInstance()->xCenter() > xCenter())
+		if (Rockman::getInstance()->getXCenter() > getXCenter())
 			direction = Right;
 		else
 			direction = Left;
 		dx = 2 * direction;
-		if (abs(this->xCenter() - Rockman::getInstance()->xCenter()) <= BLADER_FIND_ROCKMAN_DISTANCE)
+		if (abs(this->getXCenter() - Rockman::getInstance()->getXCenter()) <= BLADER_FIND_ROCKMAN_DISTANCE)
 		{
 			bladerActivity = BLADER_ATTACK;
 			xTarget = Rockman::getInstance()->x;
@@ -61,6 +61,7 @@ Blader::Blader()
 {
 	bladerActivity = BLADER_PREPARE;
 	dy = 0;
+	healthPoint = 1;
 }
 
 

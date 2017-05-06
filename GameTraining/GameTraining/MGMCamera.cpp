@@ -65,17 +65,11 @@ void MGMCamera::update()
 	FBox::update();
 	dy = 0;
 	auto rockman = Rockman::getInstance();
-	if (((rockman->xCenter() + rockman->dx > this->xCenter()) && rockman->dx > 0) ||
-		((rockman->xCenter() + rockman->dx < this->xCenter()) && rockman->dx < 0))
+	if (((rockman->getXCenter() + rockman->dx > this->getXCenter()) && rockman->dx > 0) ||
+		((rockman->getXCenter() + rockman->dx < this->getXCenter()) && rockman->dx < 0))
 		this->dx = rockman->dx;
 	else
 		dx = 0;
-
-	/*if (x + dx < 0)
-	{
-		x = 0;
-		dx = 0;
-	}*/
 
 	if (x + dx < Stage::curStage->left() && dx < 0)
 	{

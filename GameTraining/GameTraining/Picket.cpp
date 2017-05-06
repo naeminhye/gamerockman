@@ -15,7 +15,7 @@ Picket::~Picket()
 void Picket::update()
 {
 	Enemy::update();
-	if (Rockman::getInstance()->xCenter() > xCenter())
+	if (Rockman::getInstance()->getXCenter() > getXCenter())
 		direction = Right;
 	else
 		direction=Left;

@@ -10,8 +10,8 @@ Stairs::Stairs()
 void Stairs::onIntersect(FBox * other)
 {
 	Rockman::getInstance()->stairIntersect = this;
-	int rockManXCenter = other->xCenter();
-	int stairXCenter = xCenter();
+	int rockManXCenter = other->getXCenter();
+	int stairXCenter = getXCenter();
 
 	if (y > other->y - DISTANCE_OUT_STAIR)
 	{
@@ -48,8 +48,8 @@ void Stairs::onCollision(FBox * other, int nx, int ny)
 {
 	if (ny != 1)
 		return;
-	int rockManXCenter = other->xCenter();
-	int stairXCenter = xCenter();
+	int rockManXCenter = other->getXCenter();
+	int stairXCenter = getXCenter();
 
 	if (rockManXCenter < stairXCenter - STAIR_DELTA || rockManXCenter > stairXCenter + STAIR_DELTA)
 		return;

@@ -23,7 +23,7 @@ void Cutman::update()
 		dx = -1;
 		if (cutmanDelay.isTerminated())
 		{
-			if (abs(xCenter() - Rockman::getInstance()->xCenter()) < 50) // TODO: luu constant 
+			if (abs(getXCenter() - Rockman::getInstance()->getXCenter()) < 50) // TODO: luu constant 
 				cutmanActivity = CMA_SHOOTING;
 			else
 			{
@@ -66,6 +66,7 @@ Cutman::Cutman()
 	cutmanDelay.start(1000);
 	direction = Left;
 	dx = 0;
+	healthPoint = 28;
 }
 
 

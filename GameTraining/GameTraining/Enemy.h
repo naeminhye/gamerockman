@@ -5,8 +5,10 @@ class Enemy :
 	public MovableObject
 {
 public:
-	int defend;
-	virtual bool setDefend(int defend);
+	int healthPoint;
+	int attackDamage;
+	
+	virtual bool setHealthPoint(int healthPoint);
 	void initDirectionFollowRockman(); // TODO: doi ten
 	void onIntersect(FBox* other);
 	Enemy();

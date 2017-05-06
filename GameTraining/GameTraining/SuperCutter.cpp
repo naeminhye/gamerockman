@@ -4,16 +4,16 @@
 void SuperCutter::update()
 {
 	cutterDelay.update();
-	float xCenterRockman, xCenter;
-	xCenterRockman = Rockman::getInstance()->xCenter();
-	xCenter = this->xCenter();
+	float xCenterRockman, getXCenter;
+	xCenterRockman = Rockman::getInstance()->getXCenter();
+	getXCenter = this->getXCenter();
 	double delta;
 	
 	switch (cutterActivity)
 	{
 	case SUPERCUTTER_WAITING:
 
-		if (xCenterRockman > xCenter - CUTTER_SHOOT_DISTANCE && xCenterRockman < xCenter + CUTTER_SHOOT_DISTANCE)
+		if (xCenterRockman > getXCenter - CUTTER_SHOOT_DISTANCE && xCenterRockman < getXCenter + CUTTER_SHOOT_DISTANCE)
 		{
 			cutterDelay.start();
 			cutterActivity = SUPERCUTTER_SHOOTING;
@@ -21,7 +21,7 @@ void SuperCutter::update()
 		break;
 	case SUPERCUTTER_SHOOTING:
 
-		if (!(xCenterRockman > xCenter - CUTTER_SHOOT_DISTANCE && xCenterRockman < xCenter + CUTTER_SHOOT_DISTANCE))
+		if (!(xCenterRockman > getXCenter - CUTTER_SHOOT_DISTANCE && xCenterRockman < getXCenter + CUTTER_SHOOT_DISTANCE))
 		{
 			cutterActivity = SUPERCUTTER_WAITING;
 			return;
@@ -35,7 +35,7 @@ void SuperCutter::update()
 
 			bullet->x = x;
 			bullet->y = y;
-			if (xCenter > xCenterRockman)
+			if (getXCenter > xCenterRockman)
 			{
 				bullet->direction = Left;
 			}

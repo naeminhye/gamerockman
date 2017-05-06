@@ -117,6 +117,7 @@ Beak::Beak()
 	bulletDelay.init(BEAK_BULLET_DELAY);
 	pauseAnimation = true;
 	beakDelay.start(TIME_BEAK_CLOSED);
+	healthPoint = 1;
 }
 
 

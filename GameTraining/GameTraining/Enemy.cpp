@@ -2,20 +2,20 @@
 
 
 
-bool Enemy::setDefend(int defend)
+bool Enemy::setHealthPoint(int healthPoint)
 {
-	if (defend > 0)
+	if (healthPoint > 0)
 	{
-		this->defend = defend;
+		this->healthPoint = healthPoint;
 		return true;
 	}
-	defend = 0;
+	healthPoint = 0;
 	return false;
 }
 
 void Enemy::initDirectionFollowRockman()
 {
-	if (Rockman::getInstance()->xCenter() > this->xCenter())
+	if (Rockman::getInstance()->getXCenter() > this->getXCenter())
 		direction = Right;
 	else
 		direction = Left;
@@ -26,7 +26,7 @@ void Enemy::onIntersect(FBox * other)
 	if (other->collisionType == CT_BULLET)
 	{
 		((RockmanBullet*)other)->canDelete = true;
-		if (!setDefend(defend - 1))
+		if (!setHealthPoint(healthPoint - 1))
 		{
 			alive = false;
 		}
@@ -36,7 +36,7 @@ void Enemy::onIntersect(FBox * other)
 Enemy::Enemy()
 {
 	collisionType = CT_ENEMY;
-	defend = 2;
+	healthPoint = 2;
 }
 
 

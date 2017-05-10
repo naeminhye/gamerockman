@@ -13,7 +13,8 @@ public:
 			isMoveDown,
 			isAttackDown,
 			isPreviousAttackDown,
-			isAttackPress;
+			isAttackPress, 
+			isEnter;
 
 	static KEY* instance;
 	static KEY* getInstance();

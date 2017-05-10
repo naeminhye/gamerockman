@@ -125,7 +125,7 @@ void Map::updateStageChangeByDoor()
 		camera = MGMCamera::getInstance();
 		camera->dx = 3;//TODO luu constant
 		//tim next stage
-		nextStage = findCutmanNextStageOnDoor();
+		nextStage = findNextStageOnDoor();
 		if (camera->x + camera->dx > nextStage->left())
 		{
 			camera->x = nextStage->left();
@@ -153,11 +153,9 @@ void Map::updateStageChangeByDoor()
 	}
 }
 
-Stage * Map::findCutmanNextStageOnDoor()
+Stage * Map::findNextStageOnDoor()
 {
-	if (Stage::curStage->index == 5)
-		return stages[9];
-	return stages[Stage::curStage->index + 1];
+	return Stage::curStage;
 }
 
 void Map::readObjects(char * objectsPath)

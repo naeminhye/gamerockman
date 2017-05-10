@@ -28,6 +28,8 @@ void KEY::update()
 
 	isMoveDown = isLeftDown || isRightDown;
 
+	isEnter = CKeyboard::getInstance()->IsKeyDown(DIK_RETURN) || CKeyboard::getInstance()->IsKeyDown(DIK_NUMPADENTER);
+
 }
 
 KEY::KEY()

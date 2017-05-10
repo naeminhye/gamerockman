@@ -39,7 +39,7 @@ void Beak::update()
 
 bool Beak::updateAttack()
 {
-	if (!bulletDelay.isOnTime())
+	if (!bulletDelay.isOnTime() && this->alive)
 	{
 		BeakBullet* bullet = new BeakBullet();
 		bullet->dx = BEAK_BULLET_VELOCITY*direction;

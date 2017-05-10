@@ -3,8 +3,10 @@
 #include"MGMDirectXTool.h"
 #include"MGMTexture.h"
 #include"MGMSurface.h"
-#include"MGMGame.h"
+#include"MapScene.h"
 #include"KEY.h"
+#include"Scene.h"
+#include"SelectMapScene.h"
 #include<time.h>
 #include<stdlib.h>
 
@@ -20,11 +22,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	DWORD timeSleep = 1000.0/FPS;
 
 	CKeyboard::Create(hInstance,MGMForm::getInstance()->getHandleWindow());
-
+	Scene::changeScene(new SelectMapScene());
 	MSG msg;
 	ZeroMemory(&msg, sizeof(msg));
 
-	MGMGame::getInstance()->init();
 
 	while (msg.message != WM_QUIT)
 	{
@@ -36,10 +37,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		CKeyboard::getInstance()->PollKeyboard();
 		CKeyboard::getInstance()->UpdateKeyboard();
 		KEY::getInstance()->update();
+		Scene::curScene->update();
 
-		MGMGame::getInstance()->update();
 		MGMDirectXTool::getInstance()->BeginGraphics();//bat dau ve len backbuffer
-		MGMGame::getInstance()->render();
+		Scene::curScene->render();
 		MGMDirectXTool::getInstance()->EndGraphics();// ket thuc ve len backbuffer
 		MGMDirectXTool::getInstance()->PresentBackBuffer();// ve backbuffer len man hinh
 		Sleep(timeSleep);

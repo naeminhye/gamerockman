@@ -165,7 +165,9 @@ void Rockman::setIsIntersectStair(bool isIntersectStair)
 Rockman::Rockman()
 {
 	sprite = SpriteManager::getInstance()->sprites[SPR_ROCKMAN];
-	delay.tickPerFrame = 1000;
+	width = 20;// TODO luu constant
+	height = 24;// TODO luu constant
+	delay.tickPerFrame = 1000; // TODO luu constant
 	setOnStair(false);
 	rm_action = RM_STAND;
 	rm_type = RMT_NORMAL;

@@ -6,7 +6,7 @@ class Enemy :
 {
 public:
 	int healthPoint;
-	int attackDamage;
+	int attackDamage;//
 	
 	virtual bool setHealthPoint(int healthPoint);
 	void initDirectionFollowRockman(); // TODO: doi ten

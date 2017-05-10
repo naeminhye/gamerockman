@@ -92,6 +92,7 @@
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Cutman.h" />
+    <ClInclude Include="CutmanMap.h" />
     <ClInclude Include="DelayTime.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="Enemy.h" />
@@ -99,6 +100,7 @@
     <ClInclude Include="Flea.h" />
     <ClInclude Include="FlyingShell.h" />
     <ClInclude Include="FRectangle.h" />
+    <ClInclude Include="GutsmanMap.h" />
     <ClInclude Include="KEY.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="List.h" />
@@ -106,9 +108,8 @@
     <ClInclude Include="MGMCamera.h" />
     <ClInclude Include="MGMDirectXTool.h" />
     <ClInclude Include="MGMForm.h" />
-    <ClInclude Include="MGMGame.h" />
+    <ClInclude Include="MapScene.h" />
     <ClInclude Include="MGMGameTime.h" />
-    <ClInclude Include="MGMGameTimeLoop.h" />
     <ClInclude Include="MGMPoint.h" />
     <ClInclude Include="MGMSurface.h" />
     <ClInclude Include="MGMTexture.h" />
@@ -123,13 +124,16 @@
     <ClInclude Include="Rockman.h" />
     <ClInclude Include="Blader.h" />
     <ClInclude Include="RockmanBullet.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="ScrewBomber.h" />
+    <ClInclude Include="SelectMapScene.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="Stage.h" />
     <ClInclude Include="Stairs.h" />
     <ClInclude Include="SuperCutter.h" />
     <ClInclude Include="SuperCutterBullet.h" />
+    <ClInclude Include="TextSprite.h" />
     <ClInclude Include="TileMap.h" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +145,7 @@
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Constant.cpp" />
     <ClCompile Include="Cutman.cpp" />
+    <ClCompile Include="CutmanMap.cpp" />
     <ClCompile Include="DelayTime.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Enemy.cpp" />
@@ -148,15 +153,15 @@
     <ClCompile Include="Flea.cpp" />
     <ClCompile Include="FlyingShell.cpp" />
     <ClCompile Include="FRectangle.cpp" />
+    <ClCompile Include="GutsmanMap.cpp" />
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MGMCamera.cpp" />
     <ClCompile Include="MGMDirectXTool.cpp" />
     <ClCompile Include="MGMForm.cpp" />
-    <ClCompile Include="MGMGame.cpp" />
+    <ClCompile Include="MapScene.cpp" />
     <ClCompile Include="MGMGameTime.cpp" />
-    <ClCompile Include="MGMGameTimeLoop.cpp" />
     <ClCompile Include="MGMPoint.cpp" />
     <ClCompile Include="MGMSurface.cpp" />
     <ClCompile Include="MGMTexture.cpp" />
@@ -170,13 +175,16 @@
     <ClCompile Include="Rockman.cpp" />
     <ClCompile Include="Blader.cpp" />
     <ClCompile Include="RockmanBullet.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ScrewBomber.cpp" />
+    <ClCompile Include="SelectMapScene.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="Stage.cpp" />
     <ClCompile Include="Stairs.cpp" />
     <ClCompile Include="SuperCutter.cpp" />
     <ClCompile Include="SuperCutterBullet.cpp" />
+    <ClCompile Include="TextSprite.cpp" />
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>

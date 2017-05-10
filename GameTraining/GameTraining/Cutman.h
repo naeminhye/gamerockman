@@ -2,13 +2,16 @@
 #include "Enemy.h"
 
 enum CUTMAN_ACTION {
-	CM_WAITING_WITH_KNIFE,
-	CM_RUNNING_WITH_KNIFE,
-	CM_JUMPING_WITH_KNIFE,
-	CM_SHOOTING,
 	CM_WAITING,
 	CM_RUNNING,
-	CM_JUMPING
+	CM_JUMPING,
+	CM_ACTION_COUNT,
+	CM_SHOOTING = 6
+};
+
+enum CUTMAN_TYPE {
+	CM_NON_ATTACKING,
+	CM_ATTACKING
 };
 
 enum CUTMAN_ACTIVITY {
@@ -24,9 +27,14 @@ class Cutman :
 public:
 	DelayTime cutmanDelay;
 	CUTMAN_ACTIVITY cutmanActivity;
+	CUTMAN_TYPE cutmanType;
+	CUTMAN_ACTION cutmanAction;
 
 	void update();
 	void onLastFrameAnimation();
+
+	void setAction(int actionValue);
+
 	Cutman();
 	~Cutman();
 };

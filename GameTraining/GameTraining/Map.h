@@ -30,7 +30,7 @@ public:
 
 	void updateStageChangeByDoor();
 
-	Stage* findCutmanNextStageOnDoor();
+	virtual Stage* findNextStageOnDoor();
 
 #pragma endregion
 

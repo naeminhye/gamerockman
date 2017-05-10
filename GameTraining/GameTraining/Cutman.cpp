@@ -10,7 +10,7 @@ void Cutman::update()
 	switch (cutmanActivity)
 	{
 	case CMA_WAITING:
-		setAction(CM_WAITING_WITH_KNIFE);
+		setAction(CM_WAITING);
 		dx = 0;
 		if (cutmanDelay.isTerminated())
 		{
@@ -19,7 +19,7 @@ void Cutman::update()
 		}
 		break;
 	case CMA_RUNNING:
-		setAction(CM_RUNNING_WITH_KNIFE);
+		setAction(CM_RUNNING);
 		dx = -1;
 		if (cutmanDelay.isTerminated())
 		{
@@ -60,8 +60,25 @@ void Cutman::onLastFrameAnimation()
 	}
 }
 
+void Cutman::setAction(int actionValue)
+{
+	if (actionValue == CM_SHOOTING)
+	{
+		Enemy::setAction(actionValue);
+		return;
+	}
+	if (cutmanAction != actionValue)
+	{
+		cutmanAction = (CUTMAN_ACTION)actionValue;
+		this->action = cutmanType* CM_ACTION_COUNT + actionValue;
+		frameIndex = 0;
+
+	}
+}
+
 Cutman::Cutman()
 {
+	cutmanType = CM_NON_ATTACKING,
 	cutmanActivity = CMA_WAITING;
 	cutmanDelay.start(1000);
 	direction = Left;

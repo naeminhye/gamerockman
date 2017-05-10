@@ -12,12 +12,17 @@ SpriteManager * SpriteManager::getInstance()
 
 SpriteManager::SpriteManager()
 {
-	//add
 	sprites = new Sprite*[SPR_COUNT];
-
+	
+	/********************* rockman *********************/
 	sprites[SPR_ROCKMAN] = new Sprite();
 	sprites[SPR_ROCKMAN]->ReadFromFile("Data\\Sprite\\Rockman\\rockman.txt", "Data\\Sprite\\Rockman\\image.png");
 
+	sprites[SPR_ENEMY_DEATH] = new Sprite();
+	sprites[SPR_ENEMY_DEATH]->img = sprites[SPR_ROCKMAN]->img;
+	sprites[SPR_ENEMY_DEATH]->readInfo("Data\\Sprite\\Enemies\\death.txt");
+
+	/********************* enemies *********************/
 	sprites[SPR_OCTOPUS] = new Sprite();
 	sprites[SPR_OCTOPUS]->ReadFromFile("Data\\Sprite\\Enemies\\OctopusBattery\\octopusbattery.txt", "Data\\Sprite\\Enemies\\Enemies.png");
 
@@ -56,12 +61,14 @@ SpriteManager::SpriteManager()
 	sprites[SPR_BULLET] = new Sprite();
 	sprites[SPR_BULLET]->ReadFromFile("Data\\Sprite\\Rockman\\bullet.txt", "Data\\Sprite\\Rockman\\weapon.png");
 
+
+	/********************* bosses *********************/ 
 	sprites[SPR_CUTMAN] = new Sprite();
 	sprites[SPR_CUTMAN]->ReadFromFile("Data\\Sprite\\Enemies\\Cutman\\cutman.txt", "Data\\Sprite\\Enemies\\Cutman\\Cutman.png");
 
+	/********************* others *********************/
 	sprites[SPR_DOOR] = new Sprite();
 	sprites[SPR_DOOR]->ReadFromFile("Data\\Sprite\\Door\\door.txt", "Data\\Sprite\\Door\\Door.png");
-
 }
 
 

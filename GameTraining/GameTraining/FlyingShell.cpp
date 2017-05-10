@@ -15,24 +15,26 @@ void FlyingShell::update()
 			flyactivity = FLY_STANDING;
 			flydelay.start(FLYING_SHELL_DELAYTIME);
 			setAction(FLY_OPEN);
-
-			for (int i = -1; i <= 1; i++)
+			if (alive)
 			{
-				for (int j = -1; j <= 1; j++)
-					if (i != 0 || j != 0)
-					{
-						BeakBullet* bullet = new BeakBullet();
-						bullet->dx = FLYING_SHELL_VELOCITY * i;
-						bullet->dy = FLYING_SHELL_VELOCITY * j;
-						bullet->x = getXCenter();
-						bullet->y = getYCenter();
-						if (i != 0 && j != 0)
+				for (int i = -1; i <= 1; i++)
+				{
+					for (int j = -1; j <= 1; j++)
+						if (i != 0 || j != 0)
 						{
-							bullet->dx *= sqrt(2) / 2;
-							bullet->dy *= sqrt(2) / 2;
-						}
+							BeakBullet* bullet = new BeakBullet();
+							bullet->dx = FLYING_SHELL_VELOCITY * i;
+							bullet->dy = FLYING_SHELL_VELOCITY * j;
+							bullet->x = getXCenter();
+							bullet->y = getYCenter();
+							if (i != 0 && j != 0)
+							{
+								bullet->dx *= sqrt(2) / 2;
+								bullet->dy *= sqrt(2) / 2;
+							}
 
-					}
+						}
+				}
 			}
 
 

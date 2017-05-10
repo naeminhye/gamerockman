@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="StageSelect">
+      <UniqueIdentifier>{139bc853-4774-44b0-a6cb-d24f9d66f005}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -24,13 +27,7 @@
     <ClCompile Include="MGMForm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MGMGame.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MGMGameTime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MGMGameTimeLoop.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MGMPoint.cpp">
@@ -153,6 +150,24 @@
     <ClCompile Include="Door.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SelectMapScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MapScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CutmanMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GutsmanMap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextSprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h">
@@ -164,13 +179,7 @@
     <ClInclude Include="MGMForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MGMGame.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MGMGameTime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MGMGameTimeLoop.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MGMPoint.h">
@@ -281,9 +290,6 @@
     <ClInclude Include="FlyingShell.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BigEye.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -294,6 +300,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Door.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectMapScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MapScene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CutmanMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GutsmanMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextSprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

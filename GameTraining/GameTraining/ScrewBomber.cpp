@@ -25,26 +25,29 @@ void ScrewBomber::update()
 				screwdelay.start(SCREW_BOMBER_DELAYTIME);
 				setAction(SCREW_SHOOT);
 				setHeight(16);
-				for (int i = -1; i <= 1; i++)
+				if (alive)
 				{
-					for (int j = -1; j <= 1; j++)
-						if ((i != 0 || j != 0))
-						{
-							if (id == SCREW_TOP && j <= 0 || id == SCREW_BOTTOM && j >= 0)
+					for (int i = -1; i <= 1; i++)
+					{
+						for (int j = -1; j <= 1; j++)
+							if ((i != 0 || j != 0))
 							{
-								BeakBullet* bullet = new BeakBullet();
-								bullet->dx = SCREW_BOMBER_VELOCITY * i;
-								bullet->dy = SCREW_BOMBER_VELOCITY * j; 
-								bullet->x = getXCenter();
-								bullet->y = getYCenter(); // TODO 
-								if (i != 0 && j != 0)
+								if (id == SCREW_TOP && j <= 0 || id == SCREW_BOTTOM && j >= 0)
 								{
-									bullet->dx *= sqrt(2) / 2;
-									bullet->dy *= sqrt(2) / 2;
+									BeakBullet* bullet = new BeakBullet();
+									bullet->dx = SCREW_BOMBER_VELOCITY * i;
+									bullet->dy = SCREW_BOMBER_VELOCITY * j;
+									bullet->x = getXCenter();
+									bullet->y = getYCenter(); // TODO 
+									if (i != 0 && j != 0)
+									{
+										bullet->dx *= sqrt(2) / 2;
+										bullet->dy *= sqrt(2) / 2;
+									}
 								}
-							}
 
-						}
+							}
+					}
 				}
 			}
 			break;

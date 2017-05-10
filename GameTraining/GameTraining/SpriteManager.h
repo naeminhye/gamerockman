@@ -24,7 +24,9 @@ enum SPRITE_INFO
 	SPR_DOOR, // = 12
 	// TODO: them doi tuong
 
+	SPR_ENEMY_DEATH, 
 	SPR_COUNT //= so luong sprite
+	
 };
 
 

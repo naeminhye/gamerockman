@@ -2,4 +2,5 @@
 2. cutman
 3. màn hình chuyển map
 4. thêm if (!alive) return; cho tất cả đối tượng
-5. xoá đạn của enemy đã chết
+5. theem stage select , intro game
+6. cắt map gutsman 

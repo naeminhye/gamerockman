@@ -5,6 +5,8 @@ class CutmanMap :
 {
 public:
 	Stage* findNextStageOnDoor();
+	void render();
+	void update();
 	CutmanMap();
 	~CutmanMap();
 };

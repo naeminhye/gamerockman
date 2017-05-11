@@ -93,6 +93,7 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="Cutman.h" />
     <ClInclude Include="CutmanMap.h" />
+    <ClInclude Include="CutmanScissors.h" />
     <ClInclude Include="DelayTime.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="Enemy.h" />
@@ -101,6 +102,7 @@
     <ClInclude Include="FlyingShell.h" />
     <ClInclude Include="FRectangle.h" />
     <ClInclude Include="GutsmanMap.h" />
+    <ClInclude Include="IntroScene.h" />
     <ClInclude Include="KEY.h" />
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="List.h" />
@@ -146,6 +148,7 @@
     <ClCompile Include="Constant.cpp" />
     <ClCompile Include="Cutman.cpp" />
     <ClCompile Include="CutmanMap.cpp" />
+    <ClCompile Include="CutmanScissors.cpp" />
     <ClCompile Include="DelayTime.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Enemy.cpp" />
@@ -154,6 +157,7 @@
     <ClCompile Include="FlyingShell.cpp" />
     <ClCompile Include="FRectangle.cpp" />
     <ClCompile Include="GutsmanMap.cpp" />
+    <ClCompile Include="IntroScene.cpp" />
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Map.cpp" />

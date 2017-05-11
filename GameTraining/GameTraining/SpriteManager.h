@@ -22,9 +22,10 @@ enum SPRITE_INFO
 	SPR_BOMBER, // = 10 SCREW BOMBER
 	SPR_CUTMAN, // = 11
 	SPR_DOOR, // = 12
+	SPR_CUTMAN_SCISSORS, // 13
 	// TODO: them doi tuong
 
-	SPR_ENEMY_DEATH, 
+	//SPR_ENEMY_DEATH, 
 	SPR_COUNT //= so luong sprite
 	
 };

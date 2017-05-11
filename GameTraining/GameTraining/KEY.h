@@ -14,13 +14,15 @@ public:
 			isAttackDown,
 			isPreviousAttackDown,
 			isAttackPress, 
-			isEnter;
+			isEnter,
+			isEnterPress,
+			isPreviousEnter;
 
 	static KEY* instance;
 	static KEY* getInstance();
 
 	void update();
-	
+
 	KEY();
 	~KEY();
 };

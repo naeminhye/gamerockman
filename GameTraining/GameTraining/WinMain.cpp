@@ -7,6 +7,7 @@
 #include"KEY.h"
 #include"Scene.h"
 #include"SelectMapScene.h"
+#include"IntroScene.h"
 #include<time.h>
 #include<stdlib.h>
 
@@ -22,7 +23,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	DWORD timeSleep = 1000.0/FPS;
 
 	CKeyboard::Create(hInstance,MGMForm::getInstance()->getHandleWindow());
-	Scene::changeScene(new SelectMapScene());
+	Scene::changeScene(new IntroScene());
 	MSG msg;
 	ZeroMemory(&msg, sizeof(msg));
 

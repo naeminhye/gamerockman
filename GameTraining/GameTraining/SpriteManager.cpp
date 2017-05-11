@@ -18,9 +18,9 @@ SpriteManager::SpriteManager()
 	sprites[SPR_ROCKMAN] = new Sprite();
 	sprites[SPR_ROCKMAN]->ReadFromFile("Data\\Sprite\\Rockman\\rockman.txt", "Data\\Sprite\\Rockman\\image.png");
 
-	sprites[SPR_ENEMY_DEATH] = new Sprite();
+	/*sprites[SPR_ENEMY_DEATH] = new Sprite();
 	sprites[SPR_ENEMY_DEATH]->img = sprites[SPR_ROCKMAN]->img;
-	sprites[SPR_ENEMY_DEATH]->readInfo("Data\\Sprite\\Enemies\\death.txt");
+	sprites[SPR_ENEMY_DEATH]->readInfo("Data\\Sprite\\Enemies\\death.txt");*/
 
 	/********************* enemies *********************/
 	sprites[SPR_OCTOPUS] = new Sprite();
@@ -65,6 +65,10 @@ SpriteManager::SpriteManager()
 	/********************* bosses *********************/ 
 	sprites[SPR_CUTMAN] = new Sprite();
 	sprites[SPR_CUTMAN]->ReadFromFile("Data\\Sprite\\Enemies\\Cutman\\cutman.txt", "Data\\Sprite\\Enemies\\Cutman\\Cutman.png");
+
+	sprites[SPR_CUTMAN_SCISSORS] = new Sprite();
+	sprites[SPR_CUTMAN_SCISSORS]->img = sprites[SPR_CUTMAN]->img;
+	sprites[SPR_CUTMAN_SCISSORS]->readInfo("Data\\Sprite\\Enemies\\Cutman\\cutmanscissors.txt");
 
 	/********************* others *********************/
 	sprites[SPR_DOOR] = new Sprite();

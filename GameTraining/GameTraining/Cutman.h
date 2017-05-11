@@ -1,6 +1,13 @@
 #pragma once
 #include "Enemy.h"
 
+enum CUTMAN_ACTIVITY_RAND
+{
+	CAR_WAITING,
+	CAR_JUMPING,
+	CAR_SHOOTING
+};
+
 enum CUTMAN_ACTION {
 	CM_WAITING,
 	CM_RUNNING,
@@ -29,12 +36,20 @@ public:
 	CUTMAN_ACTIVITY cutmanActivity;
 	CUTMAN_TYPE cutmanType;
 	CUTMAN_ACTION cutmanAction;
-
+	void updateWaiting();
+	void updateRunning();
+	void updateJumping();
+	void updateShooting();
 	void update();
 	void onLastFrameAnimation();
+	bool checkNearRockman();
 
+	void selectActivity(CUTMAN_ACTIVITY_RAND except);
+	void setActivity(CUTMAN_ACTIVITY cutmanActivity);
+	void setType(CUTMAN_TYPE cutmanType);
 	void setAction(int actionValue);
 
+	void onCollision(FBox* other, int nx, int ny);
 	Cutman();
 	~Cutman();
 };

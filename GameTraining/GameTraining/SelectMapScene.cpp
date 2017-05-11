@@ -7,21 +7,22 @@
 
 void SelectMapScene::init()
 {
-	img->Init("Data\\Sprite\\Scene\\introscene.png", D3DCOLOR_XRGB(0, 0, 0));
+	img->Init("Data\\Sprite\\Scene\\stageselect.png", D3DCOLOR_XRGB(0, 0, 0));
+
 }
 
 void SelectMapScene::update()
 {
-	bool keyEnter = KEY::getInstance()->isEnter;
-	bool keySpace = KEY::getInstance()->isJumpDown;
-	if (keyEnter)
+	bool keyEnterPress = KEY::getInstance()->isEnterPress;
+	bool keySpacePress = KEY::getInstance()->isJumpPress;
+	if (keyEnterPress)
 	{
 		MapScene* mapScene = new MapScene();
 		Scene::changeScene(mapScene);
 		mapScene->setCurMap(new CutmanMap());
 
 	}
-	else if (keySpace)
+	else if (keySpacePress)
 	{
 		MapScene* mapScene = new MapScene();
 		Scene::changeScene(mapScene);
@@ -41,6 +42,7 @@ void SelectMapScene::render()
 SelectMapScene::SelectMapScene()
 {
 	img = new MGMTexture();
+
 }
 
 

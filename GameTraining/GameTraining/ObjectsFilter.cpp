@@ -55,7 +55,7 @@ void ObjectsFilter::removeObject(BaseObject * object)
 		break;
 	case CT_OUTERSPACE:
 		outerSpaces._Remove(object);
-		break;
+		break; 
 	default:
 		break;
 	}

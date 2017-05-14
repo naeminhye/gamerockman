@@ -12,7 +12,8 @@ enum COLLISION_TYPE
 	CT_ROCKMAN,
 	CT_OUTERSPACE, 
 	CT_NONE,
-	CT_DOOR
+	CT_DOOR,
+	CT_BRIDGE
 };
 
 class FBox : public FRectangle

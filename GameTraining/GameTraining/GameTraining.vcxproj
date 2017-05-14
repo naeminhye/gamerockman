@@ -89,6 +89,7 @@
     <ClInclude Include="Beak.h" />
     <ClInclude Include="BeakBullet.h" />
     <ClInclude Include="BigEye.h" />
+    <ClInclude Include="Bridge.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Cutman.h" />
@@ -107,6 +108,7 @@
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="Map.h" />
+    <ClInclude Include="Met.h" />
     <ClInclude Include="MGMCamera.h" />
     <ClInclude Include="MGMDirectXTool.h" />
     <ClInclude Include="MGMForm.h" />
@@ -137,6 +139,7 @@
     <ClInclude Include="SuperCutterBullet.h" />
     <ClInclude Include="TextSprite.h" />
     <ClInclude Include="TileMap.h" />
+    <ClInclude Include="Trundle.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
@@ -144,6 +147,7 @@
     <ClCompile Include="Beak.cpp" />
     <ClCompile Include="BeakBullet.cpp" />
     <ClCompile Include="BigEye.cpp" />
+    <ClCompile Include="Bridge.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Constant.cpp" />
     <ClCompile Include="Cutman.cpp" />
@@ -161,6 +165,7 @@
     <ClCompile Include="KEY.cpp" />
     <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Met.cpp" />
     <ClCompile Include="MGMCamera.cpp" />
     <ClCompile Include="MGMDirectXTool.cpp" />
     <ClCompile Include="MGMForm.cpp" />
@@ -190,6 +195,7 @@
     <ClCompile Include="SuperCutterBullet.cpp" />
     <ClCompile Include="TextSprite.cpp" />
     <ClCompile Include="TileMap.cpp" />
+    <ClCompile Include="Trundle.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -16,6 +16,9 @@
 #include "ScrewBomber.h"
 #include "Cutman.h"
 #include "Door.h"
+#include "Met.h"
+#include "Trundle.h"
+#include "Bridge.h"
 
 bool Map::onStageChangeByDoor = false;
 
@@ -205,6 +208,18 @@ void Map::readObjects(char * objectsPath)
 		case SPR_DOOR:
 			objects[i] = new Door();
 			break;
+		case SPR_MET:
+			objects[i] = new Met();
+			break;
+		case SPR_TRUNDLE:
+			objects[i] = new Trundle();
+			break;
+		case SPR_PICKET:
+			objects[i] = new Picket();
+			break;
+		case SPR_BRIDGE:
+			objects[i] = new Bridge();
+			break;
 			//TODO: Them doi tuong nho them vao day
 		default:
 			objects[i] = new BaseObject();
@@ -299,6 +314,7 @@ void Map::update()
 		auto obj = stairsInCam->at(i);
 		Collision::CheckCollision(Rockman::getInstance(), obj);
 	}
+
 	for (size_t i = 0; i < nGroundObjectsCam; i++)
 	{
 		auto obj = groundsInCam->at(i);

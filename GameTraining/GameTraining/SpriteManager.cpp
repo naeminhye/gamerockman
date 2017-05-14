@@ -61,6 +61,17 @@ SpriteManager::SpriteManager()
 	sprites[SPR_BULLET] = new Sprite();
 	sprites[SPR_BULLET]->ReadFromFile("Data\\Sprite\\Rockman\\bullet.txt", "Data\\Sprite\\Rockman\\weapon.png");
 
+	sprites[SPR_MET] = new Sprite();
+	sprites[SPR_MET]->img = sprites[SPR_OCTOPUS]->img;
+	sprites[SPR_MET]->readInfo("Data\\Sprite\\Enemies\\Met\\met.txt");
+
+	sprites[SPR_TRUNDLE] = new Sprite();
+	sprites[SPR_TRUNDLE]->img = sprites[SPR_OCTOPUS]->img;
+	sprites[SPR_TRUNDLE]->readInfo("Data\\Sprite\\Enemies\\Trundle\\trundle.txt");
+
+	sprites[SPR_PICKET] = new Sprite();
+	sprites[SPR_PICKET]->img = sprites[SPR_OCTOPUS]->img;
+	sprites[SPR_PICKET]->readInfo("Data\\Sprite\\Enemies\\Picket\\picket.txt");
 
 	/********************* bosses *********************/ 
 	sprites[SPR_CUTMAN] = new Sprite();

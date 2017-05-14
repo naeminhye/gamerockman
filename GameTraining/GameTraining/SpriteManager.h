@@ -3,6 +3,7 @@
 
 enum SPRITE_INFO
 {
+	SPR_BRIDGE = -7,
 	SPR_SPIKE = -6,
 	SPR_OUTERSPACE, // = - 5
 	SPR_CUTTER, // = -4
@@ -22,7 +23,10 @@ enum SPRITE_INFO
 	SPR_BOMBER, // = 10 SCREW BOMBER
 	SPR_CUTMAN, // = 11
 	SPR_DOOR, // = 12
-	SPR_CUTMAN_SCISSORS, // 13
+	SPR_MET, // = 13
+	SPR_TRUNDLE, // = 14
+	SPR_PICKET, // = 15
+	SPR_CUTMAN_SCISSORS, // 
 	// TODO: them doi tuong
 
 	//SPR_ENEMY_DEATH, 

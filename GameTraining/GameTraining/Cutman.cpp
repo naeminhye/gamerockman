@@ -50,7 +50,7 @@ void Cutman::update()
 	cutmanDelay.update();
 	if(cutmanActivity != CMA_JUMPING)
 		Enemy::initDirectionFollowRockman();
-	vx = direction*0.1;
+	vx = direction * 0.1; // TODO luu constant
 	switch (cutmanActivity)
 	{
 	case CMA_WAITING:
@@ -86,7 +86,7 @@ void Cutman::onLastFrameAnimation()
 
 bool Cutman::checkNearRockman()
 {
-	float delta = 50;
+	float delta = 50; // TODO: luu constant
 	return abs(getXCenter() - Rockman::getInstance()->getXCenter()) < delta;
 }
 

@@ -54,10 +54,6 @@ public:
 	void update();
 	void render();
 
-	//dia chi cau thang dang va cham voi rockman
-	BaseObject* stairIntersect;
-
-	void setIsIntersectStair(bool isIntersectStair);
 	MGMGameTime delay;
 	void onCollision(FBox* other, int nx, int ny);
 
@@ -67,6 +63,9 @@ public:
 
 #pragma region STAIR
 
+	//dia chi cau thang dang va cham voi rockman
+	BaseObject* stairIntersect;
+	void setIsIntersectStair(bool isIntersectStair);
 	bool onStair;
 	void setOnStair(bool onStair);
 	void updateStair();

@@ -5,4 +5,4 @@
 5. sửa stage select , intro game
 6. cắt map gutsman 
 7. explosion khi con enemy chết (giống đạn)
-8. Sửa sprite của cutman cho đều
+8. Sửa sprite của cutman cho đều // ok

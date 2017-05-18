@@ -27,9 +27,12 @@ enum SPRITE_INFO
 	SPR_TRUNDLE, // = 14
 	SPR_PICKET, // = 15
 	SPR_CUTMAN_SCISSORS, // 
+	SPR_PICKET_BULLET,
+	SPR_SELECT_MAP_FRAME,
 	// TODO: them doi tuong
 
-	//SPR_ENEMY_DEATH, 
+	SPR_ENEMY_DEATH, 
+	SPR_ITEMS,
 	SPR_COUNT //= so luong sprite
 	
 };

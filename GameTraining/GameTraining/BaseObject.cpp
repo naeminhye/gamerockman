@@ -22,7 +22,7 @@ void BaseObject::restoreLocation()
 BaseObject::BaseObject() 
 {
 	sprite = 0;
-	delay.tickPerFrame = 100;
+	delay.tickPerFrame = 100;//TODO luu constant
 	frameIndex = 0;
 	action = 0;
 	pauseAnimation = false;

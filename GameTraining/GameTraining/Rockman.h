@@ -24,7 +24,8 @@ enum ROCKMAN_ACTION
 	RM_RUN_SHOOT,
 	RM_STAIR_SHOOT,
 	RM_JUMP_SHOOT,
-	RM_ACTION_COUNT
+	RM_ACTION_COUNT,
+	RM_TELEPORT = 33
 };
 
 enum BLINK_ACTIVITY
@@ -86,6 +87,13 @@ public:
 	void onLastFrameAnimation();
 	bool onAttack;
 	bool isAttack();
+
+#pragma region TELEPORT
+
+	bool onTeleport;
+	void updateTeleport();
+
+#pragma endregion
 
 };
 

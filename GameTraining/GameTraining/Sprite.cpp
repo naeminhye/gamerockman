@@ -10,6 +10,16 @@ Sprite::~Sprite()
 {
 }
 
+int Sprite::getHeight(int action, int frameIndex)
+{
+	return anims[action].frames[frameIndex].bottom- anims[action].frames[frameIndex].top;
+}
+
+int Sprite::getWidth(int action, int frameIndex)
+{
+	return anims[action].frames[frameIndex].right - anims[action].frames[frameIndex].left;
+}
+
 void Sprite::render(int x, int y, int action, int frameIndex)
 {
 	img->RenderTexture(x, y, &anims[action].frames[frameIndex]);

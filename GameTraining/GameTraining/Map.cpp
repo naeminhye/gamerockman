@@ -19,6 +19,9 @@
 #include "Met.h"
 #include "Trundle.h"
 #include "Bridge.h"
+#include "PicketBullet.h"
+#include "Death.h"
+#include "Item.h"
 
 bool Map::onStageChangeByDoor = false;
 
@@ -144,7 +147,7 @@ void Map::updateStageChangeByDoor()
 			camera->x += camera->dx;
 			Rockman::getInstance()->x += 1;
 			Rockman::getInstance()->dx = 0;
-			Rockman::getInstance()->vx =0;
+			Rockman::getInstance()->vx = 0;
 			Rockman::getInstance()->BaseObject::update();
 		}
 		break;
@@ -231,7 +234,7 @@ void Map::readObjects(char * objectsPath)
 			>> objects[i]->width
 			>> objects[i]->height;
 
-		objects[i]->init();
+
 
 		objects[i]->y = rowCount * 16 - objects[i]->y;
 
@@ -250,6 +253,8 @@ void Map::readObjects(char * objectsPath)
 				>> mov->spaceMove.height;
 			mov->spaceMove.y = rowCount * 16 - mov->spaceMove.y;
 		}
+
+		objects[i]->init();
 	}
 }
 
@@ -354,7 +359,7 @@ void Map::update()
 		for (size_t j = 0; j < nEnemyObjectsCam; j++)
 		{
 			auto enemy = enemiesInCam->at(j);
-			Collision::CheckCollision( RockmanBullet::bullets->at(i),enemy);
+			Collision::CheckCollision(RockmanBullet::bullets->at(i), enemy);
 
 		}
 
@@ -375,6 +380,17 @@ void Map::update()
 		}
 	}
 
+	for (size_t i = 0; i < PicketBullet::bullets->Count; i++)
+	{
+		PicketBullet::bullets->at(i)->update();
+		PicketBullet::bullets->at(i)->updateLocation();
+		if (!Collision::AABBCheck(MGMCamera::getInstance(), PicketBullet::bullets->at(i)))
+		{
+			PicketBullet::bullets->at(i)->deleteBullet();
+			i--;
+		}
+	}
+
 	for (size_t i = 0; i < SuperCutterBullet::bullets->Count; i++)
 	{
 		SuperCutterBullet::bullets->at(i)->update();
@@ -382,6 +398,26 @@ void Map::update()
 		if (!Collision::AABBCheck(MGMCamera::getInstance(), SuperCutterBullet::bullets->at(i)))
 		{
 			SuperCutterBullet::bullets->at(i)->deleteBullet();
+			i--;
+		}
+	}
+
+	for (size_t i = 0; i < Death::deaths->Count; i++)
+	{
+		Death::deaths->at(i)->update();
+	}
+
+	for (size_t i = 0; i < Item::items->Count; i++)
+	{
+		Item::items->at(i)->update();
+		for (size_t j = 0; j < nGroundObjectsCam; j++)
+		{
+			Collision::CheckCollision(Item::items->at(i), groundsInCam->at(j));
+		}
+		Item::items->at(i)->updateLocation();
+		if (Collision::AABBCheck(Rockman::getInstance(), Item::items->at(i)))
+		{
+			Item::items->at(i)->onIntersect(Rockman::getInstance());
 			i--;
 		}
 	}
@@ -405,6 +441,12 @@ void Map::render()
 		BeakBullet::bullets->at(i)->render();
 	}
 
+	for (size_t i = 0; i < PicketBullet::bullets->Count; i++)
+	{
+		PicketBullet::bullets->at(i)->render();
+	}
+
+
 	for (size_t i = 0; i < RockmanBullet::bullets->Count; i++)
 	{
 		RockmanBullet::bullets->at(i)->render();
@@ -413,6 +455,17 @@ void Map::render()
 	for (size_t i = 0; i < SuperCutterBullet::bullets->Count; i++)
 	{
 		SuperCutterBullet::bullets->at(i)->render();
+	}
+
+
+	for (size_t i = 0; i < Death::deaths->Count; i++)
+	{
+		Death::deaths->at(i)->render();
+	}
+
+	for (size_t i = 0; i < Item::items->Count; i++)
+	{
+		Item::items->at(i)->render();
 	}
 
 	// TODO ThemDan st2: Nhớ vẽ khi thêm đối tượng nhé <3

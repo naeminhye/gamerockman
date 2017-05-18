@@ -82,5 +82,13 @@ extern int FLYING_SHELL_DELAYTIME;
 extern int FLYING_SHELL_RUNNING_DY;
 extern int FLYING_SHELL_VELOCITY;
 
+extern int MET_ATTACK;
+extern int MET_DELAYTIME;
+
+extern int PICKET_DELAYTIME_FRAME;
+extern int PICKET_DELAYTIME;
+extern int PICKET_BULLET_VY;
+extern int PICKET_BULLET_V;
+
 extern float CUTMAN_JUMP_VY;
 #pragma endregion

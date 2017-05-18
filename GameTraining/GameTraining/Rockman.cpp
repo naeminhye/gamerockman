@@ -17,6 +17,12 @@ Rockman * Rockman::getInstance()
 
 void Rockman::update()
 {
+	if (onTeleport)
+	{
+		updateTeleport();
+		return;
+	}
+
 	updateAttack();
 	shootDelay.update();
 	if (shootDelay.isTerminated())
@@ -149,12 +155,29 @@ void Rockman::onLastFrameAnimation()
 		else
 			setAction(RM_STAND);
 	}
+	if (onTeleport)
+	{
+		onTeleport = false;
+		setHeight(sprite->getHeight(RM_STAND, 0));
+		setAction(RM_JUMP);
 
+	}
 }
 
 bool Rockman::isAttack()
 {
 	return (rm_action == RM_STAND_SHOOT) || (rm_action == RM_RUN_SHOOT || (rm_action == RM_STAIR_SHOOT));
+}
+
+void Rockman::updateTeleport()
+{
+	setHeight(sprite->getHeight(action, frameIndex));
+	if (ground)
+	{
+		pauseAnimation = false;
+	}
+	BaseObject::update();
+	MovableObject::updateMove();
 }
 
 void Rockman::setIsIntersectStair(bool isIntersectStair)
@@ -187,6 +210,8 @@ Rockman::~Rockman()
 
 void Rockman::onCollision(FBox * other, int nx, int ny)
 {
+
+
 	bool keyDown = KEY::getInstance()->isDownDown;
 	if (onStair && other->collisionType == CT_GROUND && ny == 1 && isIntersectStair && keyDown)
 		onStair = false;
@@ -198,7 +223,15 @@ void Rockman::onCollision(FBox * other, int nx, int ny)
 		slideHandle();
 		ground = true;
 	}
-	MovableObject::onCollision(other, nx, ny);
+
+
+	if (other->collisionType == CT_GROUND && ny == 1)
+	{
+		ground = true;
+	}
+
+
+	BaseObject::onCollision(other, nx, ny);
 }
 
 void Rockman::updateBlink()
@@ -305,6 +338,11 @@ void Rockman::updateStair()
 
 void Rockman::setAction(int actionValue)
 {
+	if (actionValue > RM_ACTION_COUNT)
+	{
+		MovableObject::setAction(actionValue);
+		return;
+	}
 	if (rm_action != actionValue)
 	{
 		rm_action = (ROCKMAN_ACTION)actionValue;

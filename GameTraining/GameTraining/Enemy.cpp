@@ -1,6 +1,6 @@
 #include "Enemy.h"
-
-
+#include "Death.h"
+#include "IncreasePointItem.h"
 
 bool Enemy::setHealthPoint(int healthPoint)
 {
@@ -29,6 +29,19 @@ void Enemy::onIntersect(FBox * other)
 		if (!setHealthPoint(healthPoint - 1))
 		{
 			alive = false;
+			Death* death = new Death();
+			death->x = x;
+			death->y = y;
+
+
+
+			Item* item = new IncreasePointItem();
+			item->x = x;
+			item->y = y;
+
+			item->width = item->sprite->getWidth(item->action, item->frameIndex);
+			item->height = item->sprite->getHeight(item->action, item->frameIndex);
+			// TODO them item
 		}
 	}
 }

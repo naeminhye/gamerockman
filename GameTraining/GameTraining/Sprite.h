@@ -23,6 +23,8 @@ public:
 	MGMTexture* img;
 	Sprite();
 	~Sprite();
+	int getHeight(int action, int frameIndex);
+	int getWidth(int action, int frameIndex);
 	void render(int x, int y, int action, int frameIndex);
 	void update(int action, int &frameIndex);
 	void ReadFromFile(char * infopath, char * imagepath);

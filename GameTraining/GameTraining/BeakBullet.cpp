@@ -19,6 +19,7 @@ BeakBullet::BeakBullet()
 	height = sprite->anims[0].frames[0].bottom - sprite->anims[0].frames[0].top;
 	bullets->_Add(this);
 	collisionType = CT_BULLET;
+	direction = Left;
 }
 
 

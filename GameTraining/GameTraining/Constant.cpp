@@ -96,7 +96,23 @@ int FLYING_SHELL_DELAYTIME = 1000;
 int FLYING_SHELL_RUNNING_DY = -1;
 int FLYING_SHELL_VELOCITY = 3;
 
-#pragma endregion
+#pragma endregion 
+
+#pragma region MET
+
+int MET_ATTACK = 100;
+int MET_DELAYTIME = 1000;
+
+#pragma endregion 
+
+#pragma region PICKET_MAN 
+
+int PICKET_DELAYTIME_FRAME = 200;
+int PICKET_DELAYTIME = 2000;
+int PICKET_BULLET_VY = 0.38;
+int PICKET_BULLET_V = 500;
+#pragma endregion 
+
 
 #pragma region CUTMAN
 

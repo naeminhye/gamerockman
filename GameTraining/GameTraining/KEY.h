@@ -3,8 +3,12 @@
 class KEY
 {
 public:
-	bool	isLeftDown,
+	bool	isLeftDown, 
+			isLeftPress,
+			isPreviousLeftDown,
 			isRightDown,
+			isRightPress,
+			isPreviousRightDown,
 			isJumpDown,
 			isPreviousJumpDown,
 			isJumpPress,

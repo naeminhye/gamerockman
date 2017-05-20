@@ -1,11 +1,11 @@
 #pragma once
 #include "Item.h"
-class IncreasePointItem :
+class BigLifeEnergyItem :
 	public Item
 {
 public:
 	void onIntersect(FBox* other);
-	IncreasePointItem();
-	~IncreasePointItem();
+	BigLifeEnergyItem();
+	~BigLifeEnergyItem();
 };
 

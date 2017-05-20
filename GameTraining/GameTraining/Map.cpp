@@ -407,20 +407,24 @@ void Map::update()
 		Death::deaths->at(i)->update();
 	}
 
-	for (size_t i = 0; i < Item::items->Count; i++)
+	if (Item::items->Count > 0)
 	{
-		Item::items->at(i)->update();
-		for (size_t j = 0; j < nGroundObjectsCam; j++)
+		for (size_t i = 0; i < Item::items->Count; i++)
 		{
-			Collision::CheckCollision(Item::items->at(i), groundsInCam->at(j));
-		}
-		Item::items->at(i)->updateLocation();
-		if (Collision::AABBCheck(Rockman::getInstance(), Item::items->at(i)))
-		{
-			Item::items->at(i)->onIntersect(Rockman::getInstance());
-			i--;
+			Item::items->at(i)->update();
+			for (size_t j = 0; j < nGroundObjectsCam; j++)
+			{
+				Collision::CheckCollision(Item::items->at(i), groundsInCam->at(j));
+			}
+			Item::items->at(i)->updateLocation();
+			if (Collision::AABBCheck(Rockman::getInstance(), Item::items->at(i)))
+			{
+				Item::items->at(i)->onIntersect(Rockman::getInstance());
+				i--;
+			}
 		}
 	}
+	
 }
 
 void Map::render()

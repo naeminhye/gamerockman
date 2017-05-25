@@ -2,6 +2,7 @@
 #include "Rockman.h"
 #include"KEY.h"
 #include"Map.h"
+#include "RockmanCutBullet.h"
 
 Rockman * Rockman::instance = 0;
 void Rockman::setHealth(int health)
@@ -17,6 +18,9 @@ Rockman * Rockman::getInstance()
 
 void Rockman::update()
 {
+	updateFlicker();
+	updateRockmanType();
+
 	if (onTeleport)
 	{
 		updateTeleport();
@@ -112,6 +116,8 @@ void Rockman::update()
 
 void Rockman::render()
 {
+	if (isDisappear)
+		return;
 	if (sprite == 0)
 		return;
 	float yRender;
@@ -180,6 +186,30 @@ void Rockman::updateTeleport()
 	MovableObject::updateMove();
 }
 
+void Rockman::updateRockmanType()
+{
+	bool keyQ, keyW;
+	keyQ = KEY::getInstance()->isQDown;
+	keyW = KEY::getInstance()->isWDown;
+	
+	if (keyQ)
+	{
+		rm_type = ROCKMAN_TYPE::RMT_NORMAL;
+		this->action = rm_type* RM_ACTION_COUNT + rm_action;
+	}
+	else if (keyW)
+	{
+		rm_type = ROCKMAN_TYPE::RMT_CUTMAN;
+		this->action = rm_type* RM_ACTION_COUNT + rm_action;
+	}
+}
+
+void Rockman::updateFlicker()
+{
+	if(disappearTime.atTime())
+		isDisappear = !isDisappear;
+}
+
 void Rockman::setIsIntersectStair(bool isIntersectStair)
 {
 	this->isIntersectStair = isIntersectStair;
@@ -201,6 +231,8 @@ Rockman::Rockman()
 	direction = Right;
 	onAttack = false;
 	collisionType = CT_ROCKMAN;
+	disappearTime.tickPerFrame = 20;// TODO LUU CONSTANT
+	isDisappear = false;
 }
 
 
@@ -338,6 +370,8 @@ void Rockman::updateStair()
 
 void Rockman::setAction(int actionValue)
 {
+	//if (onAttack && actionValue!= RM_STAND_SHOOT&& actionValue != RM_RUN_SHOOT)
+	//	return;
 	if (actionValue > RM_ACTION_COUNT)
 	{
 		MovableObject::setAction(actionValue);
@@ -388,18 +422,51 @@ void Rockman::updateAttack()
 		onAttack = true;
 		//if(!shootDelay.isOnTime())
 		shootDelay.start();
-		if(!rmBulletDelay.isOnTime() && RockmanBullet::bullets->Count < 3)
-		{
-			RockmanBullet* bullet = new RockmanBullet();
-			bullet->dx = 3*direction;
-			bullet->dy = 0;
-			bullet->x = x;
-			if (direction == Right)
-				bullet->x += width;
 
-			bullet->y = y - 8;
-			rmBulletDelay.start();
+		switch (rm_type)
+		{
+		case RMT_NORMAL:
+			if (!rmBulletDelay.isOnTime() && RockmanBullet::bullets->Count < 3) 
+			{
+				RockmanBullet* bullet = new RockmanBullet();
+				bullet->dx = 3 * direction;
+				bullet->dy = 0;
+				bullet->x = x;
+				if (direction == Right)
+					bullet->x += width;
+				bullet->y = y - 8;
+				rmBulletDelay.start();
+			}
+			break;
+		case RMT_CUTMAN:
+			if (!rmBulletDelay.isOnTime() && RockmanBullet::bullets->Count < 1)
+			{
+				RockmanBullet* bullet = new RockmanCutBullet();
+				bullet->direction = direction;
+				int a = 50;//TODO them constant
+				bullet->oldRect.x = x;
+				bullet->oldRect.y = y;
+				if (direction < 0)
+				{
+					bullet->oldRect.x = x - 2 * a;
+				}
+				bullet->dx = 3 * direction;
+				bullet->dy = 0;
+				bullet->x = x;
+
+				if (direction == Right)
+					bullet->x += width;
+				bullet->y = y - 8;
+				rmBulletDelay.start();
+			}
+			
+			break;
+		case RMT_GUSTMAN:
+			break;
+		default:
+			break;
 		}
+		
 	}
 	rmBulletDelay.update();
 }

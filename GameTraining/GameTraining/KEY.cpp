@@ -36,6 +36,9 @@ void KEY::update()
 	isEnter = CKeyboard::getInstance()->IsKeyDown(DIK_RETURN) || CKeyboard::getInstance()->IsKeyDown(DIK_NUMPADENTER);
 	isEnterPress = isEnter && !isPreviousEnter;
 	isPreviousEnter = isEnter;
+
+	isQDown = CKeyboard::getInstance()->IsKeyDown(DIK_Q);
+	isWDown = CKeyboard::getInstance()->IsKeyDown(DIK_W);
 }
 
 KEY::KEY()

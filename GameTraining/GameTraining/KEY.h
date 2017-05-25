@@ -20,7 +20,9 @@ public:
 			isAttackPress, 
 			isEnter,
 			isEnterPress,
-			isPreviousEnter;
+			isPreviousEnter,
+			isQDown,
+			isWDown;
 
 	static KEY* instance;
 	static KEY* getInstance();

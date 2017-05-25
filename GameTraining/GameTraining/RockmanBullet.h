@@ -6,7 +6,7 @@ class RockmanBullet : public MovableObject
 {
 public:
 	static List<RockmanBullet*>* bullets;
-	void update();
+	virtual void update();
 
 	bool canDelete;
 

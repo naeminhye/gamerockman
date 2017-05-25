@@ -25,6 +25,10 @@
 extern float BOX_GRAVITATIONAL_ACCELERATION;
 extern int BOX_TIME;
 
+extern int BASE_OBJECT_TICK_PER_FRAME;
+
+extern int DOOR_CAMERA_CHANGING_DX;
+
 extern int STAIR_DELTA;
 extern int STAIR_DY;
 extern int DISTANCE_OUT_STAIR;

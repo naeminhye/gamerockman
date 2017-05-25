@@ -60,7 +60,6 @@ public:
 
 	void updateBlink();
 	DelayTime blinkDelay;
-	DelayTime shootDelay;
 
 #pragma region STAIR
 
@@ -83,6 +82,7 @@ public:
 #pragma endregion
 
 	DelayTime rmBulletDelay;
+	DelayTime shootDelay;
 	void updateAttack();
 	void onLastFrameAnimation();
 	bool onAttack;
@@ -95,5 +95,11 @@ public:
 
 #pragma endregion
 
+	void updateRockmanType();
+
+
+	MGMGameTime disappearTime;
+	bool isDisappear;
+	void updateFlicker(); // khi di'nh da.n
 };
 

@@ -129,7 +129,7 @@ void Map::updateStageChangeByDoor()
 		break;
 	case DOOR_CAMERA_CHANGING:
 		camera = MGMCamera::getInstance();
-		camera->dx = 3;//TODO luu constant
+		camera->dx = DOOR_CAMERA_CHANGING_DX;//TODO luu constant
 		//tim next stage
 		nextStage = findNextStageOnDoor();
 		if (camera->x + camera->dx > nextStage->left())
@@ -161,7 +161,7 @@ void Map::updateStageChangeByDoor()
 
 Stage * Map::findNextStageOnDoor()
 {
-	return Stage::curStage;
+	return stages[ Stage::curStage->index+1];
 }
 
 void Map::readObjects(char * objectsPath)
@@ -308,6 +308,12 @@ void Map::update()
 	int nGroundObjectsCam = MGMCamera::getInstance()->objects.grounds.size();
 	auto groundsInCam = &MGMCamera::getInstance()->objects.grounds;
 
+	int nTrundle = MGMCamera::getInstance()->objects.trundles.size();
+	auto trundlesInCam = &MGMCamera::getInstance()->objects.trundles;
+
+	int nBridge = MGMCamera::getInstance()->objects.bridges.size();
+	auto bridgesInCam = &MGMCamera::getInstance()->objects.bridges;
+
 	for (size_t i = 0; i < nObjectsCam; i++)
 	{
 		auto obj = allObjectsInCam->at(i);
@@ -342,18 +348,27 @@ void Map::update()
 		enemy->updateLocation();
 	}
 
-	Rockman::getInstance()->updateLocation();
-	camera->update();
 
-	for (size_t i = 0; i < nSpace; i++)
+	for (size_t i = 0; i < nTrundle; i++)
 	{
-		auto obj = spacesInCam->at(i);
-		Collision::CheckCollision(MGMCamera::getInstance(), obj);
+		auto obj = trundlesInCam->at(i);
+		Collision::CheckCollision(Rockman::getInstance(), obj);
+		for (size_t j = 0; j < nBridge; j++)
+		{
+			Collision::CheckCollision(obj, bridgesInCam->at(j));
+		}
 	}
 
-	camera->updateLocation();
+	for (size_t i = 0; i < nTrundle; i++)
+	{
+		auto obj = trundlesInCam->at(i);
+		obj->updateLocation();
+	}
+
+
 	for (size_t i = 0; i < RockmanBullet::bullets->Count; i++)
 	{
+		RockmanBullet::bullets->at(i)->update();
 		RockmanBullet::bullets->at(i)->updateLocation();
 
 		for (size_t j = 0; j < nEnemyObjectsCam; j++)
@@ -407,24 +422,30 @@ void Map::update()
 		Death::deaths->at(i)->update();
 	}
 
-	if (Item::items->Count > 0)
+
+	for (size_t i = 0; i < Item::items->Count; i++)
 	{
-		for (size_t i = 0; i < Item::items->Count; i++)
+		Item::items->at(i)->update();
+		for (size_t j = 0; j < nGroundObjectsCam; j++)
 		{
-			Item::items->at(i)->update();
-			for (size_t j = 0; j < nGroundObjectsCam; j++)
-			{
-				Collision::CheckCollision(Item::items->at(i), groundsInCam->at(j));
-			}
-			Item::items->at(i)->updateLocation();
-			if (Collision::AABBCheck(Rockman::getInstance(), Item::items->at(i)))
-			{
-				Item::items->at(i)->onIntersect(Rockman::getInstance());
-				i--;
-			}
+			Collision::CheckCollision(Item::items->at(i), groundsInCam->at(j));
+		}
+		Item::items->at(i)->updateLocation();
+		if (Collision::AABBCheck(Rockman::getInstance(), Item::items->at(i)))
+		{
+			Item::items->at(i)->onIntersect(Rockman::getInstance());
+			i--;
 		}
 	}
-	
+	Rockman::getInstance()->updateLocation();
+	camera->update();
+	for (size_t i = 0; i < nSpace; i++)
+	{
+		auto obj = spacesInCam->at(i);
+		Collision::CheckCollision(MGMCamera::getInstance(), obj);
+	}
+	camera->updateLocation();
+
 }
 
 void Map::render()

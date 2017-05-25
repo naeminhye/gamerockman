@@ -30,6 +30,12 @@ void ObjectsFilter::addObject(BaseObject * object)
 	case CT_OUTERSPACE:
 		outerSpaces._Add(object);
 		break;
+	case CT_TRUNDLE:
+		trundles._Add(object);
+		break;
+	case CT_BRIDGE:
+		bridges._Add(object);
+		break;
 	default:
 		break;
 	}
@@ -56,6 +62,12 @@ void ObjectsFilter::removeObject(BaseObject * object)
 	case CT_OUTERSPACE:
 		outerSpaces._Remove(object);
 		break; 
+	case CT_TRUNDLE:
+		trundles._Remove(object);
+		break;
+	case CT_BRIDGE:
+		bridges._Remove(object);
+		break;
 	default:
 		break;
 	}

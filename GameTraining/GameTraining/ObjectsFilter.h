@@ -9,6 +9,8 @@ public:
 	List<BaseObject*> stairs;
 	List<BaseObject*> items;
 	List<BaseObject*> outerSpaces;
+	List<BaseObject*> trundles;
+	List<BaseObject*> bridges;
 	List<BaseObject*> allObjects;
 	void addObject(BaseObject* object);
 	void removeObject(BaseObject* object);

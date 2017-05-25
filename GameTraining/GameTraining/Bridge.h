@@ -1,7 +1,8 @@
 #pragma once
 #include "BaseObject.h"
 enum BRIDGE_TYPE {
-	BRIDGE_END = -7,
+	BRIDGE_LEFT = -7,
+	BRIDGE_RIGHT = -307,
 	BRIDGE_STRAIGHT = -107,
 	BRIDGE_DASH = -207
 };

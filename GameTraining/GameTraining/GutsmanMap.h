@@ -4,6 +4,7 @@ class GutsmanMap :
 	public Map
 {
 public:
+	Stage* findNextStageOnDoor();
 	GutsmanMap();
 	~GutsmanMap();
 };

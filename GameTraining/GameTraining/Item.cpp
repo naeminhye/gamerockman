@@ -1,4 +1,5 @@
 #include "Item.h"
+#include"Rockman.h"
 
 List<Item*>* Item::items = new List<Item*>();
 
@@ -10,7 +11,8 @@ void Item::release()
 
 void Item::onIntersect(FBox * other)
 {
-	release();
+	if(other==Rockman::getInstance())
+		release();
 }
 
 Item::Item()

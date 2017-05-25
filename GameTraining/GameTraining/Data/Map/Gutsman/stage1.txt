@@ -1,8 +1,14 @@
 StageCount
-1
+7
 
-index	X	Y	Width	Height	
-0	0	0	3840	3840
+index	X		Y		Width		Height	
+0		2816	3600	768			240
+1		3584	3600	256			240
+2		2304	3600	512			240
+3		2304	3360	256			240
+4		2304	3120	256			240
+5		2304	2880	256			240
+6		0		2640	2560		240
 
 CameraBeginX	CameraBeginY
 0				2640
@@ -11,4 +17,4 @@ RockmanBeginX	RockmanBeginY
 129				2534
 
 StageBegin
-0
+6

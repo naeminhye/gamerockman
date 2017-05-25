@@ -41,8 +41,9 @@ void Enemy::onIntersect(FBox * other)
 				item = new OneUpItem();
 			else
 				item = new BonusBallItem();
+			// TODO them item
 			item->x = x;
-			item->y = y;
+			item->y = y + item->sprite->getHeight(item->action, item->frameIndex);
 			item->width = item->sprite->getWidth(item->action, item->frameIndex);
 			item->height = item->sprite->getHeight(item->action, item->frameIndex);
 			// TODO them item

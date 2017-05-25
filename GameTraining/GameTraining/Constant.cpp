@@ -5,6 +5,11 @@ int BOX_TIME = 15;
 
 #pragma endregion
 
+#pragma region BASE OBJECT
+int BASE_OBJECT_TICK_PER_FRAME = 100;
+#pragma endregion
+
+
 #pragma region ROCKMAN & ROCKMAN BULLET
 
 float RM_VY_JUMP = 0.34; // Van toc Vy cua Rockman khi nhay
@@ -15,9 +20,14 @@ float ROCKMAN_CHANGESTAGE_DY = 0.3;
 float TIME_BLINK_OPEN = 2000; 
 float TIME_BLINK_CLOSE = 200;
 int RM_BULLET_WAITING_DELAYTIME = 300; // doi ten
-int RM_SHOOTING_DELAYTIME = 200;
+int RM_SHOOTING_DELAYTIME = 400;
 
 #pragma endregion
+
+#pragma region CAMERA
+int DOOR_CAMERA_CHANGING_DX = 3;
+#pragma endregion
+
 
 #pragma region STAIR
 

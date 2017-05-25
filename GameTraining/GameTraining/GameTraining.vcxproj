@@ -136,6 +136,7 @@
     <ClInclude Include="Rockman.h" />
     <ClInclude Include="Blader.h" />
     <ClInclude Include="RockmanBullet.h" />
+    <ClInclude Include="RockmanCutBullet.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="ScrewBomber.h" />
     <ClInclude Include="SelectMapFrame.h" />
@@ -204,6 +205,7 @@
     <ClCompile Include="Rockman.cpp" />
     <ClCompile Include="Blader.cpp" />
     <ClCompile Include="RockmanBullet.cpp" />
+    <ClCompile Include="RockmanCutBullet.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="ScrewBomber.cpp" />
     <ClCompile Include="SelectMapFrame.cpp" />

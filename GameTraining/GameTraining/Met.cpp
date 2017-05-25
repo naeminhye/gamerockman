@@ -4,6 +4,8 @@
 
 void Met::update()
 {
+	if (!alive)
+		return;
 	initDirectionFollowRockman();
 	metDelay.update();
 

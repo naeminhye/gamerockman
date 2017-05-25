@@ -1,7 +1,5 @@
 #include "Beak.h"
 
-
-
 void Beak::updateLocation()
 {
 }

@@ -219,6 +219,9 @@
     <ClCompile Include="YashichiItem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RockmanCutBullet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h">
@@ -423,6 +426,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="YashichiItem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RockmanCutBullet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

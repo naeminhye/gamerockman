@@ -24,6 +24,30 @@ void Enemy::initDirectionFollowRockman()
 
 void Enemy::onIntersect(FBox * other)
 {
+	if(other == Rockman::getInstance() && !Rockman::getInstance()->onInjury)
+	{
+		int nx; //
+
+		if (getXCenter() > Rockman::getInstance()->getXCenter())
+		{
+			nx = -1;
+		}
+		else
+			nx = 1;
+
+		Rockman::getInstance()->direction = (Direction)(-nx);
+		Rockman::getInstance()->vx = nx*0.1; // TODO LUU CONSTANT
+		Rockman::getInstance()->vy = 0.2;
+		Rockman::getInstance()->onStair = false;
+		Rockman::getInstance()->ground = false;
+		Rockman::getInstance()->isRecoil = true;
+
+		Rockman::getInstance()->setHealth(Rockman::getInstance()->health - attackDamage);
+		Rockman::getInstance()->onInjury = true;
+		Rockman::getInstance()->flickeringDelay.start();
+		Rockman::getInstance()->injuryDelay.start();
+	}
+
 	if (other->collisionType == CT_BULLET)
 	{
 		((RockmanBullet*)other)->canDelete = true;
@@ -55,6 +79,7 @@ Enemy::Enemy()
 {
 	collisionType = CT_ENEMY;
 	healthPoint = 2;
+	attackDamage = 1;
 }
 
 

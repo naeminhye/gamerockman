@@ -12,6 +12,12 @@ void DelayTime::start(DWORD time)
 	}
 }
 
+DelayTime::operator bool()
+{
+	return isTerminated();
+}
+
+
 void DelayTime::init(DWORD time)
 {
 	tickPerFrame = time;

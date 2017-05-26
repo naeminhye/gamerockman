@@ -8,6 +8,8 @@ Rockman * Rockman::instance = 0;
 void Rockman::setHealth(int health)
 {
 	this->health = health;
+	if (health > maxHealth)
+		this->health = maxHealth;
 }
 Rockman * Rockman::getInstance()
 {
@@ -18,7 +20,19 @@ Rockman * Rockman::getInstance()
 
 void Rockman::update()
 {
-	updateFlicker();
+	
+	updateInjury();
+
+	if (ground)
+		isRecoil = false;
+	if (isRecoil)
+	{
+		MovableObject::update();
+		//OutputDebugString(("injure dx: " + std::to_string(dx) + "\n").c_str());
+		//OutputDebugString(("injure vx: " + std::to_string(vx) + "\n").c_str());
+		return;
+	}
+
 	updateRockmanType();
 
 	if (onTeleport)
@@ -50,7 +64,7 @@ void Rockman::update()
 	isIntersectStair = false;
 
 	bool keyUp, keyDown, keyLeft, keyRight, keyAttackPress;
-	bool keyJump, keyJumpPress; 
+	bool keyJump, keyJumpPress;
 	keyAttackPress = KEY::getInstance()->isAttackPress;
 	keyLeft = KEY::getInstance()->isLeftDown;
 	keyRight = KEY::getInstance()->isRightDown;
@@ -70,9 +84,12 @@ void Rockman::update()
 
 	if (keyMove)
 	{
-		if (onAttack)
+		if (onAttack && ground && vx!=0 )
 		{
 			setAction(RM_RUN_SHOOT);
+			//	else
+			//		setAction(RM_RUN_SHOOT);
+
 		}
 		else {
 			vx = RM_V_RUN * direction;
@@ -84,11 +101,11 @@ void Rockman::update()
 	}
 	else
 	{
-		if (onAttack)
+		if (onAttack && ground && (vx == 0))
 		{
 			setAction(RM_STAND_SHOOT);
 		}
-		else 
+		else
 		{
 			vx = RM_VX_STAND;
 			updateBlink();
@@ -116,10 +133,10 @@ void Rockman::update()
 
 void Rockman::render()
 {
-	if (isDisappear)
-		return;
 	if (sprite == 0)
 		return;
+
+
 	float yRender;
 	float xRender;
 
@@ -139,7 +156,10 @@ void Rockman::render()
 
 		MGMDirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
 	}
-	sprite->render(xRender, yRender, action, frameIndex);
+	if (!isDisappear)
+		sprite->render(xRender, yRender, action, frameIndex);
+	if(injuryDelay.isOnTime() && isDisappear)
+		sprite->render(xRender, yRender, RM_EXPLOSE , 0);
 	if (direction != sprite->img->direction)
 	{
 		D3DXMatrixIdentity(&flipMatrix);
@@ -191,7 +211,7 @@ void Rockman::updateRockmanType()
 	bool keyQ, keyW;
 	keyQ = KEY::getInstance()->isQDown;
 	keyW = KEY::getInstance()->isWDown;
-	
+
 	if (keyQ)
 	{
 		rm_type = ROCKMAN_TYPE::RMT_NORMAL;
@@ -206,8 +226,27 @@ void Rockman::updateRockmanType()
 
 void Rockman::updateFlicker()
 {
-	if(disappearTime.atTime())
+	if (disappearTime.atTime())
 		isDisappear = !isDisappear;
+}
+
+void Rockman::updateInjury()
+{
+	if (onInjury)
+	{
+		injuryDelay.update();
+		flickeringDelay.update();
+		if (injuryDelay.isOnTime())
+		{
+			setAction(RM_INJURE);
+		}
+		updateFlicker();
+		if (flickeringDelay)
+		{
+			onInjury = false;
+			isDisappear = false;
+		}
+	}
 }
 
 void Rockman::setIsIntersectStair(bool isIntersectStair)
@@ -233,6 +272,10 @@ Rockman::Rockman()
 	collisionType = CT_ROCKMAN;
 	disappearTime.tickPerFrame = 20;// TODO LUU CONSTANT
 	isDisappear = false;
+	injuryDelay.init(500);// TODO LUU CONSTANT
+	flickeringDelay.init(2000);// TODO LUU CONSTANT
+	onInjury = false;
+	health = maxHealth = 28;
 }
 
 
@@ -249,7 +292,7 @@ void Rockman::onCollision(FBox * other, int nx, int ny)
 		onStair = false;
 	if (onStair)
 		return;
-	if (other->collisionType == CT_STAIR && ny == 1 && !keyDown) 
+	if (other->collisionType == CT_STAIR && ny == 1 && !keyDown)
 	{
 		vy = -0.1f;
 		slideHandle();
@@ -326,7 +369,7 @@ void Rockman::updateStair()
 		{
 			y = stairIntersect->y + height;
 			ground = true;
-		//	vy = -0.1f;
+			//	vy = -0.1f;
 			if (stairIntersect->id == STAIR_RIGHT)
 			{
 				setWidth(21);
@@ -370,6 +413,11 @@ void Rockman::updateStair()
 
 void Rockman::setAction(int actionValue)
 {
+	if (injuryDelay.isOnTime() && actionValue != RM_INJURE)
+	{
+		return;
+	}
+
 	//if (onAttack && actionValue!= RM_STAND_SHOOT&& actionValue != RM_RUN_SHOOT)
 	//	return;
 	if (actionValue > RM_ACTION_COUNT)
@@ -382,7 +430,7 @@ void Rockman::setAction(int actionValue)
 		rm_action = (ROCKMAN_ACTION)actionValue;
 		this->action = rm_type* RM_ACTION_COUNT + actionValue;
 		frameIndex = 0;
-			
+
 	}
 }
 
@@ -426,7 +474,7 @@ void Rockman::updateAttack()
 		switch (rm_type)
 		{
 		case RMT_NORMAL:
-			if (!rmBulletDelay.isOnTime() && RockmanBullet::bullets->Count < 3) 
+			if (!rmBulletDelay.isOnTime() && RockmanBullet::bullets->Count < 3)
 			{
 				RockmanBullet* bullet = new RockmanBullet();
 				bullet->dx = 3 * direction;
@@ -459,14 +507,14 @@ void Rockman::updateAttack()
 				bullet->y = y - 8;
 				rmBulletDelay.start();
 			}
-			
+
 			break;
 		case RMT_GUSTMAN:
 			break;
 		default:
 			break;
 		}
-		
+
 	}
 	rmBulletDelay.update();
 }

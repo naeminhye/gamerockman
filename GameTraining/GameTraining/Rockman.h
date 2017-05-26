@@ -24,8 +24,10 @@ enum ROCKMAN_ACTION
 	RM_RUN_SHOOT,
 	RM_STAIR_SHOOT,
 	RM_JUMP_SHOOT,
+	RM_INJURE,
 	RM_ACTION_COUNT,
-	RM_TELEPORT = 33
+	RM_TELEPORT = 36,
+	RM_EXPLOSE 
 };
 
 enum BLINK_ACTIVITY
@@ -40,8 +42,9 @@ class Rockman :
 	//phan tren rockman co va cham voi cau thang nao hay k
 	bool isIntersectStair;
 	BLINK_ACTIVITY blinkActivity;
-	int health;
 public:
+	int health;
+	int maxHealth;
 	void setHealth(int health);
 	ROCKMAN_TYPE rm_type;
 	ROCKMAN_ACTION rm_action;
@@ -81,12 +84,15 @@ public:
 
 #pragma endregion
 
+#pragma region ATTACK
 	DelayTime rmBulletDelay;
 	DelayTime shootDelay;
 	void updateAttack();
 	void onLastFrameAnimation();
 	bool onAttack;
 	bool isAttack();
+#pragma endregion
+
 
 #pragma region TELEPORT
 
@@ -98,8 +104,16 @@ public:
 	void updateRockmanType();
 
 
+#pragma region FLICKER
 	MGMGameTime disappearTime;
 	bool isDisappear;
-	void updateFlicker(); // khi di'nh da.n
+	void updateFlicker(); // khi di'nh da.n  
+#pragma endregion
+
+	bool isRecoil;
+	bool onInjury;
+	void updateInjury();
+	DelayTime injuryDelay, flickeringDelay;
+
 };
 

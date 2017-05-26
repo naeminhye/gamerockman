@@ -107,6 +107,7 @@
     <ClInclude Include="FRectangle.h" />
     <ClInclude Include="GutsmanMap.h" />
     <ClInclude Include="BonusBallItem.h" />
+    <ClInclude Include="HealthSprite.h" />
     <ClInclude Include="IntroScene.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="KEY.h" />
@@ -178,6 +179,7 @@
     <ClCompile Include="FRectangle.cpp" />
     <ClCompile Include="GutsmanMap.cpp" />
     <ClCompile Include="BonusBallItem.cpp" />
+    <ClCompile Include="HealthSprite.cpp" />
     <ClCompile Include="IntroScene.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="KEY.cpp" />

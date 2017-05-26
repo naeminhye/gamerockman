@@ -16,9 +16,9 @@ class MGMTexture
 {
 
 private:
-	LPDIRECT3DTEXTURE9 m_image;
 public:
 	
+	LPDIRECT3DTEXTURE9 m_image;
 	int Width, Height;
 	MGMPoint anchorPoint;
 	Direction direction;

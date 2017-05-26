@@ -9,6 +9,8 @@ private:
 public:
 	void start(DWORD time = -1);
 
+	operator bool();
+
 	bool isReady();
 	bool isTerminated();
 	bool isOnTime();

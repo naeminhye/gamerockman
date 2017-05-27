@@ -70,6 +70,7 @@ FlyingShell::FlyingShell()
 	flyactivity =  FLY_RUNNING;
 	dx = FLYING_SHELL_RUNNING_DY;
 	healthPoint = 1;
+	attackDamage = 1;
 }
 
 

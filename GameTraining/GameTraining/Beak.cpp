@@ -116,6 +116,7 @@ Beak::Beak()
 	pauseAnimation = true;
 	beakDelay.start(TIME_BEAK_CLOSED);
 	healthPoint = 1;
+	attackDamage = 0; // TODO dan cua Beak moi co attackDamage = 1
 }
 
 

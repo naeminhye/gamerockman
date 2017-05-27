@@ -62,6 +62,7 @@ Blader::Blader()
 	bladerActivity = BLADER_PREPARE;
 	dy = 0;
 	healthPoint = 1;
+	attackDamage = 3;
 }
 
 

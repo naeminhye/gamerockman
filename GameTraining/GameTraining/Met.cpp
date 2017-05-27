@@ -70,6 +70,8 @@ Met::Met()
 	metActivity = MET_WAITING;
 	//setHeight(sprite->getHeight(MET_CLOSE, 0));
 	metDelay.start(1000);
+	healthPoint = 1;
+	attackDamage = 1;
 }
 
 

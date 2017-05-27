@@ -12,6 +12,14 @@ int BASE_OBJECT_TICK_PER_FRAME = 100;
 
 #pragma region ROCKMAN & ROCKMAN BULLET
 
+int RM_MAX_HEALTH_POINT = 28;
+int RM_WIDTH = 20;
+int RM_HEIGHT = 24;
+int RM_JUMP_WIDTH = 14;
+int RM_DELAY_GAME_TIME = 1000;
+int RM_DISAPPEAR_GAME_TIME = 20;
+int RM_INJURY_DELAY_TIME = 500;
+int RM_FLICKER_DELAY_TIME = 2000;
 float RM_VY_JUMP = 0.34; // Van toc Vy cua Rockman khi nhay
 float RM_V_RUN = 0.08; // Van toc chay cua Rockman
 float RM_VX_STAND = 0; // van toc Vx khi Rockman dung 1 chofloat 

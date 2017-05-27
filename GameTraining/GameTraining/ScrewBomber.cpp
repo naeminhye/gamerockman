@@ -107,6 +107,7 @@ ScrewBomber::ScrewBomber()
 {
 	screwactivity = SCREW_WAITING;
 	healthPoint = 3;
+	attackDamage = 1;
 }
 
 

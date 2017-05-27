@@ -94,6 +94,7 @@ OctopusBattery::OctopusBattery()
 {
 	octopusActivity = OCTOPUS_WAITING;
 	healthPoint = 5;
+	attackDamage = 4;
 }
 
 

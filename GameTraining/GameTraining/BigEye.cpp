@@ -21,6 +21,7 @@ BigEye::BigEye()
 	setAction(BIGEYE_WAITING);
 	bigEyeActivity = BIGEYE_WAITING;
 	healthPoint = 20;
+	attackDamage = 10;
 }
 
 

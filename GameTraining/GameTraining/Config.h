@@ -33,6 +33,14 @@ extern int STAIR_DELTA;
 extern int STAIR_DY;
 extern int DISTANCE_OUT_STAIR;
 
+extern int RM_MAX_HEALTH_POINT;
+extern int RM_WIDTH;
+extern int RM_JUMP_WIDTH;
+extern int RM_HEIGHT;
+extern int RM_DELAY_GAME_TIME;
+extern int RM_DISAPPEAR_GAME_TIME;
+extern int RM_INJURY_DELAY_TIME;
+extern int RM_FLICKER_DELAY_TIME;
 extern float RM_VY_JUMP;
 extern float RM_V_RUN;
 extern float RM_VX_STAND;

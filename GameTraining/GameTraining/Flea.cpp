@@ -21,6 +21,7 @@ Flea::Flea()
 	setAction(FLEA_WAITING);
 	fleaActivity = FLEA_WAITING;
 	healthPoint = 1;
+	attackDamage = 2;
 }
 
 

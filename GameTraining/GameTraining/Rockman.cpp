@@ -24,12 +24,10 @@ void Rockman::update()
 	updateInjury();
 
 	if (ground)
-		isRecoil = false;
+		isRecoil = false; // TODO CHANGE NAME
 	if (isRecoil)
 	{
 		MovableObject::update();
-		//OutputDebugString(("injure dx: " + std::to_string(dx) + "\n").c_str());
-		//OutputDebugString(("injure vx: " + std::to_string(vx) + "\n").c_str());
 		return;
 	}
 
@@ -56,7 +54,7 @@ void Rockman::update()
 		if (onAttack)
 		{
 			setAction(RM_STAIR_SHOOT);
-			setWidth(16);
+			setWidth(16); // TODO CONSTANT
 		}
 		return;
 	}
@@ -126,7 +124,7 @@ void Rockman::update()
 		setAction(RM_JUMP);
 		if (onAttack)
 			setAction(RM_JUMP_SHOOT);
-		setWidth(14); // TODO luu constant 
+		setWidth(RM_JUMP_WIDTH); // TODO luu constant 
 	}
 	MovableObject::update();
 }
@@ -257,9 +255,9 @@ void Rockman::setIsIntersectStair(bool isIntersectStair)
 Rockman::Rockman()
 {
 	sprite = SpriteManager::getInstance()->sprites[SPR_ROCKMAN];
-	width = 20;// TODO luu constant
-	height = 24;// TODO luu constant
-	delay.tickPerFrame = 1000; // TODO luu constant
+	width = RM_WIDTH;
+	height = RM_HEIGHT;
+	delay.tickPerFrame = RM_DELAY_GAME_TIME; 
 	setOnStair(false);
 	rm_action = RM_STAND;
 	rm_type = RMT_NORMAL;
@@ -270,12 +268,12 @@ Rockman::Rockman()
 	direction = Right;
 	onAttack = false;
 	collisionType = CT_ROCKMAN;
-	disappearTime.tickPerFrame = 20;// TODO LUU CONSTANT
+	disappearTime.tickPerFrame = RM_DISAPPEAR_GAME_TIME;
 	isDisappear = false;
-	injuryDelay.init(500);// TODO LUU CONSTANT
-	flickeringDelay.init(2000);// TODO LUU CONSTANT
+	injuryDelay.init(RM_INJURY_DELAY_TIME);
+	flickeringDelay.init(RM_FLICKER_DELAY_TIME);
 	onInjury = false;
-	health = maxHealth = 28;
+	health = maxHealth = RM_MAX_HEALTH_POINT; // 
 }
 
 

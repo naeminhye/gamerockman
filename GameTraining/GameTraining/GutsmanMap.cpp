@@ -15,7 +15,7 @@ GutsmanMap::GutsmanMap()
 		"Data\\Map\\Gutsman\\objects.txt",
 		"Data\\Map\\Gutsman\\quadtree.txt"
 	);
-	initStage("Data\\Map\\Gutsman\\stage12.txt");
+	initStage("Data\\Map\\Gutsman\\stage1.txt");
 }
 
 

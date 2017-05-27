@@ -7,6 +7,8 @@ Picket::Picket()
 	picketActivity = PICKET_WAITING;
 	picketDelay.start(PICKET_DELAYTIME);
 	delay.tickPerFrame = PICKET_DELAYTIME_FRAME; 
+	attackDamage = 3;
+	healthPoint = 10;
 }
 
 

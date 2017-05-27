@@ -1,7 +1,5 @@
 #include "HealthSprite.h"
 
-
-
 HealthSprite * HealthSprite::instance = 0;
 HealthSprite * HealthSprite::getInstance()
 {

@@ -3,14 +3,118 @@
 #include"KEY.h"
 #include"Map.h"
 #include "RockmanCutBullet.h"
+#include"RockmanDeath.h"
+#include"MGMCamera.h"
+#include"Scene.h"
 
 Rockman * Rockman::instance = 0;
 void Rockman::setHealth(int health)
 {
+	if (onDeath)
+		return;
+	if (health <= 0)
+	{
+		setAction(RM_DEATH);
+		onDeath = true;
+	//	alive = false;
+		deathDelay.start();
+		for (int i = -1; i <= 1; i++)
+		{
+			for (int j = -1; j <= 1; j++)
+				if (i != 0 || j != 0)
+				{
+					RockmanDeath* rmDead = new RockmanDeath();
+					rmDead->dx = ROCKMAN_DEAD_VELOCITY * i;
+					rmDead->dy = ROCKMAN_DEAD_VELOCITY * j;
+					rmDead->x = getXCenter();
+					rmDead->y = getYCenter();
+					rmDead->width = sprite->getWidth(action, 2);
+					rmDead->height = sprite->getHeight(action, 2);
+					rmDead->setAction(action);
+					if (i != 0 && j != 0)
+					{
+						rmDead->dx *= sqrt(2) / 2;
+						rmDead->dy *= sqrt(2) / 2;
+					}
+
+				}
+		}
+	}
 	this->health = health;
 	if (health > maxHealth)
 		this->health = maxHealth;
 }
+
+void Rockman::updateDeath()
+{
+	switch (rm_death_activity)
+	{
+	case ON_DEAD:
+		if (deathDelay.isTerminated())
+		{
+			RockmanDeath* rmDead = new RockmanDeath();
+			rmDead->dx = ROCKMAN_DEAD_VELOCITY;
+			rmDead->dy = 0;
+			rmDead->x = getXCenter();
+			rmDead->y = getYCenter();
+			rmDead->width = sprite->getWidth(action, 2);
+			rmDead->height = sprite->getHeight(action, 2);
+			rmDead->setAction(action);
+
+			rmDead = new RockmanDeath();
+			rmDead->dx = 0;
+			rmDead->dy = ROCKMAN_DEAD_VELOCITY;
+			rmDead->x = getXCenter();
+			rmDead->y = getYCenter();
+			rmDead->width = sprite->getWidth(action, 2);
+			rmDead->height = sprite->getHeight(action, 2);
+			rmDead->setAction(action);
+
+			rmDead = new RockmanDeath();
+			rmDead->dx = -ROCKMAN_DEAD_VELOCITY;
+			rmDead->dy = 0;
+			rmDead->x = getXCenter();
+			rmDead->y = getYCenter();
+			rmDead->width = sprite->getWidth(action, 2);
+			rmDead->height = sprite->getHeight(action, 2);
+			rmDead->setAction(action);
+
+			rmDead = new RockmanDeath();
+			rmDead->dx = 0;
+			rmDead->dy = -ROCKMAN_DEAD_VELOCITY;
+			rmDead->x = getXCenter();
+			rmDead->y = getYCenter();
+			rmDead->width = sprite->getWidth(action, 2);
+			rmDead->height = sprite->getHeight(action, 2);
+			rmDead->setAction(action);
+			rm_death_activity = DEATH_FINISH;
+			deathDelay.start();
+		}
+		break;
+	case DEATH_FINISH:
+		// ve stage 1
+		if (deathDelay.isTerminated())
+		{
+			Stage::curStage = Map::curMap->stages[0]; // TODO luu stage begin
+			MGMCamera::getInstance()->x = Map::curMap->cameraBeginX;
+			MGMCamera::getInstance()->y = Map::curMap->cameraBeginY;
+			x = Map::curMap->rmBeginX;
+			y = Map::curMap->rmBeginY;
+			alive = true;
+			onDeath = false;
+			this->Rockman::Rockman();
+			Rockman::getInstance()->rm_type = RMT_NORMAL;
+			Rockman::getInstance()->ground = false;
+			Rockman::getInstance()->setAction(RM_TELEPORT);
+		}
+		break;
+	default:
+		break;
+	}
+	deathDelay.update();
+	
+}
+
 Rockman * Rockman::getInstance()
 {
 	if (instance == 0)
@@ -20,7 +124,13 @@ Rockman * Rockman::getInstance()
 
 void Rockman::update()
 {
-	
+	if (!alive)
+		return;
+	if (onDeath)
+	{
+		updateDeath();
+		return;
+	}
 	updateInjury();
 
 	if (ground)
@@ -134,6 +244,11 @@ void Rockman::render()
 	if (sprite == 0)
 		return;
 
+	if (onDeath)
+		return;
+
+	if (!alive)
+		return;
 
 	float yRender;
 	float xRender;
@@ -273,7 +388,10 @@ Rockman::Rockman()
 	injuryDelay.init(RM_INJURY_DELAY_TIME);
 	flickeringDelay.init(RM_FLICKER_DELAY_TIME);
 	onInjury = false;
-	health = maxHealth = RM_MAX_HEALTH_POINT; // 
+	health = maxHealth = RM_MAX_HEALTH_POINT; 
+	onDeath = false;
+	deathDelay.init(1000); // TODO
+	rm_death_activity = ON_DEAD;
 }
 
 

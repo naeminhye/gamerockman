@@ -10,6 +10,7 @@ class Map :
 	public TileMap
 {
 public:
+	static Map* curMap;
 	QuadTree* quadtree;
 	BaseObject** objects;
 	int nObject;
@@ -39,5 +40,8 @@ public:
 	virtual void render();
 	Map();
 	~Map();
+
+	int cameraBeginX, cameraBeginY;
+	int rmBeginX, rmBeginY;
 };
 

@@ -12,6 +12,7 @@
 #include "SuperCutter.h"
 #include "Flea.h"
 #include "FlyingShell.h"
+#include "RockmanDeath.h"
 #include "BigEye.h"
 #include "ScrewBomber.h"
 #include "Cutman.h"
@@ -23,6 +24,7 @@
 #include "Death.h"
 #include "Item.h"
 
+Map* Map::curMap=0;
 bool Map::onStageChangeByDoor = false;
 
 void Map::init(char * tileSheetPath, char * matrixPath, char * objectsPath, char* quadTreePath)
@@ -59,6 +61,10 @@ void Map::initStage(char * stagePath)
 	ignoreLineIfstream(fs, 3);
 	fs >> stageBeginIndex;
 
+	cameraBeginX = camera->x;
+	cameraBeginY = camera->y;
+	rmBeginX = rockman->x;
+	rmBeginY = rockman->y;
 
 	if (Stage::curStage == 0)
 	{
@@ -161,7 +167,7 @@ void Map::updateStageChangeByDoor()
 
 Stage * Map::findNextStageOnDoor()
 {
-	return stages[ Stage::curStage->index+1];
+	return stages[Stage::curStage->index + 1];
 }
 
 void Map::readObjects(char * objectsPath)
@@ -417,6 +423,17 @@ void Map::update()
 		}
 	}
 
+	for (size_t i = 0; i < RockmanDeath::deads->Count; i++)
+	{
+		RockmanDeath::deads->at(i)->update();
+		RockmanDeath::deads->at(i)->updateLocation();
+		if (!Collision::AABBCheck(MGMCamera::getInstance(), RockmanDeath::deads->at(i)))
+		{
+			RockmanDeath::deads->at(i)->deleteDead();
+			i--;
+		}
+	}
+
 	for (size_t i = 0; i < Death::deaths->Count; i++)
 	{
 		Death::deaths->at(i)->update();
@@ -482,6 +499,11 @@ void Map::render()
 		SuperCutterBullet::bullets->at(i)->render();
 	}
 
+	for (size_t i = 0; i < RockmanDeath::deads->Count; i++)
+	{
+		RockmanDeath::deads->at(i)->render();
+	}
+
 
 	for (size_t i = 0; i < Death::deaths->Count; i++)
 	{
@@ -500,6 +522,7 @@ Map::Map()
 {
 	onStageChangeNext = false;
 	onStageChangePrev = false;
+	curMap = this;
 
 }
 

@@ -71,7 +71,7 @@ Met::Met()
 	//setHeight(sprite->getHeight(MET_CLOSE, 0));
 	metDelay.start(1000);
 	healthPoint = 1;
-	attackDamage = 1;
+	attackDamage = 10;
 }
 
 

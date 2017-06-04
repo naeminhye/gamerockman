@@ -39,6 +39,7 @@ extern int RM_JUMP_WIDTH;
 extern int RM_HEIGHT;
 extern int RM_DELAY_GAME_TIME;
 extern int RM_DISAPPEAR_GAME_TIME;
+extern float ROCKMAN_DEAD_VELOCITY;
 extern int RM_INJURY_DELAY_TIME;
 extern int RM_FLICKER_DELAY_TIME;
 extern float RM_VY_JUMP;

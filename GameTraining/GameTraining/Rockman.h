@@ -25,8 +25,9 @@ enum ROCKMAN_ACTION
 	RM_STAIR_SHOOT,
 	RM_JUMP_SHOOT,
 	RM_INJURE,
+	RM_DEATH,
 	RM_ACTION_COUNT,
-	RM_TELEPORT = 36,
+	RM_TELEPORT = 39,
 	RM_EXPLOSE 
 };
 
@@ -34,6 +35,11 @@ enum BLINK_ACTIVITY
 {
 	BLINK_OPEN,
 	BLINK_CLOSE
+};
+
+enum ROCKMAN_DEATH_ACTIVITY {
+	ON_DEAD,
+	DEATH_FINISH
 };
 
 class Rockman :
@@ -46,6 +52,10 @@ public:
 	int health;
 	int maxHealth;
 	void setHealth(int health);
+	bool onDeath;
+	DelayTime deathDelay;
+	void updateDeath();
+	ROCKMAN_DEATH_ACTIVITY rm_death_activity;
 	ROCKMAN_TYPE rm_type;
 	ROCKMAN_ACTION rm_action;
 	static Rockman* instance;

@@ -14,9 +14,10 @@ void Rockman::setHealth(int health)
 		return;
 	if (health <= 0)
 	{
+		setLife(life - 1);
 		setAction(RM_DEATH);
 		onDeath = true;
-	//	alive = false;
+		//	alive = false;
 		deathDelay.start();
 		for (int i = -1; i <= 1; i++)
 		{
@@ -40,13 +41,15 @@ void Rockman::setHealth(int health)
 				}
 		}
 	}
-	this->health = health;
+	//this->health = health;
 	if (health > maxHealth)
 		this->health = maxHealth;
 }
 
 void Rockman::updateDeath()
 {
+	dx = 0;
+	dy = 0;
 	switch (rm_death_activity)
 	{
 	case ON_DEAD:
@@ -95,24 +98,39 @@ void Rockman::updateDeath()
 		// ve stage 1
 		if (deathDelay.isTerminated())
 		{
-			Stage::curStage = Map::curMap->stages[0]; // TODO luu stage begin
+			Stage::curStage = Map::curMap->stages[Map::curMap->stageBegin];
 			MGMCamera::getInstance()->x = Map::curMap->cameraBeginX;
 			MGMCamera::getInstance()->y = Map::curMap->cameraBeginY;
 			x = Map::curMap->rmBeginX;
 			y = Map::curMap->rmBeginY;
-			alive = true;
-			onDeath = false;
 			this->Rockman::Rockman();
-			Rockman::getInstance()->rm_type = RMT_NORMAL;
-			Rockman::getInstance()->ground = false;
-			Rockman::getInstance()->setAction(RM_TELEPORT);
+			rm_type = RMT_NORMAL;
+			pauseAnimation = true;
+			ground = false;
+			setAction(RM_TELEPORT);
+			onTeleport = true;
+			MGMCamera::getInstance()->objects.clear();
+			for (size_t i = 0; i < RockmanDeath::deads->Count; i++)
+			{
+				RockmanDeath::deads->at(i)->deleteDead();
+				i--;
+			}
 		}
 		break;
 	default:
 		break;
 	}
 	deathDelay.update();
-	
+
+}
+
+void Rockman::setLife(int life)
+{
+	this->life = life;
+	if (life == 0)
+	{
+		// game over
+	}
 }
 
 Rockman * Rockman::getInstance()
@@ -133,8 +151,10 @@ void Rockman::update()
 	}
 	updateInjury();
 
-	if (ground)
+	if (ground) {
 		isRecoil = false; // TODO CHANGE NAME
+		pauseAnimation = false;
+	}
 	if (isRecoil)
 	{
 		MovableObject::update();
@@ -192,7 +212,7 @@ void Rockman::update()
 
 	if (keyMove)
 	{
-		if (onAttack && ground && vx!=0 )
+		if (onAttack && ground && vx != 0)
 		{
 			setAction(RM_RUN_SHOOT);
 			//	else
@@ -271,8 +291,8 @@ void Rockman::render()
 	}
 	if (!isDisappear)
 		sprite->render(xRender, yRender, action, frameIndex);
-	if(injuryDelay.isOnTime() && isDisappear)
-		sprite->render(xRender, yRender, RM_EXPLOSE , 0);
+	if (injuryDelay.isOnTime() && isDisappear)
+		sprite->render(xRender, yRender, RM_EXPLOSE, 0);
 	if (direction != sprite->img->direction)
 	{
 		D3DXMatrixIdentity(&flipMatrix);
@@ -372,7 +392,7 @@ Rockman::Rockman()
 	sprite = SpriteManager::getInstance()->sprites[SPR_ROCKMAN];
 	width = RM_WIDTH;
 	height = RM_HEIGHT;
-	delay.tickPerFrame = RM_DELAY_GAME_TIME; 
+	delay.tickPerFrame = RM_DELAY_GAME_TIME;
 	setOnStair(false);
 	rm_action = RM_STAND;
 	rm_type = RMT_NORMAL;
@@ -388,10 +408,13 @@ Rockman::Rockman()
 	injuryDelay.init(RM_INJURY_DELAY_TIME);
 	flickeringDelay.init(RM_FLICKER_DELAY_TIME);
 	onInjury = false;
-	health = maxHealth = RM_MAX_HEALTH_POINT; 
+	health = maxHealth = RM_MAX_HEALTH_POINT;
 	onDeath = false;
-	deathDelay.init(1000); // TODO
+	deathDelay.init(RM_DEATH_DELAYTIME); 
+	pauseAnimation = true;
+	isRecoil = false;
 	rm_death_activity = ON_DEAD;
+	life = RM_DEFAULT_LIFE;
 }
 
 
@@ -401,8 +424,6 @@ Rockman::~Rockman()
 
 void Rockman::onCollision(FBox * other, int nx, int ny)
 {
-
-
 	bool keyDown = KEY::getInstance()->isDownDown;
 	if (onStair && other->collisionType == CT_GROUND && ny == 1 && isIntersectStair && keyDown)
 		onStair = false;
@@ -455,6 +476,8 @@ void Rockman::updateBlink()
 
 void Rockman::setOnStair(bool onStair)
 {
+	if (isRecoil)
+		onStair=false;
 	this->onStair = onStair;
 	if (onStair)
 	{

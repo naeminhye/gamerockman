@@ -23,6 +23,7 @@
 #include "PicketBullet.h"
 #include "Death.h"
 #include "Item.h"
+#include "Spike.h"
 
 Map* Map::curMap=0;
 bool Map::onStageChangeByDoor = false;
@@ -60,6 +61,7 @@ void Map::initStage(char * stagePath)
 	rockman->y = rowCount * 16 - rockman->y;
 	ignoreLineIfstream(fs, 3);
 	fs >> stageBeginIndex;
+	stageBegin = stageBeginIndex;
 
 	cameraBeginX = camera->x;
 	cameraBeginY = camera->y;
@@ -228,6 +230,9 @@ void Map::readObjects(char * objectsPath)
 			break;
 		case SPR_BRIDGE:
 			objects[i] = new Bridge();
+			break;
+		case SPR_SPIKE:
+			objects[i] = new Spike();
 			break;
 			//TODO: Them doi tuong nho them vao day
 		default:

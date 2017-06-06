@@ -34,6 +34,7 @@ extern int STAIR_DY;
 extern int DISTANCE_OUT_STAIR;
 
 extern int RM_MAX_HEALTH_POINT;
+extern int RM_DEFAULT_LIFE;
 extern int RM_WIDTH;
 extern int RM_JUMP_WIDTH;
 extern int RM_HEIGHT;
@@ -50,6 +51,7 @@ extern int RM_BULLET_WAITING_DELAYTIME;
 extern int RM_SHOOTING_DELAYTIME;
 extern float TIME_BLINK_OPEN;
 extern float TIME_BLINK_CLOSE;
+extern int RM_DEATH_DELAYTIME;
 
 extern int CAMERA_CHANGESTAGE_DY;
 

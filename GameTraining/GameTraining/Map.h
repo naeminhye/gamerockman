@@ -15,6 +15,7 @@ public:
 	BaseObject** objects;
 	int nObject;
 	List<Stage*> stages;
+	int stageBegin;
 	//List<OuterSpace*> spaces;
 	void init(char* tileSheetPath, char* matrixPath,char* objectsPath,char* quadTreePath);
 	void initStage(char* stagePath);

@@ -18,6 +18,7 @@ void MovableObject::onCollision(FBox * other, int nx, int ny)
 
 void MovableObject::setWidth(int width)
 {
+	width = 16;
 	if (direction == Right)
 	{
 		this->x += this->width - width;

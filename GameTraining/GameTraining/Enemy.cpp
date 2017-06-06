@@ -2,6 +2,7 @@
 #include "Death.h"
 #include "BonusBallItem.h"
 #include "OneUpItem.h"
+#include"KEY.h"
 
 bool Enemy::setHealthPoint(int healthPoint)
 {
@@ -37,15 +38,18 @@ void Enemy::onIntersect(FBox * other)
 
 		Rockman::getInstance()->direction = (Direction)(-nx);
 		Rockman::getInstance()->vx = nx*0.1; // TODO LUU CONSTANT
-		Rockman::getInstance()->vy = 0.2;
+	//	Rockman::getInstance()->vx = 0; // TODO LUU CONSTANT
+		Rockman::getInstance()->vy = 0.2; // TODO LUU CONSTANT
 		Rockman::getInstance()->onStair = false;
 		Rockman::getInstance()->ground = false;
 		Rockman::getInstance()->isRecoil = true;
-
+		Rockman::getInstance()->setIsIntersectStair ( false);
 		Rockman::getInstance()->setHealth(Rockman::getInstance()->health - attackDamage);
 		Rockman::getInstance()->onInjury = true;
 		Rockman::getInstance()->flickeringDelay.start();
 		Rockman::getInstance()->injuryDelay.start();
+		KEY::getInstance()->isUpDown = false;
+		KEY::getInstance()->isDownDown = false;
 	}
 
 	if (other->collisionType == CT_BULLET)

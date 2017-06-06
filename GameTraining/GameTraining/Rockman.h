@@ -56,6 +56,9 @@ public:
 	DelayTime deathDelay;
 	void updateDeath();
 	ROCKMAN_DEATH_ACTIVITY rm_death_activity;
+	int life; 
+	void setLife(int life);
+
 	ROCKMAN_TYPE rm_type;
 	ROCKMAN_ACTION rm_action;
 	static Rockman* instance;

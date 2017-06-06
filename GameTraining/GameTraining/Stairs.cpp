@@ -18,12 +18,9 @@ void Stairs::onIntersect(FBox * other)
 		Rockman::getInstance()->setIsIntersectStair(true);
 	}
 
-
 	if (rockManXCenter < stairXCenter - STAIR_DELTA || rockManXCenter > stairXCenter + STAIR_DELTA)
 		return;
-
-
-
+	
 	if (Rockman::getInstance()->onStair)
 		return;
 

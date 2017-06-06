@@ -145,6 +145,7 @@
     <ClInclude Include="SelectMapScene.h" />
     <ClInclude Include="SmallLifeEnergyItem.h" />
     <ClInclude Include="SmallWeaponEnergyItem.h" />
+    <ClInclude Include="Spike.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="Stage.h" />
@@ -216,6 +217,7 @@
     <ClCompile Include="SelectMapScene.cpp" />
     <ClCompile Include="SmallLifeEnergyItem.cpp" />
     <ClCompile Include="SmallWeaponEnergyItem.cpp" />
+    <ClCompile Include="Spike.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="Stage.cpp" />

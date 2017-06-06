@@ -1,8 +1,8 @@
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\vc140.pdb
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\vc140.idb
-c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\blader.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\rockmanbullet.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\rockmancutbullet.obj
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\rockmandeath.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\scene.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\screwbomber.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\selectmapframe.obj
@@ -20,7 +20,6 @@ c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\deb
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\trundle.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\winmain.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\yashichiitem.obj
-c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\map.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\met.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\mgmcamera.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\mgmdirectxtool.obj
@@ -40,7 +39,7 @@ c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\deb
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\quadnode.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\quadtree.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\rockman.obj
-c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\constant.obj
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\blader.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\cutman.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\cutmanmap.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\cutmanscissors.obj
@@ -60,6 +59,7 @@ c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\deb
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\key.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\keyboard.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\magnetbeamitem.obj
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\map.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\animation.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\baseobject.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\beak.obj
@@ -69,7 +69,8 @@ c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\deb
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\bigweaponenergyitem.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\bridge.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\collision.obj
-c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\rockmandeath.obj
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\constant.obj
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\spike.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\debug\megaman.ilk
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\debug\megaman.exe
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\debug\megaman.pdb

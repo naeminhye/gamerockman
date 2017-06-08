@@ -18,6 +18,7 @@ public:
 
 	bool isIntersect(FRectangle* other);
 
+	void updateLocation();
 
 	MGMCamera();
 	~MGMCamera();

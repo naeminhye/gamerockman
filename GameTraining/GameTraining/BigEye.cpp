@@ -50,7 +50,7 @@ void BigEye::update()
 	{
 	case BIGEYE_WAITING:
 		setAction(BIGEYE_WAITING);
-		setHeight(40); // TODO luu constant 
+		setHeight(BIGEYE_WAITING_WIDTH);
 		dx = 0;
 		if (bigEyeDelay.isTerminated())
 		{
@@ -59,7 +59,7 @@ void BigEye::update()
 		break;
 	case BIGEYE_FLYING:
 		setAction(BIGEYE_FLYING);
-		setHeight(48); // TODO luu constant 
+		setHeight(BIGEYE_FLYING_WIDTH);
 		Enemy::update();
 
 		break;

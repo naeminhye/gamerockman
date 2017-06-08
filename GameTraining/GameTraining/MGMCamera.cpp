@@ -29,6 +29,14 @@ bool MGMCamera::isIntersect(FRectangle * other)
 		(tempY - tempH < other->y && tempY > other->y - other->height));
 }
 
+extern int roundToInt(float num);
+
+void MGMCamera::updateLocation()
+{
+	x = roundToInt(x + dx);
+	y = roundToInt(y + dy);
+}
+
 MGMCamera::MGMCamera()
 {
 	this->x = 0;

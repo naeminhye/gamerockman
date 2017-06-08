@@ -152,7 +152,7 @@ void Rockman::update()
 	updateInjury();
 
 	if (ground) {
-		isRecoil = false; // TODO CHANGE NAME
+		isRecoil = false; 
 		pauseAnimation = false;
 	}
 	if (isRecoil)
@@ -184,7 +184,7 @@ void Rockman::update()
 		if (onAttack)
 		{
 			setAction(RM_STAIR_SHOOT);
-			setWidth(16); // TODO CONSTANT
+			setWidth(RM_STAIR_SHOOT_WIDTH);
 		}
 		return;
 	}
@@ -247,16 +247,21 @@ void Rockman::update()
 		{
 			vy = RM_VY_JUMP;
 		}
-		setWidth(21); // TODO luu constant 
+		setWidth(RM_GROUND_WIDTH);
 	}
 	else
 	{
 		setAction(RM_JUMP);
 		if (onAttack)
 			setAction(RM_JUMP_SHOOT);
-		setWidth(RM_JUMP_WIDTH); // TODO luu constant 
+		setWidth(RM_JUMP_WIDTH); 
 	}
 	MovableObject::update();
+}
+
+int roundToInt(float num)
+{
+	return (int)(num + 0.5);
 }
 
 void Rockman::render()
@@ -276,10 +281,21 @@ void Rockman::render()
 	D3DXMATRIX flipMatrix;
 	int frameWidth = sprite->anims[action].frames[frameIndex].right - sprite->anims[action].frames[frameIndex].left;
 	MGMCamera::getInstance()->Transform(x, y, xRender, yRender);
-	xRender = (int)xRender;
-	yRender = (int)yRender;
+	xRender = roundToInt(xRender);
+	yRender = roundToInt(yRender);
 
 	xRender -= (frameWidth - width) / 2;
+
+	//int deltaX = 0;
+
+	//if (direction == Right)
+	//{
+	//	deltaX = width - frameWidth + 1;
+	//}
+
+	//xRender += deltaX;
+
+	
 
 	if (direction != sprite->img->direction)
 	{
@@ -298,6 +314,11 @@ void Rockman::render()
 		D3DXMatrixIdentity(&flipMatrix);
 		MGMDirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
 	}
+}
+
+void Rockman::setWidth(int width)
+{
+	MovableObject::setWidth(16);
 }
 
 
@@ -481,7 +502,7 @@ void Rockman::setOnStair(bool onStair)
 	this->onStair = onStair;
 	if (onStair)
 	{
-		setWidth(16);
+		//setWidth(16);
 		vy = 0;
 	}
 
@@ -491,7 +512,15 @@ void Rockman::updateStair()
 {
 	bool keyUp = KEY::getInstance()->isUpDown;
 	bool keyDown = KEY::getInstance()->isDownDown;
+	bool keyLeft = KEY::getInstance()->isLeftDown;
+	bool keyRight = KEY::getInstance()->isRightDown;
 	bool keyJumpPress = KEY::getInstance()->isJumpPress;
+	
+	if (keyLeft)
+		direction = Left;
+	if (keyRight)
+		direction = Right;
+
 	ground = false; //***
 	dy = 0;
 	Rockman::getInstance()->setAction(RM_STAIR);
@@ -511,13 +540,13 @@ void Rockman::updateStair()
 			//	vy = -0.1f;
 			if (stairIntersect->id == STAIR_RIGHT)
 			{
-				setWidth(21);
+				//setWidth(21);
 				x = stairIntersect->right() - width;
 				direction = Left;
 			}
 			else if (stairIntersect->id == STAIR_LEFT)
 			{
-				setWidth(21);
+				//setWidth(21);
 				x = stairIntersect->left();
 				direction = Right;
 			}
@@ -531,7 +560,10 @@ void Rockman::updateStair()
 	{
 		BaseObject::update();
 		dy = STAIR_DY;
-
+		if (stairIntersect)
+		{
+			x = stairIntersect->x;
+		}
 		if (stairIntersect != 0 && Rockman::getInstance()->top() > stairIntersect->top())
 			Rockman::getInstance()->setAction(RM_END_STAIR);
 		return;
@@ -540,6 +572,10 @@ void Rockman::updateStair()
 	{
 		BaseObject::update();
 		dy = -STAIR_DY;
+		if (stairIntersect)
+		{
+			x = stairIntersect->x;
+		}
 		if (stairIntersect != 0 && Rockman::getInstance()->top() > stairIntersect->top())
 			Rockman::getInstance()->setAction(RM_END_STAIR);
 		return;
@@ -630,7 +666,7 @@ void Rockman::updateAttack()
 			{
 				RockmanBullet* bullet = new RockmanCutBullet();
 				bullet->direction = direction;
-				int a = 50;//TODO them constant
+				int a = RM_CUT_BULLET_A;
 				bullet->oldRect.x = x;
 				bullet->oldRect.y = y;
 				if (direction < 0)

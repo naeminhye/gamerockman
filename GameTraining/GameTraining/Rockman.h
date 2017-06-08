@@ -70,6 +70,7 @@ public:
 
 	void update();
 	void render();
+	void setWidth(int width);
 
 	MGMGameTime delay;
 	void onCollision(FBox* other, int nx, int ny);

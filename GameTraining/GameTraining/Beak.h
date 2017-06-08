@@ -38,6 +38,7 @@ public:
 	DelayTime bulletDelay;
 	
 	DelayTime beakDelay;
+	bool setHealthPoint(int healthPoint);
 	void updateLocation();
 	void update();
 	bool updateAttack();

@@ -8,6 +8,8 @@ extern float nx, ny;
 
 int time = BOX_TIME;
 
+extern int roundToInt(float num);
+
 void FBox::updateLocation()
 {
 	if (isCollision && !isChangeDelta)
@@ -17,8 +19,8 @@ void FBox::updateLocation()
 		else
 			dx = 0;
 	}
-	x += dx;
-	y += dy;
+	x = roundToInt(x + dx);
+	y = roundToInt(y + dy);
 }
 
 void FBox::update()

@@ -29,7 +29,7 @@ CutmanMap::CutmanMap()
 		"Data\\Map\\Cutman\\objects.txt",
 		"Data\\Map\\Cutman\\quadtree.txt"
 	);
-	initStage("Data\\Map\\Cutman\\stage1.txt");
+	initStage("Data\\Map\\Cutman\\stage5.txt");
 }
 
 

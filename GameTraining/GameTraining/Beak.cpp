@@ -1,5 +1,16 @@
 #include "Beak.h"
 
+bool Beak::setHealthPoint(int healthPoint)
+{
+	if (healthPoint < this->healthPoint)
+	{
+		if (beakActivity == BEAK_WAITING)
+			return false;
+	}
+	Enemy::setHealthPoint(healthPoint);
+	return true;
+}
+
 void Beak::updateLocation()
 {
 }

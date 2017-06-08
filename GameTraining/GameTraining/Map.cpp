@@ -137,7 +137,7 @@ void Map::updateStageChangeByDoor()
 		break;
 	case DOOR_CAMERA_CHANGING:
 		camera = MGMCamera::getInstance();
-		camera->dx = DOOR_CAMERA_CHANGING_DX;//TODO luu constant
+		camera->dx = DOOR_CAMERA_CHANGING_DX;
 		//tim next stage
 		nextStage = findNextStageOnDoor();
 		if (camera->x + camera->dx > nextStage->left())
@@ -398,10 +398,12 @@ void Map::update()
 
 	for (size_t i = 0; i < BeakBullet::bullets->Count; i++)
 	{
-		BeakBullet::bullets->at(i)->updateLocation();
-		if (!Collision::AABBCheck(MGMCamera::getInstance(), BeakBullet::bullets->at(i)))
+		auto obj = BeakBullet::bullets->at(i);
+		Collision::CheckCollision(Rockman::getInstance(), obj);
+		obj->updateLocation();
+		if (!Collision::AABBCheck(MGMCamera::getInstance(), obj))
 		{
-			BeakBullet::bullets->at(i)->deleteBullet();
+			obj->deleteBullet();
 			i--;
 		}
 	}

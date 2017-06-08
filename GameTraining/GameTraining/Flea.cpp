@@ -16,7 +16,7 @@ void Flea::initJumpFar()
 
 Flea::Flea()
 {
-	fleaDelay.init(FLEA_DELAYTIME); // TODO luu constant
+	fleaDelay.init(FLEA_DELAYTIME); 
 	fleaDelay.start();
 	setAction(FLEA_WAITING);
 	fleaActivity = FLEA_WAITING;
@@ -50,7 +50,7 @@ void Flea::update()
 	{
 	case FLEA_WAITING:
 		setAction(FLEA_WAITING);
-		setHeight(15); // TODO luu constant 
+		setHeight(FLEA_WAITING_WIDTH);
 		dx = 0;
 		if (fleaDelay.isTerminated())
 		{
@@ -58,7 +58,7 @@ void Flea::update()
 		}
 		break;
 	case FLEA_FLYING:
-		setHeight(19); // TODO luu constant 
+		setHeight(FLEA_FLYING_WIDTH); 
 		setAction(FLEA_FLYING);
 		Enemy::update();
 		

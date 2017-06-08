@@ -38,7 +38,7 @@ void ScrewBomber::update()
 									bullet->dx = SCREW_BOMBER_VELOCITY * i;
 									bullet->dy = SCREW_BOMBER_VELOCITY * j;
 									bullet->x = getXCenter();
-									bullet->y = getYCenter(); // TODO 
+									bullet->y = getYCenter();  
 									if (i != 0 && j != 0)
 									{
 										bullet->dx *= sqrt(2) / 2;

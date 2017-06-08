@@ -2,6 +2,11 @@
 
 List<BeakBullet*>* BeakBullet::bullets = new List<BeakBullet*>();
 
+bool BeakBullet::setHealthPoint(int healthPoint)
+{
+	return false;
+}
+
 void BeakBullet::update()
 {
 }

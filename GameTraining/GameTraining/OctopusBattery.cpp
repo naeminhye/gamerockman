@@ -51,9 +51,18 @@ void OctopusBattery::onCollision(FBox * other, int nx, int ny)
 			{
 				setAction(OCTOPUS_CLOSE_EYES);
 				octopusDelay.start(OCTOPUS_WAITING_DELAYTIME);
+				if (ny > 0)
+				{
+					y = other->top() + height;
+				}
+				else
+				{
+					y = other->bottom();
+				}
 			}
 			octopusActivity = OCTOPUS_WAITING;
 			dy = ny * OCTOPUS_VELOCITY;
+			
 		}
 		break;
 	case OCTOPUS_VERTICAL:
@@ -62,6 +71,14 @@ void OctopusBattery::onCollision(FBox * other, int nx, int ny)
 			{
 				setAction(OCTOPUS_CLOSE_EYES);
 				octopusDelay.start(OCTOPUS_WAITING_DELAYTIME);
+				if (nx > 0)
+				{
+					x = other->right();
+				}
+				else
+				{
+					x = other->left() - width;
+				}
 			}
 			octopusActivity = OCTOPUS_WAITING;
 			dx = nx * OCTOPUS_VELOCITY;

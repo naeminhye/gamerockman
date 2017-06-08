@@ -37,6 +37,8 @@ extern int RM_MAX_HEALTH_POINT;
 extern int RM_DEFAULT_LIFE;
 extern int RM_WIDTH;
 extern int RM_JUMP_WIDTH;
+extern int RM_GROUND_WIDTH;
+extern int RM_STAIR_SHOOT_WIDTH;
 extern int RM_HEIGHT;
 extern int RM_DELAY_GAME_TIME;
 extern int RM_DISAPPEAR_GAME_TIME;
@@ -52,6 +54,10 @@ extern int RM_SHOOTING_DELAYTIME;
 extern float TIME_BLINK_OPEN;
 extern float TIME_BLINK_CLOSE;
 extern int RM_DEATH_DELAYTIME;
+extern float RM_VX_RECOIL;
+extern float RM_VY_RECOIL;
+
+extern int RM_CUT_BULLET_A;
 
 extern int CAMERA_CHANGESTAGE_DY;
 
@@ -78,12 +84,16 @@ extern float TIME_OCTOPUS_CLOSE_EYES;
 extern int randomFrom(int numBegin, int numEnd);
 
 extern int FLEA_DELAYTIME;
+extern int FLEA_WAITING_WIDTH;
+extern int FLEA_FLYING_WIDTH;
 extern float FLEA_JUMP_HIGH_VX;
 extern float FLEA_JUMP_HIGH_VY;
 extern float FLEA_JUMP_FAR_VX;
 extern float FLEA_JUMP_FAR_VY;
 
 extern int BIGEYE_DELAYTIME;
+extern int BIGEYE_WAITING_WIDTH;
+extern int BIGEYE_FLYING_WIDTH;
 extern float BIGEYE_JUMP_HIGH_VX;
 extern float BIGEYE_JUMP_HIGH_VY;
 extern float BIGEYE_JUMP_FAR_VX;

@@ -27,8 +27,8 @@ void TileMap::renderTile(int rowIndex, int colIndex)
 	int yTile = (rowCount - rowIndex) * 16;
 	float xRender, yRender;
 	MGMCamera::getInstance()->Transform(xTile, yTile, xRender, yRender);
-	xRender = (int)(xRender + 0.5);
-	yRender = (int)(yRender + 0.5);
+	xRender = xRender;
+	yRender = yRender;
 	int xTileSheet = (tileIndex % colTileSheetCount) * 16;
 	int yTileSheet = (tileIndex / colTileSheetCount) * 16;
 	RECT rect;

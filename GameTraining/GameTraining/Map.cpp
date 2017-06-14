@@ -421,11 +421,13 @@ void Map::update()
 
 	for (size_t i = 0; i < SuperCutterBullet::bullets->Count; i++)
 	{
-		SuperCutterBullet::bullets->at(i)->update();
-		SuperCutterBullet::bullets->at(i)->updateLocation();
-		if (!Collision::AABBCheck(MGMCamera::getInstance(), SuperCutterBullet::bullets->at(i)))
+		auto obj = SuperCutterBullet::bullets->at(i);
+		obj->update();
+		Collision::CheckCollision(Rockman::getInstance(), obj);
+		obj->updateLocation();
+		if (!Collision::AABBCheck(MGMCamera::getInstance(), obj))
 		{
-			SuperCutterBullet::bullets->at(i)->deleteBullet();
+			obj->deleteBullet();
 			i--;
 		}
 	}

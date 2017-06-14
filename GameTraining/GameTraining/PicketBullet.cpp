@@ -3,6 +3,11 @@
 List<PicketBullet*>* PicketBullet::bullets = new List<PicketBullet*>();
 
 
+bool PicketBullet::setHealthPoint(int healthPoint)
+{
+	return false;
+}
+
 void PicketBullet::deleteBullet()
 {
 	bullets->_Remove(this);

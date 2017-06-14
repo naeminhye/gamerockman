@@ -2,6 +2,8 @@
 #include "Death.h"
 #include "BonusBallItem.h"
 #include "OneUpItem.h"
+#include "BigLifeEnergyItem.h"
+#include "SmallLifeEnergyItem.h"
 #include"KEY.h"
 
 bool Enemy::setHealthPoint(int healthPoint)
@@ -23,10 +25,14 @@ void Enemy::setDeath()
 	death->y = y;
 
 
-	int number = randomFrom(0, 10);
+	int number = randomFrom(0, 15);
 	Item* item;
-	if (number == 10)
+	if (number == 0)
 		item = new OneUpItem();
+	else if (number == 1)
+		item = new BigLifeEnergyItem();
+	else if (number == 2 || number == 3)
+		item = new SmallLifeEnergyItem();
 	else
 		item = new BonusBallItem();
 	// TODO them item
@@ -94,7 +100,7 @@ void Enemy::restoreLocation()
 Enemy::Enemy()
 {
 	collisionType = CT_ENEMY;
-	healthPoint = 2;
+	healthPoint = 1;
 	attackDamage = 1;
 }
 

@@ -1,10 +1,11 @@
 #pragma once
-#include "MovableObject.h"
+#include "Enemy.h"
 class PicketBullet :
-	public MovableObject
+	public Enemy
 {
 public:
 	static List<PicketBullet*>* bullets;
+	bool setHealthPoint(int healthPoint);// ko lam gi het => dan ko chet
 	void deleteBullet();
 	void update();
 	PicketBullet();

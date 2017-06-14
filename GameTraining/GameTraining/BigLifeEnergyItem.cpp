@@ -1,10 +1,12 @@
 #include "BigLifeEnergyItem.h"
-
+#include "Rockman.h"
 
 
 void BigLifeEnergyItem::onIntersect(FBox * other)
 {
 	Item::onIntersect(other);
+	int healthUp = randomFrom(8, 10);
+	Rockman::getInstance()->setHealth(Rockman::getInstance()->health + healthUp);
 }
 
 BigLifeEnergyItem::BigLifeEnergyItem()

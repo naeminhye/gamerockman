@@ -1,10 +1,11 @@
 #pragma once
-#include "MovableObject.h"
+#include "Enemy.h"
 class SuperCutterBullet :
-	public MovableObject
+	public Enemy
 {
 public:
 	static List<SuperCutterBullet*>* bullets;
+	bool setHealthPoint(int healthPoint);// ko lam gi het => dan ko chet
 	void update();
 	void deleteBullet();
 	SuperCutterBullet();

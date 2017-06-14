@@ -1,5 +1,5 @@
 #include "BonusBallItem.h"
-
+#include "Rockman.h"
 
 
 void BonusBallItem::onIntersect(FBox * other)

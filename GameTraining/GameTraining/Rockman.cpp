@@ -41,7 +41,7 @@ void Rockman::setHealth(int health)
 				}
 		}
 	}
-	//this->health = health;
+	this->health = health; 
 	if (health > maxHealth)
 		this->health = maxHealth;
 }

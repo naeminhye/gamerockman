@@ -1,9 +1,11 @@
 #include "Blader.h"
 
-
+Blader* test = 0;
 
 void Blader::update()
 {
+	if (!alive)
+		return;
 	switch (bladerActivity)
 	{
 	case BLADER_PREPARE:
@@ -59,6 +61,8 @@ void Blader::onCollision(FBox * other, int nx, int ny)
 
 Blader::Blader()
 {
+	if (test == 0)
+		test = this;
 	bladerActivity = BLADER_PREPARE;
 	dy = 0;
 	healthPoint = 1;

@@ -91,10 +91,19 @@ void Enemy::onIntersect(FBox * other)
 	}
 }
 
+void Enemy::init()
+{
+	maxHealth = healthPoint;
+	setHealthPoint(maxHealth);
+}
+
 void Enemy::restoreLocation()
 {
 	MovableObject::restoreLocation();
-	alive = true;
+	if(!alive)
+		alive = true;
+	setHealthPoint(maxHealth);
+	// TODO reset healthPoint
 }
 
 Enemy::Enemy()

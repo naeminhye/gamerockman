@@ -52,7 +52,7 @@ void Rockman::updateDeath()
 	dy = 0;
 	switch (rm_death_activity)
 	{
-	case ON_DEAD:
+	case ON_DEATH:
 		if (deathDelay.isTerminated())
 		{
 			RockmanDeath* rmDead = new RockmanDeath();
@@ -426,6 +426,7 @@ Rockman::Rockman()
 	collisionType = CT_ROCKMAN;
 	disappearTime.tickPerFrame = RM_DISAPPEAR_GAME_TIME;
 	isDisappear = false;
+	isRecoil = false;
 	injuryDelay.init(RM_INJURY_DELAY_TIME);
 	flickeringDelay.init(RM_FLICKER_DELAY_TIME);
 	onInjury = false;
@@ -433,8 +434,7 @@ Rockman::Rockman()
 	onDeath = false;
 	deathDelay.init(RM_DEATH_DELAYTIME); 
 	pauseAnimation = true;
-	isRecoil = false;
-	rm_death_activity = ON_DEAD;
+	rm_death_activity = ON_DEATH;
 	life = RM_DEFAULT_LIFE;
 }
 

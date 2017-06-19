@@ -1,4 +1,6 @@
 #include "QuadTree.h"
+#include"Blader.h"
+extern Blader* test;
 
 extern void ignoreLineIfstream(ifstream& fs, int lineCount);
 
@@ -15,10 +17,7 @@ QuadTree::~QuadTree()
 
 void QuadTree::update() //***
 {
-	//xoa doi tuong trong camera
-	removeObjects();
-	//do doi tuong vao camera
-	fillObject();
+
 	List<BaseObject*>* allObjects =  &MGMCamera::getInstance()->objects.allObjects;
 	for (int i = 0; i < allObjects->Count; i++)
 	{
@@ -29,6 +28,11 @@ void QuadTree::update() //***
 		}
 
 	}
+
+	//xoa doi tuong trong camera
+	removeObjects();
+	//do doi tuong vao camera
+	fillObject();
 }
 
 void QuadTree::removeObjects()

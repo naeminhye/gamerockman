@@ -38,7 +38,7 @@ enum BLINK_ACTIVITY
 };
 
 enum ROCKMAN_DEATH_ACTIVITY {
-	ON_DEAD,
+	ON_DEATH,
 	DEATH_FINISH
 };
 
@@ -48,7 +48,9 @@ class Rockman :
 	//phan tren rockman co va cham voi cau thang nao hay k
 	bool isIntersectStair;
 	BLINK_ACTIVITY blinkActivity;
+
 public:
+#pragma region LIFE 
 	int health;
 	int maxHealth;
 	void setHealth(int health);
@@ -56,8 +58,10 @@ public:
 	DelayTime deathDelay;
 	void updateDeath();
 	ROCKMAN_DEATH_ACTIVITY rm_death_activity;
-	int life; 
+	int life;
 	void setLife(int life);
+#pragma endregion
+
 
 	ROCKMAN_TYPE rm_type;
 	ROCKMAN_ACTION rm_action;
@@ -117,17 +121,19 @@ public:
 
 	void updateRockmanType();
 
-
 #pragma region FLICKER
 	MGMGameTime disappearTime;
 	bool isDisappear;
-	void updateFlicker(); // khi di'nh da.n  
+	void updateFlicker(); // khi trung dan
 #pragma endregion
 
+#pragma region INJURY
 	bool isRecoil;
 	bool onInjury;
 	void updateInjury();
 	DelayTime injuryDelay, flickeringDelay;
+#pragma endregion
+
 
 };
 

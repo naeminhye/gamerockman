@@ -51,7 +51,7 @@ bool Beak::updateAttack()
 	if (!bulletDelay.isOnTime() && this->alive)
 	{
 		BeakBullet* bullet = new BeakBullet();
-		bullet->dx = BEAK_BULLET_VELOCITY*direction;
+		bullet->dx = BEAK_BULLET_VELOCITY * direction;
 		if (direction == Left)
 		{
 			bullet->x = x;
@@ -69,11 +69,11 @@ bool Beak::updateAttack()
 			bulletLocation = MIDDLE_TOP;
 			break;
 		case MIDDLE_TOP:
-			bullet->dy = BEAK_BULLET_VELOCITY*tan(TAN_5_TO_RAD);
+			bullet->dy = BEAK_BULLET_VELOCITY * tan(TAN_5_TO_RAD);
 			bulletLocation = MIDDLE_BOTTOM;
 			break;
 		case MIDDLE_BOTTOM:
-			bullet->dy = -BEAK_BULLET_VELOCITY*tan(TAN_5_TO_RAD);
+			bullet->dy = - BEAK_BULLET_VELOCITY * tan(TAN_5_TO_RAD);
 			bulletLocation = BOTTOM;
 			break;
 		case BOTTOM:

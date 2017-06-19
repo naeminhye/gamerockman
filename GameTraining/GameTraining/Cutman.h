@@ -1,5 +1,6 @@
 #pragma once
 #include "Enemy.h"
+#include "Flickable.h"
 
 enum CUTMAN_ACTIVITY_RAND
 {
@@ -13,7 +14,8 @@ enum CUTMAN_ACTION {
 	CM_RUNNING,
 	CM_JUMPING,
 	CM_ACTION_COUNT,
-	CM_SHOOTING = 6
+	CM_SHOOTING = 6,
+	CM_EXPLOSE
 };
 
 enum CUTMAN_TYPE {
@@ -29,7 +31,7 @@ enum CUTMAN_ACTIVITY {
 };
 
 class Cutman :
-	public Enemy
+	public Flickable
 {
 public:
 	DelayTime cutmanDelay;
@@ -50,7 +52,26 @@ public:
 	void setAction(int actionValue);
 
 	void onCollision(FBox* other, int nx, int ny);
+
 	Cutman();
 	~Cutman();
+
+//#pragma region FLICKER
+//	MGMGameTime disappearTime;
+//	bool isDisappear;
+//	void updateFlicker(); // khi trung dan
+//#pragma endregion
+//
+//#pragma region INJURY
+//	bool isRecoil;
+//	bool onInjury;
+//	void updateInjury();
+//	DelayTime injuryDelay, flickeringDelay;
+//#pragma endregion
+
+	bool isRecoil;
+	bool onInjury;
+	void updateInjury();
+	void onIntersect(FBox * other);
 };
 

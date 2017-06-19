@@ -18,6 +18,17 @@ RockmanDeath::~RockmanDeath()
 {
 }
 
+void RockmanDeath::updateLocation()
+{
+	x += dx;
+	y += dy;
+}
+
+void RockmanDeath::update()
+{
+	BaseObject::update();
+}
+
 void RockmanDeath::render()
 {
 

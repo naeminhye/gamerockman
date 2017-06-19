@@ -23,7 +23,10 @@
 #include "PicketBullet.h"
 #include "Death.h"
 #include "Item.h"
+#include "DeathHole.h"
 #include "Spike.h"
+
+extern Blader* test;
 
 Map* Map::curMap=0;
 bool Map::onStageChangeByDoor = false;
@@ -233,6 +236,9 @@ void Map::readObjects(char * objectsPath)
 			break;
 		case SPR_SPIKE:
 			objects[i] = new Spike();
+			break;
+		case SPR_DEATH_HOLE:
+			objects[i] = new DeathHole();
 			break;
 			//TODO: Them doi tuong nho them vao day
 		default:
@@ -451,7 +457,8 @@ void Map::update()
 
 	for (size_t i = 0; i < Item::items->Count; i++)
 	{
-		Item::items->at(i)->update();
+		auto item = Item::items->at(i);
+		item->update();
 		for (size_t j = 0; j < nGroundObjectsCam; j++)
 		{
 			Collision::CheckCollision(Item::items->at(i), groundsInCam->at(j));

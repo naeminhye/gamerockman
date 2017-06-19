@@ -1,7 +1,7 @@
 R		G		B
 34		177		76
 Count
-7
+8
 Sprite Info
 
 Index		Name
@@ -89,3 +89,13 @@ Index		Name
 			202				4				30				32
 			235				4				30				32
 
+
+Index		Name
+7			flicker
+
+			FramesCount
+			1
+
+			Animation Info
+			LocationX		LocationY		FrameWidth		FrameHeight
+			270				11				24				24			

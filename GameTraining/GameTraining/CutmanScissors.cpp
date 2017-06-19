@@ -28,7 +28,8 @@ void CutmanScissors::update()
 		if (Collision::AABBCheck(this, cutman))
 		{
 			alive = false;
-			((Cutman*)cutman)->setType(CM_NON_ATTACKING);
+			Cutman* cutman1 = ((Cutman*)cutman);
+			cutman1->setType(CM_NON_ATTACKING);
 			return;
 		}
 		if (x - cutman->x != 0)

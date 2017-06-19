@@ -5,6 +5,7 @@
 void OneUpItem::onIntersect(FBox * other)
 {
 	Item::onIntersect(other);
+	Rockman::getInstance()->setHealth(Rockman::getInstance()->maxHealth);
 	Rockman::getInstance()->setLife(Rockman::getInstance()->life + 1);
 }
 

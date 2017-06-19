@@ -3,6 +3,7 @@
 
 enum SPRITE_INFO
 {
+	SPR_DEATH_HOLE = -8,
 	SPR_BRIDGE = -7,
 	SPR_SPIKE = -6,
 	SPR_OUTERSPACE, // = - 5

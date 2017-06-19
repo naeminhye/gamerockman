@@ -40,14 +40,14 @@ c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\deb
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\rockman.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\blader.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\rockmanbullet.obj
-c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\cutmanmap.obj
-c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\cutmanscissors.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\death.obj
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\deathhole.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\delaytime.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\door.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\enemy.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\fbox.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\flea.obj
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\flickable.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\flyingshell.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\frectangle.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\gutsmanmap.obj
@@ -71,6 +71,8 @@ c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\deb
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\collision.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\constant.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\cutman.obj
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\cutmanmap.obj
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\debug\cutmanscissors.obj
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\debug\megaman.ilk
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\debug\megaman.exe
 c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\debug\megaman.pdb

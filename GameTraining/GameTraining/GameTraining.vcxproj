@@ -98,11 +98,13 @@
     <ClInclude Include="CutmanMap.h" />
     <ClInclude Include="CutmanScissors.h" />
     <ClInclude Include="Death.h" />
+    <ClInclude Include="DeathHole.h" />
     <ClInclude Include="DelayTime.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="FBox.h" />
     <ClInclude Include="Flea.h" />
+    <ClInclude Include="Flickable.h" />
     <ClInclude Include="FlyingShell.h" />
     <ClInclude Include="FRectangle.h" />
     <ClInclude Include="GutsmanMap.h" />
@@ -172,11 +174,13 @@
     <ClCompile Include="CutmanMap.cpp" />
     <ClCompile Include="CutmanScissors.cpp" />
     <ClCompile Include="Death.cpp" />
+    <ClCompile Include="DeathHole.cpp" />
     <ClCompile Include="DelayTime.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="FBox.cpp" />
     <ClCompile Include="Flea.cpp" />
+    <ClCompile Include="Flickable.cpp" />
     <ClCompile Include="FlyingShell.cpp" />
     <ClCompile Include="FRectangle.cpp" />
     <ClCompile Include="GutsmanMap.cpp" />

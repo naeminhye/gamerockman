@@ -17,6 +17,12 @@ void BeakBullet::deleteBullet()
 	delete this;
 }
 
+void BeakBullet::updateLocation()
+{
+	x += dx;
+	y += dy;
+}
+
 BeakBullet::BeakBullet()
 {
  	sprite = SpriteManager::getInstance()->sprites[SPR_BEAK_BULLET];

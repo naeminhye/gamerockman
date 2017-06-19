@@ -47,6 +47,7 @@ void Cutman::updateShooting()
 
 void Cutman::update()
 {
+	Flickable::updateFlicker();
 	cutmanDelay.update();
 	if(cutmanActivity != CMA_JUMPING)
 		Enemy::initDirectionFollowRockman();
@@ -136,10 +137,10 @@ void Cutman::setActivity(CUTMAN_ACTIVITY cutmanActivity)
 	{
 		setType(CM_ATTACKING);
 		CutmanScissors::getInstance()->alive = true;
-		CutmanScissors::getInstance()->scissorsActivity = SCISSORS_KOBIET;
+		CutmanScissors::getInstance()->scissorsActivity = SCISSORS_KOBIET; // TODO doi ten
 		CutmanScissors::getInstance()->x = x;
 		CutmanScissors::getInstance()->y = y;
-		CutmanScissors::getInstance()->dx = direction;
+		CutmanScissors::getInstance()->dx = 2 * direction; // TODO Constant
 		CutmanScissors::getInstance()->dy = 0;
 	}
 	if (cutmanActivity == CMA_JUMPING && !ground)
@@ -196,9 +197,72 @@ Cutman::Cutman()
 	healthPoint = 28;
 	CutmanScissors::getInstance()->dx = 0;
 	CutmanScissors::getInstance()->cutman = this; //**********
+	flickerAction = CM_EXPLOSE;//
+	onInjury = false;
+	isDisappear = false;
+	isRecoil = false;
+	injuryDelay.init(RM_INJURY_DELAY_TIME);
+	flickeringDelay.init(RM_FLICKER_DELAY_TIME);
 }
 
 
 Cutman::~Cutman()
 {
+}
+
+void Cutman::updateInjury()
+{
+	if (onInjury)
+	{
+		injuryDelay.update();
+		flickeringDelay.update();
+		if (injuryDelay.isOnTime())
+		{
+			setAction(RM_INJURE);
+		}
+		updateFlicker();
+		if (flickeringDelay)
+		{
+			onInjury = false;
+			isDisappear = false;
+		}
+	}
+}
+
+void Cutman::onIntersect(FBox * other)
+{
+	if (other->collisionType == CT_BULLET  && !onInjury)
+	{
+		int nx; //
+
+		if (getXCenter() > this->getXCenter())
+		{
+			nx = -1;
+		}
+		else
+			nx = 1;
+
+		this->direction = (Direction)(-nx);
+		this->vx = nx * RM_VX_RECOIL;
+		//	this->vx = 0; 
+		this->vy = RM_VY_RECOIL;
+		//this->onStair = false;
+		this->ground = false;
+		this->isRecoil = true;
+		//this->setIsIntersectStair(false);
+		//this->setHealth(this->health - attackDamage);
+		this->onInjury = true;
+		this->flickeringDelay.start();
+		this->injuryDelay.start();
+	}
+
+	if (other->collisionType == CT_BULLET)
+	{
+		((RockmanBullet*)other)->canDelete = true;
+		setHealthPoint(healthPoint - 1);
+		if (healthPoint == 0)
+		{
+			setDeath();
+		}
+	}
 }

@@ -12,6 +12,7 @@ void Spike::onCollision(FBox * other, int nx, int ny)
 
 Spike::Spike()
 {
+	//collisionType = CT_ITEM;
 }
 
 

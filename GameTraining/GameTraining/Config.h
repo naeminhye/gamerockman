@@ -80,9 +80,6 @@ extern int OCTOPUS_VELOCITY;
 extern float TIME_OCTOPUS_OPEN_EYES;
 extern float TIME_OCTOPUS_CLOSE_EYES;
 
-// random funtion
-extern int randomFrom(int numBegin, int numEnd);
-
 extern int FLEA_DELAYTIME;
 extern int FLEA_WAITING_WIDTH;
 extern int FLEA_FLYING_WIDTH;
@@ -116,4 +113,7 @@ extern int PICKET_BULLET_VY;
 extern int PICKET_BULLET_V;
 
 extern float CUTMAN_JUMP_VY;
+
+// random funtion
+extern int randomFrom(int numBegin, int numEnd);
 #pragma endregion

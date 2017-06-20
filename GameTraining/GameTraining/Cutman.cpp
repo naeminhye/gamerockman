@@ -137,7 +137,7 @@ void Cutman::setActivity(CUTMAN_ACTIVITY cutmanActivity)
 	{
 		setType(CM_ATTACKING);
 		CutmanScissors::getInstance()->alive = true;
-		CutmanScissors::getInstance()->scissorsActivity = SCISSORS_KOBIET; // TODO doi ten
+		CutmanScissors::getInstance()->scissorsActivity = SCISSORS_ATTACK; // TODO doi ten
 		CutmanScissors::getInstance()->x = x;
 		CutmanScissors::getInstance()->y = y;
 		CutmanScissors::getInstance()->dx = 2 * direction; // TODO Constant

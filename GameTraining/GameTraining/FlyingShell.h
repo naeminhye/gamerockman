@@ -19,7 +19,9 @@ public:
 	void update();
 	void onCollision(FBox* other, int nx, int ny);
 
+	/* CONSTRUCTOR & DESTRUCTOR */
 	FlyingShell();
 	~FlyingShell();
+
 };
 

@@ -3,8 +3,8 @@
 #include "MGMTexture.h"
 #include <fstream>
 #include <string>
-using namespace std;
 
+using namespace std;
 
 static void ignoreLineIfstream(ifstream& fs, int lineCount)
 {
@@ -21,13 +21,18 @@ public:
 	Animation* anims;
 	int animCount;
 	MGMTexture* img;
-	Sprite();
-	~Sprite();
+	
+	
 	int getHeight(int action, int frameIndex);
 	int getWidth(int action, int frameIndex);
 	void render(int x, int y, int action, int frameIndex);
 	void update(int action, int &frameIndex);
 	void ReadFromFile(char * infopath, char * imagepath);
 	void readInfo(const char* infoPath);
+
+	/* CONSTRUCTOR & DESTRUCTOR */
+	Sprite();
+	~Sprite();
+
 };
 

@@ -21,18 +21,6 @@
     <ClCompile Include="WinMain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MGMDirectXTool.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MGMForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MGMGameTime.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MGMPoint.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="MGMSurface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -70,9 +58,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Keyboard.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MGMCamera.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TileMap.cpp">
@@ -237,21 +222,24 @@
     <ClCompile Include="Flickable.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DirectXTool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Form.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MGMPoint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MGMDirectXTool.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MGMForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MGMGameTime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MGMPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MGMSurface.h">
@@ -291,9 +279,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Keyboard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MGMCamera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TileMap.h">
@@ -459,6 +444,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Flickable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectXTool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Form.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MGMPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

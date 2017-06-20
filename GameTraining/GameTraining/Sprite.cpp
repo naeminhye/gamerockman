@@ -1,5 +1,5 @@
 #include "Sprite.h"
-#include "MGMGameTime.h"
+#include "GameTime.h"
 
 Sprite::Sprite()
 {

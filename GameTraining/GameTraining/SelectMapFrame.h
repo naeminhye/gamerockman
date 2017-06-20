@@ -1,22 +1,21 @@
 #pragma once
 #include "SpriteManager.h"
-#include "MGMGameTime.h"
+#include "GameTime.h"
 
 class SelectMapFrame
 {
 public:
-	// toa do
-	float x, y;
-
-	// dia chi sprite
-	Sprite* sprite;
+	float x, y; // toa do
+	Sprite* sprite; // dia chi sprite
 	int action, frameIndex;
-	MGMGameTime delay;
-
+	GameTime delay;
 
 	void update();
 	void render();
+	
+	/* CONSTRUCTOR & DESTRUCTOR */
 	SelectMapFrame();
 	~SelectMapFrame();
+
 };
 

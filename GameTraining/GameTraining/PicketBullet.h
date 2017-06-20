@@ -5,10 +5,14 @@ class PicketBullet :
 {
 public:
 	static List<PicketBullet*>* bullets;
+	
 	bool setHealthPoint(int healthPoint);// ko lam gi het => dan ko chet
 	void deleteBullet();
 	void update();
+	
+	/* CONSTRUCTOR & DESTRUCTOR */
 	PicketBullet();
 	~PicketBullet();
+
 };
 

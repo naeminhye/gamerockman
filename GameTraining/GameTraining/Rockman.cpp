@@ -4,7 +4,7 @@
 #include"Map.h"
 #include "RockmanCutBullet.h"
 #include"RockmanDeath.h"
-#include"MGMCamera.h"
+#include"Camera.h"
 #include"Scene.h"
 
 Rockman * Rockman::instance = 0;
@@ -99,8 +99,8 @@ void Rockman::updateDeath()
 		if (deathDelay.isTerminated())
 		{
 			Stage::curStage = Map::curMap->stages[Map::curMap->stageBegin];
-			MGMCamera::getInstance()->x = Map::curMap->cameraBeginX;
-			MGMCamera::getInstance()->y = Map::curMap->cameraBeginY;
+			Camera::getInstance()->x = Map::curMap->cameraBeginX;
+			Camera::getInstance()->y = Map::curMap->cameraBeginY;
 			x = Map::curMap->rmBeginX;
 			y = Map::curMap->rmBeginY;
 			this->Rockman::Rockman();
@@ -109,7 +109,7 @@ void Rockman::updateDeath()
 			ground = false;
 			setAction(RM_TELEPORT);
 			onTeleport = true;
-			MGMCamera::getInstance()->objects.clear();
+			Camera::getInstance()->objects.clear();
 			for (size_t i = 0; i < RockmanDeath::deads->Count; i++)
 			{
 				RockmanDeath::deads->at(i)->deleteDead();
@@ -280,7 +280,7 @@ void Rockman::render()
 
 	D3DXMATRIX flipMatrix;
 	int frameWidth = sprite->anims[action].frames[frameIndex].right - sprite->anims[action].frames[frameIndex].left;
-	MGMCamera::getInstance()->Transform(x, y, xRender, yRender);
+	Camera::getInstance()->Transform(x, y, xRender, yRender);
 	xRender = roundToInt(xRender);
 	yRender = roundToInt(yRender);
 
@@ -303,7 +303,7 @@ void Rockman::render()
 		flipMatrix._11 = -1;
 		flipMatrix._41 = 2 * (xRender + frameWidth / 2);
 
-		MGMDirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+		DirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
 	}
 	if (!isDisappear)
 		sprite->render(xRender, yRender, action, frameIndex);
@@ -312,7 +312,7 @@ void Rockman::render()
 	if (direction != sprite->img->direction)
 	{
 		D3DXMatrixIdentity(&flipMatrix);
-		MGMDirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+		DirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
 	}
 }
 

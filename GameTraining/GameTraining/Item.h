@@ -1,8 +1,10 @@
 #pragma once
 #include "MovableObject.h"
 
+/* ENUMERATIONS */
 enum ITEM_TYPE
 {
+	// cac loai Items xuat hien sau khi Enemy chet
 	SMALL_LIFE_ENERGY,
 	SMALL_WEAPON_ENERGY,
 	BIG_LIFE_ENERGY,
@@ -20,7 +22,10 @@ public:
 	static List<Item*>* items;
 	void release();
 	virtual void onIntersect(FBox* other); // goi cuoi cung
+
+	/* CONSTRUCTOR & DESTRUCTOR */
 	Item();
 	virtual ~Item();
+
 };
 

@@ -16,7 +16,7 @@ void CutmanScissors::update()
 	BaseObject::update();
 	switch (scissorsActivity)
 	{
-	case SCISSORS_KOBIET:
+	case SCISSORS_ATTACK:
 		if ((x < Stage::curStage->left() + delta && dx < 0) ||
 			(x > Stage::curStage->right() - delta && dx > 0))
 		{
@@ -48,7 +48,7 @@ CutmanScissors::CutmanScissors()
 	width = sprite->anims[0].frames[0].right - sprite->anims[0].frames[0].left;
 	height = sprite->anims[0].frames[0].bottom - sprite->anims[0].frames[0].top;
 	collisionType = CT_BULLET;
-	scissorsActivity = SCISSORS_KOBIET;
+	scissorsActivity = SCISSORS_ATTACK;
 	alive = false;
 }
 

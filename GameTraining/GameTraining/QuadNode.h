@@ -3,22 +3,21 @@
 #include<fstream>
 #include"Collision.h"
 #include"BaseObject.h"
-#include"MGMCamera.h"
+#include"Camera.h"
 using namespace std;
 class QuadNode :
 	public FRectangle
 {
 public:
-
-	QuadNode* TL,* BL,* TR,* BR;
 	int id;
 	int nObject;
+
+	QuadNode* TL,* BL,* TR,* BR;
 	BaseObject** objectsInNode;
-	
-	QuadNode(ifstream &fs, BaseObject** allObjects,int mapHeight);
-	
 	void fillObjectToCamera();
 
+	/* CONSTRUCTOR & DESTRUCTOR */
+	QuadNode(ifstream &fs, BaseObject** allObjects,int mapHeight);
 	~QuadNode();
 };
 

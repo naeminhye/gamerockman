@@ -75,7 +75,7 @@ void ScrewBomber::render()
 	float xRender;
 
 	D3DXMATRIX flipMatrix;
-	MGMCamera::getInstance()->Transform(x, y, xRender, yRender);
+	Camera::getInstance()->Transform(x, y, xRender, yRender);
 	xRender = (int)xRender;
 	yRender = (int)yRender;
 	if (id == SCREW_TOP)
@@ -85,13 +85,13 @@ void ScrewBomber::render()
 		flipMatrix._22 = -1;
 		flipMatrix._42 = 2 * (yRender + frameHeight / 2);
 
-		MGMDirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+		DirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
 	}
 	sprite->render(xRender, yRender, action, frameIndex);
 	if (id == SCREW_TOP)
 	{
 		D3DXMatrixIdentity(&flipMatrix);
-		MGMDirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+		DirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
 	}
 }
 

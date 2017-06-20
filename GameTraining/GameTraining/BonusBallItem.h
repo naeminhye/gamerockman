@@ -5,7 +5,10 @@ class BonusBallItem :
 {
 public:
 	void onIntersect(FBox* other);
+
+	/* CONSTRUCTOR & DESTRUCTOR */
 	BonusBallItem();
 	~BonusBallItem();
+
 };
 

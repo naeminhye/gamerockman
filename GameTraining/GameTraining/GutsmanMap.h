@@ -5,7 +5,10 @@ class GutsmanMap :
 {
 public:
 	Stage* findNextStageOnDoor();
+
+	/* CONSTRUCTOR & DESTRUCTOR */
 	GutsmanMap();
 	~GutsmanMap();
+
 };
 

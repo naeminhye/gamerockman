@@ -9,7 +9,9 @@ public:
 	virtual void update();
 	virtual void render();
 
+	/* CONSTRUCTOR & DESTRUCTOR */
 	Scene();
 	~Scene();
+
 };
 

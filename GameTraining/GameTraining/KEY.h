@@ -29,7 +29,9 @@ public:
 
 	void update();
 
+	/* CONSTRUCTOR & DESTRUCTOR */
 	KEY();
 	~KEY();
+
 };
 

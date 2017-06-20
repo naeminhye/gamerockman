@@ -1,7 +1,5 @@
 #include "BaseObject.h"
 
-
-
 void BaseObject::setAction(int actionValue)
 {
 	if (action != actionValue)
@@ -19,21 +17,6 @@ void BaseObject::restoreLocation()
 	height = oldRect.height;
 }
 
-BaseObject::BaseObject() 
-{
-	sprite = 0;
-	delay.tickPerFrame = BASE_OBJECT_TICK_PER_FRAME;//TODO luu constant
-	frameIndex = 0;
-	action = 0;
-	pauseAnimation = false;
-	alive = true;
-}
-
-
-BaseObject::~BaseObject()
-{
-}
-
 void BaseObject::update()
 {
 	if (!alive)
@@ -43,7 +26,7 @@ void BaseObject::update()
 	FBox::update();
 
 	if (pauseAnimation)
-		return;
+		return; // dung chuyen dong -> khong update
 
 	if (delay.atTime())
 	{
@@ -69,7 +52,7 @@ void BaseObject::render()
 	float xRender;
 
 	D3DXMATRIX flipMatrix;
-	MGMCamera::getInstance()->Transform(x, y, xRender, yRender);
+	Camera::getInstance()->Transform(x, y, xRender, yRender);
 	xRender = (int)xRender;
 	yRender = (int)yRender;
 	if (direction != sprite->img->direction)
@@ -79,16 +62,31 @@ void BaseObject::render()
 		flipMatrix._11 = -1;
 		flipMatrix._41 = 2*(xRender + frameWidth/2 );
 		
-		MGMDirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+		DirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
 	}
 	sprite->render(xRender, yRender, action, frameIndex);
 	if (direction != sprite->img->direction)
 	{
 		D3DXMatrixIdentity(&flipMatrix);
-		MGMDirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+		DirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
 	}
 }
 
 void BaseObject::init()
+{
+}
+
+BaseObject::BaseObject() 
+{
+	sprite = 0;
+	delay.tickPerFrame = BASE_OBJECT_TICK_PER_FRAME;//TODO luu constant
+	frameIndex = 0;
+	action = 0;
+	pauseAnimation = false;
+	alive = true;
+}
+
+
+BaseObject::~BaseObject()
 {
 }

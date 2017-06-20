@@ -13,7 +13,9 @@ public:
 	static float SweptAABB(FBox* M, FBox* S, float &normalX, float &normalY);
 	static void CheckCollision(FBox* M, FBox* S);
 
+	/* CONSTRUCTOR & DESTRUCTOR */
 	Collision();
 	~Collision();
+
 };
 

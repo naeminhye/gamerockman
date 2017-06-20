@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include"MGMDirectXTool.h"
+#include"DirectXTool.h"
 #include"MGMPoint.h"
 
 enum Direction
@@ -9,8 +9,6 @@ enum Direction
 	Left = -1,
 	Right = 1
 };
-
-
 
 class MGMTexture
 {

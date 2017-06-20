@@ -5,7 +5,10 @@ class BigWeaponEnergyItem :
 {
 public:
 	void onIntersect(FBox* other);
+
+	/* CONSTRUCTOR & DESTRUCTOR */
 	BigWeaponEnergyItem();
 	~BigWeaponEnergyItem();
+
 };
 

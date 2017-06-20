@@ -17,7 +17,10 @@ public:
 	
 	void update();
 	void init(DWORD time = -1);
+
+	/* CONSTRUCTOR & DESTRUCTOR */
 	DelayTime();
 	~DelayTime();
+
 };
 

@@ -26,7 +26,7 @@ void HealthSprite::render(int left, int bottom, int healthCount, int maxHealth)
 		}
 		else
 		{
-			MGMDirectXTool::getInstance()->GetSprite()->Draw(img->m_image,
+			DirectXTool::getInstance()->GetSprite()->Draw(img->m_image,
 				0,
 				0,
 				&D3DXVECTOR3(xRender, yRender, 0),

@@ -5,7 +5,10 @@ class BigLifeEnergyItem :
 {
 public:
 	void onIntersect(FBox* other);
+
+	/* CONSTRUCTOR & DESTRUCTOR */
 	BigLifeEnergyItem();
 	~BigLifeEnergyItem();
+
 };
 

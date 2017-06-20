@@ -2,6 +2,8 @@
 #include "BaseObject.h"
 #include"DelayTime.h"
 #include"SuperCutterBullet.h"
+
+/* ENUMERATIONS */
 enum SUPERCUTTER_ACTIVITY {
 	SUPERCUTTER_WAITING,
 	SUPERCUTTER_SHOOTING
@@ -16,6 +18,8 @@ public:
 	float xTarget, yTarget;
 
 	void update();
+	
+	/* CONSTRUCTOR & DESTRUCTOR */	
 	SuperCutter();
 	~SuperCutter();
 

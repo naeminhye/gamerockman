@@ -5,11 +5,15 @@ class BeakBullet :
 {
 public:
 	static List<BeakBullet*>* bullets;
+
 	bool setHealthPoint(int healthPoint);// ko lam gi het => dan ko chet
 	void update();
 	void deleteBullet();
 	void updateLocation();
+
+	/* CONSTRUCTOR & DESTRUCTOR */
 	BeakBullet();
 	~BeakBullet();
+
 };
 

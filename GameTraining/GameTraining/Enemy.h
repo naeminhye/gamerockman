@@ -6,8 +6,9 @@ class Enemy :
 {
 public:
 	int healthPoint;
-	int maxHealth;
-	int attackDamage;//
+	int maxHealth; 
+	int attackDamage;	// kha nang tan cong cua Enemy, 
+						//luong mau cua Rockman se mat theo thong so nay
 	
 	virtual bool setHealthPoint(int healthPoint);
 	virtual void setDeath();
@@ -15,7 +16,10 @@ public:
 	void onIntersect(FBox* other);
 	void init();
 	void restoreLocation();
+
+	/* CONSTRUCTOR & DESTRUCTOR */
 	Enemy();
 	~Enemy();
+
 };
 

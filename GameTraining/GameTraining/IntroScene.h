@@ -9,7 +9,10 @@ public:
 	void init();
 	void update();
 	void render();
+
+	/* CONSTRUCTOR & DESTRUCTOR */
 	IntroScene();
-	~IntroScene();
+	~IntroScene();\
+
 };
 

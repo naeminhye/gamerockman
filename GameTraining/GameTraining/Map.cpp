@@ -53,7 +53,7 @@ void Map::initStage(char * stagePath)
 		stage->y = rowCount * 16 - stage->y;
 	}
 
-	MGMCamera* camera = MGMCamera::getInstance();
+	Camera* camera = Camera::getInstance();
 	Rockman* rockman = Rockman::getInstance();
 
 	ignoreLineIfstream(fs, 3);
@@ -80,7 +80,7 @@ void Map::initStage(char * stagePath)
 void Map::updateStageChangeNext()
 {
 	auto nextStage = stages.at(Stage::curStage->index + 1);
-	MGMCamera* camera = MGMCamera::getInstance();
+	Camera* camera = Camera::getInstance();
 	camera->dy = CAMERA_CHANGESTAGE_DY;
 	if (camera->bottom() + camera->dy > nextStage->bottom())
 	{
@@ -100,7 +100,7 @@ void Map::updateStageChangeNext()
 void Map::updateStageChangePrev()
 {
 	auto prevStage = stages.at(Stage::curStage->index - 1);
-	MGMCamera* camera = MGMCamera::getInstance();
+	Camera* camera = Camera::getInstance();
 	camera->dy = -CAMERA_CHANGESTAGE_DY;
 	if (camera->bottom() + camera->dy < prevStage->bottom())
 	{
@@ -123,7 +123,7 @@ void Map::updateStageChangePrev()
 void Map::updateStageChangeByDoor()
 {
 	Stage* nextStage;
-	MGMCamera* camera;
+	Camera* camera;
 	Door::doorDelay.update();
 	switch (Door::doorActivity)
 	{
@@ -139,7 +139,7 @@ void Map::updateStageChangeByDoor()
 		Door::currentDoor->update();
 		break;
 	case DOOR_CAMERA_CHANGING:
-		camera = MGMCamera::getInstance();
+		camera = Camera::getInstance();
 		camera->dx = DOOR_CAMERA_CHANGING_DX;
 		//tim next stage
 		nextStage = findNextStageOnDoor();
@@ -303,33 +303,33 @@ void Map::update()
 		return;
 	}
 
-	auto camera = MGMCamera::getInstance();
+	auto camera = Camera::getInstance();
 
 	Rockman::getInstance()->update();
 
 	//tao danh sach object trong camera
 	quadtree->update();
 
-	int nObjectsCam = MGMCamera::getInstance()->objects.allObjects.size();
-	auto allObjectsInCam = &MGMCamera::getInstance()->objects.allObjects;
+	int nObjectsCam = Camera::getInstance()->objects.allObjects.size();
+	auto allObjectsInCam = &Camera::getInstance()->objects.allObjects;
 
-	int nEnemyObjectsCam = MGMCamera::getInstance()->objects.enemies.size();
-	auto enemiesInCam = &MGMCamera::getInstance()->objects.enemies;
+	int nEnemyObjectsCam = Camera::getInstance()->objects.enemies.size();
+	auto enemiesInCam = &Camera::getInstance()->objects.enemies;
 
-	int nStair = MGMCamera::getInstance()->objects.stairs.size();
-	auto stairsInCam = &MGMCamera::getInstance()->objects.stairs;
+	int nStair = Camera::getInstance()->objects.stairs.size();
+	auto stairsInCam = &Camera::getInstance()->objects.stairs;
 
-	int nSpace = MGMCamera::getInstance()->objects.outerSpaces.size();
-	auto spacesInCam = &MGMCamera::getInstance()->objects.outerSpaces;
+	int nSpace = Camera::getInstance()->objects.outerSpaces.size();
+	auto spacesInCam = &Camera::getInstance()->objects.outerSpaces;
 
-	int nGroundObjectsCam = MGMCamera::getInstance()->objects.grounds.size();
-	auto groundsInCam = &MGMCamera::getInstance()->objects.grounds;
+	int nGroundObjectsCam = Camera::getInstance()->objects.grounds.size();
+	auto groundsInCam = &Camera::getInstance()->objects.grounds;
 
-	int nTrundle = MGMCamera::getInstance()->objects.trundles.size();
-	auto trundlesInCam = &MGMCamera::getInstance()->objects.trundles;
+	int nTrundle = Camera::getInstance()->objects.trundles.size();
+	auto trundlesInCam = &Camera::getInstance()->objects.trundles;
 
-	int nBridge = MGMCamera::getInstance()->objects.bridges.size();
-	auto bridgesInCam = &MGMCamera::getInstance()->objects.bridges;
+	int nBridge = Camera::getInstance()->objects.bridges.size();
+	auto bridgesInCam = &Camera::getInstance()->objects.bridges;
 
 	for (size_t i = 0; i < nObjectsCam; i++)
 	{
@@ -395,7 +395,7 @@ void Map::update()
 
 		}
 
-		if (!Collision::AABBCheck(MGMCamera::getInstance(), RockmanBullet::bullets->at(i)) || RockmanBullet::bullets->at(i)->canDelete)
+		if (!Collision::AABBCheck(Camera::getInstance(), RockmanBullet::bullets->at(i)) || RockmanBullet::bullets->at(i)->canDelete)
 		{
 			RockmanBullet::bullets->at(i)->deleteBullet();
 			i--;
@@ -407,7 +407,7 @@ void Map::update()
 		auto obj = BeakBullet::bullets->at(i);
 		Collision::CheckCollision(Rockman::getInstance(), obj);
 		obj->updateLocation();
-		if (!Collision::AABBCheck(MGMCamera::getInstance(), obj))
+		if (!Collision::AABBCheck(Camera::getInstance(), obj))
 		{
 			obj->deleteBullet();
 			i--;
@@ -418,7 +418,7 @@ void Map::update()
 	{
 		PicketBullet::bullets->at(i)->update();
 		PicketBullet::bullets->at(i)->updateLocation();
-		if (!Collision::AABBCheck(MGMCamera::getInstance(), PicketBullet::bullets->at(i)))
+		if (!Collision::AABBCheck(Camera::getInstance(), PicketBullet::bullets->at(i)))
 		{
 			PicketBullet::bullets->at(i)->deleteBullet();
 			i--;
@@ -431,7 +431,7 @@ void Map::update()
 		obj->update();
 		Collision::CheckCollision(Rockman::getInstance(), obj);
 		obj->updateLocation();
-		if (!Collision::AABBCheck(MGMCamera::getInstance(), obj))
+		if (!Collision::AABBCheck(Camera::getInstance(), obj))
 		{
 			obj->deleteBullet();
 			i--;
@@ -442,7 +442,7 @@ void Map::update()
 	{
 		RockmanDeath::deads->at(i)->update();
 		RockmanDeath::deads->at(i)->updateLocation();
-		if (!Collision::AABBCheck(MGMCamera::getInstance(), RockmanDeath::deads->at(i)))
+		if (!Collision::AABBCheck(Camera::getInstance(), RockmanDeath::deads->at(i)))
 		{
 			RockmanDeath::deads->at(i)->deleteDead();
 			i--;
@@ -475,7 +475,7 @@ void Map::update()
 	for (size_t i = 0; i < nSpace; i++)
 	{
 		auto obj = spacesInCam->at(i);
-		Collision::CheckCollision(MGMCamera::getInstance(), obj);
+		Collision::CheckCollision(Camera::getInstance(), obj);
 	}
 	camera->updateLocation();
 
@@ -486,8 +486,8 @@ void Map::render()
 	TileMap::render();
 	if (onStageChangeNext || onStageChangePrev)
 		return;
-	int nObjectsCam = MGMCamera::getInstance()->objects.allObjects.size();
-	auto allObjectsInCam = &MGMCamera::getInstance()->objects.allObjects;
+	int nObjectsCam = Camera::getInstance()->objects.allObjects.size();
+	auto allObjectsInCam = &Camera::getInstance()->objects.allObjects;
 
 	for (size_t i = 0; i < nObjectsCam; i++)
 	{

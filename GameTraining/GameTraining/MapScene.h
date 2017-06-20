@@ -9,26 +9,28 @@ class MapScene : public Scene
 {
 	static MapScene* instance;
 public:
-	static MapScene* getInstance();
-	//Scene* scene;
+	
 	int x,y;
 	int dx,dy;
 	Rockman man;
 	int nObject;
 	BaseObject* objects;
-	MGMCamera* camera;
+	Camera* camera;
 	MGMTexture* img;
 	Map* curMap;
-	void setCurMap(Map* map);
 
 	void readFile(const char* objectsPath);
+	static MapScene* getInstance();
+	void setCurMap(Map* map);
 	
 
 	void init();
 	void update();
 	void render();
-
+	
+	/* CONSTRUCTOR & DESTRUCTOR */
 	MapScene(void);
-	~MapScene(void);
+	~MapScene(void)
+		;
 };
 

@@ -1,6 +1,6 @@
 #include<Windows.h>
-#include"MGMForm.h"
-#include"MGMDirectXTool.h"
+#include"Form.h"
+#include"DirectXTool.h"
 #include"MGMTexture.h"
 #include"MGMSurface.h"
 #include"MapScene.h"
@@ -19,10 +19,10 @@ int randomFrom(int numBegin, int numEnd)
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	srand(time(0));
-	MGMForm::getInstance()->initHandleWindows(hInstance, nCmdShow);
+	Form::getInstance()->initHandleWindows(hInstance, nCmdShow);
 	DWORD timeSleep = 1000.0/FPS;
 
-	CKeyboard::Create(hInstance,MGMForm::getInstance()->getHandleWindow());
+	CKeyboard::Create(hInstance,Form::getInstance()->getHandleWindow());
 	Scene::changeScene(new IntroScene());
 	MSG msg;
 	ZeroMemory(&msg, sizeof(msg));
@@ -40,10 +40,10 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 		KEY::getInstance()->update();
 		Scene::curScene->update();
 
-		MGMDirectXTool::getInstance()->BeginGraphics();//bat dau ve len backbuffer
+		DirectXTool::getInstance()->BeginGraphics();//bat dau ve len backbuffer
 		Scene::curScene->render();
-		MGMDirectXTool::getInstance()->EndGraphics();// ket thuc ve len backbuffer
-		MGMDirectXTool::getInstance()->PresentBackBuffer();// ve backbuffer len man hinh
+		DirectXTool::getInstance()->EndGraphics();// ket thuc ve len backbuffer
+		DirectXTool::getInstance()->PresentBackBuffer();// ve backbuffer len man hinh
 		Sleep(timeSleep);
 	}
 

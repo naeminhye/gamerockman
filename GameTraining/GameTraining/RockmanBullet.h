@@ -1,18 +1,19 @@
 #pragma once
 #include"MovableObject.h"
-#include"MGMCamera.h"
+#include"Camera.h"
 
 class RockmanBullet : public MovableObject
 {
 public:
 	static List<RockmanBullet*>* bullets;
-	virtual void update();
-
 	bool canDelete;
+	
+	virtual void update();
+	void deleteBullet();
 
+	/* CONSTRUCTOR & DESTRUCTOR */
 	RockmanBullet();
 	~RockmanBullet();
 
-	void deleteBullet();
 };
 

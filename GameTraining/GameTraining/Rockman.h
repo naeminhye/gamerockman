@@ -68,15 +68,12 @@ public:
 	static Rockman* instance;
 	static Rockman* getInstance();
 
-	/* Constructor & Destructor */
-	Rockman();
-	~Rockman();
-
+	
 	void update();
 	void render();
 	void setWidth(int width);
 
-	MGMGameTime delay;
+	GameTime delay;
 	void onCollision(FBox* other, int nx, int ny);
 
 	void updateBlink();
@@ -122,7 +119,7 @@ public:
 	void updateRockmanType();
 
 #pragma region FLICKER
-	MGMGameTime disappearTime;
+	GameTime disappearTime;
 	bool isDisappear;
 	void updateFlicker(); // khi trung dan
 #pragma endregion
@@ -134,6 +131,9 @@ public:
 	DelayTime injuryDelay, flickeringDelay;
 #pragma endregion
 
+	/* CONSTRUCTOR & DESTRUCTOR */
+	Rockman();
+	~Rockman();
 
 };
 

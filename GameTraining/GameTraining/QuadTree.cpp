@@ -18,11 +18,11 @@ QuadTree::~QuadTree()
 void QuadTree::update() //***
 {
 
-	List<BaseObject*>* allObjects =  &MGMCamera::getInstance()->objects.allObjects;
+	List<BaseObject*>* allObjects =  &Camera::getInstance()->objects.allObjects;
 	for (int i = 0; i < allObjects->Count; i++)
 	{
 		auto obj = allObjects->at(i);
-		if (!Collision::AABBCheck(MGMCamera::getInstance(), obj) && !Collision::AABBCheck(MGMCamera::getInstance(), &(obj->oldRect)))
+		if (!Collision::AABBCheck(Camera::getInstance(), obj) && !Collision::AABBCheck(Camera::getInstance(), &(obj->oldRect)))
 		{
 			obj->restoreLocation();
 		}
@@ -37,7 +37,7 @@ void QuadTree::update() //***
 
 void QuadTree::removeObjects()
 {
-	MGMCamera::getInstance()->objects.clear();
+	Camera::getInstance()->objects.clear();
 }
 
 void QuadTree::fillObject()

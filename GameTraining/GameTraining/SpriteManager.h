@@ -1,6 +1,7 @@
 #pragma once
 #include"Sprite.h"
 
+/* ENUMERATIONS */
 enum SPRITE_INFO
 {
 	SPR_DEATH_HOLE = -8,
@@ -44,9 +45,13 @@ class SpriteManager
 {
 public:
 	static SpriteManager* instance;
-	static SpriteManager* getInstance();
 	Sprite** sprites; /* = (Sprite*)* sprites; */
+
+	static SpriteManager* getInstance();
+					  
+	/* CONSTRUCTOR & DESTRUCTOR */
 	SpriteManager();
 	~SpriteManager();
+
 };
 

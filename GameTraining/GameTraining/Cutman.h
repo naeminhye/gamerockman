@@ -2,8 +2,11 @@
 #include "Enemy.h"
 #include "Flickable.h"
 
+/* ENUMERATIONS */
+
 enum CUTMAN_ACTIVITY_RAND
 {
+	// hanh dong cua Cutman la random
 	CAR_WAITING,
 	CAR_JUMPING,
 	CAR_SHOOTING
@@ -38,13 +41,17 @@ public:
 	CUTMAN_ACTIVITY cutmanActivity;
 	CUTMAN_TYPE cutmanType;
 	CUTMAN_ACTION cutmanAction;
+
+	// xu li update cac hanh dong cua Cutman
 	void updateWaiting();
 	void updateRunning();
 	void updateJumping();
 	void updateShooting();
 	void update();
+
 	void onLastFrameAnimation();
-	bool checkNearRockman();
+	
+	bool checkNearRockman(); // kiem tra xem Cutman co dang dung gan Rockman trong mot pham vi cho truoc khong
 
 	void selectActivity(CUTMAN_ACTIVITY_RAND except);
 	void setActivity(CUTMAN_ACTIVITY cutmanActivity);
@@ -53,25 +60,14 @@ public:
 
 	void onCollision(FBox* other, int nx, int ny);
 
-	Cutman();
-	~Cutman();
-
-//#pragma region FLICKER
-//	MGMGameTime disappearTime;
-//	bool isDisappear;
-//	void updateFlicker(); // khi trung dan
-//#pragma endregion
-//
-//#pragma region INJURY
-//	bool isRecoil;
-//	bool onInjury;
-//	void updateInjury();
-//	DelayTime injuryDelay, flickeringDelay;
-//#pragma endregion
-
 	bool isRecoil;
 	bool onInjury;
 	void updateInjury();
 	void onIntersect(FBox * other);
+
+	/* CONSTRUCTOR & DESTRUCTOR */
+	Cutman();
+	~Cutman();
+
 };
 

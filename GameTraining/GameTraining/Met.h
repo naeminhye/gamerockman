@@ -1,15 +1,19 @@
 #pragma once
 #include "Enemy.h"
+
+/* ENUMERATIONS */
 enum MET_ACTIVITY
 {
 	MET_WAITING,
 	MET_SHOOTING
 };
+
 enum MET_ACTION
 {
 	MET_CLOSE,
 	MET_OPEN 
 };
+
 class Met :
 	public Enemy
 {
@@ -20,7 +24,9 @@ public:
 	void update();
 	void init();
 
+	/* CONSTRUCTOR & DESTRUCTOR */
 	Met();
 	~Met();
+
 };
 

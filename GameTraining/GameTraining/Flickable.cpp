@@ -14,7 +14,7 @@ void Flickable::render()
 	float xRender;
 	D3DXMATRIX flipMatrix;
 	int frameWidth = sprite->anims[action].frames[frameIndex].right - sprite->anims[action].frames[frameIndex].left;
-	MGMCamera::getInstance()->Transform(x, y, xRender, yRender);
+	Camera::getInstance()->Transform(x, y, xRender, yRender);
 	xRender = roundToInt(xRender);
 	yRender = roundToInt(yRender);
 
@@ -25,7 +25,7 @@ void Flickable::render()
 		flipMatrix._11 = -1;
 		flipMatrix._41 = 2 * (xRender + frameWidth / 2);
 
-		MGMDirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+		DirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
 	}
 	if (!isDisappear)
 		sprite->render(xRender, yRender, action, frameIndex);
@@ -34,7 +34,7 @@ void Flickable::render()
 	if (direction != sprite->img->direction)
 	{
 		D3DXMatrixIdentity(&flipMatrix);
-		MGMDirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+		DirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
 	}
 }
 

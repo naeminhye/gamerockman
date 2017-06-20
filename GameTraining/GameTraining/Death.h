@@ -8,7 +8,10 @@ public:
 	static List<Death*>* deaths;
 	void release();
 	void onLastFrameAnimation();
+
+	/* CONSTRUCTOR & DESTRUCTOR */
 	Death();
 	~Death();
+
 };
 

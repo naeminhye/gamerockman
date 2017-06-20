@@ -41,7 +41,7 @@ void RockmanDeath::render()
 	float xRender;
 
 	D3DXMATRIX flipMatrix;
-	MGMCamera::getInstance()->Transform(x, y, xRender, yRender);
+	Camera::getInstance()->Transform(x, y, xRender, yRender);
 	xRender = (int)xRender;
 	yRender = (int)yRender;
 	xRender -= (sprite->getWidth(action, frameIndex) - width) / 2;
@@ -53,13 +53,13 @@ void RockmanDeath::render()
 		flipMatrix._11 = -1;
 		flipMatrix._41 = 2 * (xRender + frameWidth / 2);
 
-		MGMDirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+		DirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
 	}
 	sprite->render(xRender, yRender, action, frameIndex);
 	if (direction != sprite->img->direction)
 	{
 		D3DXMatrixIdentity(&flipMatrix);
-		MGMDirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+		DirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
 	}
 }
 

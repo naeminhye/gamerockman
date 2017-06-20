@@ -5,7 +5,11 @@ class MagnetBeamItem :
 {
 public:
 	void onIntersect(FBox* other);
+
+	/* CONSTRUCTOR & DESTRUCTOR */
 	MagnetBeamItem();
 	~MagnetBeamItem();
+
+
 };
 

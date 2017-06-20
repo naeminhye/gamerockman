@@ -36,7 +36,7 @@ QuadNode::QuadNode(ifstream & fs, BaseObject** allObjects, int mapHeight)
 //do doi tuong vao camera
 void QuadNode::fillObjectToCamera()
 {
-	if (!Collision::AABBCheck(this, MGMCamera::getInstance()))
+	if (!Collision::AABBCheck(this, Camera::getInstance()))
 	{
 		return;
 	}
@@ -55,7 +55,7 @@ void QuadNode::fillObjectToCamera()
 	{
 		for (size_t i = 0; i < nObject; i++)
 		{
-			MGMCamera::getInstance()->objects.addObject(objectsInNode[i]);
+			Camera::getInstance()->objects.addObject(objectsInNode[i]);
 		}
 	}
 }

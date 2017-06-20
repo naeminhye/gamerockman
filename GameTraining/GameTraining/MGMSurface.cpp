@@ -21,7 +21,7 @@ void MGMSurface::init(const char* fileName)
 	D3DXGetImageInfoFromFile(fileName, &info);
 	int width = info.Width;
 	int height = info.Height;
-	hr = MGMDirectXTool::getInstance()->GetDevice()->CreateOffscreenPlainSurface(width,
+	hr = DirectXTool::getInstance()->GetDevice()->CreateOffscreenPlainSurface(width,
 		height,
 		D3DFMT_X8R8G8B8,
 		D3DPOOL_DEFAULT,
@@ -42,9 +42,9 @@ void MGMSurface::render(RECT* r,int x,int y,int w,int h)
 
 	rectPos.right=x+w;
 	rectPos.bottom=y+h;
-	MGMDirectXTool::getInstance()->GetDevice()->StretchRect(surface, 
+	DirectXTool::getInstance()->GetDevice()->StretchRect(surface, 
 															r, 
-															MGMDirectXTool::getInstance()->GetBackBuffer(),
+															DirectXTool::getInstance()->GetBackBuffer(),
 															&rectPos, 
 															D3DTEXF_NONE);
 }

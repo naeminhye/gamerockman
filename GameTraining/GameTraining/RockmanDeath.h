@@ -5,11 +5,15 @@ class RockmanDeath :
 {
 public:
 	static List<RockmanDeath*>* deads;
-	RockmanDeath();
-	~RockmanDeath();
+
 	void updateLocation();
 	void update();
 	void render();
 	void deleteDead();
+
+	/* CONSTRUCTOR & DESTRUCTOR */
+	RockmanDeath();
+	~RockmanDeath();
+
 };
 

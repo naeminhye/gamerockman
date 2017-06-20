@@ -6,7 +6,10 @@ class DeathHole :
 public:
 	//void onIntersect(FBox* other);
 	void onCollision(FBox* other, int nx, int ny);
+
+	/* CONSTRUCTOR & DESTRUCTOR */
 	DeathHole();
 	~DeathHole();
+
 };
 

@@ -3,6 +3,7 @@
 #include "MGMTexture.h"
 #include "SelectMapFrame.h"
 
+/* ENUMERATIONS */
 enum MAP_TYPE {
 	MT_CUTMAN,
 	MT_GUTSMAN,
@@ -17,10 +18,14 @@ public:
 	MGMTexture* img;
 	SelectMapFrame* selectMapFrames;
 	MAP_TYPE curSelect;
+	
 	void init();
 	void update();
 	void render();
+
+	/* CONSTRUCTOR & DESTRUCTOR */
 	SelectMapScene();
 	~SelectMapScene();
+
 };
 

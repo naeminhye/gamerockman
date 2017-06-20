@@ -26,7 +26,7 @@ void TileMap::renderTile(int rowIndex, int colIndex)
 	int xTile = colIndex * 16;
 	int yTile = (rowCount - rowIndex) * 16;
 	float xRender, yRender;
-	MGMCamera::getInstance()->Transform(xTile, yTile, xRender, yRender);
+	Camera::getInstance()->Transform(xTile, yTile, xRender, yRender);
 	xRender = xRender;
 	yRender = yRender;
 	int xTileSheet = (tileIndex % colTileSheetCount) * 16;
@@ -50,10 +50,10 @@ void TileMap::renderTiles(int rowBegin, int rowEnd, int colBegin, int colEnd)
 void TileMap::render()
 {
 	int rowBegin, rowEnd, colBegin, colEnd;
-	colBegin = MGMCamera::getInstance()->left() / 16;
-	colEnd = MGMCamera::getInstance()->right() / 16;
-	rowBegin = (rowCount * 16 - MGMCamera::getInstance()->top()) / 16;//***
-	rowEnd = (rowCount * 16 - MGMCamera::getInstance()->bottom()) / 16;//***
+	colBegin = Camera::getInstance()->left() / 16;
+	colEnd = Camera::getInstance()->right() / 16;
+	rowBegin = (rowCount * 16 - Camera::getInstance()->top()) / 16;//***
+	rowEnd = (rowCount * 16 - Camera::getInstance()->bottom()) / 16;//***
 	renderTiles(rowBegin, rowEnd, colBegin, colEnd);
 }
 

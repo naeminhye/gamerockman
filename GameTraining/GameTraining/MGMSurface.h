@@ -1,6 +1,6 @@
 #pragma once
 
-#include"MGMDirectXTool.h"
+#include"DirectXTool.h"
 
 class MGMSurface
 {
@@ -11,10 +11,13 @@ protected:
 	void error();
 	
 public:
-	MGMSurface(){}
+
+	/* CONSTRUCTOR & DESTRUCTOR */
+	MGMSurface() {}
 	MGMSurface(const char* fileName);
-	void init(const char* fileName);
-	void render(RECT* r,int x,int y,int w,int h);
-	void release();
 	~MGMSurface();
+
+	void init(const char* fileName);
+	void render(RECT* r, int x, int y, int w, int h);
+	void release();
 };

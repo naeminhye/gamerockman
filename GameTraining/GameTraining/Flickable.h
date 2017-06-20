@@ -9,10 +9,12 @@ class Flickable :
 public:
 	int flickerAction;// TODO set gia tri *****
 	DelayTime injuryDelay, flickeringDelay;
-	MGMGameTime disappearTime;
+	GameTime disappearTime;
 	bool isDisappear;
 	void updateFlicker(); // khi trung dan
 	virtual void render();
+
+	/* CONSTRUCTOR & DESTRUCTOR */
 	Flickable();
 	~Flickable();
 };

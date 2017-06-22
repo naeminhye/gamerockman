@@ -25,11 +25,12 @@ void CutmanScissors::update()
 		}
 		break;
 	case SCISSORS_RETURN:
-		if (Collision::AABBCheck(this, cutman))
+		if (alive && Collision::AABBCheck(this, cutman))
 		{
 			alive = false;
 			Cutman* cutman1 = ((Cutman*)cutman);
-			cutman1->setType(CM_NON_ATTACKING);
+			cutman1->cutmanType = CM_NON_ATTACKING;
+			cutman1->canSelect = true;
 			return;
 		}
 		if (x - cutman->x != 0)

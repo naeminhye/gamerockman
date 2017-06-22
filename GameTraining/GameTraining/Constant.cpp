@@ -1,6 +1,6 @@
 #pragma region BOX
 
-float BOX_GRAVITATIONAL_ACCELERATION = -0.001; // Gravitational acceleration
+float BOX_GRAVITATIONAL_ACCELERATION = -0.0015; // Gravitational acceleration
 int BOX_TIME = 15;
 
 #pragma endregion
@@ -23,7 +23,7 @@ int RM_DELAY_GAME_TIME = 500;
 int RM_DISAPPEAR_GAME_TIME = 20;
 int RM_INJURY_DELAY_TIME = 500;
 int RM_FLICKER_DELAY_TIME = 2000;
-float RM_VY_JUMP = 0.34; // Van toc Vy cua Rockman khi nhay
+float RM_VY_JUMP = 0.4; // Van toc Vy cua Rockman khi nhay
 float RM_V_RUN = 0.08; // Van toc chay cua Rockman
 float RM_VX_STAND = 0; // van toc Vx khi Rockman dung 1 chofloat 
 int CAMERA_CHANGESTAGE_DY = 3; // ...
@@ -148,5 +148,17 @@ int PICKET_BULLET_V = 500;
 #pragma region CUTMAN
 
 float CUTMAN_JUMP_VY = 0.4;
+
+// Cutman Random Action Numbers
+int CM_NON_WAIT_R = 1; // Cutman, Non-attacking, Waiting
+int CM_NON_SHOOT_R = 2; // Cutman, Non-attacking, Shooting
+int CM_NON_RUN_R = 3; // Cutman, Non-attacking, Running
+int CM_NON_JUMP_SHORT_R = 3; // Cutman, Non-attacking, Short Jumping
+int CM_NON_JUMP_LONG_R = 3; // Cutman, Non-attacking, Long Jumping
+
+int CM_WAIT_R				= 1;					// Cutman, Attacking, Waiting
+int CM_RUN_R				= 3;			// Cutman, Attacking, Running
+int CM_JUMP_SHORT_R			= 3;		// Cutman, Attacking, Short Jumping
+int CM_JUMP_LONG_R			= 3; // Cutman, Attacking, Long Jumping
 
 #pragma endregion

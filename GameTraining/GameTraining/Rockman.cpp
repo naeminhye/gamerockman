@@ -259,9 +259,9 @@ void Rockman::update()
 	MovableObject::update();
 }
 
-int roundToInt(float num)
+float roundToInt(float num)
 {
-	return (int)(num + 0.5);
+	return (int)(num +0.5);
 }
 
 void Rockman::render()

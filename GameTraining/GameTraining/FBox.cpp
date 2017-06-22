@@ -8,7 +8,7 @@ extern float nx, ny;
 
 int time = BOX_TIME;
 
-extern int roundToInt(float num);
+extern float roundToInt(float num);
 
 void FBox::updateLocation()
 {

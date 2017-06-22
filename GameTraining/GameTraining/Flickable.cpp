@@ -1,6 +1,6 @@
 #include "Flickable.h"
 
-extern int roundToInt(float num);
+extern float roundToInt(float num);
 
 void Flickable::updateFlicker()
 {

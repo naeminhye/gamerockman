@@ -8,6 +8,7 @@ class Flickable :
 {
 public:
 	int flickerAction;// TODO set gia tri *****
+	int injuryAction;// TODO set gia tri *****
 	DelayTime injuryDelay, flickeringDelay;
 	GameTime disappearTime;
 	bool isDisappear;

@@ -1,1 +1,15 @@
-﻿
+﻿  Cutman.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\cutman.cpp(346): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\cutman.cpp(409): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\cutman.cpp(413): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\cutman.cpp(432): warning C4244: '=': conversion from 'Direction' to 'float', possible loss of data
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\cutman.cpp(439): warning C4244: '=': conversion from 'Direction' to 'float', possible loss of data
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\cutman.cpp(442): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\cutman.cpp(473): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\cutman.cpp(478): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\cutman.cpp(495): warning C4244: '=': conversion from 'Direction' to 'float', possible loss of data
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\cutman.cpp(502): warning C4244: '=': conversion from 'Direction' to 'float', possible loss of data
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\cutman.cpp(505): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  GameTraining.vcxproj -> C:\Users\Jacey Nae\Desktop\gamerockman\gamerockman\GameTraining\Debug\MegaMan.exe
+  GameTraining.vcxproj -> C:\Users\Jacey Nae\Desktop\gamerockman\gamerockman\GameTraining\Debug\MegaMan.pdb (Full PDB)

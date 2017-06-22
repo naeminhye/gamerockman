@@ -29,7 +29,7 @@ bool Camera::isIntersect(FRectangle * other)
 		(tempY - tempH < other->y && tempY > other->y - other->height));
 }
 
-extern int roundToInt(float num);
+extern float roundToInt(float num);
 
 void Camera::updateLocation()
 {

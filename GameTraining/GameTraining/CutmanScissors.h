@@ -1,5 +1,5 @@
 #pragma once
-#include "MovableObject.h"
+#include "Enemy.h"
 
 /* ENUMERATIONS */
 enum SCISSORS_ACTIVITY {
@@ -8,15 +8,20 @@ enum SCISSORS_ACTIVITY {
 };
 
 class CutmanScissors :
-	public MovableObject
+	public Enemy
 {
 public:
 	BaseObject* cutman;
 	static CutmanScissors* instance;
 	SCISSORS_ACTIVITY scissorsActivity;
+	void slideHandle();
+	void updateLocation();
 
 	static CutmanScissors* getInstance();
 	void update();
+	void onCollision(FBox* other, int nx, int ny);
+
+	void setDy(int dy);
 
 	/* CONSTRUCTOR & DESTRUCTOR */
 	CutmanScissors();

@@ -35,13 +35,13 @@ public:
 	bool isCollision; // ktra xem trong vong lap M co va cham voi bat cu thu gi ko
 
 	virtual void update();
-	void updateMove();
+	virtual void updateMove();
 
 	virtual void onCollision(FBox* other, int nx, int ny); //xu ly va cham
 
 	virtual void onIntersect(FBox* other);
 	
-	void slideHandle();
+ 	virtual void slideHandle();
 
 	/* CONSTRUCTOR & DESTRUCTOR */
 	FBox();

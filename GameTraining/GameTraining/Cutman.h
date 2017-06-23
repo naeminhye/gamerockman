@@ -79,6 +79,8 @@ public:
 	CM_ATTACKING_RANDOM_ACTIVITY attackSelection;
 	CM_NONATTACKING_RANDOM_ACTIVITY nonAttackSelection;
 
+	bool checkNearRockman();
+
 	void selectAttack();
 	void selectNonAttack();
 
@@ -89,6 +91,8 @@ public:
 	void onLastFrameAnimation();
 
 	void onCollision(FBox* other, int nx, int ny);
+	void updateLocation();
+	void updateMove();
 
 	//DelayTime cutmanDelay;
 	//CUTMAN_ACTIVITY cutmanActivity;
@@ -108,7 +112,7 @@ public:
 
 	//void selectActivity(CUTMAN_ACTIVITY_RAND except);
 	//void setActivity(CUTMAN_ACTIVITY cutmanActivity);
-	//void setType(CUTMAN_TYPE cutmanType);
+	void setType(CUTMAN_TYPE cutmanType);
 	//void setAction(int actionValue);
 
 	//void onCollision(FBox* other, int nx, int ny);
@@ -119,7 +123,7 @@ public:
 	//void onIntersect(FBox * other);
 
 	/* CONSTRUCTOR & DESTRUCTOR */
-
+	// y>10000 || y<-10000
 	void update();
 
 	void updateNonAttacking();

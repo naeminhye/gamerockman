@@ -25,6 +25,7 @@
 #include "Item.h"
 #include "DeathHole.h"
 #include "Spike.h"
+#include "CutmanScissors.h"
 
 extern Blader* test;
 
@@ -331,30 +332,36 @@ void Map::update()
 	int nBridge = Camera::getInstance()->objects.bridges.size();
 	auto bridgesInCam = &Camera::getInstance()->objects.bridges;
 
+	// update tat ca cac doi tuong trong camera
 	for (size_t i = 0; i < nObjectsCam; i++)
 	{
 		auto obj = allObjectsInCam->at(i);
 		obj->update();
 	}
 
+	// kiem tra va cham Rockman voi tat ca cac doi tuong cau thang trong camera
 	for (size_t i = 0; i < nStair; i++)
 	{
 		auto obj = stairsInCam->at(i);
 		Collision::CheckCollision(Rockman::getInstance(), obj);
 	}
 
+	// kiem tra va cham giua Rockman voi tat ca cac doi tuong Ground trong camera
 	for (size_t i = 0; i < nGroundObjectsCam; i++)
 	{
 		auto obj = groundsInCam->at(i);
 		Collision::CheckCollision(Rockman::getInstance(), obj);
+		Collision::CheckCollision(CutmanScissors::getInstance(), obj);
 	}
 
 	for (size_t i = 0; i < nEnemyObjectsCam; i++)
 	{
 		auto enemy = enemiesInCam->at(i);
+		// kiem tra va cham cua tat ca cac Enemies trong camera voi Rockman
 		Collision::CheckCollision(Rockman::getInstance(), enemy);
 		for (size_t j = 0; j < nGroundObjectsCam; j++)
 		{
+			// kiem tra va cham cua tat ca cac Enemies trong camera voi Ground
 			Collision::CheckCollision(enemy, groundsInCam->at(j));
 		}
 	}
@@ -362,6 +369,7 @@ void Map::update()
 	for (size_t i = 0; i < nEnemyObjectsCam; i++)
 	{
 		auto enemy = enemiesInCam->at(i);
+		// update vi tri cua tat ca cac Enemies trong Camera
 		enemy->updateLocation();
 	}
 

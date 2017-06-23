@@ -153,12 +153,12 @@ float CUTMAN_JUMP_VY = 0.4;
 int CM_NON_WAIT_R = 1; // Cutman, Non-attacking, Waiting
 int CM_NON_SHOOT_R = 2; // Cutman, Non-attacking, Shooting
 int CM_NON_RUN_R = 3; // Cutman, Non-attacking, Running
-int CM_NON_JUMP_SHORT_R = 3; // Cutman, Non-attacking, Short Jumping
-int CM_NON_JUMP_LONG_R = 3; // Cutman, Non-attacking, Long Jumping
+int CM_NON_JUMP_SHORT_R = 5; // Cutman, Non-attacking, Short Jumping
+int CM_NON_JUMP_LONG_R = 5; // Cutman, Non-attacking, Long Jumping
 
 int CM_WAIT_R				= 1;					// Cutman, Attacking, Waiting
 int CM_RUN_R				= 3;			// Cutman, Attacking, Running
-int CM_JUMP_SHORT_R			= 3;		// Cutman, Attacking, Short Jumping
-int CM_JUMP_LONG_R			= 3; // Cutman, Attacking, Long Jumping
+int CM_JUMP_SHORT_R			= 5;		// Cutman, Attacking, Short Jumping
+int CM_JUMP_LONG_R			= 5; // Cutman, Attacking, Long Jumping
 
 #pragma endregion

@@ -6,7 +6,7 @@ void MovableObject::update()
 {
 	ground = false;
 	BaseObject::update();
-	FBox::updateMove();
+	updateMove();
 }
 
 void MovableObject::onCollision(FBox * other, int nx, int ny)

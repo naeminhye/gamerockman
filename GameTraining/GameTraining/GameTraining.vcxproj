@@ -97,6 +97,7 @@
     <ClInclude Include="Cutman.h" />
     <ClInclude Include="CutmanMap.h" />
     <ClInclude Include="CutmanScissors.h" />
+    <ClInclude Include="CWaveFile.h" />
     <ClInclude Include="Death.h" />
     <ClInclude Include="DeathHole.h" />
     <ClInclude Include="DelayTime.h" />
@@ -107,6 +108,7 @@
     <ClInclude Include="Flickable.h" />
     <ClInclude Include="FlyingShell.h" />
     <ClInclude Include="FRectangle.h" />
+    <ClInclude Include="GameSound.h" />
     <ClInclude Include="GutsmanMap.h" />
     <ClInclude Include="BonusBallItem.h" />
     <ClInclude Include="HealthSprite.h" />
@@ -147,6 +149,7 @@
     <ClInclude Include="SelectMapScene.h" />
     <ClInclude Include="SmallLifeEnergyItem.h" />
     <ClInclude Include="SmallWeaponEnergyItem.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="Spike.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
@@ -173,6 +176,7 @@
     <ClCompile Include="Cutman.cpp" />
     <ClCompile Include="CutmanMap.cpp" />
     <ClCompile Include="CutmanScissors.cpp" />
+    <ClCompile Include="CWaveFile.cpp" />
     <ClCompile Include="Death.cpp" />
     <ClCompile Include="DeathHole.cpp" />
     <ClCompile Include="DelayTime.cpp" />
@@ -183,6 +187,7 @@
     <ClCompile Include="Flickable.cpp" />
     <ClCompile Include="FlyingShell.cpp" />
     <ClCompile Include="FRectangle.cpp" />
+    <ClCompile Include="GameSound.cpp" />
     <ClCompile Include="GutsmanMap.cpp" />
     <ClCompile Include="BonusBallItem.cpp" />
     <ClCompile Include="HealthSprite.cpp" />
@@ -221,6 +226,7 @@
     <ClCompile Include="SelectMapScene.cpp" />
     <ClCompile Include="SmallLifeEnergyItem.cpp" />
     <ClCompile Include="SmallWeaponEnergyItem.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Spike.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />

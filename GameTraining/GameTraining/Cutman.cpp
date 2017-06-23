@@ -1,6 +1,6 @@
 #include "Cutman.h"
 #include "CutmanScissors.h"
-
+extern int time;
 extern int randomFrom(int numBegin, int numEnd);
 //
 //void Cutman::updateWaiting()
@@ -161,10 +161,15 @@ extern int randomFrom(int numBegin, int numEnd);
 //	this->cutmanActivity = cutmanActivity;
 //}
 //
-//void Cutman::setType(CUTMAN_TYPE cutmanType)
-//{
-//	this->cutmanType = cutmanType;
-//}
+void Cutman::setType(CUTMAN_TYPE cutmanType)
+{
+	this->cutmanType = cutmanType;
+	if (action < CM_SHOOTING)
+	{
+		action = cutmanType*CM_ACTION_COUNT + cutmanAction;
+	}
+	
+}
 //
 //void Cutman::setAction(int actionValue)
 //{
@@ -278,6 +283,12 @@ extern int randomFrom(int numBegin, int numEnd);
 //	}
 //}
 
+bool Cutman::checkNearRockman()
+{
+	float delta = 150; // TODO: luu constant
+	return (abs(getXCenter() - Rockman::getInstance()->getXCenter()) < delta);
+}
+
 void Cutman::selectAttack()
 {
 	while (true)
@@ -291,10 +302,20 @@ void Cutman::selectAttack()
 			sum += cmAttackTable[i];
 			if (sum > r)
 			{
-				if (i != attackSelection)
+				if (i != attackSelection && !(i == CM_ATTACKING_RANDOM_ACTIVITY::CMRA_JUMP_SHORT) ||
+					(i == CM_ATTACKING_RANDOM_ACTIVITY::CMRA_JUMP_LONG))
 				{
-					attackSelection = (CM_ATTACKING_RANDOM_ACTIVITY)i;
-					return;
+					if ((i == CM_ATTACKING_RANDOM_ACTIVITY::CMRA_JUMP_SHORT) ||
+						(i == CM_ATTACKING_RANDOM_ACTIVITY::CMRA_JUMP_LONG)
+						&& !checkNearRockman())
+					{
+						break;
+					}
+					else
+					{
+						attackSelection = (CM_ATTACKING_RANDOM_ACTIVITY)i;
+						return;
+					}
 				}
 				else
 				{
@@ -320,10 +341,20 @@ void Cutman::selectNonAttack()
 			sum += cmNonAttackTable[i];
 			if (sum > r)
 			{
-				if (i != nonAttackSelection)
+				if (i != nonAttackSelection && !((i == CM_NONATTACKING_RANDOM_ACTIVITY::CMNRA_JUMP_SHORT) ||
+					(i == CM_NONATTACKING_RANDOM_ACTIVITY::CMNRA_JUMP_LONG)))
 				{
-					nonAttackSelection = (CM_NONATTACKING_RANDOM_ACTIVITY)i;
-					return;
+					if ((i == CM_NONATTACKING_RANDOM_ACTIVITY::CMNRA_JUMP_SHORT) ||
+						(i == CM_NONATTACKING_RANDOM_ACTIVITY::CMNRA_JUMP_LONG)
+						&& !checkNearRockman())
+					{
+						break;
+					}
+					else
+					{
+						nonAttackSelection = (CM_NONATTACKING_RANDOM_ACTIVITY)i;
+						return;
+					}
 				}
 				else
 				{
@@ -344,8 +375,15 @@ void Cutman::onLastFrameAnimation()
 		CutmanScissors::getInstance()->x = x;
 		CutmanScissors::getInstance()->y = y;
 		CutmanScissors::getInstance()->dx = 2 * direction; // TODO Constant
-		CutmanScissors::getInstance()->dy = 0;
-		cutmanType = CM_ATTACKING;
+		if (abs(CutmanScissors::getInstance()->x - Rockman::getInstance()->x) !=0)
+		{
+			CutmanScissors::getInstance()->dy = CutmanScissors::getInstance()->dx * (CutmanScissors::getInstance()->y - Rockman::getInstance()->y) / (CutmanScissors::getInstance()->x - Rockman::getInstance()->x);
+		}
+		else
+		{
+			CutmanScissors::getInstance()->dy = 0;
+		}
+		setType(CM_ATTACKING);
 	}
 }
 
@@ -359,12 +397,26 @@ void Cutman::onCollision(FBox * other, int nx, int ny)
 			canSelect = true;//restore from jump
 		}
 	}
+	if (nx != 0 && cutmanAction == CM_RUNNING)
+	{
+		canSelect = true;
+	}
 	Enemy::onCollision(other, nx, ny);
+}
+
+void Cutman::updateLocation()
+{
+	Enemy::updateLocation();
+}
+
+void Cutman::updateMove()
+{
+	vy += ay*time;
+	dy = vy*time;
 }
 
 void Cutman::update()
 {
-	Enemy::update();
 	setHeight(sprite->getHeight(action, frameIndex));
 	switch (cutmanType)
 	{
@@ -377,6 +429,7 @@ void Cutman::update()
 	default:
 		break;
 	}
+	Enemy::update();
 }
 
 void Cutman::updateNonAttacking()
@@ -386,15 +439,18 @@ void Cutman::updateNonAttacking()
 		selectNonAttack();
 		canSelect = false;
 		initDirectionFollowRockman();
+		/*if ((checkNearRockman()) && !ground && (nonAttackSelection != CMNRA_JUMP_LONG) && (nonAttackSelection != CMNRA_JUMP_SHORT))
+			nonAttackSelection = CMNRA_JUMP_LONG;
+		else selectNonAttack();*/
 		switch (nonAttackSelection)
 		{
 		case CMNRA_WAIT:
 			setAction(CM_WAITING);
-			vx = 0;
+			dx = 0;
 			cutmanDelay.start(500);//TODO waiting time
 			break;
 		case CMNRA_SHOOT:
-			vx = 0;
+			dx = 0;
 			setAction(CM_SHOOTING);
 			
 			break;
@@ -406,11 +462,11 @@ void Cutman::updateNonAttacking()
 		case CMNRA_JUMP_SHORT:
 			setAction(CM_JUMPING);
 			
-			vy = 0.4;
+			vy = 0.4; // TODO
 			break;
 		case CMNRA_JUMP_LONG:
-			
-			vy = 0.4;
+			setAction(CM_JUMPING);
+			vy = 0.4; // TODO
 			break;
 		default:
 			break;
@@ -452,30 +508,32 @@ void Cutman::updateAttacking()
 {
 	if (canSelect)
 	{
-		selectAttack();
+		selectAttack(); 
 		canSelect = false;
 		initDirectionFollowRockman();
+		/*if (checkNearRockman() && !ground && (attackSelection != CMRA_JUMP_LONG) && (attackSelection != CMRA_JUMP_SHORT))
+			attackSelection = CMRA_JUMP_LONG;
+		else 
+			selectAttack();*/
+
 		switch (attackSelection)
 		{
 		case CMRA_WAIT:
 			setAction(CM_WAITING);
-			vx = 0;
+			dx = 0;
 			cutmanDelay.start(500);//TODO waiting time
 			break;
 		case CMRA_RUN:
 			setAction(CM_RUNNING);
-			
 			cutmanDelay.start(1000);//TODO run time
 			break;
 		case CMRA_JUMP_SHORT:
 			setAction(CM_JUMPING);
-			
-			vy = 0.4;
+			vy = 0.4; // TODO
 			break;
 		case CMRA_JUMP_LONG:
 			setAction(CM_JUMPING);
-			
-			vy = 0.4;
+			vy = 0.4; // TODO
 			break;
 		default:
 			break;
@@ -517,6 +575,7 @@ void Cutman::setAction(int actionValue)
 	{
 		action = cutmanType*CM_ACTION_COUNT + actionValue;
 		cutmanAction =(CUTMAN_ACTION) actionValue;
+		frameIndex = 0;
 	}
 }
 

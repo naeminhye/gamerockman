@@ -150,12 +150,13 @@ void GameSound::play(string soundLink, bool repeat /*= false*/, bool playFromSta
 	{
 		if (playFromStart)
 			loadedSound_.at(soundLink)->stop();
+	//	stop(soundLink);
 
 		loadedSound_.at(soundLink)->play(repeat);
 	}
 	catch (exception)
 	{
-		loadedSound_.insert(SoundPair(soundLink, new Sound((char*)soundLink.c_str())));
+		loadedSound_.insert(SoundPair(soundLink, new Sound(soundLink.c_str())));
 		loadedSound_.at(soundLink)->play(repeat);
 	}
 }

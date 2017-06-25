@@ -245,6 +245,7 @@ void Rockman::update()
 	{
 		if (keyJumpPress)
 		{
+			GameSound::getInstance()->play(SOUND_BEAM);
 			vy = RM_VY_JUMP;
 		}
 		setWidth(RM_GROUND_WIDTH);
@@ -424,12 +425,14 @@ Rockman::Rockman()
 	direction = Right;
 	onAttack = false;
 	collisionType = CT_ROCKMAN;
+	
 	disappearTime.tickPerFrame = RM_DISAPPEAR_GAME_TIME;
 	isDisappear = false;
 	isRecoil = false;
 	injuryDelay.init(RM_INJURY_DELAY_TIME);
 	flickeringDelay.init(RM_FLICKER_DELAY_TIME);
 	onInjury = false;
+
 	health = maxHealth = RM_MAX_HEALTH_POINT;
 	onDeath = false;
 	deathDelay.init(RM_DEATH_DELAYTIME); 
@@ -652,7 +655,7 @@ void Rockman::updateAttack()
 			if (!rmBulletDelay.isOnTime() && RockmanBullet::bullets->Count < 3)
 			{
 				RockmanBullet* bullet = new RockmanBullet();
-				bullet->dx = 3 * direction;
+				bullet->dx = 5 * direction; // TODO
 				bullet->dy = 0;
 				bullet->x = x;
 				if (direction == Right)
@@ -671,9 +674,9 @@ void Rockman::updateAttack()
 				bullet->oldRect.y = y;
 				if (direction < 0)
 				{
-					bullet->oldRect.x = x - 2 * a;
+					bullet->oldRect.x = x - 2 * a; // TODO
 				}
-				bullet->dx = 3 * direction;
+				bullet->dx = 3 * direction; // TODO
 				bullet->dy = 0;
 				bullet->x = x;
 

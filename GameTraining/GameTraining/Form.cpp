@@ -40,6 +40,7 @@ void Form::initHandleWindows(HINSTANCE hInstance, int nCmdShow)
 	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
 	this->hWnd = hWnd;
+	GameSound::initialize(hWnd);
 }
 
 HWND Form::getHandleWindow()

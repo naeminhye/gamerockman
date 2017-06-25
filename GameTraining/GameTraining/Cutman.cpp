@@ -1,166 +1,12 @@
 #include "Cutman.h"
 #include "CutmanScissors.h"
+#include "KEY.h"
+#include "HealthSprite.h"
+
 extern int time;
 extern int randomFrom(int numBegin, int numEnd);
-//
-//void Cutman::updateWaiting()
-//{
-//	vx = 0;
-//	setAction(CM_WAITING);
-//	if (cutmanDelay.isTerminated())
-//	{
-//		selectActivity(CAR_WAITING);
-//		if (!checkNearRockman())
-//		{
-//			setActivity(CMA_RUNNING);
-//		}
-//		cutmanDelay.start(1000); // TODO: luu constant 
-//	}
-//}
-//void Cutman::updateRunning()
-//{
-//	setAction(CM_RUNNING);
-//	if (checkNearRockman())
-//	{
-//		setActivity(CMA_JUMPING);
-//		cutmanDelay.start(1000); // TODO: luu constant 
-//	}
-//}
-//void Cutman::updateJumping()
-//{
-//	if (ground && cutmanAction == CM_JUMPING)
-//	{
-//		selectActivity(CAR_JUMPING);
-//		cutmanDelay.start(1000); // TODO: luu constant 
-//	}
-//	setAction(CM_JUMPING);
-//	if (!checkNearRockman())
-//	{
-//		setActivity(CMA_RUNNING);
-//	}
-//}
-//void Cutman::updateShooting()
-//{
-//	vx = 0;
-//	setAction(CM_SHOOTING);
-//}
-//
-//void Cutman::update()
-//{
-//	if (CutmanScissors::getInstance()->alive)
-//	{
-//		selectActivity(CAR_SHOOTING);
-//	}
-//	updateInjury();
-//	cutmanDelay.update();
-//	if (cutmanActivity != CMA_JUMPING)
-//		Enemy::initDirectionFollowRockman();
-//	vx = direction * 0.1; // TODO luu constant
-//	switch (cutmanActivity)
-//	{
-//	case CMA_WAITING:
-//		updateWaiting();
-//		break;
-//	case CMA_RUNNING:
-//		updateRunning();
-//		break;
-//	case CMA_SHOOTING:
-//		updateShooting();
-//		break;
-//	case CMA_JUMPING:
-//		updateJumping();
-//		break;
-//	default:
-//		break;
-//	}
-//	Enemy::update();
-//}
-//
-//void Cutman::onLastFrameAnimation()
-//{
-//	if (cutmanActivity == CMA_SHOOTING)
-//	{
-//		if (!checkNearRockman())
-//		{
-//			selectActivity(CAR_SHOOTING);
-//		}
-//		setActivity(CMA_WAITING);
-//		cutmanDelay.start(1000); // TODO: luu constant
-//	}
-//}
-//
-//bool Cutman::checkNearRockman()
-//{
-//	float delta = 50; // TODO: luu constant
-//	return abs(getXCenter() - Rockman::getInstance()->getXCenter()) < delta;
-//}
-//
-//void Cutman::selectActivity(CUTMAN_ACTIVITY_RAND except)
-//{
-//	CUTMAN_ACTIVITY_RAND random;
-//
-//	while ((random = (CUTMAN_ACTIVITY_RAND)randomFrom(CAR_WAITING, CAR_SHOOTING)) == except);
-//	//while (((random = (CUTMAN_ACTIVITY_RAND)randomFrom(CAR_WAITING, CAR_SHOOTING)) == except) || (random == CAR_SHOOTING && CutmanScissors::getInstance()->alive));
-//
-//	switch (random)
-//	{
-//	case CAR_WAITING:
-//		setActivity(CMA_WAITING);
-//		break;
-//	case CAR_JUMPING:
-//		if (ground)
-//		{
-//			setActivity(CMA_JUMPING);
-//		}
-//		else
-//		{
-//			if (except == CAR_WAITING)
-//			{
-//				setActivity(CMA_SHOOTING);
-//			}
-//			else
-//			{
-//				setActivity(CMA_WAITING);
-//			}
-//		}
-//		break;
-//	case CAR_SHOOTING:
-//		if (CutmanScissors::getInstance()->alive)
-//		{
-//			selectActivity(CAR_SHOOTING);
-//			return;
-//		}
-//		setActivity(CMA_SHOOTING);
-//		break;
-//	default:
-//		break;
-//	}
-//}
-//
-//void Cutman::setActivity(CUTMAN_ACTIVITY cutmanActivity)
-//{
-//	if (cutmanActivity == CMA_WAITING)
-//	{
-//		cutmanDelay.start(500); // TODO: luu constant 
-//	}
-//	if (cutmanActivity == CMA_SHOOTING)
-//	{
-//		setType(CM_ATTACKING);
-//		CutmanScissors::getInstance()->alive = true;
-//		CutmanScissors::getInstance()->scissorsActivity = SCISSORS_ATTACK; // TODO doi ten
-//		CutmanScissors::getInstance()->x = x;
-//		CutmanScissors::getInstance()->y = y;
-//		CutmanScissors::getInstance()->dx = 2 * direction; // TODO Constant
-//		CutmanScissors::getInstance()->dy = 0;
-//	}
-//	if (cutmanActivity == CMA_JUMPING && !ground)
-//	{
-//		selectActivity(CAR_JUMPING);
-//		return;
-//	}
-//	this->cutmanActivity = cutmanActivity;
-//}
-//
+extern float roundToInt(float num);
+
 void Cutman::setType(CUTMAN_TYPE cutmanType)
 {
 	this->cutmanType = cutmanType;
@@ -168,120 +14,8 @@ void Cutman::setType(CUTMAN_TYPE cutmanType)
 	{
 		action = cutmanType*CM_ACTION_COUNT + cutmanAction;
 	}
-	
+
 }
-//
-//void Cutman::setAction(int actionValue)
-//{
-//	if (actionValue == CM_SHOOTING)
-//	{
-//		Enemy::setAction(actionValue);
-//		setHeight(sprite->anims[actionValue].frames[0].bottom - sprite->anims[actionValue].frames[0].top);
-//		return;
-//	}
-//	if (cutmanAction != actionValue)
-//	{
-//		if (actionValue == CM_JUMPING)
-//		{
-//			vy = CUTMAN_JUMP_VY;
-//		}
-//		cutmanAction = (CUTMAN_ACTION)actionValue;
-//		this->action = cutmanType* CM_ACTION_COUNT + actionValue;
-//		setHeight(sprite->anims[action].frames[0].bottom - sprite->anims[action].frames[0].top);
-//		frameIndex = 0;
-//
-//	}
-//}
-//
-//void Cutman::onCollision(FBox * other, int nx, int ny)
-//{
-//	Enemy::onCollision(other, nx, ny);
-//	if (other->collisionType == CT_GROUND && nx == 1) // TODO lam lop Stone
-//	{
-//		setActivity(CMA_JUMPING);
-//	}
-//}
-//
-//Cutman::Cutman()
-//{
-//	cutmanType = CM_NON_ATTACKING;
-//	setActivity(CMA_WAITING);
-//	cutmanDelay.start(1000);
-//	direction = Left;
-//	dx = 0;
-//	healthPoint = 28;
-//	CutmanScissors::getInstance()->dx = 0;
-//	CutmanScissors::getInstance()->cutman = this; //**********
-//	flickerAction = CM_EXPLOSE;//
-//	onInjury = false;
-//	isDisappear = false;
-//	isRecoil = false;
-//	injuryDelay.init(RM_INJURY_DELAY_TIME);
-//	flickeringDelay.init(RM_FLICKER_DELAY_TIME);
-//}
-//
-//
-//Cutman::~Cutman()
-//{
-//}
-//
-//void Cutman::updateInjury()
-//{
-//	if (onInjury)
-//	{
-//		injuryDelay.update();
-//		flickeringDelay.update();
-//		if (injuryDelay.isOnTime())
-//		{
-//			//setAction(CM_);
-//		}
-//
-//		updateFlicker();
-//		if (flickeringDelay)
-//		{
-//			onInjury = false;
-//			isDisappear = false;
-//		}
-//	}
-//}
-//
-//void Cutman::onIntersect(FBox * other)
-//{
-//	if (other->collisionType == CT_BULLET && !onInjury)
-//	{
-//		int nx; //
-//
-//		if (getXCenter() > this->getXCenter())
-//		{
-//			nx = -1;
-//		}
-//		else
-//			nx = 1;
-//
-//		this->direction = (Direction)(-nx);
-//		this->vx = nx * RM_VX_RECOIL;
-//		//	this->vx = 0; 
-//		this->vy = RM_VY_RECOIL;
-//		//this->onStair = false;
-//		this->ground = false;
-//		this->isRecoil = true;
-//		//this->setIsIntersectStair(false);
-//		//this->setHealth(this->health - attackDamage);
-//		this->onInjury = true;
-//		this->flickeringDelay.start();
-//		this->injuryDelay.start();
-//	}
-//
-//	if (other->collisionType == CT_BULLET)
-//	{
-//		((RockmanBullet*)other)->canDelete = true;
-//		setHealthPoint(healthPoint - 1);
-//		if (healthPoint == 0)
-//		{
-//			setDeath();
-//		}
-//	}
-//}
 
 bool Cutman::checkNearRockman()
 {
@@ -375,7 +109,7 @@ void Cutman::onLastFrameAnimation()
 		CutmanScissors::getInstance()->x = x;
 		CutmanScissors::getInstance()->y = y;
 		CutmanScissors::getInstance()->dx = 2 * direction; // TODO Constant
-		if (abs(CutmanScissors::getInstance()->x - Rockman::getInstance()->x) !=0)
+		if (abs(CutmanScissors::getInstance()->x - Rockman::getInstance()->x) != 0)
 		{
 			CutmanScissors::getInstance()->dy = CutmanScissors::getInstance()->dx * (CutmanScissors::getInstance()->y - Rockman::getInstance()->y) / (CutmanScissors::getInstance()->x - Rockman::getInstance()->x);
 		}
@@ -389,9 +123,9 @@ void Cutman::onLastFrameAnimation()
 
 void Cutman::onCollision(FBox * other, int nx, int ny)
 {
-	if (ny == 1 && other->collisionType==CT_GROUND)
+	if (ny == 1 && other->collisionType == CT_GROUND)
 	{
-		if ( ( cutmanType == CM_NON_ATTACKING && (nonAttackSelection == CMNRA_JUMP_SHORT || nonAttackSelection == CMNRA_JUMP_LONG))
+		if ((cutmanType == CM_NON_ATTACKING && (nonAttackSelection == CMNRA_JUMP_SHORT || nonAttackSelection == CMNRA_JUMP_LONG))
 			|| (cutmanType == CM_ATTACKING && (attackSelection == CMRA_JUMP_SHORT || attackSelection == CMRA_JUMP_LONG)))
 		{
 			canSelect = true;//restore from jump
@@ -402,6 +136,67 @@ void Cutman::onCollision(FBox * other, int nx, int ny)
 		canSelect = true;
 	}
 	Enemy::onCollision(other, nx, ny);
+}
+
+void Cutman::onIntersect(FBox * other)
+{
+	if (other->collisionType == CT_BULLET && other != CutmanScissors::instance && !onInjury)
+	{
+		int nx; //
+
+		if (other->getXCenter() > getXCenter())
+		{
+			nx = -1;
+		}
+		else
+			nx = 1;
+
+		if (!injuryDelay.isOnTime())
+		{
+			direction = (Direction)(-nx);
+			dx = nx ; // TODO
+			ground = false;
+			isRecoil = true;
+			onInjury = true;
+			injuryDelay.start();
+		}
+
+		setHealthPoint(healthPoint - 1);
+		if (healthPoint == 0)
+		{
+			//setDeath();
+		}
+	}
+	else
+	{
+
+		if (other == Rockman::getInstance() && !Rockman::getInstance()->onInjury)
+		{
+			int nx; //
+
+			if (getXCenter() > Rockman::getInstance()->getXCenter())
+			{
+				nx = -1;
+			}
+			else
+				nx = 1;
+
+			Rockman::getInstance()->direction = (Direction)(-nx);
+			Rockman::getInstance()->vx = nx * RM_VX_RECOIL;
+			//	Rockman::getInstance()->vx = 0; 
+			Rockman::getInstance()->vy = RM_VY_RECOIL;
+			Rockman::getInstance()->onStair = false;
+			Rockman::getInstance()->ground = false;
+			Rockman::getInstance()->isRecoil = true;
+			Rockman::getInstance()->setIsIntersectStair(false);
+			Rockman::getInstance()->setHealth(Rockman::getInstance()->health - attackDamage);
+			Rockman::getInstance()->onInjury = true;
+			Rockman::getInstance()->flickeringDelay.start();
+			Rockman::getInstance()->injuryDelay.start();
+			KEY::getInstance()->isUpDown = false;
+			KEY::getInstance()->isDownDown = false;
+		}
+	}
 }
 
 void Cutman::updateLocation()
@@ -415,9 +210,41 @@ void Cutman::updateMove()
 	dy = vy*time;
 }
 
+void Cutman::updateInjury()
+{
+	if (onInjury)
+	{
+		injuryDelay.update();
+		if (injuryDelay.isTerminated())
+		{
+			onInjury = false;
+			isDisappear = false;
+		}
+		if (disappearTime.atTime())
+			isDisappear = !isDisappear;
+	}
+	else
+	{
+		isDisappear = false;
+		dx = 0;
+	}
+}
+
 void Cutman::update()
 {
+	if (!alive)
+		return;
+
 	setHeight(sprite->getHeight(action, frameIndex));
+	updateInjury();
+	if (ground) {
+		isRecoil = false;
+	}
+	if (isRecoil)
+	{
+		MovableObject::update();
+		return;
+	}
 	switch (cutmanType)
 	{
 	case CM_NON_ATTACKING:
@@ -430,6 +257,45 @@ void Cutman::update()
 		break;
 	}
 	Enemy::update();
+}
+
+void Cutman::render()
+{
+	if (sprite == 0)
+		return;
+
+	if (!alive)
+		return;
+
+	HealthSprite::getInstance()->render(30, 80, healthPoint, maxHealth);
+
+
+	float yRender;
+	float xRender;
+	D3DXMATRIX flipMatrix;
+	int frameWidth = sprite->anims[action].frames[frameIndex].right - sprite->anims[action].frames[frameIndex].left;
+	Camera::getInstance()->Transform(x, y, xRender, yRender);
+	xRender = roundToInt(xRender);
+	yRender = roundToInt(yRender);
+
+	xRender -= (frameWidth - width) / 2;
+	if (direction != sprite->img->direction)
+	{
+		D3DXMatrixIdentity(&flipMatrix);
+		flipMatrix._11 = -1;
+		flipMatrix._41 = 2 * (xRender + frameWidth / 2);
+
+		DirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+	}
+	if (!isDisappear)
+		sprite->render(xRender, yRender, action, frameIndex);
+	if (injuryDelay.isOnTime() && isDisappear)
+		sprite->render(xRender, yRender, CM_EXPLOSE, 0);
+	if (direction != sprite->img->direction)
+	{
+		D3DXMatrixIdentity(&flipMatrix);
+		DirectXTool::getInstance()->GetSprite()->SetTransform(&flipMatrix);
+	}
 }
 
 void Cutman::updateNonAttacking()
@@ -452,16 +318,16 @@ void Cutman::updateNonAttacking()
 		case CMNRA_SHOOT:
 			dx = 0;
 			setAction(CM_SHOOTING);
-			
+
 			break;
 		case CMNRA_RUN:
 			setAction(CM_RUNNING);
-			
+
 			cutmanDelay.start(1000);//TODO run time
 			break;
 		case CMNRA_JUMP_SHORT:
 			setAction(CM_JUMPING);
-			
+
 			vy = 0.4; // TODO
 			break;
 		case CMNRA_JUMP_LONG:
@@ -508,12 +374,12 @@ void Cutman::updateAttacking()
 {
 	if (canSelect)
 	{
-		selectAttack(); 
+		selectAttack();
 		canSelect = false;
 		initDirectionFollowRockman();
 		/*if (checkNearRockman() && !ground && (attackSelection != CMRA_JUMP_LONG) && (attackSelection != CMRA_JUMP_SHORT))
 			attackSelection = CMRA_JUMP_LONG;
-		else 
+		else
 			selectAttack();*/
 
 		switch (attackSelection)
@@ -574,7 +440,7 @@ void Cutman::setAction(int actionValue)
 	if (actionValue != cutmanAction)
 	{
 		action = cutmanType*CM_ACTION_COUNT + actionValue;
-		cutmanAction =(CUTMAN_ACTION) actionValue;
+		cutmanAction = (CUTMAN_ACTION)actionValue;
 		frameIndex = 0;
 	}
 }
@@ -605,6 +471,16 @@ Cutman::Cutman()
 
 	canSelect = true;
 	cutmanDelay.init(1000);//TODO luu constant
+
+	healthPoint = 28;
+
+	disappearTime.tickPerFrame = RM_DISAPPEAR_GAME_TIME; //TODO 
+	isDisappear = false;
+	isRecoil = false;
+	injuryDelay.init(RM_INJURY_DELAY_TIME); //TODO 
+	onInjury = false;
+
+	attackDamage = 10;//TODO
 }
 
 

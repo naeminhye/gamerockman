@@ -85,6 +85,9 @@ SpriteManager::SpriteManager()
 	sprites[SPR_CUTMAN_SCISSORS]->img = sprites[SPR_CUTMAN]->img;
 	sprites[SPR_CUTMAN_SCISSORS]->readInfo("Data\\Sprite\\Enemies\\Cutman\\cutmanscissors.txt");
 
+	sprites[SPR_GUTSMAN] = new Sprite();
+	sprites[SPR_GUTSMAN]->ReadFromFile("Data\\Sprite\\Enemies\\Gutsman\\gutsman.txt", "Data\\Sprite\\Enemies\\Gutsman\\Gutsman.png");
+
 	/********************* others *********************/
 	sprites[SPR_DOOR] = new Sprite();
 	sprites[SPR_DOOR]->ReadFromFile("Data\\Sprite\\Door\\door.txt", "Data\\Sprite\\Door\\Door.png");

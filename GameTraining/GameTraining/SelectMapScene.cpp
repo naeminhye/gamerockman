@@ -8,6 +8,8 @@
 void SelectMapScene::init()
 {
 	img->Init("Data\\Sprite\\Scene\\stageselect.png", D3DCOLOR_XRGB(0, 0, 0));
+	
+	GameSound::getInstance()->play(SOUND_STAGE_SELECT);
 
 }
 
@@ -49,6 +51,7 @@ void SelectMapScene::update()
 
 	if (keyEnterPress)
 	{
+		GameSound::getInstance()->play(SOUND_MENU_SELECT, false);
 		MapScene* mapScene = new MapScene();
 		Rockman::getInstance()->rm_type = RMT_NORMAL;
 		Rockman::getInstance()->pauseAnimation = true;

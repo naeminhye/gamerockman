@@ -118,13 +118,11 @@ public:
 
 	void updateRockmanType();
 
-#pragma region FLICKER
+#pragma region INJURY
 	GameTime disappearTime;
 	bool isDisappear;
 	void updateFlicker(); // khi trung dan
-#pragma endregion
 
-#pragma region INJURY
 	bool isRecoil;
 	bool onInjury;
 	void updateInjury();

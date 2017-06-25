@@ -162,3 +162,12 @@ int CM_JUMP_SHORT_R			= 5;		// Cutman, Attacking, Short Jumping
 int CM_JUMP_LONG_R			= 5; // Cutman, Attacking, Long Jumping
 
 #pragma endregion
+
+
+#pragma region GUTSMAN
+
+int GM_WAIT_R		= 1;
+int GM_ATTACK_R		= 3;
+
+
+#pragma endregion

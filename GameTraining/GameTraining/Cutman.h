@@ -91,40 +91,22 @@ public:
 	void onLastFrameAnimation();
 
 	void onCollision(FBox* other, int nx, int ny);
+	void onIntersect(FBox* other);
 	void updateLocation();
 	void updateMove();
 
-	//DelayTime cutmanDelay;
-	//CUTMAN_ACTIVITY cutmanActivity;
-	//CUTMAN_TYPE cutmanType;
-	//CUTMAN_ACTION cutmanAction;
-
-	//// xu li update cac hanh dong cua Cutman
-	//void updateWaiting();
-	//void updateRunning();
-	//void updateJumping();
-	//void updateShooting();
-	//void update();
-
-	//void onLastFrameAnimation();
-	//
-	//bool checkNearRockman(); // kiem tra xem Cutman co dang dung gan Rockman trong mot pham vi cho truoc khong
-
-	//void selectActivity(CUTMAN_ACTIVITY_RAND except);
-	//void setActivity(CUTMAN_ACTIVITY cutmanActivity);
 	void setType(CUTMAN_TYPE cutmanType);
-	//void setAction(int actionValue);
 
-	//void onCollision(FBox* other, int nx, int ny);
+	GameTime disappearTime;
+	bool isDisappear;
 
-	//bool isRecoil;
-	//bool onInjury;
-	//void updateInjury();
-	//void onIntersect(FBox * other);
-
+	bool isRecoil;
+	bool onInjury;
+	void updateInjury();
+	DelayTime injuryDelay;
 	/* CONSTRUCTOR & DESTRUCTOR */
-	// y>10000 || y<-10000
 	void update();
+	void render();
 
 	void updateNonAttacking();
 	void updateAttacking();

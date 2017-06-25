@@ -71,7 +71,7 @@ public:
 
 
 private:
-	//HRESULT loadAudio(const char* audioPath);
+	HRESULT loadAudio(const char* audioPath);
 
 private:
 	static WAVEFORMATEX bufferFormat_;

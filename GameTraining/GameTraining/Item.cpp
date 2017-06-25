@@ -11,8 +11,8 @@ void Item::release()
 
 void Item::onIntersect(FBox * other)
 {
-	if(other==Rockman::getInstance() || other->collisionType == CT_GROUND)
-		release();
+	//if(other==Rockman::getInstance() || other->collisionType == CT_GROUND)
+	//	release();
 }
 
 Item::Item()

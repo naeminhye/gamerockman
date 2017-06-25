@@ -109,6 +109,7 @@
     <ClInclude Include="FlyingShell.h" />
     <ClInclude Include="FRectangle.h" />
     <ClInclude Include="GameSound.h" />
+    <ClInclude Include="Gutsman.h" />
     <ClInclude Include="GutsmanMap.h" />
     <ClInclude Include="BonusBallItem.h" />
     <ClInclude Include="HealthSprite.h" />
@@ -188,6 +189,7 @@
     <ClCompile Include="FlyingShell.cpp" />
     <ClCompile Include="FRectangle.cpp" />
     <ClCompile Include="GameSound.cpp" />
+    <ClCompile Include="Gutsman.cpp" />
     <ClCompile Include="GutsmanMap.cpp" />
     <ClCompile Include="BonusBallItem.cpp" />
     <ClCompile Include="HealthSprite.cpp" />

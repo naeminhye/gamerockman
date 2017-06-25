@@ -154,7 +154,23 @@ extern int PICKET_BULLET_V;
 extern float CUTMAN_JUMP_VY;
 #pragma endregion
 
+extern int GM_WAIT_R;
+extern int GM_ATTACK_R;
 
 // random funtion
 extern int randomFrom(int numBegin, int numEnd);
 #pragma endregion
+
+#pragma region Sound
+
+#include"GameSound.h"
+
+#define SOUND_BEAM "Data\\Sound\\Beam.wav"
+#define SOUND_STAGE_SELECT "Data\\Sound\\StageSelectBGM.wav"
+#define SOUND_ENEMY_CHOSEN "Data\\Sound\\EnemyChosenBGM.wav" 
+#define SOUND_CUTMAN "Data\\Sound\\Cutman.wav"
+#define SOUND_MENU_SELECT "Data\\Sound\\MenuSelect.wav" 
+#define SOUND_GUTSMAN "Data\\Sound\\Gutsman.wav" 
+
+#pragma endregion
+

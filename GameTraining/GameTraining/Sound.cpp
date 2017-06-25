@@ -15,7 +15,7 @@ HWND Sound::windowsHandler_;
 // -----------------------------------------------
 Sound::Sound(const char* audioPath)
 {
-	//loadAudio(audioPath);
+	loadAudio(audioPath);
 }
 
 
@@ -83,15 +83,13 @@ wchar_t* convert(const char* str)
 		s[i] = str[i];
 	s[n] = 0;
 	return s;
-}/*
+}
+
 HRESULT Sound::loadAudio(const char* audioPath_)
 {
 	HRESULT result;
 	CWaveFile audioObject;
-	wchar_t*str = convert(audioPath_);
-	result = audioObject.Open(str, 0, 1);
-	delete[] str;
-	str = 0;
+	result = audioObject.Open((char*)audioPath_, 0, 1);
 
 	if (!FAILED(result)) {
 
@@ -117,7 +115,7 @@ HRESULT Sound::loadAudio(const char* audioPath_)
 
 	audioObject.Close();
 	return result;
-}*/
+}
 
 
 // -----------------------------------------------

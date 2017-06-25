@@ -26,6 +26,7 @@
 #include "DeathHole.h"
 #include "Spike.h"
 #include "CutmanScissors.h"
+#include "Gutsman.h"
 
 extern Blader* test;
 
@@ -240,6 +241,9 @@ void Map::readObjects(char * objectsPath)
 			break;
 		case SPR_DEATH_HOLE:
 			objects[i] = new DeathHole();
+			break;
+		case SPR_GUTSMAN:
+			objects[i] = new Gutsman();
 			break;
 			//TODO: Them doi tuong nho them vao day
 		default:
@@ -465,17 +469,32 @@ void Map::update()
 
 	for (size_t i = 0; i < Item::items->Count; i++)
 	{
+		if (i >= Item::items->Count)
+		{
+			break;
+		}
 		auto item = Item::items->at(i);
 		item->update();
-		for (size_t j = 0; j < nGroundObjectsCam; j++)
+		int j = 0;
+		for (j = 0; j < nGroundObjectsCam; j++)
 		{
-			Collision::CheckCollision(Item::items->at(i), groundsInCam->at(j));
+			Collision::CheckCollision(item, groundsInCam->at(j));
+			if (Collision::AABBCheck(groundsInCam->at(j), item))
+			{
+				item->release();
+				i--;
+				break;
+			}
 		}
-		Item::items->at(i)->updateLocation();
+		if (j < nGroundObjectsCam)
+			continue;
+		item->updateLocation();
 		if (Collision::AABBCheck(Rockman::getInstance(), Item::items->at(i)))
 		{
-			Item::items->at(i)->onIntersect(Rockman::getInstance());
+			item->release();
+			//item->onIntersect(Rockman::getInstance());
 			i--;
+			continue;
 		}
 	}
 	Rockman::getInstance()->updateLocation();

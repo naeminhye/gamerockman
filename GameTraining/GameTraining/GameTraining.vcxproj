@@ -92,6 +92,7 @@
     <ClInclude Include="BigLifeEnergyItem.h" />
     <ClInclude Include="BigWeaponEnergyItem.h" />
     <ClInclude Include="Bridge.h" />
+    <ClInclude Include="ClearPointSprite.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Cutman.h" />
@@ -110,6 +111,7 @@
     <ClInclude Include="FRectangle.h" />
     <ClInclude Include="GameSound.h" />
     <ClInclude Include="Gutsman.h" />
+    <ClInclude Include="GutsmanBrokenRock.h" />
     <ClInclude Include="GutsmanMap.h" />
     <ClInclude Include="BonusBallItem.h" />
     <ClInclude Include="GutsmanRock.h" />
@@ -173,6 +175,7 @@
     <ClCompile Include="BigLifeEnergyItem.cpp" />
     <ClCompile Include="BigWeaponEnergyItem.cpp" />
     <ClCompile Include="Bridge.cpp" />
+    <ClCompile Include="ClearPointSprite.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Constant.cpp" />
     <ClCompile Include="Cutman.cpp" />
@@ -191,6 +194,7 @@
     <ClCompile Include="FRectangle.cpp" />
     <ClCompile Include="GameSound.cpp" />
     <ClCompile Include="Gutsman.cpp" />
+    <ClCompile Include="GutsmanBrokenRock.cpp" />
     <ClCompile Include="GutsmanMap.cpp" />
     <ClCompile Include="BonusBallItem.cpp" />
     <ClCompile Include="GutsmanRock.cpp" />

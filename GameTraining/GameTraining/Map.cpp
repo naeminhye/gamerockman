@@ -27,6 +27,9 @@
 #include "Spike.h"
 #include "CutmanScissors.h"
 #include "Gutsman.h"
+#include "GutsmanRock.h"
+#include "GutsmanBrokenRock.h"
+#include "ClearPointSprite.h"
 
 extern Blader* test;
 
@@ -245,6 +248,9 @@ void Map::readObjects(char * objectsPath)
 		case SPR_GUTSMAN:
 			objects[i] = new Gutsman();
 			break;
+		case SPR_GUTSMAN_BROKEN_ROCK:
+			objects[i] = new GutsmanBrokenRock();
+			break;
 			//TODO: Them doi tuong nho them vao day
 		default:
 			objects[i] = new BaseObject();
@@ -461,6 +467,18 @@ void Map::update()
 		}
 	}
 
+	for (size_t i = 0; i < GutsmanBrokenRock::rocks->Count; i++)
+	{
+		GutsmanBrokenRock::rocks->at(i)->update();
+		GutsmanBrokenRock::rocks->at(i)->updateLocation();
+		if (!Collision::AABBCheck(Camera::getInstance(), GutsmanBrokenRock::rocks->at(i)))
+		{
+			GutsmanBrokenRock::rocks->at(i)->deleteRock();
+			i--;
+		}
+	}
+
+
 	for (size_t i = 0; i < Death::deaths->Count; i++)
 	{
 		Death::deaths->at(i)->update();
@@ -559,6 +577,8 @@ void Map::render()
 	}
 
 	// TODO ThemDan st2: Nhớ vẽ khi thêm đối tượng nhé <3
+
+	ClearPointSprite::getInstance()->render(50, 50, 54612);
 }
 
 Map::Map()

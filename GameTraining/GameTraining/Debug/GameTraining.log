@@ -1,8 +1,51 @@
-﻿  Gutsman.cpp
+﻿  Beak.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\gutsman.cpp(39): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\gutsman.cpp(114): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\gutsman.cpp(128): warning C4305: '=': truncation from 'double' to 'float'
-c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\gutsman.cpp(145): warning C4305: '=': truncation from 'double' to 'float'
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\beak.cpp(55): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\beak.cpp(70): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\beak.cpp(82): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\beak.cpp(98): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\beak.cpp(106): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+c:\users\jacey nae\desktop\gamerockman\gamerockman\gametraining\gametraining\beak.cpp(130): warning C4244: 'argument': conversion from 'float' to 'DWORD', possible loss of data
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  WinMain.cpp
+  Trundle.cpp
+  SuperCutterBullet.cpp
+  SuperCutter.cpp
+  Stairs.cpp
+  Spike.cpp
+  SmallLifeEnergyItem.cpp
+  SelectMapScene.cpp
+  ScrewBomber.cpp
+  RockmanCutBullet.cpp
+  Rockman.cpp
+  QuadTree.cpp
+  PicketBullet.cpp
+  Picket.cpp
+  OneUpItem.cpp
+  OctopusBattery.cpp
+  Met.cpp
+  MapScene.cpp
+  Map.cpp
+  Item.cpp
+  IntroScene.cpp
+  GutsmanRock.cpp
+  GutsmanMap.cpp
+  GutsmanBrokenRock.cpp
+  Gutsman.cpp
+  FlyingShell.cpp
+  Flickable.cpp
+  Flea.cpp
+  Enemy.cpp
+  DeathHole.cpp
+  CutmanScissors.cpp
+  CutmanMap.cpp
+  Cutman.cpp
+  Camera.cpp
+  BonusBallItem.cpp
+  Blader.cpp
+  BigLifeEnergyItem.cpp
+  BigEye.cpp
+  BeakBullet.cpp
   GameTraining.vcxproj -> C:\Users\Jacey Nae\Desktop\gamerockman\gamerockman\GameTraining\Debug\MegaMan.exe
   GameTraining.vcxproj -> C:\Users\Jacey Nae\Desktop\gamerockman\gamerockman\GameTraining\Debug\MegaMan.pdb (Full PDB)

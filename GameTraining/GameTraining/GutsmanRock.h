@@ -8,7 +8,8 @@ enum GMR_ACTIVITY {
 
 enum GMR_THROW_ACTIVITY {
 	GMR_THROW_NORMAL,
-	GMR_THROW_BREAKING
+	GMR_THROW_BREAKING,
+	GMR_THROW_FINISH
 };
 
 class GutsmanRock :
@@ -22,8 +23,16 @@ public:
 
 	GMR_THROW_ACTIVITY gmrThrowActivity;
 
+	DelayTime rockBreakingDelay;
+
+	bool onBreaking;
+
 	void update();
 	void render();
+	void updateRockBreaking();
+
+	void onCollision(FBox* other, int nx, int ny);
+
 	GutsmanRock();
 	~GutsmanRock();
 };

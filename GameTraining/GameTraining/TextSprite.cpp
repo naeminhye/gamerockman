@@ -13,7 +13,7 @@ TextSprite * TextSprite::getInstance()
 
 void TextSprite::render(int x, int y, char * text)
 {
-	int space = 2;//TODO luu constant
+	int space = 2; //TODO luu constant
 	int n = strlen(text);
 	for (int i = 0; i < n; i++)
 	{

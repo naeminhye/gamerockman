@@ -111,6 +111,7 @@ void Gutsman::updateAttack()
 		{
 			setAction(GM_THROWING_ROCK);
 			GutsmanRock::getInstance()->gmrActivity = GMR_THROWING;
+			GutsmanRock::getInstance()->gmrThrowActivity = GMR_THROW_NORMAL;
 			GutsmanRock::getInstance()->dx = direction * 7; // TODO
 			GutsmanRock::getInstance()->dy = GutsmanRock::getInstance()->dx * (GutsmanRock::getInstance()->y - Rockman::getInstance()->y) / (GutsmanRock::getInstance()->x - Rockman::getInstance()->x);
 			gmAttackActivity = GM_ATTACK_THROWING_ROCK;

@@ -8,7 +8,7 @@ RockmanDeath::RockmanDeath()
 {
 	sprite = SpriteManager::getInstance()->sprites[SPR_ROCKMAN];
 	deads->_Add(this);
-	delay.tickPerFrame = 50;
+	delay.tickPerFrame = 50; // TODO 
 }
 
 

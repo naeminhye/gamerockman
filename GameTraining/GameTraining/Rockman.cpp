@@ -41,13 +41,15 @@ void Rockman::setHealth(int health)
 				}
 		}
 	}
-	this->health = health; 
+	this->health = health;
 	if (health > maxHealth)
 		this->health = maxHealth;
 }
 
 void Rockman::updateDeath()
 {
+	GameSound::getInstance()->play(SOUND_MEGAMAN_DEFEAT, false);
+
 	dx = 0;
 	dy = 0;
 	switch (rm_death_activity)
@@ -152,7 +154,7 @@ void Rockman::update()
 	updateInjury();
 
 	if (ground) {
-		isRecoil = false; 
+		isRecoil = false;
 		pauseAnimation = false;
 	}
 	if (isRecoil)
@@ -245,7 +247,7 @@ void Rockman::update()
 	{
 		if (keyJumpPress)
 		{
-			GameSound::getInstance()->play(SOUND_BEAM);
+			//GameSound::getInstance()->play(SOUND_BEAM);
 			vy = RM_VY_JUMP;
 		}
 		setWidth(RM_GROUND_WIDTH);
@@ -255,14 +257,14 @@ void Rockman::update()
 		setAction(RM_JUMP);
 		if (onAttack)
 			setAction(RM_JUMP_SHOOT);
-		setWidth(RM_JUMP_WIDTH); 
+		setWidth(RM_JUMP_WIDTH);
 	}
 	MovableObject::update();
 }
 
 float roundToInt(float num)
 {
-	return (int)(num +0.5);
+	return (int)(num + 0.5);
 }
 
 void Rockman::render()
@@ -296,7 +298,7 @@ void Rockman::render()
 
 	//xRender += deltaX;
 
-	
+
 
 	if (direction != sprite->img->direction)
 	{
@@ -425,7 +427,9 @@ Rockman::Rockman()
 	direction = Right;
 	onAttack = false;
 	collisionType = CT_ROCKMAN;
-	
+
+	onLand = false;
+
 	disappearTime.tickPerFrame = RM_DISAPPEAR_GAME_TIME;
 	isDisappear = false;
 	isRecoil = false;
@@ -435,7 +439,7 @@ Rockman::Rockman()
 
 	health = maxHealth = RM_MAX_HEALTH_POINT;
 	onDeath = false;
-	deathDelay.init(RM_DEATH_DELAYTIME); 
+	deathDelay.init(RM_DEATH_DELAYTIME);
 	pauseAnimation = true;
 	rm_death_activity = ON_DEATH;
 	life = RM_DEFAULT_LIFE;
@@ -446,8 +450,30 @@ Rockman::~Rockman()
 {
 }
 
+void Rockman::updateLocation()
+{
+	if (!isCollision)
+	{
+		onLand = false;
+	}
+	MovableObject::updateLocation();
+}
+
 void Rockman::onCollision(FBox * other, int nx, int ny)
 {
+
+
+	if (other->collisionType == CT_GROUND && ny == 1)
+	{
+		if (!onLand)
+		{
+			GameSound::getInstance()->play(SOUND_LAND);
+			onLand = true;
+		}
+
+
+	}
+
 	bool keyDown = KEY::getInstance()->isDownDown;
 	if (onStair && other->collisionType == CT_GROUND && ny == 1 && isIntersectStair && keyDown)
 		onStair = false;
@@ -463,8 +489,13 @@ void Rockman::onCollision(FBox * other, int nx, int ny)
 
 	if (other->collisionType == CT_GROUND && ny == 1)
 	{
-		ground = true;
+		if (ground == false)
+		{
+			ground = true;
+		}
+		//	GameSound::getInstance()->play(SOUND_LAND, false);
 	}
+
 
 
 	BaseObject::onCollision(other, nx, ny);
@@ -501,7 +532,7 @@ void Rockman::updateBlink()
 void Rockman::setOnStair(bool onStair)
 {
 	if (isRecoil)
-		onStair=false;
+		onStair = false;
 	this->onStair = onStair;
 	if (onStair)
 	{
@@ -518,7 +549,7 @@ void Rockman::updateStair()
 	bool keyLeft = KEY::getInstance()->isLeftDown;
 	bool keyRight = KEY::getInstance()->isRightDown;
 	bool keyJumpPress = KEY::getInstance()->isJumpPress;
-	
+
 	if (keyLeft)
 		direction = Left;
 	if (keyRight)

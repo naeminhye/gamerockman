@@ -62,6 +62,7 @@ bool Beak::updateAttack()
 		{
 			bullet->x = x + sprite->anims[action].frames[frameIndex].right - sprite->anims[action].frames[frameIndex].left - 5;
 		}
+		
 		bullet->y = y - height / 2 + bullet->height / 2;
 		switch (bulletLocation)
 		{

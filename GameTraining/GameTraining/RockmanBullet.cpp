@@ -10,6 +10,7 @@ void RockmanBullet::update()
 RockmanBullet::RockmanBullet()
 {
 	sprite = SpriteManager::getInstance()->sprites[SPR_BULLET];
+	GameSound::getInstance()->play(SOUND_MEGABUSTER, false);
 	bullets->_Add(this); // moi lan tao ra dan la add dan vao luon
 	width = sprite->anims[0].frames[0].right - sprite->anims[0].frames[0].left;
 	height = sprite->anims[0].frames[0].bottom - sprite->anims[0].frames[0].top;

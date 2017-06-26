@@ -9,6 +9,8 @@ public:
 	/* CONSTRUCTOR & DESTRUCTOR */
 	GutsmanMap();
 	~GutsmanMap();
-
+	
+	void update();
+	void render();
 };
 

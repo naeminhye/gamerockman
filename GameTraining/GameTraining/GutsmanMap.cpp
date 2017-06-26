@@ -1,6 +1,6 @@
 #include "GutsmanMap.h"
-
-
+#include "Gutsman.h"
+#include "GutsmanRock.h"
 
 Stage * GutsmanMap::findNextStageOnDoor()
 {
@@ -18,10 +18,23 @@ GutsmanMap::GutsmanMap()
 	initStage("Data\\Map\\Gutsman\\stageBoss.txt");
 	GameSound::getInstance()->stop(SOUND_STAGE_SELECT);
 	GameSound::getInstance()->play(SOUND_GUTSMAN);
-
 }
 
 
 GutsmanMap::~GutsmanMap()
 {
+}
+
+void GutsmanMap::update()
+{
+	Map::update();
+	GutsmanRock::getInstance()->update();
+	Collision::CheckCollision(GutsmanRock::getInstance(), Gutsman::instance);
+	GutsmanRock::getInstance()->updateLocation();
+}
+
+void GutsmanMap::render()
+{
+	Map::render();
+	GutsmanRock::getInstance()->render();
 }

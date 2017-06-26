@@ -171,6 +171,14 @@ extern int randomFrom(int numBegin, int numEnd);
 #define SOUND_CUTMAN "Data\\Sound\\Cutman.wav"
 #define SOUND_MENU_SELECT "Data\\Sound\\MenuSelect.wav" 
 #define SOUND_GUTSMAN "Data\\Sound\\Gutsman.wav" 
+#define SOUND_BONUSBALL "Data\\Sound\\BonusBall.wav" 
+#define SOUND_MEGABUSTER "Data\\Sound\\MegaBuster.wav" 
+#define SOUND_MEGAMAN_DAMAGE "Data\\Sound\\MegamanDamage.wav" 
+#define SOUND_LAND "Data\\Sound\\MegamanLand.wav" 
+#define SOUND_MEGAMAN_DEFEAT "Data\\Sound\\MegamanDefeat.wav" 
+#define SOUND_LAND "Data\\Sound\\MegamanLand.wav" 
+#define SOUND_ENEMY_DAMAGE "Data\\Sound\\EnemyDamage.wav" 
+#define SOUND_ENEMY_SHOOT "Data\\Sound\\EnemyShoot.wav" 
 
 #pragma endregion
 

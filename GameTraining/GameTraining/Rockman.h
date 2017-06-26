@@ -129,9 +129,12 @@ public:
 	DelayTime injuryDelay, flickeringDelay;
 #pragma endregion
 
+	bool onLand;
+
 	/* CONSTRUCTOR & DESTRUCTOR */
 	Rockman();
 	~Rockman();
+	void updateLocation();
 
 };
 

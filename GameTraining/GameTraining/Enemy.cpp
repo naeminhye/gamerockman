@@ -19,11 +19,12 @@ bool Enemy::setHealthPoint(int healthPoint)
 
 void Enemy::setDeath()
 {
+	GameSound::getInstance()->play(SOUND_ENEMY_DAMAGE, false);
+	
 	alive = false;
 	Death* death = new Death();
 	death->x = x;
 	death->y = y;
-
 
 	int number = randomFrom(0, 15);
 	Item* item;
@@ -55,6 +56,8 @@ void Enemy::onIntersect(FBox * other)
 {
 	if(other == Rockman::getInstance() && !Rockman::getInstance()->onInjury)
 	{
+		GameSound::getInstance()->play(SOUND_MEGAMAN_DAMAGE, false);
+
 		int nx; //
 
 		if (getXCenter() > Rockman::getInstance()->getXCenter())

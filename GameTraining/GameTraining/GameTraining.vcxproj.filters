@@ -249,6 +249,9 @@
     <ClCompile Include="Gutsman.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GutsmanRock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Config.h">
@@ -483,6 +486,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Gutsman.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GutsmanRock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

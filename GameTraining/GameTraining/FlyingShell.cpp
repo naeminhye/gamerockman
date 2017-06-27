@@ -69,8 +69,9 @@ FlyingShell::FlyingShell()
 	direction = Left;
 	flyactivity =  FLY_RUNNING;
 	dx = FLYING_SHELL_RUNNING_DY;
-	healthPoint = 1;
-	attackDamage = 1;
+	healthPoint = FLYING_SHELL_HEALTH_POINTS;
+	attackDamage = FLYING_SHELL_ATTACK_DAMAGE;
+	points = FLYING_SHELL_POINTS;
 }
 
 

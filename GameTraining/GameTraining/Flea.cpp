@@ -20,8 +20,9 @@ Flea::Flea()
 	fleaDelay.start();
 	setAction(FLEA_WAITING);
 	fleaActivity = FLEA_WAITING;
-	healthPoint = 1;
-	attackDamage = 2;
+	healthPoint = FLEA_HEALTH_POINTS;
+	attackDamage = FLEA_ATTACK_DAMAGE;
+	points = FLEA_POINTS;
 }
 
 
@@ -39,7 +40,7 @@ void Flea::update()
 		fleaActivity = FLEA_WAITING;
 		initDirectionFollowRockman();
 		//vy = 0.4; // TODO: luu constant
-		int number = randomFrom(-2, 1);
+		int number = randomFrom(-2, 1);// TODO: luu constant
 		if (number < 0)
 			initJumpHigh();
 		else

@@ -20,11 +20,11 @@ public:
 	void initJumpFar();
 
 
+	void update();
+
 	/* CONSTRUCTOR & DESTRUCTOR */
 	Flea();
 	~Flea();
-
-	void update();
 
 };
 

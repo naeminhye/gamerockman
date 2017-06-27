@@ -65,8 +65,9 @@ Blader::Blader()
 		test = this;
 	bladerActivity = BLADER_PREPARE;
 	dy = 0;
-	healthPoint = 1;
-	attackDamage = 3;
+	healthPoint = BLADER_HEALTH_POINTS;
+	attackDamage = BLADER_ATTACK_DAMAGE;
+	points = BLADER_POINTS;
 }
 
 

@@ -16,7 +16,7 @@ void Trundle::onIntersect(FBox * other)
 
 		if (otherObj->id == BRIDGE_DASH)
 		{
-			if (left() + 8 + dx > other->right() && vx > 0 || (left() + dx < other->left() && vx < 0))
+			if (left() + 8 + dx > other->right() && vx > 0 || (left() + dx < other->left() && vx < 0))// TODO
 				setAction(TRUNDLE_NORMAL);
 			else
 				setAction(TRUNDLE_THROW);
@@ -32,7 +32,7 @@ void Trundle::onIntersect(FBox * other)
 		else if (otherObj->id == BRIDGE_RIGHT)
 		{
 			setAction(TRUNDLE_NORMAL);
-			if ((left() + 8 + dx > other->right() && vx>0))
+			if ((left() + 8 + dx > other->right() && vx>0))// TODO
 				vx = -vx;
 		}
 		
@@ -69,7 +69,7 @@ void Trundle::onLastFrameAnimation()
 
 Trundle::Trundle()
 {
-	vx = -0.1;
+	vx = -0.1;// TODO
 	collisionType = CT_TRUNDLE;
 	direction = Left;
 	action = TRUNDLE_NORMAL;

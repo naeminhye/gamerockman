@@ -7,6 +7,7 @@ class Enemy :
 public:
 	int healthPoint;
 	int maxHealth; 
+	int points; // diem so Rockman duoc cong khi giet dc enemy
 	int attackDamage;	// kha nang tan cong cua Enemy, 
 						//luong mau cua Rockman se mat theo thong so nay
 	

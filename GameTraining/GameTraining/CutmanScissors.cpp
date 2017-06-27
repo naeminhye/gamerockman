@@ -25,8 +25,8 @@ void CutmanScissors::update()
 {
 	if (!alive)
 		return;
-	dx = direction * 2;
-	int delta = 10; // TODO luu constant
+	dx = direction * CM_SCISSORS_DX_VELOCITY;
+	int delta = CM_SCISSORS_DISTANCE_TO_ROCKMAN; // TODO luu constant
 	BaseObject::update();
 	switch (scissorsActivity)
 	{
@@ -75,7 +75,6 @@ void CutmanScissors::update()
 
 void CutmanScissors::onCollision(FBox * other, int nx, int ny)
 {
-	int a = 5;
 	//if (other->collisionType == CT_GROUND && scissorsActivity != SCISSORS_RETURN)
 	//{
 	//	direction = (Direction)(-direction);

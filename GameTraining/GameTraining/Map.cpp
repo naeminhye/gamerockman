@@ -577,8 +577,8 @@ void Map::render()
 	}
 
 	// TODO ThemDan st2: Nhớ vẽ khi thêm đối tượng nhé <3
-
-	ClearPointSprite::getInstance()->render(50, 50, 54612);
+	int clearPointX = (BACKBUFFER_WIDTH / 2) - (54 / 2);
+	ClearPointSprite::getInstance()->render(clearPointX, 25, 54612);
 }
 
 Map::Map()

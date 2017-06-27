@@ -5,7 +5,7 @@
 void BonusBallItem::onIntersect(FBox * other)
 {
 	Item::onIntersect(other);
-	GameSound::getInstance()->play(SOUND_BONUSBALL, false); 
+	GameSound::getInstance()->play(SOUND_BONUSBALL); 
 	// TODO: Tang diem cho Rockman :)
 }
 

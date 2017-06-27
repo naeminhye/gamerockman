@@ -4,12 +4,15 @@
 #include"CutmanMap.h"
 #include"GutsmanMap.h"
 #include "TextSprite.h"
+#include "StartGameScene.h"
+
+SelectMapScene* SelectMapScene::instance = 0;
 
 void SelectMapScene::init()
 {
 	img->Init("Data\\Sprite\\Scene\\stageselect.png", D3DCOLOR_XRGB(0, 0, 0));
 	
-	GameSound::getInstance()->play(SOUND_STAGE_SELECT);
+	GameSound::getInstance()->play(SOUND_STAGE_SELECT, true);
 
 }
 
@@ -52,7 +55,10 @@ void SelectMapScene::update()
 	if (keyEnterPress)
 	{
 		GameSound::getInstance()->play(SOUND_MENU_SELECT, false);
-		MapScene* mapScene = new MapScene();
+		StartGameScene* startGameScene = new StartGameScene();
+		Scene::changeScene(startGameScene);
+
+		/*MapScene* mapScene = new MapScene();
 		Rockman::getInstance()->rm_type = RMT_NORMAL;
 		Rockman::getInstance()->pauseAnimation = true;
 		Rockman::getInstance()->ground = false;
@@ -69,14 +75,14 @@ void SelectMapScene::update()
 			break;
 		default:
 			break;
-		}
+		}*/
 	}
 }
 
 void SelectMapScene::render()
 {
 	RECT r;
-	SetRect(&r, 0, 0, 256, 216);
+	SetRect(&r, 0, 0, BACKBUFFER_WIDTH, BACKBUFFER_HEIGHT);
 	img->RenderTexture(0, 0, &r);
 
 	selectMapFrames[curSelect].render();
@@ -95,6 +101,7 @@ SelectMapScene::SelectMapScene()
 	selectMapFrames[MT_GUTSMAN].x = 138;
 	selectMapFrames[MT_GUTSMAN].y = 17;
 	curSelect = MT_CUTMAN;
+	instance = this;
 }
 
 

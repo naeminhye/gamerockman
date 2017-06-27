@@ -86,10 +86,16 @@ void Enemy::onIntersect(FBox * other)
 	if (other->collisionType == CT_BULLET)
 	{
 		((RockmanBullet*)other)->canDelete = true;
-		setHealthPoint(healthPoint - 1);
-		if (healthPoint==0)
+		if (setHealthPoint(healthPoint - 1))
 		{
-			setDeath();
+			if (healthPoint == 0)
+			{
+				setDeath();
+			}
+		}
+		else
+		{
+			GameSound::getInstance()->play(SOUND_DINK);
 		}
 	}
 }
@@ -112,8 +118,9 @@ void Enemy::restoreLocation()
 Enemy::Enemy()
 {
 	collisionType = CT_ENEMY;
-	healthPoint = 1;
-	attackDamage = 1;
+	healthPoint = ENEMY_DEFAULT_HEALTH_POINTS;
+	attackDamage = ENEMY_DEFAULT_ATTACK_DAMAGE;
+	points = ENEMY_DEFAULT_POINTS;
 }
 
 

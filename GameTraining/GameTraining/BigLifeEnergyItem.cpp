@@ -5,7 +5,7 @@
 void BigLifeEnergyItem::onIntersect(FBox * other)
 {
 	Item::onIntersect(other);
-	int healthUp = randomFrom(8, 10);
+	int healthUp = randomFrom(8, 10); // TODO
 	Rockman::getInstance()->setHealth(Rockman::getInstance()->health + healthUp);
 }
 

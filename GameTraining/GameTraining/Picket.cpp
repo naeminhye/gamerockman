@@ -6,9 +6,9 @@ Picket::Picket()
 {
 	picketActivity = PICKET_WAITING;
 	picketDelay.start(PICKET_DELAYTIME);
-	delay.tickPerFrame = PICKET_DELAYTIME_FRAME; 
-	attackDamage = 3;
-	healthPoint = 10;
+	delay.tickPerFrame = PICKET_GAME_TIME_DELAY; 
+	attackDamage = PICKET_ATTACK_DAMAGE;
+	healthPoint = PICKET_HEALTH_POINTS;
 }
 
 
@@ -57,7 +57,7 @@ void Picket::update()
 			}
 			bullet->vy = PICKET_BULLET_VY; 
 
-			delta = bullet->vy*bullet->vy - 4 * bullet->ay*(y - yTarget);
+			delta = bullet->vy*bullet->vy - 4 * bullet->ay*(y - yTarget); // TODO
 
 			bullet->vx = (xTarget - x) *  ay / (-bullet->vy - sqrt(delta));
 

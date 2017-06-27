@@ -56,7 +56,7 @@ void MapScene::render()
 
 	curMap->render();
 	Rockman::getInstance()->render();
-	HealthSprite::getInstance()->render(10, 80, Rockman::getInstance()->health, Rockman::getInstance()->maxHealth);
+	HealthSprite::getInstance()->render(10, 80, Rockman::getInstance()->health, Rockman::getInstance()->maxHealth); // TODO
 }
 
 

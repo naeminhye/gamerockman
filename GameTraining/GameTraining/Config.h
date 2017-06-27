@@ -66,11 +66,20 @@ extern int RM_CUT_BULLET_A;
 
 extern int CAMERA_CHANGESTAGE_DY;
 
+extern int DOOR_DELAY_TIME;
+
 /* ENEMIES */
+
+extern int ENEMY_DEFAULT_POINTS;
+extern int ENEMY_DEFAULT_HEALTH_POINTS;
+extern int ENEMY_DEFAULT_ATTACK_DAMAGE;
 
 #pragma region BLADER
 extern int BLADER_FIND_ROCKMAN_DISTANCE;
 extern float BLADER_ATTACK_DY;
+extern int BLADER_POINTS;
+extern int BLADER_HEALTH_POINTS;
+extern int BLADER_ATTACK_DAMAGE;
 #pragma endregion
 
 
@@ -81,13 +90,18 @@ extern int BEAK_BULLET_DELAY;
 extern float TIME_BEAK_SHOOTING;
 extern float TIME_BEAK_CHANGE_STATE;
 extern float TIME_BEAK_CLOSED;
-#pragma endregion
-
+extern int BEAK_POINTS;
+extern int BEAK_HEALTH_POINTS;
+extern int BEAK_ATTACK_DAMAGE;
+ #pragma endregion
 
 #pragma region SUPER CUTTER
 extern int CUTTER_SHOOT_DISTANCE;
 extern float CUTTER_BULLET_VY;
 extern int CUTTER_SHOOTING_DELAYTIME;
+extern int CUTTER_POINTS;
+extern int CUTTER_HEALTH_POINTS;
+extern int CUTTER_ATTACK_DAMAGE;
 #pragma endregion
 
 
@@ -96,6 +110,9 @@ extern int OCTOPUS_WAITING_DELAYTIME;
 extern int OCTOPUS_VELOCITY;
 extern float TIME_OCTOPUS_OPEN_EYES;
 extern float TIME_OCTOPUS_CLOSE_EYES;
+extern int OCTOPUS_POINTS;
+extern int OCTOPUS_HEALTH_POINTS;
+extern int OCTOPUS_ATTACK_DAMAGE;
 #pragma endregion
 
 
@@ -107,6 +124,9 @@ extern float FLEA_JUMP_HIGH_VX;
 extern float FLEA_JUMP_HIGH_VY;
 extern float FLEA_JUMP_FAR_VX;
 extern float FLEA_JUMP_FAR_VY;
+extern int FLEA_POINTS;
+extern int FLEA_HEALTH_POINTS;
+extern int FLEA_ATTACK_DAMAGE;
 #pragma endregion
 
 
@@ -118,6 +138,9 @@ extern float BIGEYE_JUMP_HIGH_VX;
 extern float BIGEYE_JUMP_HIGH_VY;
 extern float BIGEYE_JUMP_FAR_VX;
 extern float BIGEYE_JUMP_FAR_VY;
+extern int BIGEYE_POINTS;
+extern int BIGEYE_HEALTH_POINTS;
+extern int BIGEYE_ATTACK_DAMAGE;
 #pragma endregion
 
 
@@ -125,6 +148,9 @@ extern float BIGEYE_JUMP_FAR_VY;
 extern int SCREW_BOMBER_DELAYTIME;
 extern int SCREW_BOMBER_SHOOTING_DISTANCE;
 extern int SCREW_BOMBER_VELOCITY;
+extern int SCREW_BOMBER_POINTS;
+extern int SCREW_BOMBER_HEALTH_POINTS;
+extern int SCREW_BOMBER_ATTACK_DAMAGE;
 #pragma endregion
 
 
@@ -132,26 +158,45 @@ extern int SCREW_BOMBER_VELOCITY;
 extern int FLYING_SHELL_DELAYTIME;
 extern int FLYING_SHELL_RUNNING_DY;
 extern int FLYING_SHELL_VELOCITY;
+extern int FLYING_SHELL_POINTS;
+extern int FLYING_SHELL_HEALTH_POINTS;
+extern int FLYING_SHELL_ATTACK_DAMAGE;
 #pragma endregion
 
 
 #pragma region MET
-extern int MET_ATTACK;
+extern int MET_ATTACK_DISTANCE;
 extern int MET_DELAYTIME;
+extern int MET_POINTS;
+extern int MET_HEALTH_POINTS;
+extern int MET_ATTACK_DAMAGE;
 #pragma endregion
 
 
 #pragma region PICKET
-extern int PICKET_DELAYTIME_FRAME;
+extern int PICKET_GAME_TIME_DELAY;
 extern int PICKET_DELAYTIME;
 extern int PICKET_BULLET_VY;
 extern int PICKET_BULLET_V;
+extern int PICKET_POINTS;
+extern int PICKET_HEALTH_POINTS;
+extern int PICKET_ATTACK_DAMAGE;
 #pragma endregion
 
 /* BOSSES */
 
 #pragma region CUTMAN
 extern float CUTMAN_JUMP_VY;
+extern int CM_HEALTH_POINTS;
+extern int CM_ATTACK_DAMAGE;
+extern int CM_STARTING_DELAY_TIME;
+extern int CM_WAITING_DELAY_TIME;
+extern int CM_RUNNING_DELAY_TIME;
+extern int CM_LONG_JUMP_VELOCITY;
+extern int CM_SHORT_JUMP_VELOCITY;
+extern int CM_DISTANCE_TO_ROCKMAN;
+extern int CM_SCISSORS_DISTANCE_TO_ROCKMAN;
+extern int CM_SCISSORS_DX_VELOCITY;
 #pragma endregion
 
 extern int GM_WAIT_R;
@@ -160,6 +205,8 @@ extern int GM_ATTACK_R;
 // random funtion
 extern int randomFrom(int numBegin, int numEnd);
 #pragma endregion
+
+extern int MAP_FRAMES_GAME_TIME;
 
 #pragma region Sound
 
@@ -179,6 +226,7 @@ extern int randomFrom(int numBegin, int numEnd);
 #define SOUND_LAND "Data\\Sound\\MegamanLand.wav" 
 #define SOUND_ENEMY_DAMAGE "Data\\Sound\\EnemyDamage.wav" 
 #define SOUND_ENEMY_SHOOT "Data\\Sound\\EnemyShoot.wav" 
+#define SOUND_DINK "Data\\Sound\\Dink.wav" 
 
 #pragma endregion
 

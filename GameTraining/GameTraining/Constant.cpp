@@ -44,32 +44,32 @@ int RM_CUT_BULLET_A = 50;
 int DOOR_CAMERA_CHANGING_DX = 3;
 #pragma endregion
 
+int DOOR_DELAY_TIME = 500;
 
-#pragma region STAIR
+/*STAIR*/
 
 int STAIR_DELTA = 6;
 int STAIR_DY = 1;
 int DISTANCE_OUT_STAIR = 6;
 
-#pragma endregion
+// --------- ENEMIES --------- //
 
-#pragma region OCTOPUS BATTERY
+int ENEMY_DEFAULT_POINTS = 100;
+int ENEMY_DEFAULT_HEALTH_POINTS = 1;
+int ENEMY_DEFAULT_ATTACK_DAMAGE = 1;
+
+/* OCTOPUS BATTERY */
 
 float TIME_OCTOPUS_CLOSE_EYES = 1000;
 float TIME_OCTOPUS_OPEN_EYES = 1000;
 int OCTOPUS_WAITING_DELAYTIME = 1000;
 int OCTOPUS_VELOCITY = 2;
+int OCTOPUS_POINTS = 300;
+int OCTOPUS_HEALTH_POINTS = 5;
+int OCTOPUS_ATTACK_DAMAGE = 4;
 
-#pragma endregion
 
-#pragma region BLADER
-
-int BLADER_FIND_ROCKMAN_DISTANCE = 50;
-float BLADER_ATTACK_DY = 3.5;
-
-#pragma endregion
-
-#pragma region BEAK
+/* BEAK */
 
 int BEAK_BULLET_DELAY = 500;
 float TAN_5_TO_RAD = 0.087266;
@@ -77,14 +77,26 @@ int BEAK_BULLET_VELOCITY = 3;
 float TIME_BEAK_CLOSED = 1000;
 float TIME_BEAK_SHOOTING = 2000;
 float TIME_BEAK_CHANGE_STATE = 100; // thoi gian khi Beak OPENING hoac CLOSING
+int BEAK_POINTS = 200;
+int BEAK_HEALTH_POINTS = 1;
+int BEAK_ATTACK_DAMAGE = 1;
 
-#pragma endregion
+/* BLADER */
+
+int BLADER_FIND_ROCKMAN_DISTANCE = 50;
+float BLADER_ATTACK_DY = 3.5;
+int BLADER_POINTS = 500;
+int BLADER_HEALTH_POINTS = 1;
+int BLADER_ATTACK_DAMAGE = 3;
+
 
 #pragma region SUPER CUTTER
 
 int CUTTER_SHOOT_DISTANCE = 100;
 float CUTTER_BULLET_VY = 0.4;
 int CUTTER_SHOOTING_DELAYTIME = 1000;
+int CUTTER_POINTS = 500;
+int CUTTER_ATTACK_DAMAGE = 4;
 
 #pragma endregion
 
@@ -97,6 +109,9 @@ float FLEA_JUMP_HIGH_VX = 0.2;
 float FLEA_JUMP_HIGH_VY = 0.4;
 float FLEA_JUMP_FAR_VX = 0.3;
 float FLEA_JUMP_FAR_VY = 0.2;
+int FLEA_POINTS = 300;
+int FLEA_HEALTH_POINTS = 1;
+int FLEA_ATTACK_DAMAGE = 2;
 
 #pragma endregion
 
@@ -109,6 +124,9 @@ float BIGEYE_JUMP_HIGH_VX = 0.05;
 float BIGEYE_JUMP_HIGH_VY = 0.3;
 float BIGEYE_JUMP_FAR_VX = 0.05;
 float BIGEYE_JUMP_FAR_VY = 0.2;
+int BIGEYE_POINTS = 9000;
+int BIGEYE_HEALTH_POINTS = 20;
+int BIGEYE_ATTACK_DAMAGE = 10;
 
 #pragma endregion
 
@@ -117,6 +135,10 @@ float BIGEYE_JUMP_FAR_VY = 0.2;
 int SCREW_BOMBER_DELAYTIME = 1000;
 int SCREW_BOMBER_SHOOTING_DISTANCE = 100;
 int SCREW_BOMBER_VELOCITY = 3;
+int SCREW_BOMBER_POINTS = 500;
+int SCREW_BOMBER_HEALTH_POINTS = 3;
+int SCREW_BOMBER_ATTACK_DAMAGE = 1;
+// SCREW BOMBER BULLET ATTACK DAMAGE = 2
 
 #pragma endregion
 
@@ -126,28 +148,58 @@ int FLYING_SHELL_DELAYTIME = 1000;
 int FLYING_SHELL_RUNNING_DY = -1;
 int FLYING_SHELL_VELOCITY = 3;
 float ROCKMAN_DEAD_VELOCITY = 0.5;
+int FLYING_SHELL_POINTS = 800;
+int FLYING_SHELL_HEALTH_POINTS = 1;
+int FLYING_SHELL_ATTACK_DAMAGE = 1;
+// FLYING SHELL BULLET ATTACK DAMAGE = 2
 
 #pragma endregion 
 
 #pragma region MET
 
-int MET_ATTACK = 100;
+int MET_ATTACK_DISTANCE = 100;
 int MET_DELAYTIME = 1000;
+int MET_POINTS = 500;
+int MET_HEALTH_POINTS = 1;
+int MET_ATTACK_DAMAGE = 1;
+// MET BULLET ATTACK DAMAGE = 2
 
 #pragma endregion 
 
 #pragma region PICKET_MAN 
 
-int PICKET_DELAYTIME_FRAME = 200;
+int PICKET_GAME_TIME_DELAY = 200;
 int PICKET_DELAYTIME = 2000;
 int PICKET_BULLET_VY = 0.38;
-int PICKET_BULLET_V = 500;
+int PICKET_BULLET_V = 1500;
+int PICKET_POINTS = 200;
+int PICKET_HEALTH_POINTS = 10;
+int PICKET_ATTACK_DAMAGE = 3;
+// PICKET (pickaxe) ATTACK DAMAGE = 10
+
 #pragma endregion 
 
+// --------------------------- //
 
-#pragma region CUTMAN
+// ---------- BOSSES --------- //
+
+/* CUTMAN */
 
 float CUTMAN_JUMP_VY = 0.4;
+int CM_LONG_JUMP_VELOCITY	= 2;
+int CM_SHORT_JUMP_VELOCITY	= 1;
+
+int CM_STARTING_DELAY_TIME = 1000;
+int CM_WAITING_DELAY_TIME = 500;
+int CM_RUNNING_DELAY_TIME = 1000;
+
+int CM_HEALTH_POINTS = 28;
+int CM_ATTACK_DAMAGE = 10;
+
+int CM_DISTANCE_TO_ROCKMAN = 150;
+
+int CM_SCISSORS_DISTANCE_TO_ROCKMAN = 10;
+int CM_SCISSORS_DX_VELOCITY = 2;
 
 // Cutman Random Action Numbers
 int CM_NON_WAIT_R = 1; // Cutman, Non-attacking, Waiting
@@ -161,13 +213,12 @@ int CM_RUN_R				= 3;			// Cutman, Attacking, Running
 int CM_JUMP_SHORT_R			= 5;		// Cutman, Attacking, Short Jumping
 int CM_JUMP_LONG_R			= 5; // Cutman, Attacking, Long Jumping
 
-#pragma endregion
 
-
-#pragma region GUTSMAN
+/* GUTSMAN */
 
 int GM_WAIT_R		= 1;
 int GM_ATTACK_R		= 3;
 
+// --------------------------- //
 
-#pragma endregion
+int MAP_FRAMES_GAME_TIME = 100;

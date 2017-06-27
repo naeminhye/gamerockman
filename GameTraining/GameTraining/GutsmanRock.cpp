@@ -122,28 +122,28 @@ void GutsmanRock::onCollision(FBox * other, int nx, int ny)
 		rock->x = GutsmanRock::instance->getXCenter();
 		rock->y = GutsmanRock::instance->getYCenter();
 		rock->dx = dxlong;
-		rock->dy = getBrokenRockDy(rock->dx, 20 * 2 * PI / 360, dx, dy);
+		rock->dy = getBrokenRockDy(rock->dx, 20 * 2 * PI / 360, dx, dy);// TODO
 		rock->setAction(action);
 
 		rock = new GutsmanBrokenRock();
 		rock->x = GutsmanRock::instance->getXCenter();
 		rock->y = GutsmanRock::instance->getYCenter();
 		rock->dx = dxshort;
-		rock->dy = getBrokenRockDy(rock->dx, 10 * 2 * PI / 360, dx, dy);
+		rock->dy = getBrokenRockDy(rock->dx, 10 * 2 * PI / 360, dx, dy);// TODO
 		rock->setAction(action);
 
 		rock = new GutsmanBrokenRock();
 		rock->x = GutsmanRock::instance->getXCenter();
 		rock->y = GutsmanRock::instance->getYCenter();
 		rock->dx = dxlong;
-		rock->dy = getBrokenRockDy(rock->dx, -10 * 2 * PI / 360, dx, dy);
+		rock->dy = getBrokenRockDy(rock->dx, -10 * 2 * PI / 360, dx, dy);// TODO
 		rock->setAction(action);
 
 		rock = new GutsmanBrokenRock();
 		rock->x = GutsmanRock::instance->getXCenter();
 		rock->y = GutsmanRock::instance->getYCenter();
 		rock->dx = dxshort;
-		rock->dy = getBrokenRockDy(rock->dx, -20 * 2 * PI / 360, dx, dy);
+		rock->dy = getBrokenRockDy(rock->dx, -20 * 2 * PI / 360, dx, dy);// TODO
 		rock->setAction(action);
 
 	}
@@ -159,7 +159,7 @@ GutsmanRock::GutsmanRock()
 	height = sprite->getHeight(0, 0);
 	onBreaking = false;
 	alive = true;
-	rockBreakingDelay.init(2000);
+	rockBreakingDelay.init(2000);// TODO
 }
 
 

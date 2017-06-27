@@ -115,7 +115,7 @@ void Gutsman::updateAttack()
 			GutsmanRock::getInstance()->dx = direction * 7; // TODO
 			GutsmanRock::getInstance()->dy = GutsmanRock::getInstance()->dx * (GutsmanRock::getInstance()->y - Rockman::getInstance()->y) / (GutsmanRock::getInstance()->x - Rockman::getInstance()->x);
 			gmAttackActivity = GM_ATTACK_THROWING_ROCK;
-			gm_attacking_delay.start(500);
+			gm_attacking_delay.start(500);// TODO
 		}
 		break;
 	case GM_ATTACK_THROWING_ROCK:
@@ -208,15 +208,15 @@ void Gutsman::updateLocation()
 Gutsman::Gutsman()
 {
 	action = GM_WAITING;
-	gm_waiting_delay.init(2000);
-	gm_attacking_delay.init(1500);
+	gm_waiting_delay.init(2000);// TODO
+	gm_attacking_delay.init(1500);// TODO
 	gm_waiting_delay.start();
 	gmDecisionTable = new int[2];
 	gmDecisionTable[GM_D_WAIT] = GM_WAIT_R;
 	gmDecisionTable[GM_D_ATTACK] = GM_ATTACK_R;
 	gmRandCount = GM_WAIT_R + GM_ATTACK_R;
 	gmActivity = GMA_GROUND;
-	delay.tickPerFrame = 200;
+	delay.tickPerFrame = 200; // TODO
 	instance = this;
 }
 

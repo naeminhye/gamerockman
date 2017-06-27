@@ -23,7 +23,7 @@ void IntroScene::update()
 void IntroScene::render()
 {
 	RECT r;
-	SetRect(&r, 0, 0, 256, 216);
+	SetRect(&r, 0, 0, BACKBUFFER_WIDTH, BACKBUFFER_HEIGHT);
 	img->RenderTexture(0, 0, &r);
 }
 

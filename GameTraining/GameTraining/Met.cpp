@@ -2,6 +2,19 @@
 #include "BeakBullet.h"
 
 
+bool Met::setHealthPoint(int healthPoint)
+{
+	if (healthPoint < this->healthPoint)
+	{
+		if (action == MET_CLOSE)
+		{
+			return false;
+		}
+	}
+	Enemy::setHealthPoint(healthPoint);
+	return true;
+}
+
 void Met::update()
 {
 	if (!alive)
@@ -9,8 +22,7 @@ void Met::update()
 	initDirectionFollowRockman();
 	metDelay.update();
 
-	int attackDistance = MET_ATTACK;
-
+	int attackDistance = MET_ATTACK_DISTANCE;
 
 
 	switch (metActivity)
@@ -69,9 +81,9 @@ Met::Met()
 {
 	metActivity = MET_WAITING;
 	//setHeight(sprite->getHeight(MET_CLOSE, 0));
-	metDelay.start(1000);
-	healthPoint = 1;
-	attackDamage = 10;
+	metDelay.start(MET_DELAYTIME);
+	healthPoint = MET_HEALTH_POINTS;
+	attackDamage = MET_ATTACK_DAMAGE;
 }
 
 

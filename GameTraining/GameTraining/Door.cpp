@@ -12,7 +12,7 @@ void Door::onCollision(FBox * other, int nx, int ny)
 		currentDoor = this;
 		Map::onStageChangeByDoor = true;
 		doorActivity = DOOR_WAITING_TO_OPEN;
-		Door::doorDelay.start(500);//TODO them constant
+		Door::doorDelay.start(DOOR_DELAY_TIME);
 	}
 	else
 	{

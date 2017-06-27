@@ -19,7 +19,7 @@ void Cutman::setType(CUTMAN_TYPE cutmanType)
 
 bool Cutman::checkNearRockman()
 {
-	float delta = 150; // TODO: luu constant
+	float delta = CM_DISTANCE_TO_ROCKMAN; // TODO: luu constant
 	return (abs(getXCenter() - Rockman::getInstance()->getXCenter()) < delta);
 }
 
@@ -267,7 +267,7 @@ void Cutman::render()
 	if (!alive)
 		return;
 
-	HealthSprite::getInstance()->render(30, 80, healthPoint, maxHealth);
+	HealthSprite::getInstance()->render(30, 80, healthPoint, maxHealth); // TODO
 
 
 	float yRender;
@@ -313,7 +313,7 @@ void Cutman::updateNonAttacking()
 		case CMNRA_WAIT:
 			setAction(CM_WAITING);
 			dx = 0;
-			cutmanDelay.start(500);//TODO waiting time
+			cutmanDelay.start(CM_WAITING_DELAY_TIME);
 			break;
 		case CMNRA_SHOOT:
 			dx = 0;
@@ -323,16 +323,16 @@ void Cutman::updateNonAttacking()
 		case CMNRA_RUN:
 			setAction(CM_RUNNING);
 
-			cutmanDelay.start(1000);//TODO run time
+			cutmanDelay.start(CM_RUNNING_DELAY_TIME);
 			break;
 		case CMNRA_JUMP_SHORT:
 			setAction(CM_JUMPING);
 
-			vy = 0.4; // TODO
+			vy = CUTMAN_JUMP_VY; 
 			break;
 		case CMNRA_JUMP_LONG:
 			setAction(CM_JUMPING);
-			vy = 0.4; // TODO
+			vy = CUTMAN_JUMP_VY; 
 			break;
 		default:
 			break;
@@ -351,17 +351,17 @@ void Cutman::updateNonAttacking()
 	case CMNRA_SHOOT:
 		break;
 	case CMNRA_RUN:
-		dx = direction;//TODO Jump short velocity
+		dx = direction * CM_SHORT_JUMP_VELOCITY;
 		if (cutmanDelay.isTerminated())
 		{
 			canSelect = true; //restore from run
 		}
 		break;
 	case CMNRA_JUMP_SHORT:
-		dx = direction;//TODO Jump short velocity
+		dx = direction * CM_SHORT_JUMP_VELOCITY;
 		break;
 	case CMNRA_JUMP_LONG:
-		dx = direction * 2;//TODO Jump long velocity
+		dx = direction * CM_LONG_JUMP_VELOCITY;
 		break;
 	default:
 		break;
@@ -387,19 +387,19 @@ void Cutman::updateAttacking()
 		case CMRA_WAIT:
 			setAction(CM_WAITING);
 			dx = 0;
-			cutmanDelay.start(500);//TODO waiting time
+			cutmanDelay.start(CM_WAITING_DELAY_TIME);
 			break;
 		case CMRA_RUN:
 			setAction(CM_RUNNING);
-			cutmanDelay.start(1000);//TODO run time
+			cutmanDelay.start(CM_RUNNING_DELAY_TIME);
 			break;
 		case CMRA_JUMP_SHORT:
 			setAction(CM_JUMPING);
-			vy = 0.4; // TODO
+			vy = CUTMAN_JUMP_VY; 
 			break;
 		case CMRA_JUMP_LONG:
 			setAction(CM_JUMPING);
-			vy = 0.4; // TODO
+			vy = CUTMAN_JUMP_VY;
 			break;
 		default:
 			break;
@@ -416,17 +416,17 @@ void Cutman::updateAttacking()
 		}
 		break;
 	case CMRA_RUN:
-		dx = direction;//TODO Jump short velocity
+		dx = direction * CM_SHORT_JUMP_VELOCITY;
 		if (cutmanDelay.isTerminated())
 		{
 			canSelect = true; //restore from run
 		}
 		break;
 	case CMRA_JUMP_SHORT:
-		dx = direction;//TODO Jump short velocity
+		dx = direction * CM_SHORT_JUMP_VELOCITY;
 		break;
 	case CMRA_JUMP_LONG:
-		dx = direction * 2;//TODO Jump long velocity
+		dx = direction * CM_LONG_JUMP_VELOCITY;
 		break;
 	default:
 		break;
@@ -470,17 +470,17 @@ Cutman::Cutman()
 	CutmanScissors::getInstance()->cutman = this;
 
 	canSelect = true;
-	cutmanDelay.init(1000);//TODO luu constant
+	cutmanDelay.init(CM_STARTING_DELAY_TIME);//TODO luu constant
 
-	healthPoint = 28;
-
+	
 	disappearTime.tickPerFrame = RM_DISAPPEAR_GAME_TIME; //TODO 
 	isDisappear = false;
 	isRecoil = false;
 	injuryDelay.init(RM_INJURY_DELAY_TIME); //TODO 
 	onInjury = false;
 
-	attackDamage = 10;//TODO
+	healthPoint = CM_HEALTH_POINTS;
+	attackDamage = CM_ATTACK_DAMAGE;//TODO
 }
 
 

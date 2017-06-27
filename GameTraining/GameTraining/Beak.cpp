@@ -4,9 +4,10 @@ bool Beak::setHealthPoint(int healthPoint)
 {
 	if (healthPoint < this->healthPoint)
 	{
-		//if (beakActivity == BEAK_WAITING)
-		if(action == BEAK_CLOSE)
+		if (action == BEAK_CLOSE)
+		{
 			return false;
+		}
 	}
 	Enemy::setHealthPoint(healthPoint);
 	return true;
@@ -128,8 +129,9 @@ Beak::Beak()
 	bulletDelay.init(BEAK_BULLET_DELAY);
 	pauseAnimation = true;
 	beakDelay.start(TIME_BEAK_CLOSED);
-	healthPoint = 1;
-	attackDamage = 1; // TODO dan cua Beak moi co attackDamage = 1
+	healthPoint = BEAK_HEALTH_POINTS;
+	attackDamage = BEAK_ATTACK_DAMAGE;
+	points = BEAK_POINTS;
 }
 
 

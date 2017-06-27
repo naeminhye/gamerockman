@@ -20,8 +20,9 @@ BigEye::BigEye()
 	bigEyeDelay.start();
 	setAction(BIGEYE_WAITING);
 	bigEyeActivity = BIGEYE_WAITING;
-	healthPoint = 20;
-	attackDamage = 10;
+	healthPoint = BIGEYE_HEALTH_POINTS;
+	attackDamage = BIGEYE_ATTACK_DAMAGE;
+	points = BIGEYE_POINTS;
 }
 
 
@@ -38,8 +39,7 @@ void BigEye::update()
 		bigEyeDelay.start();
 		bigEyeActivity = BIGEYE_WAITING;
 		initDirectionFollowRockman();
-		//vy = 0.4; // TODO: luu constant
-		int number = randomFrom(-2, 1);
+		int number = randomFrom(-2, 1);// TODO: luu constant
 		if (number < 0)
 			initJumpHigh();
 		else

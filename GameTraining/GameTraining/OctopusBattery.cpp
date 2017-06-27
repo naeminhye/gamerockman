@@ -110,8 +110,9 @@ void OctopusBattery::init()
 OctopusBattery::OctopusBattery()
 {
 	octopusActivity = OCTOPUS_WAITING;
-	healthPoint = 5;
-	attackDamage = 4;
+	healthPoint = OCTOPUS_HEALTH_POINTS;
+	attackDamage = OCTOPUS_ATTACK_DAMAGE;
+	points = OCTOPUS_POINTS;
 }
 
 

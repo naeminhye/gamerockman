@@ -31,6 +31,7 @@ BeakBullet::BeakBullet()
 	bullets->_Add(this);
 	collisionType = CT_BULLET;
 	direction = Left;
+	// TODO them Attack damage
 }
 
 

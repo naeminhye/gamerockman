@@ -18,7 +18,7 @@ void SelectMapFrame::render()
 SelectMapFrame::SelectMapFrame()
 {
 	sprite = SpriteManager::getInstance()->sprites[SPR_SELECT_MAP_FRAME];
-	delay.tickPerFrame = 100;//TODO luu constant
+	delay.tickPerFrame = MAP_FRAMES_GAME_TIME;
 	action = 0;
 	frameIndex = 0;
 }

@@ -21,6 +21,8 @@ class Met :
 public:
 	MET_ACTIVITY metActivity;
 	DelayTime metDelay;
+
+	bool setHealthPoint(int healthPoint);
 	void update();
 	void init();
 

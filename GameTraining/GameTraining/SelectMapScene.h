@@ -15,6 +15,9 @@ class SelectMapScene :
 	public Scene
 {
 public:
+
+	static SelectMapScene* instance;
+
 	MGMTexture* img;
 	SelectMapFrame* selectMapFrames;
 	MAP_TYPE curSelect;

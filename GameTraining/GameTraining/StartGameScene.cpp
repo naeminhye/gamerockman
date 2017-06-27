@@ -2,6 +2,7 @@
 #include"MapScene.h"
 #include"CutmanMap.h"
 #include"GutsmanMap.h"
+#include "TextSprite.h"
 
 
 void StartGameScene::init()
@@ -19,6 +20,8 @@ void StartGameScene::update()
 	Rockman::getInstance()->pauseAnimation = true;
 	Rockman::getInstance()->ground = false;
 	Rockman::getInstance()->setAction(RM_TELEPORT);
+
+
 
 	if(startGameDelay.isTerminated())
 	{
@@ -44,6 +47,21 @@ void StartGameScene::render()
 	SetRect(&r, 0, 0, BACKBUFFER_WIDTH, BACKBUFFER_HEIGHT);
 	img->RenderTexture(0, 0, &r);
 
+	int middleX, middleY;
+	middleX = BACKBUFFER_WIDTH / 2;
+	middleY = BACKBUFFER_HEIGHT / 2;
+
+	if (startGameDelay.isOnTime())
+	{
+		if(curSelect == MT_CUTMAN)
+		TextSprite::getInstance()->render(middleX + 10, middleY - 15, "CUTMAN");
+		else {
+			TextSprite::getInstance()->render(middleX + 10, middleY - 15, "GUTSMAN");
+		}
+		//board.render();
+	}
+
+
 }
 
 StartGameScene::StartGameScene()
@@ -52,6 +70,10 @@ StartGameScene::StartGameScene()
 	curSelect = SelectMapScene::instance->curSelect;
 	startGameDelay.init(5000);
 	startGameDelay.start();
+	GameSound::getInstance()->play(SOUND_GAME_START);
+
+	board.x = 50;
+	board.y = 50;
 }
 
 

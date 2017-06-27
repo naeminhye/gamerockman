@@ -6,6 +6,8 @@
 #include "Stage.h"
 #include"List.h"
 #include"OuterSpace.h"
+#include "SelectRockmanBoard.h"
+
 class Map :
 	public TileMap
 {
@@ -16,6 +18,8 @@ public:
 	int nObject;
 	List<Stage*> stages;
 	int stageBegin;
+	bool isPause;
+	bool isChangingType;
 
 	void init(char* tileSheetPath, char* matrixPath,char* objectsPath,char* quadTreePath);
 	void initStage(char* stagePath);
@@ -37,13 +41,13 @@ public:
 	void readObjects(char* objectsPath); // doc loai, vi tri va so luong cua doi tuong tu file de ve len tren Map
 	virtual void update();
 	virtual void render();
-	
-	/* CONSTRUCTOR & DESTRUCTOR */
-	Map();
-	~Map();
 
 
 	int cameraBeginX, cameraBeginY;
 	int rmBeginX, rmBeginY;
+	
+	/* CONSTRUCTOR & DESTRUCTOR */
+	Map();
+	~Map();
 };
 

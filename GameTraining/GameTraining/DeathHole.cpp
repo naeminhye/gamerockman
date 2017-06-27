@@ -1,12 +1,6 @@
 #include "DeathHole.h"
 #include "Rockman.h"
 
-
-//void DeathHole::onIntersect(FBox * other)
-//{
-//	
-//}
-
 void DeathHole::onCollision(FBox * other, int nx, int ny)
 {
 	if (other == Rockman::getInstance())

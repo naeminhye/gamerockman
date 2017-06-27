@@ -154,7 +154,7 @@ void Cutman::onIntersect(FBox * other)
 		if (!injuryDelay.isOnTime())
 		{
 			direction = (Direction)(-nx);
-			dx = nx ; // TODO
+			dx = nx; // TODO
 			ground = false;
 			isRecoil = true;
 			onInjury = true;
@@ -305,9 +305,6 @@ void Cutman::updateNonAttacking()
 		selectNonAttack();
 		canSelect = false;
 		initDirectionFollowRockman();
-		/*if ((checkNearRockman()) && !ground && (nonAttackSelection != CMNRA_JUMP_LONG) && (nonAttackSelection != CMNRA_JUMP_SHORT))
-			nonAttackSelection = CMNRA_JUMP_LONG;
-		else selectNonAttack();*/
 		switch (nonAttackSelection)
 		{
 		case CMNRA_WAIT:
@@ -377,11 +374,6 @@ void Cutman::updateAttacking()
 		selectAttack();
 		canSelect = false;
 		initDirectionFollowRockman();
-		/*if (checkNearRockman() && !ground && (attackSelection != CMRA_JUMP_LONG) && (attackSelection != CMRA_JUMP_SHORT))
-			attackSelection = CMRA_JUMP_LONG;
-		else
-			selectAttack();*/
-
 		switch (attackSelection)
 		{
 		case CMRA_WAIT:
@@ -473,10 +465,10 @@ Cutman::Cutman()
 	cutmanDelay.init(CM_STARTING_DELAY_TIME);//TODO luu constant
 
 	
-	disappearTime.tickPerFrame = RM_DISAPPEAR_GAME_TIME; //TODO 
+	disappearTime.tickPerFrame = CM_DISAPPEAR_GAME_TIME; //TODO 
 	isDisappear = false;
 	isRecoil = false;
-	injuryDelay.init(RM_INJURY_DELAY_TIME); //TODO 
+	injuryDelay.init(CM_INJURY_DELAY_TIME); //TODO 
 	onInjury = false;
 
 	healthPoint = CM_HEALTH_POINTS;

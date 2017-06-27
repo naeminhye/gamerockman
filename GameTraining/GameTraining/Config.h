@@ -197,10 +197,23 @@ extern int CM_SHORT_JUMP_VELOCITY;
 extern int CM_DISTANCE_TO_ROCKMAN;
 extern int CM_SCISSORS_DISTANCE_TO_ROCKMAN;
 extern int CM_SCISSORS_DX_VELOCITY;
+extern int CM_SCISSORS_ATTACK_DAMAGE;
+extern int CM_INJURY_DELAY_TIME;
+extern int CM_DISAPPEAR_GAME_TIME;
 #pragma endregion
 
 extern int GM_WAIT_R;
 extern int GM_ATTACK_R;
+extern int GM_HEALTH_POINTS;
+extern int GM_ATTACK_DAMAGE;
+extern int GM_ROCK_ATTACK_DAMAGE;
+extern int GM_INJURY_DELAY_TIME;
+extern int GM_DISAPPEAR_GAME_TIME;
+extern int GM_ANIMATION_GAME_TIME;
+extern int GM_WAITING_DELAY_TIME;
+extern int GM_ATTACKING_DELAY_TIME;
+extern float GUTMAN_JUMP_VY;
+extern int GM_ROCK_DX_VELOCITY;
 
 // random funtion
 extern int randomFrom(int numBegin, int numEnd);
@@ -227,6 +240,12 @@ extern int MAP_FRAMES_GAME_TIME;
 #define SOUND_ENEMY_DAMAGE "Data\\Sound\\EnemyDamage.wav" 
 #define SOUND_ENEMY_SHOOT "Data\\Sound\\EnemyShoot.wav" 
 #define SOUND_DINK "Data\\Sound\\Dink.wav" 
+#define SOUND_GAME_START "Data\\Sound\\GameStart.wav" 
+#define SOUND_BOSS_GATE "Data\\Sound\\BossGate.wav" 
 
 #pragma endregion
 
+extern int SMALL_LIFE_ENERGY_RECOVERY_HP;
+extern int BIG_LIFE_ENERGY_RECOVERY_HP;
+extern int SMALL_WEAPON_ENERGY_RECOVERY;
+extern int BIG_WEAPON_ENERGY_RECOVERY;

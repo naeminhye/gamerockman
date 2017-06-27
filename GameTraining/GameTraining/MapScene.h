@@ -4,6 +4,7 @@
 #include "Collision.h"
 #include"Map.h"
 #include "Scene.h"
+#include "SelectRockmanBoard.h"
 
 class MapScene : public Scene
 {
@@ -18,6 +19,9 @@ public:
 	Camera* camera;
 	MGMTexture* img;
 	Map* curMap;
+	int selection;
+
+	SelectRockmanBoard board;
 
 	void readFile(const char* objectsPath);
 	static MapScene* getInstance();

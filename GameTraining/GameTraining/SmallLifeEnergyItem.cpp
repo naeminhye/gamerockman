@@ -5,7 +5,7 @@
 void SmallLifeEnergyItem::onIntersect(FBox * other)
 {
 	Item::onIntersect(other);
-	int healthUp = randomFrom(2, 4);
+	int healthUp = SMALL_LIFE_ENERGY_RECOVERY_HP;
 	Rockman::getInstance()->setHealth(Rockman::getInstance()->health + healthUp);
 }
 

@@ -255,10 +255,13 @@
     <ClCompile Include="GutsmanBrokenRock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ClearPointSprite.cpp">
+    <ClCompile Include="StartGameScene.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="StartGameScene.cpp">
+    <ClCompile Include="SelectRockmanBoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NumberSprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -503,10 +506,13 @@
     <ClInclude Include="GutsmanBrokenRock.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ClearPointSprite.h">
+    <ClInclude Include="StartGameScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="StartGameScene.h">
+    <ClInclude Include="SelectRockmanBoard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberSprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

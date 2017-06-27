@@ -92,7 +92,7 @@
     <ClInclude Include="BigLifeEnergyItem.h" />
     <ClInclude Include="BigWeaponEnergyItem.h" />
     <ClInclude Include="Bridge.h" />
-    <ClInclude Include="ClearPointSprite.h" />
+    <ClInclude Include="NumberSprite.h" />
     <ClInclude Include="Collision.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Cutman.h" />
@@ -151,6 +151,7 @@
     <ClInclude Include="ScrewBomber.h" />
     <ClInclude Include="SelectMapFrame.h" />
     <ClInclude Include="SelectMapScene.h" />
+    <ClInclude Include="SelectRockmanBoard.h" />
     <ClInclude Include="SmallLifeEnergyItem.h" />
     <ClInclude Include="SmallWeaponEnergyItem.h" />
     <ClInclude Include="Sound.h" />
@@ -176,7 +177,7 @@
     <ClCompile Include="BigLifeEnergyItem.cpp" />
     <ClCompile Include="BigWeaponEnergyItem.cpp" />
     <ClCompile Include="Bridge.cpp" />
-    <ClCompile Include="ClearPointSprite.cpp" />
+    <ClCompile Include="NumberSprite.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="Constant.cpp" />
     <ClCompile Include="Cutman.cpp" />
@@ -233,6 +234,7 @@
     <ClCompile Include="ScrewBomber.cpp" />
     <ClCompile Include="SelectMapFrame.cpp" />
     <ClCompile Include="SelectMapScene.cpp" />
+    <ClCompile Include="SelectRockmanBoard.cpp" />
     <ClCompile Include="SmallLifeEnergyItem.cpp" />
     <ClCompile Include="SmallWeaponEnergyItem.cpp" />
     <ClCompile Include="Sound.cpp" />

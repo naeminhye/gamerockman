@@ -96,10 +96,10 @@ SelectMapScene::SelectMapScene()
 {
 	img = new MGMTexture();
 	selectMapFrames = new SelectMapFrame[MT_COUNT];
-	selectMapFrames[MT_CUTMAN].x = 74;
-	selectMapFrames[MT_CUTMAN].y = 17;
-	selectMapFrames[MT_GUTSMAN].x = 138;
-	selectMapFrames[MT_GUTSMAN].y = 17;
+	selectMapFrames[MT_CUTMAN].x = 74;					   // TODO
+	selectMapFrames[MT_CUTMAN].y = 17;					   // TODO
+	selectMapFrames[MT_GUTSMAN].x = 138;				   // TODO
+	selectMapFrames[MT_GUTSMAN].y = 17;					   // TODO
 	curSelect = MT_CUTMAN;
 	instance = this;
 }

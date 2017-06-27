@@ -104,7 +104,7 @@ public:
 	bool onInjury;
 	void updateInjury();
 	DelayTime injuryDelay;
-	/* CONSTRUCTOR & DESTRUCTOR */
+
 	void update();
 	void render();
 
@@ -113,6 +113,7 @@ public:
 
 	void setAction(int actionValue);
 
+	/* CONSTRUCTOR & DESTRUCTOR */
 	Cutman();
 	~Cutman();
 

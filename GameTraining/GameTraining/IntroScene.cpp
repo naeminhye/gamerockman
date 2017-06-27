@@ -15,6 +15,7 @@ void IntroScene::update()
 	bool keyEnterPress = KEY::getInstance()->isEnterPress;
 	if (keyEnterPress)
 	{
+		GameSound::getInstance()->play(SOUND_GAME_START);
 		Scene::changeScene(new SelectMapScene());
 	}
 

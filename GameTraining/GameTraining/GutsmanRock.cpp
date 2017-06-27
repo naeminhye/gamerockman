@@ -27,7 +27,7 @@ GutsmanRock * GutsmanRock::getInstance()
 void GutsmanRock::update()
 {
 	rockBreakingDelay.update();
-	if (!alive)
+	if (!Gutsman::instance->alive || !alive)
 	{
 		return;
 	}
@@ -52,7 +52,6 @@ void GutsmanRock::update()
 			
 			break;
 		case GMR_THROW_BREAKING:
-			// TODO lam da vo~
 			onBreaking = true;
 			break;
 		case GMR_THROW_FINISH:
@@ -83,7 +82,7 @@ void GutsmanRock::update()
 
 void GutsmanRock::render()
 {
-	if (!alive || onBreaking)
+	if (!alive || !Gutsman::instance->alive || onBreaking)
 		return;
 	
 	Enemy::render();
@@ -109,7 +108,7 @@ void GutsmanRock::updateRockBreaking()
 
 void GutsmanRock::onCollision(FBox * other, int nx, int ny)
 {
-	if ((other->collisionType == CT_GROUND || other == Rockman::getInstance()) && gmrThrowActivity == GMR_THROW_NORMAL)
+	if ((other->collisionType == CT_DOOR || other->collisionType == CT_GROUND || other == Rockman::getInstance()) && gmrThrowActivity == GMR_THROW_NORMAL)
 	{
 		gmrThrowActivity = GMR_THROW_BREAKING;
 

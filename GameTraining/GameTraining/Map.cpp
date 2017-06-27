@@ -29,7 +29,7 @@
 #include "Gutsman.h"
 #include "GutsmanRock.h"
 #include "GutsmanBrokenRock.h"
-#include "ClearPointSprite.h"
+#include "NumberSprite.h"
 
 extern Blader* test;
 
@@ -288,6 +288,25 @@ void Map::readObjects(char * objectsPath)
 
 void Map::update()
 {
+
+	bool keyEnterPress = KEY::getInstance()->isEnterPress;
+	// TODO them Pause button
+	if (keyEnterPress && !isPause)
+	{
+		isPause = true;
+		isChangingType = true;
+	}
+	else if (keyEnterPress && isPause)
+	{
+		isPause = false;
+		isChangingType = false;
+	}
+
+	if (isPause)
+	{
+		return;
+	}
+
 	if (!onStageChangeNext && Rockman::getInstance()->checkChangeNextStage(&stages))
 	{
 		onStageChangeNext = true;
@@ -469,11 +488,13 @@ void Map::update()
 
 	for (size_t i = 0; i < GutsmanBrokenRock::rocks->Count; i++)
 	{
-		GutsmanBrokenRock::rocks->at(i)->update();
-		GutsmanBrokenRock::rocks->at(i)->updateLocation();
-		if (!Collision::AABBCheck(Camera::getInstance(), GutsmanBrokenRock::rocks->at(i)))
+		auto obj = GutsmanBrokenRock::rocks->at(i);
+		obj->update();
+		Collision::CheckCollision(Rockman::getInstance(), obj);
+		obj->updateLocation();
+		if (!Collision::AABBCheck(Camera::getInstance(), obj))
 		{
-			GutsmanBrokenRock::rocks->at(i)->deleteRock();
+			obj->deleteRock();
 			i--;
 		}
 	}
@@ -578,7 +599,9 @@ void Map::render()
 
 	// TODO ThemDan st2: Nhớ vẽ khi thêm đối tượng nhé <3
 	int clearPointX = (BACKBUFFER_WIDTH / 2) - (54 / 2);
-	ClearPointSprite::getInstance()->render(clearPointX, 25, 54612);
+	NumberSprite::getInstance()->render(clearPointX, 25, 6, 54612);
+
+
 }
 
 Map::Map()
@@ -586,6 +609,8 @@ Map::Map()
 	onStageChangeNext = false;
 	onStageChangePrev = false;
 	curMap = this;
+	isPause = false;
+	isChangingType = false;
 
 }
 

@@ -48,11 +48,20 @@ public:
 	void update();
 	void updateAttack(); 
 	void onLastFrameAnimation();
+	void render();
 
 	void onCollision(FBox* other, int nx, int ny);
+	void onIntersect(FBox* other);
 
 	void gmSelectAttack();
 
+	GameTime disappearTime;
+	bool isDisappear;
+	DelayTime injuryDelay;
+
+	bool isRecoil;
+	bool onInjury;
+	void updateInjury();
 
 	void updateLocation();
 

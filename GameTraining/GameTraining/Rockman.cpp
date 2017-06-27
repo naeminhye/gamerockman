@@ -131,7 +131,7 @@ void Rockman::setLife(int life)
 	this->life = life;
 	if (life == 0)
 	{
-		// game over
+		// TODO game over
 	}
 }
 
@@ -217,8 +217,6 @@ void Rockman::update()
 		if (onAttack && ground && vx != 0)
 		{
 			setAction(RM_RUN_SHOOT);
-			//	else
-			//		setAction(RM_RUN_SHOOT);
 
 		}
 		else {
@@ -247,7 +245,6 @@ void Rockman::update()
 	{
 		if (keyJumpPress)
 		{
-			//GameSound::getInstance()->play(SOUND_BEAM);
 			vy = RM_VY_JUMP;
 		}
 		setWidth(RM_GROUND_WIDTH);
@@ -376,7 +373,7 @@ void Rockman::updateRockmanType()
 	}
 	else if (keyW)
 	{
-		rm_type = ROCKMAN_TYPE::RMT_CUTMAN;
+		rm_type = ROCKMAN_TYPE::RMT_GUSTMAN;
 		this->action = rm_type* RM_ACTION_COUNT + rm_action;
 	}
 }
@@ -461,8 +458,6 @@ void Rockman::updateLocation()
 
 void Rockman::onCollision(FBox * other, int nx, int ny)
 {
-
-
 	if (other->collisionType == CT_GROUND && ny == 1)
 	{
 		if (!onLand)
@@ -470,8 +465,6 @@ void Rockman::onCollision(FBox * other, int nx, int ny)
 			GameSound::getInstance()->play(SOUND_LAND);
 			onLand = true;
 		}
-
-
 	}
 
 	bool keyDown = KEY::getInstance()->isDownDown;
@@ -495,8 +488,6 @@ void Rockman::onCollision(FBox * other, int nx, int ny)
 		}
 		//	GameSound::getInstance()->play(SOUND_LAND, false);
 	}
-
-
 
 	BaseObject::onCollision(other, nx, ny);
 }

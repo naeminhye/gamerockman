@@ -75,11 +75,6 @@ void CutmanScissors::update()
 
 void CutmanScissors::onCollision(FBox * other, int nx, int ny)
 {
-	//if (other->collisionType == CT_GROUND && scissorsActivity != SCISSORS_RETURN)
-	//{
-	//	direction = (Direction)(-direction);
-	//	scissorsActivity = SCISSORS_RETURN;
-	//}
 }
 
 void CutmanScissors::setDy(int dy)
@@ -96,6 +91,7 @@ CutmanScissors::CutmanScissors()
 	scissorsActivity = SCISSORS_ATTACK;
 	alive = false;
 	direction = (Direction)(-1);
+	attackDamage = CM_SCISSORS_ATTACK_DAMAGE;
 }
 
 

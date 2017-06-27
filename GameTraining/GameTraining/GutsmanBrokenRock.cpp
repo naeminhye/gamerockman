@@ -28,6 +28,7 @@ void GutsmanBrokenRock::updateLocation()
 
 void GutsmanBrokenRock::onCollision(FBox * other, int nx, int ny)
 {
+
 }
 
 GutsmanBrokenRock::GutsmanBrokenRock()
@@ -36,6 +37,7 @@ GutsmanBrokenRock::GutsmanBrokenRock()
 	width = sprite->getWidth(0, 0);
 	height = sprite->getHeight(0, 0);
 	rocks->_Add(this);
+	attackDamage = GM_ROCK_ATTACK_DAMAGE;
 }
 
 

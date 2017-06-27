@@ -67,7 +67,6 @@ public:
 	ROCKMAN_ACTION rm_action;
 	static Rockman* instance;
 	static Rockman* getInstance();
-
 	
 	void update();
 	void render();

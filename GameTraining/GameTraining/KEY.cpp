@@ -14,11 +14,17 @@ void KEY::update()
 {
 	CKeyboard::getInstance()->UpdateKeyboard();
 	isUpDown = CKeyboard::getInstance()->IsKeyDown(DIK_UP);
+	isUpPress = isUpDown && !isPreviousUpDown;
+
+	isPreviousUpDown = isUpDown;
 	isDownDown = CKeyboard::getInstance()->IsKeyDown(DIK_DOWN);
+	isDownPress = isDownDown && !isPreviousDownDown;
+	isPreviousDownDown = isDownDown;
 	
 	isLeftDown = CKeyboard::getInstance()->IsKeyDown(DIK_LEFT)|| CKeyboard::getInstance()->IsKeyDown(DIK_A);
 	isLeftPress = isLeftDown && !isPreviousLeftDown;
 	isPreviousLeftDown = isLeftDown;
+
 	isRightDown = CKeyboard::getInstance()->IsKeyDown(DIK_RIGHT) || CKeyboard::getInstance()->IsKeyDown(DIK_D);
 	isRightPress = isRightDown && !isPreviousRightDown;
 	isPreviousRightDown = isRightDown;

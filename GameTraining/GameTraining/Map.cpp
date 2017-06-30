@@ -65,25 +65,12 @@ void Map::initStage(char * stagePath)
 
 	ignoreLineIfstream(fs, 3);
 	fs >> stageBeginIndex;
-	/*if (stageBeginIndex > 10)
-	{
-		stageBegin = stageBeginIndex / 10;
-		ignoreLineIfstream(fs, stageBegin);
-		int CameraBeginX, CameraBeginY, RockmanBeginX, RockmanBeginY;
-		fs >> CameraBeginX >> CameraBeginY >> RockmanBeginX >> RockmanBeginY;
-		camera->x = CameraBeginX;
-		camera->y = CameraBeginY;
-		rockman->x = RockmanBeginX;
-		rockman->y = RockmanBeginY;
-	}
-	else
-	{*/
-		stageBegin = stageBeginIndex;
-		camera->x = stages[stageBegin]->cameraBeginX;
-		camera->y = stages[stageBegin]->cameraBeginY;
-		rockman->x = stages[stageBegin]->rmBeginX;
-		rockman->y = stages[stageBegin]->rmBeginY;
-	//}
+	
+	stageBegin = stageBeginIndex;
+	camera->x = stages[stageBegin]->cameraBeginX;
+	camera->y = stages[stageBegin]->cameraBeginY;
+	rockman->x = stages[stageBegin]->rmBeginX;
+	rockman->y = stages[stageBegin]->rmBeginY;
 
 
 	if (Stage::curStage == 0)

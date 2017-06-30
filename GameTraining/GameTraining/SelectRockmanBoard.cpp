@@ -11,7 +11,7 @@ void SelectRockmanBoard::render()
 
 SelectRockmanBoard::SelectRockmanBoard()
 {
-	img = new MGMTexture();
+	img = new Texture();
 	img->Init("Data\\Sprite\\Scene\\Board.png", D3DCOLOR_XRGB(0, 255, 0));
 }
 

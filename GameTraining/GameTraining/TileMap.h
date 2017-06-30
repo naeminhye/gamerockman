@@ -1,5 +1,5 @@
 #pragma once
-#include "MGMTexture.h"
+#include "Texture.h"
 #include "Camera.h"
 #include <fstream>
 using namespace std;
@@ -8,7 +8,7 @@ class TileMap
 {
 public:
 	int rowCount, colCount, colTileSheetCount;
-	MGMTexture* tileSheet;
+	Texture* tileSheet;
 	int** matrix;
 
 	void init(char* tileSheetPath, char* matrixPath);

@@ -15,4 +15,4 @@ index	X		Y		Width		Height		CameraBeginX	CameraBeginY	RockmanBeginX	RockmanBeginY
 10		3088	1927	256			225			3088			1927			3100			1950
 
 StageBegin
-8
+0

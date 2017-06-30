@@ -80,11 +80,11 @@ void Trundle::onLastFrameAnimation()
 
 Trundle::Trundle()
 {
-	vx = -0.1;// TODO
+	vx = TRUNDLE_INIT_VX;
 	collisionType = CT_TRUNDLE;
 	direction = Left;
 	action = TRUNDLE_NORMAL;
-	vy = 0;// TODO
+	vy = TRUNDLE_INIT_VY;
 	pauseAnimation = false;
 }
 

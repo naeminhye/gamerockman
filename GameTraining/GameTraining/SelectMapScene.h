@@ -1,6 +1,6 @@
 #pragma once
 #include "Scene.h"
-#include "MGMTexture.h"
+#include "Texture.h"
 #include "SelectMapFrame.h"
 
 /* ENUMERATIONS */
@@ -18,7 +18,7 @@ public:
 
 	static SelectMapScene* instance;
 
-	MGMTexture* img;
+	Texture* img;
 	SelectMapFrame* selectMapFrames;
 	MAP_TYPE curSelect;
 	

@@ -94,7 +94,7 @@ void SelectMapScene::render()
 
 SelectMapScene::SelectMapScene()
 {
-	img = new MGMTexture();
+	img = new Texture();
 	selectMapFrames = new SelectMapFrame[MT_COUNT];
 	selectMapFrames[MT_CUTMAN].x = 74;					   // TODO
 	selectMapFrames[MT_CUTMAN].y = 17;					   // TODO

@@ -6,7 +6,7 @@ void RockmanCutBullet::update()
 {
 	BaseObject::update();
 	float xE, yE; // vi tri cua dan so voi Elip'
-	int a = 60, b = 20; // TODO luu constant
+	int a = RM_CUT_BULLET_A, b = RM_CUT_BULLET_B; // TODO luu constant
 
 	switch (rbcActivity)
 	{

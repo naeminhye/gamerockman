@@ -1,6 +1,6 @@
 #pragma once
 #include "Animation.h"
-#include "MGMTexture.h"
+#include "Texture.h"
 #include <fstream>
 #include <string>
 
@@ -20,7 +20,7 @@ class Sprite
 public:
 	Animation* anims;
 	int animCount;
-	MGMTexture* img;
+	Texture* img;
 	
 	
 	int getHeight(int action, int frameIndex);

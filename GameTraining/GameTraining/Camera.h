@@ -1,6 +1,6 @@
 #pragma once
 #include "Config.h"
-#include "MGMTexture.h"
+#include "Texture.h"
 #include"FBox.h"
 #include"ObjectsFilter.h"
 #include "Stage.h"

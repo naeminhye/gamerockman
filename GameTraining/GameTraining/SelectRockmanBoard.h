@@ -1,11 +1,11 @@
 #pragma once
-#include "MGMTexture.h"
+#include "Texture.h"
 class SelectRockmanBoard
 {
 public:
 	float x, y; // toa do
 
-	MGMTexture* img;
+	Texture* img;
 	void render();
 	SelectRockmanBoard();
 	~SelectRockmanBoard();

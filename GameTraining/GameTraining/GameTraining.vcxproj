@@ -129,9 +129,9 @@
     <ClInclude Include="Form.h" />
     <ClInclude Include="MapScene.h" />
     <ClInclude Include="GameTime.h" />
-    <ClInclude Include="MGMPoint.h" />
-    <ClInclude Include="MGMSurface.h" />
-    <ClInclude Include="MGMTexture.h" />
+    <ClInclude Include="MyPoint.h" />
+    <ClInclude Include="Surface.h" />
+    <ClInclude Include="Texture.h" />
     <ClInclude Include="MovableObject.h" />
     <ClInclude Include="ObjectsFilter.h" />
     <ClInclude Include="OctopusBattery.h" />
@@ -213,9 +213,9 @@
     <ClCompile Include="Form.cpp" />
     <ClCompile Include="MapScene.cpp" />
     <ClCompile Include="GameTime.cpp" />
-    <ClCompile Include="MGMPoint.cpp" />
-    <ClCompile Include="MGMSurface.cpp" />
-    <ClCompile Include="MGMTexture.cpp" />
+    <ClCompile Include="MyPoint.cpp" />
+    <ClCompile Include="Surface.cpp" />
+    <ClCompile Include="Texture.cpp" />
     <ClCompile Include="MovableObject.cpp" />
     <ClCompile Include="ObjectsFilter.cpp" />
     <ClCompile Include="OctopusBattery.cpp" />

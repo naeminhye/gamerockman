@@ -81,9 +81,9 @@ void StartGameScene::render()
 
 StartGameScene::StartGameScene()
 {
-	img = new MGMTexture();
+	img = new Texture();
 	curSelect = SelectMapScene::instance->curSelect;
-	startGameDelay.init(5000); // TODO
+	startGameDelay.init(START_GAME_DELAY_TIME);
 	startGameDelay.start();
 	GameSound::getInstance()->play(SOUND_GAME_START);
 

@@ -17,7 +17,7 @@ public:
 	int nObject;
 	BaseObject* objects;
 	Camera* camera;
-	MGMTexture* img;
+	Texture* img;
 	Map* curMap;
 	int selection;
 

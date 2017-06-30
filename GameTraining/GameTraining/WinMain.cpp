@@ -1,8 +1,8 @@
 #include<Windows.h>
 #include"Form.h"
 #include"DirectXTool.h"
-#include"MGMTexture.h"
-#include"MGMSurface.h"
+#include"Texture.h"
+#include"Surface.h"
 #include"MapScene.h"
 #include"KEY.h"
 #include"Scene.h"

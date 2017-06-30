@@ -22,6 +22,8 @@
 
 #pragma region Constants
 
+extern int START_GAME_DELAY_TIME;
+
 extern float BOX_GRAVITATIONAL_ACCELERATION;
 extern int BOX_TIME;
 
@@ -61,6 +63,12 @@ extern float RM_VX_RECOIL;
 extern float RM_VY_RECOIL;
 
 extern int RM_CUT_BULLET_A;
+extern int RM_CUT_BULLET_B;
+extern int RM_CUT_BULLET_DX_VELOCITY;
+extern int RM_BULLET_DX_VELOCITY;
+extern int MAX_RM_CUT_BULLET;
+extern int MAX_RM_BULLET;
+
 #pragma endregion
 
 
@@ -184,6 +192,9 @@ extern int PICKET_HEALTH_POINTS;
 extern int PICKET_ATTACK_DAMAGE;
 #pragma endregion
 
+extern int TRUNDLE_INIT_VY;
+extern int TRUNDLE_INIT_VX;
+
 /* BOSSES */
 
 #pragma region CUTMAN
@@ -215,6 +226,7 @@ extern int GM_WAITING_DELAY_TIME;
 extern int GM_ATTACKING_DELAY_TIME;
 extern float GUTMAN_JUMP_VY;
 extern int GM_ROCK_DX_VELOCITY;
+extern int GM_ROCK_BREAKING_DELAY_TIME;
 
 // random funtion
 extern int randomFrom(int numBegin, int numEnd);

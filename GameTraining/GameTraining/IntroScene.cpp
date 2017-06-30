@@ -30,7 +30,7 @@ void IntroScene::render()
 
 IntroScene::IntroScene()
 {
-	img = new MGMTexture();
+	img = new Texture();
 
 }
 

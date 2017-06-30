@@ -63,7 +63,6 @@ void GutsmanRock::update()
 					i--;
 				}
 			}
-			//alive = false;
 			break;
 		default:
 			break;
@@ -90,17 +89,6 @@ void GutsmanRock::render()
 
 void GutsmanRock::updateRockBreaking()
 {
-	//
-	//GutsmanBrokenRock* rock = new GutsmanBrokenRock();
-	//rock->x = GutsmanRock::instance->getXCenter();
-	//rock->y = GutsmanRock::instance->getYCenter();
-	//rock->dx = 3 * Gutsman::instance->direction; // TODO
-	//rock->dy = getBrokenRockDy(rock->dx, 30, dx, dy);
-	//rock->setAction(action);
-
-	//dx = 0;
-	//dy = 0;
-
 	onBreaking = false;
 	gmrThrowActivity = GMR_THROW_FINISH;
 		
@@ -158,7 +146,7 @@ GutsmanRock::GutsmanRock()
 	height = sprite->getHeight(0, 0);
 	onBreaking = false;
 	alive = true;
-	rockBreakingDelay.init(2000);// TODO
+	rockBreakingDelay.init(GM_ROCK_BREAKING_DELAY_TIME);
 }
 
 

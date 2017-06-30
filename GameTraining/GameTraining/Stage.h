@@ -14,6 +14,8 @@ public:
 	int cameraBeginX, cameraBeginY;
 	int rmBeginX, rmBeginY;
 
+	void setLocation(int camX, int camY, int rmX, int rmY);
+
 	/* CONSTRUCTOR & DESTRUCTOR */	
 	Stage(ifstream &fs);
 	~Stage();

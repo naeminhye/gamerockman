@@ -6,7 +6,7 @@ void TileMap::init(char * tileSheetPath, char * matrixPath)
 {
 	ifstream fs(matrixPath);
 	fs >> rowCount >> colCount >> colTileSheetCount;
-	tileSheet = new MGMTexture();
+	tileSheet = new Texture();
 	tileSheet->Init(tileSheetPath, 0);
 	matrix = new int*[rowCount];
 	for (int rowIndex = 0; rowIndex < rowCount; rowIndex++)

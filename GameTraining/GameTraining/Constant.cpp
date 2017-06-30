@@ -1,3 +1,6 @@
+// SCENES
+int START_GAME_DELAY_TIME = 3000;
+
 #pragma region BOX
 
 float BOX_GRAVITATIONAL_ACCELERATION = -0.0015; // Gravitational acceleration
@@ -37,6 +40,11 @@ float RM_VX_RECOIL = 0.1;
 float RM_VY_RECOIL = 0.2;
 
 int RM_CUT_BULLET_A = 50;
+int RM_CUT_BULLET_B = 20;
+int RM_CUT_BULLET_DX_VELOCITY = 3;
+int MAX_RM_CUT_BULLET = 1;
+int MAX_RM_BULLET = 3;
+int RM_BULLET_DX_VELOCITY = 5;
 
 #pragma endregion
 
@@ -180,6 +188,10 @@ int PICKET_ATTACK_DAMAGE = 3;
 
 #pragma endregion 
 
+// TRUNDLE
+int TRUNDLE_INIT_VY = 0;
+int TRUNDLE_INIT_VX = -0.1;
+
 // --------------------------- //
 
 // ---------- BOSSES --------- //
@@ -234,6 +246,7 @@ int GM_ANIMATION_GAME_TIME = 200;
 int GM_WAITING_DELAY_TIME = 2000;
 int GM_ATTACKING_DELAY_TIME = 1500;
 int GM_ROCK_DX_VELOCITY = 7;
+int GM_ROCK_BREAKING_DELAY_TIME = 2000;
 
 // --------------------------- //
 

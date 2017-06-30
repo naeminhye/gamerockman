@@ -64,7 +64,7 @@ void Sprite::ReadFromFile(char * infopath, char * imagepath)
 		ignoreLineIfstream(fs, 3);
 	}
 
-	img = new MGMTexture();
+	img = new Texture();
 	img->Init(imagepath, D3DCOLOR_XRGB(r, g, b));
 }
 

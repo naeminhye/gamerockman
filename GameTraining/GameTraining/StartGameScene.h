@@ -1,6 +1,6 @@
 #pragma once
 #include "Scene.h"
-#include "MGMTexture.h"
+#include "Texture.h"
 #include "DelayTime.h"
 #include "SelectMapScene.h"
 #include "SelectRockmanBoard.h"
@@ -11,7 +11,7 @@ class StartGameScene :
 	public Scene
 {
 public:
-	MGMTexture* img;
+	Texture* img;
 	MAP_TYPE curSelect;
 	Sprite* boss;
 	int frameIndex;

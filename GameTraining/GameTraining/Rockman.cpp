@@ -697,16 +697,15 @@ void Rockman::updateAttack()
 	if (keyAttackPress)
 	{
 		onAttack = true;
-		//if(!shootDelay.isOnTime())
 		shootDelay.start();
 
 		switch (rm_type)
 		{
 		case RMT_NORMAL:
-			if (!rmBulletDelay.isOnTime() && RockmanBullet::bullets->Count < 3)
+			if (!rmBulletDelay.isOnTime() && RockmanBullet::bullets->Count < MAX_RM_BULLET)
 			{
 				RockmanBullet* bullet = new RockmanBullet();
-				bullet->dx = 5 * direction; // TODO
+				bullet->dx = RM_BULLET_DX_VELOCITY * direction; 
 				bullet->dy = 0;
 				bullet->x = x;
 				if (direction == Right)
@@ -716,7 +715,7 @@ void Rockman::updateAttack()
 			}
 			break;
 		case RMT_CUTMAN:
-			if (!rmBulletDelay.isOnTime() && RockmanBullet::bullets->Count < 1)
+			if (!rmBulletDelay.isOnTime() && RockmanBullet::bullets->Count < MAX_RM_CUT_BULLET)
 			{
 				RockmanBullet* bullet = new RockmanCutBullet();
 				bullet->direction = direction;
@@ -727,7 +726,7 @@ void Rockman::updateAttack()
 				{
 					bullet->oldRect.x = x - 2 * a; // TODO
 				}
-				bullet->dx = 3 * direction; // TODO
+				bullet->dx = RM_CUT_BULLET_DX_VELOCITY * direction; 
 				bullet->dy = 0;
 				bullet->x = x;
 

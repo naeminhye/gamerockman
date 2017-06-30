@@ -1,11 +1,11 @@
 #pragma once
 #include "Scene.h"
-#include "MGMTexture.h"
+#include "Texture.h"
 class IntroScene :
 	public Scene
 {
 public:
-	MGMTexture* img;
+	Texture* img;
 	void init();
 	void update();
 	void render();

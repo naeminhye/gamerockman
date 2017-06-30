@@ -24,7 +24,7 @@ SuperCutterBullet::SuperCutterBullet()
 	width = sprite->anims[0].frames[0].right - sprite->anims[0].frames[0].left;
 	height = sprite->anims[0].frames[0].bottom - sprite->anims[0].frames[0].top;
 	bullets->_Add(this);
-	attackDamage = 4;
+	attackDamage = CUTTER_ATTACK_DAMAGE;
 	collisionType = CT_BULLET;
 }
 

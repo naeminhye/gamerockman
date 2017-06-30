@@ -87,6 +87,7 @@ extern int BLADER_ATTACK_DAMAGE;
 extern float TAN_5_TO_RAD;
 extern int BEAK_BULLET_VELOCITY;
 extern int BEAK_BULLET_DELAY;
+extern int BEAK_BULLET_ATTACK_DAMAGE;
 extern float TIME_BEAK_SHOOTING;
 extern float TIME_BEAK_CHANGE_STATE;
 extern float TIME_BEAK_CLOSED;

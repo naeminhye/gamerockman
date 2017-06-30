@@ -43,28 +43,6 @@ enum CUTMAN_ACTION {
 	CM_SHOOTING = 6,
 	CM_EXPLOSE
 };
-///* ENUMERATIONS */
-//
-//enum CUTMAN_ACTIVITY_RAND
-//{
-//	// hanh dong cua Cutman la random
-//	CAR_WAITING,
-//	CAR_JUMPING,
-//	CAR_SHOOTING
-//};
-//
-//
-//enum CUTMAN_TYPE {
-//	CM_NON_ATTACKING,
-//	CM_ATTACKING
-//};
-//
-//enum CUTMAN_ACTIVITY {
-//	CMA_WAITING,
-//	CMA_RUNNING,
-//	CMA_SHOOTING,
-//	CMA_JUMPING
-//};
 
 class Cutman : public Enemy
 {

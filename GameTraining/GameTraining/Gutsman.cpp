@@ -1,5 +1,6 @@
 #include "Gutsman.h"
 #include "GutsmanRock.h"
+#include "HealthSprite.h"
 
 extern int randomFrom(int numBegin, int numEnd);
 extern float roundToInt(float num);
@@ -26,7 +27,7 @@ void Gutsman::update()
 	gm_waiting_delay.update();
 	gm_attacking_delay.update();
 
-	dx = 0;
+	dx = 0; // TODO
 	switch (gmActivity)
 	{
 	case GMA_GROUND:
@@ -141,6 +142,8 @@ void Gutsman::render()
 
 	if (!alive)
 		return;
+
+	HealthSprite::getInstance()->render(30, 80, healthPoint, maxHealth); // TODO
 
 	float yRender;
 	float xRender;

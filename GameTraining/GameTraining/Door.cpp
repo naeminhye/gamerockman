@@ -13,6 +13,8 @@ void Door::onCollision(FBox * other, int nx, int ny)
 		Map::onStageChangeByDoor = true;
 		doorActivity = DOOR_WAITING_TO_OPEN;
 		Door::doorDelay.start(DOOR_DELAY_TIME);
+		GameSound::getInstance()->play(SOUND_BOSS_GATE);
+
 	}
 	else
 	{

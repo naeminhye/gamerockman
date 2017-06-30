@@ -4,17 +4,39 @@
 #include "OneUpItem.h"
 #include "BigLifeEnergyItem.h"
 #include "SmallLifeEnergyItem.h"
+#include "SmallWeaponEnergyItem.h"
+#include "BigWeaponEnergyItem.h"
 #include"KEY.h"
+
+void Enemy::selectItem()
+{
+	while (true)
+	{
+		int r = randomFrom(0, itemCount);
+
+		int sum = 0;
+
+		for (int i = 0; i < 6; i++)
+		{
+			sum += itemDecisionTable[i];
+			if (sum > r)
+			{
+				itemDecision = (ITEM_DECISION)i;
+				return;
+			}
+		}
+	}
+}
 
 bool Enemy::setHealthPoint(int healthPoint)
 {
 	if (healthPoint > 0)
 	{
 		this->healthPoint = healthPoint;
-		return true;
+		return false;
 	}
 	this->healthPoint = 0;
-	return false;
+	return true;
 }
 
 void Enemy::setDeath()
@@ -26,22 +48,47 @@ void Enemy::setDeath()
 	death->x = x;
 	death->y = y;
 
-	int number = randomFrom(0, 15);
+	selectItem();
+
+	//int number = randomFrom(0, 15);
 	Item* item;
-	if (number == 0)
+	switch (itemDecision)
+	{
+	case BONUS_BALL_POINTS_D:
+		item = new BonusBallItem();
+		break;
+	case SMALL_LIFE_ENERGY_D:
+		item = new SmallLifeEnergyItem();
+		break;
+	case BIG_LIFE_ENERGY_D:
+		item = new BigLifeEnergyItem();
+		break;
+	case SMALL_WEAPON_D:
+		item = new SmallWeaponEnergyItem();
+		break;
+	case BIG_WEAPON_D:
+		item = new BigWeaponEnergyItem();
+		break;
+	case ONE_UP_LIFE_D:
+		item = new OneUpItem();
+		break;
+	default:
+		item = new BonusBallItem();
+		break;
+	}
+	/*if (number == 0)
 		item = new OneUpItem();
 	else if (number == 1)
 		item = new BigLifeEnergyItem();
 	else if (number == 2 || number == 3)
 		item = new SmallLifeEnergyItem();
 	else
-		item = new BonusBallItem();
+		item = new BonusBallItem();*/
 	// TODO them item
 	item->x = x;
 	item->y = y + item->sprite->getHeight(item->action, item->frameIndex);
 	item->width = item->sprite->getWidth(item->action, item->frameIndex);
 	item->height = item->sprite->getHeight(item->action, item->frameIndex);
-	// TODO them item
 }
 
 void Enemy::initDirectionFollowRockman()
@@ -91,6 +138,7 @@ void Enemy::onIntersect(FBox * other)
 			if (healthPoint == 0)
 			{
 				setDeath();
+				Rockman::getInstance()->setScores(Rockman::getInstance()->scores + points);
 			}
 		}
 		else
@@ -121,7 +169,17 @@ Enemy::Enemy()
 	healthPoint = ENEMY_DEFAULT_HEALTH_POINTS;
 	attackDamage = ENEMY_DEFAULT_ATTACK_DAMAGE;
 	points = ENEMY_DEFAULT_POINTS;
-}
+	itemDecisionTable = new int[6];
+	itemDecisionTable[SMALL_LIFE_ENERGY_D] = SMALL_LIFE_ENERGY_R;
+	itemDecisionTable[BIG_LIFE_ENERGY_D] = BIG_LIFE_ENERGY_R;
+	itemDecisionTable[SMALL_WEAPON_D] = SMALL_WEAPON_R;
+	itemDecisionTable[BIG_WEAPON_D] = BIG_WEAPON_R;
+	itemDecisionTable[ONE_UP_LIFE_D] = ONE_UP_LIFE_R;
+	itemDecisionTable[BONUS_BALL_POINTS_D] = BONUS_BALL_POINTS_R;
+	itemCount = SMALL_LIFE_ENERGY_R + BIG_LIFE_ENERGY_R + SMALL_WEAPON_R + BIG_WEAPON_R + ONE_UP_LIFE_R + ONE_UP_LIFE_R;
+
+
+}			  
 
 
 Enemy::~Enemy()

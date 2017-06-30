@@ -9,10 +9,14 @@ void Item::release()
 	delete this;
 }
 
-void Item::onIntersect(FBox * other)
+//void Item::onIntersect(FBox * other)
+//{
+//	/*if(other==Rockman::getInstance() || other->collisionType == CT_GROUND)
+//		release();*/
+//}
+
+void Item::rockmanBonus()
 {
-	//if(other==Rockman::getInstance() || other->collisionType == CT_GROUND)
-	//	release();
 }
 
 Item::Item()

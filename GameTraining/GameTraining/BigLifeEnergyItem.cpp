@@ -2,10 +2,15 @@
 #include "Rockman.h"
 
 
-void BigLifeEnergyItem::onIntersect(FBox * other)
+//void BigLifeEnergyItem::onIntersect(FBox * other)
+//{
+//	Item::onIntersect(other);
+//	
+//}
+
+void BigLifeEnergyItem::rockmanBonus()
 {
-	Item::onIntersect(other);
-	int healthUp = BIG_LIFE_ENERGY_RECOVERY_HP; 
+	int healthUp = BIG_LIFE_ENERGY_RECOVERY_HP;
 	Rockman::getInstance()->setHealth(Rockman::getInstance()->health + healthUp);
 }
 

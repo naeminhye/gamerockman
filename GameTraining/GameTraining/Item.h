@@ -21,7 +21,8 @@ class Item :
 public:
 	static List<Item*>* items;
 	void release();
-	virtual void onIntersect(FBox* other); // goi cuoi cung
+	//virtual void onIntersect(FBox* other); // goi cuoi cung
+	virtual void rockmanBonus();
 
 	/* CONSTRUCTOR & DESTRUCTOR */
 	Item();

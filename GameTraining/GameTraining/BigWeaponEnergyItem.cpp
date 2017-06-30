@@ -2,9 +2,13 @@
 
 
 
-void BigWeaponEnergyItem::onIntersect(FBox * other)
+//void BigWeaponEnergyItem::onIntersect(FBox * other)
+//{
+//	Item::onIntersect(other);
+//}
+
+void BigWeaponEnergyItem::rockmanBonus()
 {
-	Item::onIntersect(other);
 }
 
 BigWeaponEnergyItem::BigWeaponEnergyItem()

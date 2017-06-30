@@ -1,10 +1,15 @@
 #include "SmallLifeEnergyItem.h"
 #include "Rockman.h"
 
+//
+//void SmallLifeEnergyItem::onIntersect(FBox * other)
+//{
+//	Item::onIntersect(other);
+//	
+//}
 
-void SmallLifeEnergyItem::onIntersect(FBox * other)
+void SmallLifeEnergyItem::rockmanBonus()
 {
-	Item::onIntersect(other);
 	int healthUp = SMALL_LIFE_ENERGY_RECOVERY_HP;
 	Rockman::getInstance()->setHealth(Rockman::getInstance()->health + healthUp);
 }

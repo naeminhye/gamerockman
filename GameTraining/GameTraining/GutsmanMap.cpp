@@ -16,7 +16,7 @@ GutsmanMap::GutsmanMap()
 		"Data\\Map\\Gutsman\\objects.txt",
 		"Data\\Map\\Gutsman\\quadtree.txt"
 	);
-	initStage("Data\\Map\\Gutsman\\stageBoss.txt");
+	initStage("Data\\Map\\Gutsman\\stage1.txt");
 	//GameSound::getInstance()->stop(SOUND_STAGE_SELECT);
 	GameSound::getInstance()->play(SOUND_GUTSMAN);
 }

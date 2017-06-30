@@ -2,9 +2,13 @@
 
 
 
-void SmallWeaponEnergyItem::onIntersect(FBox * other)
+//void SmallWeaponEnergyItem::onIntersect(FBox * other)
+//{
+//	Item::onIntersect(other);
+//}
+
+void SmallWeaponEnergyItem::rockmanBonus()
 {
-	Item::onIntersect(other);
 }
 
 SmallWeaponEnergyItem::SmallWeaponEnergyItem()

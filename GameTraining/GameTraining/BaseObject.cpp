@@ -79,7 +79,7 @@ void BaseObject::init()
 BaseObject::BaseObject() 
 {
 	sprite = 0;
-	delay.tickPerFrame = BASE_OBJECT_TICK_PER_FRAME;//TODO luu constant
+	delay.tickPerFrame = BASE_OBJECT_TICK_PER_FRAME;
 	frameIndex = 0;
 	action = 0;
 	pauseAnimation = false;

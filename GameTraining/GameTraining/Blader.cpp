@@ -1,7 +1,5 @@
 #include "Blader.h"
 
-Blader* test = 0;
-
 void Blader::update()
 {
 	if (!alive)
@@ -13,7 +11,7 @@ void Blader::update()
 			direction = Right;
 		else
 			direction = Left;
-		dx = 2 * direction;
+		dx = 2 * direction; // TODO
 		if (abs(this->getXCenter() - Rockman::getInstance()->getXCenter()) <= BLADER_FIND_ROCKMAN_DISTANCE)
 		{
 			bladerActivity = BLADER_ATTACK;
@@ -61,8 +59,6 @@ void Blader::onCollision(FBox * other, int nx, int ny)
 
 Blader::Blader()
 {
-	if (test == 0)
-		test = this;
 	bladerActivity = BLADER_PREPARE;
 	dy = 0;
 	healthPoint = BLADER_HEALTH_POINTS;

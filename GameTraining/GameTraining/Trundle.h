@@ -13,6 +13,7 @@ class Trundle :
 {
 public:
 	void update();
+	void updateMove();
 	void onIntersect(FBox* other);
 	void onCollision(FBox* other, int nx, int ny);
 	void onLastFrameAnimation();

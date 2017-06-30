@@ -14,6 +14,8 @@ void Rockman::setHealth(int health)
 		return;
 	if (health <= 0)
 	{
+		GameSound::getInstance()->play(SOUND_MEGAMAN_DEFEAT);
+
 		setLife(life - 1);
 		setAction(RM_DEATH);
 		onDeath = true;
@@ -48,8 +50,6 @@ void Rockman::setHealth(int health)
 
 void Rockman::updateDeath()
 {
-	GameSound::getInstance()->play(SOUND_MEGAMAN_DEFEAT, false);
-
 	dx = 0;
 	dy = 0;
 	switch (rm_death_activity)
@@ -100,12 +100,12 @@ void Rockman::updateDeath()
 		// ve stage 1
 		if (deathDelay.isTerminated())
 		{
-			Stage::curStage = Map::curMap->stages[Map::curMap->stageBegin];
-			Camera::getInstance()->x = Map::curMap->cameraBeginX;
-			Camera::getInstance()->y = Map::curMap->cameraBeginY;
-			x = Map::curMap->rmBeginX;
-			y = Map::curMap->rmBeginY;
-			this->Rockman::Rockman();
+		//	Stage::curStage = Map::curMap->stages[Map::curMap->stageBegin];
+			Camera::getInstance()->x = Stage::curStage->cameraBeginX;
+			Camera::getInstance()->y =  Stage::curStage->cameraBeginY;
+			x = Stage::curStage->rmBeginX;
+			y = Stage::curStage->rmBeginY;
+			initRockman();
 			rm_type = RMT_NORMAL;
 			pauseAnimation = true;
 			ground = false;
@@ -133,6 +133,11 @@ void Rockman::setLife(int life)
 	{
 		// TODO game over
 	}
+}
+
+void Rockman::setScores(int scores)
+{
+	this->scores = scores;
 }
 
 Rockman * Rockman::getInstance()
@@ -214,6 +219,7 @@ void Rockman::update()
 
 	if (keyMove)
 	{
+		ax = 0;
 		if (onAttack && ground && vx != 0)
 		{
 			setAction(RM_RUN_SHOOT);
@@ -229,14 +235,27 @@ void Rockman::update()
 	}
 	else
 	{
+		
 		if (onAttack && ground && (vx == 0))
 		{
 			setAction(RM_STAND_SHOOT);
 		}
 		else
 		{
-			vx = RM_VX_STAND;
-			updateBlink();
+			if (ax == 0 && vx != 0)
+			{
+				ax = -vx/(abs(vx))*0.0007;//TODO
+			}
+			if ((vx+ax*BOX_TIME)*direction <= 0)
+			{
+				vx = RM_VX_STAND;
+				updateBlink();
+				ax = 0;
+			}
+			else
+			{
+				setAction(RM_STAND);
+			}
 		}
 
 	}
@@ -410,6 +429,29 @@ void Rockman::setIsIntersectStair(bool isIntersectStair)
 
 Rockman::Rockman()
 {
+	initRockman();
+	life = RM_DEFAULT_LIFE;
+
+	scores = 0; // TODO
+	bonusPoint = 0;
+}
+
+
+Rockman::~Rockman()
+{
+}
+
+void Rockman::updateLocation()
+{
+	if (!isCollision)
+	{
+		onLand = false;
+	}
+	MovableObject::updateLocation();
+}
+
+void Rockman::initRockman()
+{
 	sprite = SpriteManager::getInstance()->sprites[SPR_ROCKMAN];
 	width = RM_WIDTH;
 	height = RM_HEIGHT;
@@ -439,21 +481,8 @@ Rockman::Rockman()
 	deathDelay.init(RM_DEATH_DELAYTIME);
 	pauseAnimation = true;
 	rm_death_activity = ON_DEATH;
-	life = RM_DEFAULT_LIFE;
-}
+	vx = vy = ax = dx = dy = 0;
 
-
-Rockman::~Rockman()
-{
-}
-
-void Rockman::updateLocation()
-{
-	if (!isCollision)
-	{
-		onLand = false;
-	}
-	MovableObject::updateLocation();
 }
 
 void Rockman::onCollision(FBox * other, int nx, int ny)

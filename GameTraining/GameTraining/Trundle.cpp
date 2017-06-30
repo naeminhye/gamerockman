@@ -1,11 +1,19 @@
 #include "Trundle.h"
 #include "Rockman.h"
 
+extern float roundToInt(float num);
+
 void Trundle::update()
 {
 	MovableObject::update();
 	dy = 0;
+}
 
+void Trundle::updateMove()
+{
+	MovableObject::updateMove();
+	/*vx += ax*BOX_TIME;
+	dx = roundToInt(vx*BOX_TIME);*/
 }
 
 void Trundle::onIntersect(FBox * other)
@@ -26,14 +34,17 @@ void Trundle::onIntersect(FBox * other)
 		if(otherObj->id == BRIDGE_LEFT)
 		{
 			setAction(TRUNDLE_NORMAL);
-			if ( (left() + dx < other->left() && vx<0)) // TODO them constant
+			if ((left() + dx < other->left() && vx < 0)) // TODO them constant
+				//vx = -roundToInt(vx);
 				vx = -vx;
 		}
 		else if (otherObj->id == BRIDGE_RIGHT)
 		{
 			setAction(TRUNDLE_NORMAL);
-			if ((left() + 8 + dx > other->right() && vx>0))// TODO
+			if ((left() + 8 + dx > other->right() && vx > 0))// TODO
+				//vx = -roundToInt(vx);
 				vx = -vx;
+
 		}
 		
 		
@@ -46,7 +57,7 @@ void Trundle::onCollision(FBox * other, int nx, int ny)
 	{
 		if (ny == 1)
 		{
-			Rockman::getInstance()->dx += this->dx ;
+			Rockman::getInstance()->dx += this->dx;
 		}
 
 		if (action == TRUNDLE_NORMAL)
@@ -73,7 +84,7 @@ Trundle::Trundle()
 	collisionType = CT_TRUNDLE;
 	direction = Left;
 	action = TRUNDLE_NORMAL;
-	vy = 0;
+	vy = 0;// TODO
 	pauseAnimation = false;
 }
 

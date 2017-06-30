@@ -11,6 +11,9 @@ public:
 	int index; 
 	static Stage* curStage;
 
+	int cameraBeginX, cameraBeginY;
+	int rmBeginX, rmBeginY;
+
 	/* CONSTRUCTOR & DESTRUCTOR */	
 	Stage(ifstream &fs);
 	~Stage();

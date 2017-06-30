@@ -14,19 +14,19 @@ void Gutsman::update()
 	setHeight(sprite->getHeight(action, frameIndex));
 
 	updateInjury();
-	if (ground) {
-		isRecoil = false;
-	}
-	if (isRecoil)
-	{
-		MovableObject::update();
-		return;
-	}
+	//if (ground) {
+	//	isRecoil = false;
+	//}
+	//if (isRecoil)
+	//{
+	//	MovableObject::update();
+	//	return;
+	//}
 
 	gm_waiting_delay.update();
 	gm_attacking_delay.update();
 
-
+	dx = 0;
 	switch (gmActivity)
 	{
 	case GMA_GROUND:
@@ -48,6 +48,7 @@ void Gutsman::update()
 
 		break;
 	case GMA_JUMP:
+		dx = direction * 1;// TODO
 		if (ground)
 		{
 			gmSelectAttack();
@@ -128,7 +129,7 @@ void Gutsman::onLastFrameAnimation()
 	else if (action == GM_THROWING_ROCK)
 	{
 		setAction(GM_JUMPING);
-		vy = GUTMAN_JUMP_VY; 
+		vy = GUTMAN_JUMP_VY;
 		gmActivity = GMA_JUMP;
 	}
 }
@@ -205,7 +206,7 @@ void Gutsman::onIntersect(FBox * other)
 		if (!injuryDelay.isOnTime())
 		{
 			direction = (Direction)(-nx);
-			dx = nx; // TODO
+			//dx = nx; // TODO
 			ground = false;
 			isRecoil = true;
 			onInjury = true;
@@ -274,23 +275,32 @@ void Gutsman::updateLocation()
 	y = (y + dy);
 }
 
+void Gutsman::updateMove()
+{
+	vx += ax*BOX_TIME;
+	vy += ay*BOX_TIME;
+	dy = vy*BOX_TIME;
+}
+
 Gutsman::Gutsman()
 {
 	action = GM_WAITING;
 	gm_waiting_delay.init(GM_WAITING_DELAY_TIME);
 	gm_attacking_delay.init(GM_ATTACKING_DELAY_TIME);
 	gm_waiting_delay.start();
+
 	gmDecisionTable = new int[2];
 	gmDecisionTable[GM_D_WAIT] = GM_WAIT_R;
 	gmDecisionTable[GM_D_ATTACK] = GM_ATTACK_R;
 	gmRandCount = GM_WAIT_R + GM_ATTACK_R;
+
 	gmActivity = GMA_GROUND;
 	delay.tickPerFrame = GM_ANIMATION_GAME_TIME; 
 	instance = this;
 
 	disappearTime.tickPerFrame = GM_DISAPPEAR_GAME_TIME; 
 	isDisappear = false;
-	isRecoil = false;
+//	isRecoil = false;
 	injuryDelay.init(GM_INJURY_DELAY_TIME); 
 	onInjury = false;
 	healthPoint = GM_HEALTH_POINTS;

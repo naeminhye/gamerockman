@@ -64,6 +64,7 @@ public:
 	void updateInjury();
 
 	void updateLocation();
+	void updateMove();
 
 	Gutsman();
 	~Gutsman();

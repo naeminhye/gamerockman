@@ -2,10 +2,17 @@
 #include "Rockman.h"
 
 
-void BonusBallItem::onIntersect(FBox * other)
+//void BonusBallItem::onIntersect(FBox * other)
+//{
+//	Item::onIntersect(other);
+//	GameSound::getInstance()->play(SOUND_BONUSBALL); 
+//	// TODO: Tang diem cho Rockman :)
+//}
+
+void BonusBallItem::rockmanBonus()
 {
-	Item::onIntersect(other);
-	GameSound::getInstance()->play(SOUND_BONUSBALL); 
+	GameSound::getInstance()->play(SOUND_BONUSBALL);
+	Rockman::getInstance()->bonusPoint += BONUS_BALL_POINTS;
 	// TODO: Tang diem cho Rockman :)
 }
 

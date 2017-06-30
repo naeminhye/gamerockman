@@ -2,9 +2,13 @@
 
 
 
-void YashichiItem::onIntersect(FBox * other)
+//void YashichiItem::onIntersect(FBox * other)
+//{
+//	Item::onIntersect(other);
+//}
+
+void YashichiItem::rockmanBonus()
 {
-	Item::onIntersect(other);
 }
 
 YashichiItem::YashichiItem()

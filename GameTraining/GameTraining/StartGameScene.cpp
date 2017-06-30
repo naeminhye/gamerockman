@@ -1,9 +1,10 @@
 #include "StartGameScene.h"
-#include"MapScene.h"
 #include"CutmanMap.h"
 #include"GutsmanMap.h"
 #include "TextSprite.h"
+#include "NumberSprite.h"
 
+extern int randomFrom(int numBegin, int numEnd);
 
 void StartGameScene::init()
 {
@@ -21,10 +22,15 @@ void StartGameScene::update()
 	Rockman::getInstance()->ground = false;
 	Rockman::getInstance()->setAction(RM_TELEPORT);
 
-
-
-	if(startGameDelay.isTerminated())
+	if (delay.atTime())
 	{
+		boss->update(0, frameIndex);
+
+	}
+
+	if (startGameDelay.isTerminated())
+	{
+
 		switch (curSelect)
 		{
 		case MT_CUTMAN:
@@ -43,22 +49,31 @@ void StartGameScene::update()
 
 void StartGameScene::render()
 {
-	RECT r;
-	SetRect(&r, 0, 0, BACKBUFFER_WIDTH, BACKBUFFER_HEIGHT);
-	img->RenderTexture(0, 0, &r);
+	D3DXMATRIX flipMatrix;
 
 	int middleX, middleY;
 	middleX = BACKBUFFER_WIDTH / 2;
 	middleY = BACKBUFFER_HEIGHT / 2;
 
+	RECT r;
+	SetRect(&r, 0, 0, BACKBUFFER_WIDTH, BACKBUFFER_HEIGHT);
+	img->RenderTexture(0, 0, &r);
+
 	if (startGameDelay.isOnTime())
 	{
-		if(curSelect == MT_CUTMAN)
-		TextSprite::getInstance()->render(middleX + 10, middleY - 15, "CUTMAN");
+		boss->render(middleX - 50, middleY - 15, 0, frameIndex);
+		if (curSelect == MT_CUTMAN)
+		{
+			TextSprite::getInstance()->render(middleX + 10, middleY - 15, "CUTMAN"); // TODO
+
+		}
 		else {
 			TextSprite::getInstance()->render(middleX + 10, middleY - 15, "GUTSMAN");
 		}
-		//board.render();
+		TextSprite::getInstance()->render(middleX + 10, middleY, "CLEAR"); // TODO
+		TextSprite::getInstance()->render(middleX + 60, middleY, "POINT"); // TODO
+
+		NumberSprite::getInstance()->render(middleX + 10, middleY + 15, 6, Rockman::getInstance()->clearPoint);
 	}
 
 
@@ -68,12 +83,25 @@ StartGameScene::StartGameScene()
 {
 	img = new MGMTexture();
 	curSelect = SelectMapScene::instance->curSelect;
-	startGameDelay.init(5000);
+	startGameDelay.init(5000); // TODO
 	startGameDelay.start();
 	GameSound::getInstance()->play(SOUND_GAME_START);
 
+	//boss = new Sprite();
+	if (curSelect == MT_CUTMAN)
+		boss = SpriteManager::getInstance()->sprites[SPR_CUTMAN];
+	else {
+		boss = SpriteManager::getInstance()->sprites[SPR_GUTSMAN];
+	}
+
 	board.x = 50;
 	board.y = 50;
+
+	frameIndex = 0;
+	delay.tickPerFrame = BASE_OBJECT_TICK_PER_FRAME;
+
+	Rockman::getInstance()->clearPoint = randomFrom(5, 10) * 10000;
+
 }
 
 

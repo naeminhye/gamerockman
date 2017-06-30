@@ -2,6 +2,9 @@
 #include "HealthSprite.h"
 #include "NumberSprite.h"
 #include "KEY.h"
+#include "GutsmanMap.h"
+#include "CutmanMap.h"
+#include "SelectMapScene.h"
 
 MapScene::MapScene(void)
 {
@@ -82,8 +85,7 @@ void MapScene::update()
 			Rockman::getInstance()->action = Rockman::getInstance()->rm_type* RM_ACTION_COUNT + Rockman::getInstance()->rm_action;
 			break;
 		case 0:
-			Rockman::getInstance()->rm_type = ROCKMAN_TYPE::RMT_GUSTMAN;
-			Rockman::getInstance()->action = Rockman::getInstance()->rm_type* RM_ACTION_COUNT + Rockman::getInstance()->rm_action;
+			changeRockman();
 			break;
 		default:
 			break;
@@ -91,6 +93,7 @@ void MapScene::update()
 	
 	}
 }
+
 void MapScene::render()
 {
 
@@ -98,15 +101,34 @@ void MapScene::render()
 	Rockman::getInstance()->render();
 	HealthSprite::getInstance()->render(10, 80, Rockman::getInstance()->health, Rockman::getInstance()->maxHealth); // TODO
 
+	int clearPointX = (BACKBUFFER_WIDTH / 2) - (54 / 2);
+	NumberSprite::getInstance()->render(clearPointX, 25, 6, Rockman::getInstance()->scores);
+
 	if (Map::curMap->isChangingType)
 	{
 		board.render();
 		SpriteManager::getInstance()->sprites[SPR_ITEMS]->render(172, 162, 0, 25); // TODO
 		NumberSprite::getInstance()->render(196, 167, 2, Rockman::getInstance()->life);
 	}
+
 }
 
 
 MapScene::~MapScene(void)
 {
 }
+
+void MapScene::changeRockman()
+{
+	if (SelectMapScene::instance->curSelect == MT_CUTMAN)
+	{
+		Rockman::getInstance()->rm_type = ROCKMAN_TYPE::RMT_GUSTMAN;
+		Rockman::getInstance()->action = Rockman::getInstance()->rm_type* RM_ACTION_COUNT + Rockman::getInstance()->rm_action;
+	}
+	else 
+	{
+		Rockman::getInstance()->rm_type = ROCKMAN_TYPE::RMT_CUTMAN;
+		Rockman::getInstance()->action = Rockman::getInstance()->rm_type* RM_ACTION_COUNT + Rockman::getInstance()->rm_action;
+	}
+}
+ 

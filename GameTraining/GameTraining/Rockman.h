@@ -60,9 +60,14 @@ public:
 	ROCKMAN_DEATH_ACTIVITY rm_death_activity;
 	int life;
 	void setLife(int life);
+
 #pragma endregion
 
-
+	int scores;
+	void setScores(int scores);
+	int bonusPoint;
+	int clearPoint;
+	
 	ROCKMAN_TYPE rm_type;
 	ROCKMAN_ACTION rm_action;
 	static Rockman* instance;
@@ -129,11 +134,13 @@ public:
 #pragma endregion
 
 	bool onLand;
+	void updateLocation();
+
+	void initRockman();
 
 	/* CONSTRUCTOR & DESTRUCTOR */
 	Rockman();
 	~Rockman();
-	void updateLocation();
 
 };
 

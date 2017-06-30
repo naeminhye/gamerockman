@@ -33,7 +33,7 @@
 
 extern Blader* test;
 
-Map* Map::curMap=0;
+Map* Map::curMap = 0;
 bool Map::onStageChangeByDoor = false;
 
 void Map::init(char * tileSheetPath, char * matrixPath, char * objectsPath, char* quadTreePath)
@@ -56,29 +56,39 @@ void Map::initStage(char * stagePath)
 		stage = new Stage(fs);
 		stages._Add(stage);
 		stage->y = rowCount * 16 - stage->y;
+		stage->cameraBeginY = rowCount * 16 - stage->cameraBeginY;
+		stage->rmBeginY = rowCount * 16 - stage->rmBeginY;
 	}
 
 	Camera* camera = Camera::getInstance();
 	Rockman* rockman = Rockman::getInstance();
 
 	ignoreLineIfstream(fs, 3);
-	fs >> camera->x >> camera->y;
-	camera->y = rowCount * 16 - camera->y;
-	ignoreLineIfstream(fs, 3);
-	fs >> rockman->x >> rockman->y;
-	rockman->y = rowCount * 16 - rockman->y;
-	ignoreLineIfstream(fs, 3);
 	fs >> stageBeginIndex;
-	stageBegin = stageBeginIndex;
+	/*if (stageBeginIndex > 10)
+	{
+		stageBegin = stageBeginIndex / 10;
+		ignoreLineIfstream(fs, stageBegin);
+		int CameraBeginX, CameraBeginY, RockmanBeginX, RockmanBeginY;
+		fs >> CameraBeginX >> CameraBeginY >> RockmanBeginX >> RockmanBeginY;
+		camera->x = CameraBeginX;
+		camera->y = CameraBeginY;
+		rockman->x = RockmanBeginX;
+		rockman->y = RockmanBeginY;
+	}
+	else
+	{*/
+		stageBegin = stageBeginIndex;
+		camera->x = stages[stageBegin]->cameraBeginX;
+		camera->y = stages[stageBegin]->cameraBeginY;
+		rockman->x = stages[stageBegin]->rmBeginX;
+		rockman->y = stages[stageBegin]->rmBeginY;
+	//}
 
-	cameraBeginX = camera->x;
-	cameraBeginY = camera->y;
-	rmBeginX = rockman->x;
-	rmBeginY = rockman->y;
 
 	if (Stage::curStage == 0)
 	{
-		Stage::curStage = stages[stageBeginIndex];
+		Stage::curStage = stages[stageBegin];
 	}
 }
 
@@ -530,8 +540,9 @@ void Map::update()
 		item->updateLocation();
 		if (Collision::AABBCheck(Rockman::getInstance(), Item::items->at(i)))
 		{
-			item->release();
 			//item->onIntersect(Rockman::getInstance());
+			item->rockmanBonus();
+			item->release();
 			i--;
 			continue;
 		}
@@ -598,8 +609,6 @@ void Map::render()
 	}
 
 	// TODO ThemDan st2: Nhớ vẽ khi thêm đối tượng nhé <3
-	int clearPointX = (BACKBUFFER_WIDTH / 2) - (54 / 2);
-	NumberSprite::getInstance()->render(clearPointX, 25, 6, 54612);
 
 
 }

@@ -4,7 +4,8 @@ class BigLifeEnergyItem :
 	public Item
 {
 public:
-	void onIntersect(FBox* other);
+	//void onIntersect(FBox* other);
+	void rockmanBonus();
 
 	/* CONSTRUCTOR & DESTRUCTOR */
 	BigLifeEnergyItem();

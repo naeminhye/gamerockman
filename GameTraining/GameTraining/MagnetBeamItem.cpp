@@ -2,9 +2,13 @@
 
 
 
-void MagnetBeamItem::onIntersect(FBox * other)
+//void MagnetBeamItem::onIntersect(FBox * other)
+//{
+//	Item::onIntersect(other);
+//}
+
+void MagnetBeamItem::rockmanBonus()
 {
-	Item::onIntersect(other);
 }
 
 MagnetBeamItem::MagnetBeamItem()

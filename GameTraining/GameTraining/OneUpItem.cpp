@@ -2,9 +2,16 @@
 #include "Rockman.h"
 
 
-void OneUpItem::onIntersect(FBox * other)
+//void OneUpItem::onIntersect(FBox * other)
+//{
+//	Rockman::getInstance()->setHealth(Rockman::getInstance()->maxHealth);
+//	Rockman::getInstance()->setLife(Rockman::getInstance()->life + 1);
+//	Item::onIntersect(other);
+//}
+
+void OneUpItem::rockmanBonus()
 {
-	Item::onIntersect(other);
+	GameSound::getInstance()->play(SOUND_ONEUP);
 	Rockman::getInstance()->setHealth(Rockman::getInstance()->maxHealth);
 	Rockman::getInstance()->setLife(Rockman::getInstance()->life + 1);
 }

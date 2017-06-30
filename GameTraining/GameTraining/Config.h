@@ -232,6 +232,7 @@ extern int MAP_FRAMES_GAME_TIME;
 #define SOUND_MENU_SELECT "Data\\Sound\\MenuSelect.wav" 
 #define SOUND_GUTSMAN "Data\\Sound\\Gutsman.wav" 
 #define SOUND_BONUSBALL "Data\\Sound\\BonusBall.wav" 
+#define SOUND_ONEUP "Data\\Sound\\OneUp.wav" 
 #define SOUND_MEGABUSTER "Data\\Sound\\MegaBuster.wav" 
 #define SOUND_MEGAMAN_DAMAGE "Data\\Sound\\MegamanDamage.wav" 
 #define SOUND_LAND "Data\\Sound\\MegamanLand.wav" 
@@ -249,3 +250,10 @@ extern int SMALL_LIFE_ENERGY_RECOVERY_HP;
 extern int BIG_LIFE_ENERGY_RECOVERY_HP;
 extern int SMALL_WEAPON_ENERGY_RECOVERY;
 extern int BIG_WEAPON_ENERGY_RECOVERY;
+extern int BONUS_BALL_POINTS;
+extern int SMALL_LIFE_ENERGY_R;
+extern int BIG_LIFE_ENERGY_R;
+extern int SMALL_WEAPON_R;
+extern int BIG_WEAPON_R;
+extern int ONE_UP_LIFE_R;
+extern int BONUS_BALL_POINTS_R;

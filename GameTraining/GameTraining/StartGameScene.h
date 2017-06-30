@@ -4,6 +4,8 @@
 #include "DelayTime.h"
 #include "SelectMapScene.h"
 #include "SelectRockmanBoard.h"
+#include"MapScene.h"
+#include "Sprite.h"
 
 class StartGameScene :
 	public Scene
@@ -11,6 +13,9 @@ class StartGameScene :
 public:
 	MGMTexture* img;
 	MAP_TYPE curSelect;
+	Sprite* boss;
+	int frameIndex;
+	GameTime delay;
 
 	SelectRockmanBoard board;
 	DelayTime startGameDelay;

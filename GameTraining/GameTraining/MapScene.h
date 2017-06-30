@@ -34,7 +34,8 @@ public:
 	
 	/* CONSTRUCTOR & DESTRUCTOR */
 	MapScene(void);
-	~MapScene(void)
-		;
+	~MapScene(void);
+
+	void changeRockman();
 };
 

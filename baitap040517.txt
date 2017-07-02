@@ -1,8 +1,0 @@
-﻿1. thêm items
-2. hoàn thiện cutman
-3. màn hình chuyển map
-// 4. thêm if (!alive) return; cho tất cả đối tượng
-5. sửa stage select , intro game
-6. cắt map gutsman 
-7. explosion khi con enemy chết (giống đạn)
-8. Sửa sprite của cutman cho đều // ok
